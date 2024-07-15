@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        if (_controller != null) _controller = GetComponent<CharacterController>();
+        if (_controller == null) _controller = GetComponent<CharacterController>();
     }
 
     void Update()
