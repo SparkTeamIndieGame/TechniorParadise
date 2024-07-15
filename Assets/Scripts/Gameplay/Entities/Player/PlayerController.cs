@@ -1,39 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(
-    typeof(CharacterController)
-)]
-public class PlayerController : MonoBehaviour
+namespace Spark.Gameplay.Entities.Player
 {
-    [SerializeField] private CharacterController _controller;
+    [RequireComponent(
+        typeof(PlayerView),
 
-    [SerializeField] private float _movementSpeed = 100.0f;
-    [SerializeField] private float _rotationSpeed = 100.0f;
-
-    private void Awake()
+        typeof(CharacterController)
+    )]
+    public class PlayerController : MonoBehaviour
     {
-        if (_controller == null) _controller = GetComponent<CharacterController>();
-    }
+        [SerializeField] private float _movementSpeed = 100.0f;
+        [SerializeField] private float _rotationSpeed = 100.0f;
 
-    void Update()
-    {
-        HandleMovement();
-        HandleRotation();
-    }
+        [SerializeField] private PlayerModel _model;
+        [SerializeField] private PlayerView _view;
+        [SerializeField] private PlayerInput _input;
 
-    private void HandleMovement()
-    {
-        float moveInput = Input.GetAxis("Vertical");
-        Vector3 moveDirection = transform.forward * moveInput * Time.deltaTime * _movementSpeed;
-        _controller.Move(moveDirection);
-    }
+        private void Awake()
+        {
+            CharacterController controller = GetComponent<CharacterController>();
 
-    private void HandleRotation()
-    {
-        float rotateInput = Input.GetAxis("Horizontal");
-        Vector3 rotateDirection = Vector3.up * rotateInput * Time.deltaTime * _rotationSpeed;
-        transform.Rotate(rotateDirection);
+            _model = new PlayerModel(controller, transform);
+        }
+
+        private void Update()
+        {
+            HandleMovement();
+            HandleRotation();
+        }
+
+        private void HandleMovement()
+        {
+            float moveInput = Input.GetAxis("Vertical");
+            Vector3 moveDirection = transform.forward * moveInput * Time.deltaTime * _movementSpeed;
+            // _controller.Move(moveDirection);
+        }
+
+        private void HandleRotation()
+        {
+            float rotateInput = Input.GetAxis("Horizontal");
+            Vector3 rotateDirection = Vector3.up * rotateInput * Time.deltaTime * _rotationSpeed;
+            transform.Rotate(rotateDirection);
+        }
     }
 }
