@@ -8,17 +8,8 @@
                 {
                     "name": "Movement",
                     "type": "PassThrough",
-                    "id": "290da658-71bd-48f7-b8c7-7465af251921",
-                    "expectedControlType": "Axis",
-                    "processors": "AxisDeadzone",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Turning",
-                    "type": "PassThrough",
-                    "id": "b5f9330b-f302-4bfa-9cb5-641ff4aaa42c",
-                    "expectedControlType": "Axis",
+                    "id": "097b5fcb-2e2f-428d-aafd-c3c27496ddfc",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -26,9 +17,9 @@
             ],
             "bindings": [
                 {
-                    "name": "WS",
-                    "id": "366d7d61-aa2f-445e-ac5a-829eb04b16c7",
-                    "path": "1DAxis",
+                    "name": "WASD",
+                    "id": "4b026fa2-006c-4cdd-9385-0bbcaa386e61",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -37,8 +28,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "629bd6eb-7a7a-4c31-af3f-60965d55726a",
+                    "name": "up",
+                    "id": "b4413a0b-83ef-4a13-8992-36eb4f944143",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
@@ -48,8 +39,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
-                    "id": "593c6eca-ceb7-4afe-8560-a64e7b9c8a5c",
+                    "name": "down",
+                    "id": "1024b68a-1134-42ce-a601-ea31fbc65e25",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -59,20 +50,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Arrows",
-                    "id": "085535f1-ad8a-43d2-8586-df6df01a765d",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Movement",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "79c749ce-180b-4c14-bc5e-8738d67dc3b1",
-                    "path": "<Keyboard>/upArrow",
+                    "name": "left",
+                    "id": "e1d67706-81c4-4265-9084-c8b923fb0989",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -81,9 +61,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
-                    "id": "2598dfe2-a901-45e1-8d0e-2c2f6fb1190f",
-                    "path": "<Keyboard>/downArrow",
+                    "name": "right",
+                    "id": "ac7c773c-30ea-41f2-918e-bf0ec8a3f2b6",
+                    "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -92,9 +72,9 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Stick Up/Down",
-                    "id": "0e2dc4f3-0910-456b-9258-fcbbc1fc892e",
-                    "path": "1DAxis",
+                    "name": "Stick",
+                    "id": "4f778494-c73c-4d5b-a7a4-313c00b0af47",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -103,8 +83,8 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "positive",
-                    "id": "d65fc643-9255-4241-abb3-08d3b5de29e7",
+                    "name": "up",
+                    "id": "35cf0af9-6052-4ffc-a902-9db03d3081dc",
                     "path": "<Joystick>/stick/up",
                     "interactions": "",
                     "processors": "",
@@ -114,8 +94,8 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "negative",
-                    "id": "75070d41-bdaa-46d6-abe8-9a746cefeccc",
+                    "name": "down",
+                    "id": "aefc5d85-debf-4ae9-bf48-d5057276b6f9",
                     "path": "<Joystick>/stick/down",
                     "interactions": "",
                     "processors": "",
@@ -125,101 +105,24 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "AD",
-                    "id": "b8ad3c81-9429-4148-b2e0-392b952af6a6",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "a1479fbb-9363-45da-bb4c-e13abd6c0cd8",
-                    "path": "<Keyboard>/d",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "c54f6eea-bf86-40e4-bab8-e487b2cdeb3a",
-                    "path": "<Keyboard>/a",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Arrows",
-                    "id": "cdd25e05-084d-4795-acca-5fe5088f1ee2",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "4a50d203-8c5d-4429-ac29-4d4030584d86",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "b9251d6e-c1b0-4b5d-addd-e91983611b05",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Stick Left/Right",
-                    "id": "4835c4c7-e24b-4361-b577-21cf0f26a68c",
-                    "path": "1DAxis",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "positive",
-                    "id": "13094825-6fca-4ed1-ba0a-ba0e74daa075",
-                    "path": "<Joystick>/stick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Turning",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "negative",
-                    "id": "24e65611-f5d6-4bc0-95d2-62f286a47762",
+                    "name": "left",
+                    "id": "6addfbb9-96e5-4c02-91d9-4d65fefc7c07",
                     "path": "<Joystick>/stick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Turning",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9542ad20-254b-4e30-92d3-ecfca00a1770",
+                    "path": "<Joystick>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

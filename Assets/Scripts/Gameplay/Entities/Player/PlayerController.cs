@@ -13,11 +13,9 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private PlayerModel _model;
         [SerializeField] private PlayerView _view;
 
-        [SerializeField] private InputActionReference _moveInput;
-        [SerializeField] private InputActionReference _turnInput;
+        [SerializeField] private InputActionReference _moveAndTurnInput;
 
-        private float _axisMovement;
-        private float _axisTurning;
+        private Vector2 _movement;
 
         private void Awake()
         {
@@ -26,14 +24,13 @@ namespace Spark.Gameplay.Entities.Player
 
         private void Update()
         {
-            _axisMovement = _moveInput.action.ReadValue<float>();
-            _axisTurning = _turnInput.action.ReadValue<float>();
+            _movement = _moveAndTurnInput.action.ReadValue<Vector2>();
         }
 
         private void FixedUpdate()
         {
-            _model.Move(_axisMovement);
-            _model.Turn(_axisTurning);
+            _model.Move(new Vector3(_movement.x, .0f, _movement.y));
+            _model.Turn(new Vector3(_movement.x, .0f, _movement.y));
         }
     }
 }

@@ -28,14 +28,18 @@ namespace Spark.Gameplay.Entities.Player
             Health = MaxHealth;
         }
 
-        public void Move(float axis)
+        public void Move(Vector3 direction)
         {
-            _controller.SimpleMove(_transform.forward * axis * _moveSpeed * Time.deltaTime);
+            _controller.SimpleMove(direction * _moveSpeed * Time.deltaTime);
         }
 
-        public void Turn(float axis)
+        public void Turn(Vector3 direction)
         {
-            _transform.Rotate(.0f, axis * _turnSpeed * Time.deltaTime, .0f);
+            if (direction !=  Vector3.zero)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
+                _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, _turnSpeed * Time.deltaTime);
+            }
         }
     }
 }

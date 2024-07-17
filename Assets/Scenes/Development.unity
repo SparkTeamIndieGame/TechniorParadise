@@ -986,12 +986,10 @@ MonoBehaviour:
     _controller: {fileID: 1608342307}
     _transform: {fileID: 1608342306}
     _health: 0
-    _moveSpeed: 300
-    _turnSpeed: 90
+    _moveSpeed: 150
+    _turnSpeed: 360
   _view: {fileID: 0}
-  _moveInput: {fileID: 6660317226040662933, guid: d688dede981b4ba4aa2d32a9f862a2d9,
-    type: 3}
-  _turnInput: {fileID: -1961858799688830650, guid: d688dede981b4ba4aa2d32a9f862a2d9,
+  _moveAndTurnInput: {fileID: -2714811556044068283, guid: d688dede981b4ba4aa2d32a9f862a2d9,
     type: 3}
 --- !u!114 &1608342309
 MonoBehaviour:
@@ -1021,14 +1019,10 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 290da658-71bd-48f7-b8c7-7465af251921
-    m_ActionName: Player/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/upArrow,/Keyboard/downArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b5f9330b-f302-4bfa-9cb5-641ff4aaa42c
-    m_ActionName: Player/Turning[/Keyboard/d,/Keyboard/a,/Keyboard/rightArrow,/Keyboard/leftArrow]
+    m_ActionId: 097b5fcb-2e2f-428d-aafd-c3c27496ddfc
+    m_ActionName: Player/Movement
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: PC & WebGL
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
