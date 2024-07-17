@@ -134,7 +134,10 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0.2
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 181830246633802691, guid: 089d4cb539a98ad4d95f03517562ae53, type: 2}
+  - {fileID: 11400000, guid: 71d0074c14033664594f9b8e3f08726a, type: 2}
+  - {fileID: 11400000, guid: 9e92060a803ec3548a64ca4e119b24f8, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -143,8 +146,8 @@ PlayerSettings:
   vrSettings:
     enable360StereoCapture: 0
   isWsaHolographicRemotingEnabled: 0
-  enableFrameTimingStats: 0
-  enableOpenGLProfilerGPURecorders: 1
+  enableFrameTimingStats: 1
+  enableOpenGLProfilerGPURecorders: 0
   useHDRDisplay: 0
   hdrBitDepth: 0
   m_ColorGamuts: 00000000
@@ -154,6 +157,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.TechniorParadise
     Standalone: com.DefaultCompany.TechniorParadise
   buildNumber:
     Standalone: 0
@@ -163,7 +167,7 @@ PlayerSettings:
   overrideDefaultApplicationIdentifier: 0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 22
-  AndroidTargetSdkVersion: 0
+  AndroidTargetSdkVersion: 33
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
