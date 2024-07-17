@@ -1,3 +1,5 @@
+using Spark.Gameplay.Entities.Common;
+using Spark.Gameplay.Entities.Player.Abilities;
 using System;
 using UnityEngine;
 
@@ -14,8 +16,14 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private Transform _transform;
 
         [SerializeField] public float _health;
-        [SerializeField] public float _moveSpeed;
-        [SerializeField] public float _turnSpeed;
+        [SerializeField] public float _moveSpeed = 150;
+        [SerializeField] public float _turnSpeed = 360;
+
+        [SerializeField] private PlayerFlashAbility _flashAbility;
+        [SerializeField] private PlayerInvulnerAbility _invulnerAbility;
+
+        public float FlashCooldown => _flashAbility.Cooldown;
+        public float InvulnerCooldown => _invulnerAbility.Cooldown;
 
         public float MaxHealth => 100.0f;
         public float Health { get; private set; }
@@ -26,6 +34,9 @@ namespace Spark.Gameplay.Entities.Player
             _transform = transform;
 
             Health = MaxHealth;
+
+            _flashAbility = new PlayerFlashAbility(_controller, _transform);
+            _invulnerAbility = new PlayerInvulnerAbility(this);
         }
 
         public void Move(Vector3 direction)
@@ -40,6 +51,15 @@ namespace Spark.Gameplay.Entities.Player
                 Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
                 _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, _turnSpeed * Time.deltaTime);
             }
+        }
+
+        public void UseFlashAbility() => _flashAbility.Use();
+        public void UseInvulnerAbility() => _invulnerAbility.Use();
+        
+        public void UpdateAbilities()
+        {
+            _flashAbility.Update();
+            _invulnerAbility.Update();
         }
     }
 }
