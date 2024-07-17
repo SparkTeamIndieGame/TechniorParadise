@@ -13,6 +13,10 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private CharacterController _controller;
         [SerializeField] private Transform _transform;
 
+        [SerializeField] public float _health;
+        [SerializeField] public float _moveSpeed;
+        [SerializeField] public float _turnSpeed;
+
         public float MaxHealth => 100.0f;
         public float Health { get; private set; }
 
@@ -24,5 +28,14 @@ namespace Spark.Gameplay.Entities.Player
             Health = MaxHealth;
         }
 
+        public void Move(float axis)
+        {
+            _controller.SimpleMove(_transform.forward * axis * _moveSpeed * Time.deltaTime);
+        }
+
+        public void Turn(float axis)
+        {
+            _transform.Rotate(.0f, axis * _turnSpeed * Time.deltaTime, .0f);
+        }
     }
 }
