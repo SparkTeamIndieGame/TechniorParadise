@@ -1,4 +1,4 @@
-using Spark.Gameplay.Entities.Common;
+using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Entities.Player.Abilities;
 using System;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Spark.Gameplay.Entities.Player
 {
     [Serializable]
-    public class PlayerModel
+    public class PlayerModel : IPlayer
     {
         #region Player events
         public event Action<float> OnHealthChanged;
@@ -15,9 +15,11 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private CharacterController _controller;
         [SerializeField] private Transform _transform;
 
-        [SerializeField] public float _health;
-        [SerializeField] public float _moveSpeed = 150;
-        [SerializeField] public float _turnSpeed = 360;
+        [SerializeField] private float _healthMax;
+        [SerializeField] private float _health;
+        [SerializeField] private float _moveSpeed;
+        [SerializeField] private float _turnSpeed;
+        [SerializeField] private float _damage;
 
         [SerializeField] private PlayerFlashAbility _flashAbility;
         [SerializeField] private PlayerInvulnerAbility _invulnerAbility;
@@ -25,15 +27,30 @@ namespace Spark.Gameplay.Entities.Player
         public float FlashCooldown => _flashAbility.Cooldown;
         public float InvulnerCooldown => _invulnerAbility.Cooldown;
 
-        public float MaxHealth => 100.0f;
-        public float Health { get; private set; }
+        public float HealthMax => _healthMax;
+        public float Health
+        {
+            get => _health;
+            private set
+            {
+                float points = value;
+
+                if (points > 0) _health = Mathf.Min(Health + points, HealthMax);
+                else if (points < 0)
+                {
+                    _health -= points;
+                    if (_health <= 0) Die();
+                }
+            }
+        }
+        public bool IsAlive => Health > 0;
 
         public PlayerModel(CharacterController controller, Transform transform)
         {
             _controller = controller;
             _transform = transform;
 
-            Health = MaxHealth;
+            Health = HealthMax;
 
             _flashAbility = new PlayerFlashAbility(_controller, _transform);
             _invulnerAbility = new PlayerInvulnerAbility(this);
@@ -61,5 +78,21 @@ namespace Spark.Gameplay.Entities.Player
             _flashAbility.Update();
             _invulnerAbility.Update();
         }
+
+        public void Heal(float points)
+        {
+            Health += points;
+            // OnHealthChanged?.Invoke(Health);
+        }
+
+        public void TakeDamage(float points)
+        {
+            Health -= points;
+            // OnHealthChanged?.Invoke(Health);
+        }
+
+        public void Die() => Debug.Log("You are dead!");
+
+        public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
     }
 }
