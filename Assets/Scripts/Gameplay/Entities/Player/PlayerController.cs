@@ -15,12 +15,6 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
 
-
-        private void Awake()
-        {
-
-        }
-
         private void Update()
         {
             _movement = _movementAction.action.ReadValue<Vector2>();

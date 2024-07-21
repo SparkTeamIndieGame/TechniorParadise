@@ -1,5 +1,5 @@
 using Spark.Gameplay.Entities.Common.Data;
-using Spark.Gameplay.Entities.Player.Abilities;
+using Spark.Gameplay.Entities.Common.Abilities;
 using System;
 using UnityEngine;
 
@@ -15,14 +15,14 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private CharacterController _controller;
         [SerializeField] private Transform _transform;
 
-        [SerializeField] private float _healthMax;
-        [SerializeField] private float _health;
+        [SerializeField, Min(10.0f)] private float _healthMax;
+        [SerializeField, Min(0.0f)] private float _health;
         [SerializeField] private float _moveSpeed;
-        [SerializeField] private float _turnSpeed;
-        [SerializeField] private float _damage;
+        [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
+        [SerializeField, Min(10.0f)] private float _damage;
 
-        [SerializeField] private PlayerFlashAbility _flashAbility;
-        [SerializeField] private PlayerInvulnerAbility _invulnerAbility;
+        [SerializeField] private FlashAbility _flashAbility;
+        [SerializeField] private InvulnerAbility _invulnerAbility;
 
         public float FlashCooldown => _flashAbility.Cooldown;
         public float InvulnerCooldown => _invulnerAbility.Cooldown;
@@ -45,15 +45,23 @@ namespace Spark.Gameplay.Entities.Player
         }
         public bool IsAlive => Health > 0;
 
-        public PlayerModel(CharacterController controller, Transform transform)
+        private PlayerModel()
         {
-            _controller = controller;
-            _transform = transform;
+            _healthMax = 100.0f;
+            _moveSpeed = 100.0f;
+            _turnSpeed = 1.0f;
+            _damage = 10.0f;
 
             Health = HealthMax;
 
-            _flashAbility = new PlayerFlashAbility(_controller, _transform);
-            _invulnerAbility = new PlayerInvulnerAbility(this);
+            _flashAbility = new FlashAbility(_controller, _transform);
+            _invulnerAbility = new InvulnerAbility();
+        }
+
+        public PlayerModel(CharacterController controller, Transform transform) : this()
+        {
+            _controller = controller;
+            _transform = transform;
         }
 
         public void Move(Vector3 direction)
@@ -66,7 +74,7 @@ namespace Spark.Gameplay.Entities.Player
             if (direction !=  Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-                _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, _turnSpeed * Time.deltaTime);
+                _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, _turnSpeed * Time.deltaTime * 360.0f);
             }
         }
 
