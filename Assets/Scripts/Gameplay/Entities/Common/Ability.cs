@@ -21,14 +21,14 @@ namespace Spark.Gameplay.Entities.Common
             protected set => _description = value;
         }
 
-        [SerializeField] private float _cooldownDuration;
+        [SerializeField, Min(0.0f)] private float _cooldownDuration;
         protected virtual float CooldownDuration
         {
             get => _cooldownDuration;
             set => _cooldownDuration = value;
         }
 
-        [SerializeField] private float _abilityDuration;
+        [SerializeField, Min(0.0f)] private float _abilityDuration;
         protected virtual float AbilityDuration
         {
             get => _abilityDuration;
