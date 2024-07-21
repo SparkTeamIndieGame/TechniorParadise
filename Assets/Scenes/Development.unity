@@ -2034,28 +2034,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _model:
-    _controller: {fileID: 0}
-    _transform: {fileID: 0}
-    _healthMax: 0
-    _health: 0
-    _moveSpeed: 0
-    _turnSpeed: 0
-    _damage: 0
+    _controller: {fileID: 1608342307}
+    _transform: {fileID: 1608342306}
+    _healthMax: 100
+    _health: 100
+    _moveSpeed: 100
+    _turnSpeed: 1
+    _damage: 10
     _flashAbility:
       _name: Flash
       _description: The player jumps straight
-      _cooldownDuration: 20
-      _abilityDuration: 5
+      _cooldownDuration: 5
+      _abilityDuration: 0
       _distance: 5
-      _controller: {fileID: 0}
-      _transform: {fileID: 0}
+      _controller: {fileID: 1608342307}
+      _transform: {fileID: 1608342306}
     _invulnerAbility:
       _name: Invulnerability
       _description: The player becomes immune to damage
       _cooldownDuration: 20
       _abilityDuration: 5
   _view: {fileID: 0}
-  _movementAction: {fileID: 0}
+  _movementAction: {fileID: -2714811556044068283, guid: d688dede981b4ba4aa2d32a9f862a2d9,
+    type: 3}
 --- !u!114 &1608342309
 MonoBehaviour:
   m_ObjectHideFlags: 0
