@@ -102,5 +102,6 @@ namespace Spark.Gameplay.Entities.Player
         public void Die() => Debug.Log("You are dead!");
 
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
+        public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
     }
 }

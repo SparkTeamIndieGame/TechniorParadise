@@ -33,5 +33,6 @@ namespace Spark.Gameplay.Entities.Enemies
         public void Die() => Destroy(gameObject);
 
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
+        public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
     }
 }
