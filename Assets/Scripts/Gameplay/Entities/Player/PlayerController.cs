@@ -18,7 +18,7 @@ namespace Spark.Gameplay.Entities.Player
         private void Update()
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
-            _model.UpdateAbilities();
+            _model.Update();
         }
 
         private void FixedUpdate()
@@ -29,5 +29,22 @@ namespace Spark.Gameplay.Entities.Player
 
         public void OnFlashAbilityButton(InputAction.CallbackContext context) => _model.UseFlashAbility();
         public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _model.UseInvulnerAbility();
+
+        public void OnPlayerAttack(InputAction.CallbackContext context)
+        {
+            if (context.performed) _model.Attack(null);
+        }
+        public void OnPlayerReloadWeapon(InputAction.CallbackContext context)
+        {
+            if (context.performed) _model.ReloadWeapon();
+        }
+        public void OnPlayerSwitchWeapon(InputAction.CallbackContext context)
+        {
+            if (context.performed) _model.SwitchWeapon();
+        }
+        public void OnPlayerSwitchWeaponType(InputAction.CallbackContext context)
+        {
+            if (context.performed) _model.SwitchWeaponType();
+        }
     }
 }

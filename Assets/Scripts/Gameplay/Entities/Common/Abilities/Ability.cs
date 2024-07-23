@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Spark.Gameplay.Entities.Common
+namespace Spark.Gameplay.Entities.Common.Abilities
 {
     [Serializable]
     public abstract class Ability
