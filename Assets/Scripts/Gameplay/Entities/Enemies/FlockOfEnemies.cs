@@ -12,7 +12,6 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField, Range(0.1f, 1.0f)] float _scanInterval;
 
     [SerializeField] bool _targetDetected = false;
-    private Vector3 _directionToTarget;
 
     private void Start()
     {
@@ -33,17 +32,17 @@ public class FlockOfEnemies : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, _target.position);
         if (distanceToTarget < _detectionRange)
         {
-            if (!Physics.Linecast(transform.position, _directionToTarget))
+            if (!Physics.Linecast(transform.position, _target.position))
             {
                 Debug.Log("Target detected!");
                 _targetDetected = true;
-            }
+            } 
         }
     }
 
     private void Update()
     {
-        _directionToTarget = (_target.position - transform.position).normalized;
+
     }
 
     private void FixedUpdate()
@@ -60,6 +59,7 @@ public class FlockOfEnemies : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (_targetDetected) return;
@@ -68,4 +68,5 @@ public class FlockOfEnemies : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _detectionRange);
         Gizmos.DrawLine(transform.position, _target.position);
     }
+#endif
 }
