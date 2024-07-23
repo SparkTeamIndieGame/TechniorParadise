@@ -2,6 +2,7 @@ using Spark.Gameplay.Entities.Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FlockOfEnemies : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class FlockOfEnemies : MonoBehaviour
 
     [SerializeField] float _detectionRange;
     [SerializeField, Range(0.1f, 1.0f)] float _scanInterval;
+
+    [SerializeField] private float _distanceView = 8;
+    [SerializeField] private List<int> idEnemy;
 
     [SerializeField] bool _targetDetected = false;
     private Vector3 _directionToTarget;
@@ -33,11 +37,13 @@ public class FlockOfEnemies : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, _target.position);
         if (distanceToTarget < _detectionRange)
         {
-            if (!Physics.Linecast(transform.position, _directionToTarget))
+
+            if (!Physics.Linecast(transform.position, _target.position))
             {
                 Debug.Log("Target detected!");
                 _targetDetected = true;
             }
+
         }
     }
 
@@ -48,18 +54,64 @@ public class FlockOfEnemies : MonoBehaviour
 
     private void FixedUpdate()
     {
+
         if (_targetDetected)
         {
             _enemies.ForEach(enemy =>
             {
-                Vector3 enemyDirectionToTarget = (_target.position - enemy.transform.position).normalized;
+                enemy.MoveToTarget(_target.position);
 
-                enemy.Move(enemyDirectionToTarget);
-                enemy.Turn(enemyDirectionToTarget);
+            });
+
+            CheackDistanceToTarget();
+        }
+
+        else
+        {
+            _enemies.ForEach(enemy =>
+            {
+                enemy.ReturnToPoint();
             });
         }
+
     }
 
+    private void CheackDistanceToTarget()
+    {
+        _enemies.ForEach(enemy =>
+        {
+            if (enemy.DistanceToTarget(_target.position) <= _distanceView)
+            {
+                if (idEnemy.Contains(enemy.GetInstanceID()))
+                    return;
+
+                else
+                    idEnemy.Add(enemy.GetInstanceID());
+
+            }
+
+            else if (enemy.DistanceToTarget(_target.position) > _distanceView)
+            {
+                if (idEnemy.Contains(enemy.GetInstanceID()))
+                    idEnemy.Remove(enemy.GetInstanceID());
+
+                else
+                    return;
+
+            }
+        });
+
+        if (idEnemy.Count == 0)
+        {
+            _targetDetected = false;
+            StopAllCoroutines();
+            StartCoroutine(ScanTarget());
+        }
+        else
+            _targetDetected = true;
+    }
+
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (_targetDetected) return;
@@ -67,5 +119,8 @@ public class FlockOfEnemies : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _detectionRange);
         Gizmos.DrawLine(transform.position, _target.position);
+
+
     }
+#endif
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Katana
   _description: This is Katana description
-  _damage: 1
+  _damage: 1.15
   _range: 0.5
   _icon: {fileID: 0}
   _prefab: {fileID: 0}

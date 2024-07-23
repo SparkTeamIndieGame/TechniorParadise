@@ -21,4 +21,4 @@ MonoBehaviour:
   _clips: []
   _reloadDuration: 2
   _ammoMax: 24
-  _ammoPerShot: 0
+  _ammoPerShot: 1
