@@ -2,6 +2,7 @@ using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Entities.Common.Abilities;
 using System;
 using UnityEngine;
+using Spark.Gameplay.Weapons;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -19,10 +20,17 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField, Min(0.0f)] private float _health;
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
-        [SerializeField, Min(10.0f)] private float _damage;
 
         [SerializeField] private FlashAbility _flashAbility;
         [SerializeField] private InvulnerAbility _invulnerAbility;
+
+        [SerializeField] private MeleeWeapon[] _meleeWeapons;
+        [SerializeField] private RangedWeapon[] _rangedWeapons;
+        [SerializeField] private Weapon _activeWeapon;
+
+        private int _currentMeleeWeapon;
+        private int _currentRangedWeapon;
+
 
         public float FlashCooldown => _flashAbility.Cooldown;
         public float InvulnerCooldown => _invulnerAbility.Cooldown;
@@ -50,7 +58,6 @@ namespace Spark.Gameplay.Entities.Player
             _healthMax = 100.0f;
             _moveSpeed = 100.0f;
             _turnSpeed = 1.0f;
-            _damage = 10.0f;
 
             Health = HealthMax;
 
@@ -81,10 +88,12 @@ namespace Spark.Gameplay.Entities.Player
         public void UseFlashAbility() => _flashAbility.Use();
         public void UseInvulnerAbility() => _invulnerAbility.Use();
         
-        public void UpdateAbilities()
+        public void Update()
         {
             _flashAbility.Update();
             _invulnerAbility.Update();
+
+            (_activeWeapon as RangedWeapon)?.Update();
         }
 
         public void Heal(float points)
@@ -101,7 +110,47 @@ namespace Spark.Gameplay.Entities.Player
 
         public void Die() => Debug.Log("You are dead!");
 
-        public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
-        public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
+        public void Attack(IDamagable damagable, float damage)
+        {
+            if (_activeWeapon is RangedWeapon)
+            {
+                if ((_activeWeapon as RangedWeapon).HasAmmo)
+                    (_activeWeapon as RangedWeapon).Shoot();
+                
+                else
+                {
+                    Debug.Log("No ammo!");
+                    return;
+                }
+                Debug.Log("Shot! Ammo: " + (_activeWeapon as RangedWeapon).Ammo);
+            }
+            damagable?.TakeDamage(damage);
+        }
+        public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
+
+        public void ReloadWeapon() => (_activeWeapon as RangedWeapon)?.Reload();
+
+        public void SwitchWeapon()
+        {
+            if (_activeWeapon is MeleeWeapon)
+            {
+                _currentMeleeWeapon = (_currentMeleeWeapon + 1) % _meleeWeapons.Length;
+                _activeWeapon = _meleeWeapons[_currentMeleeWeapon];
+            }
+            else
+            {
+                _currentRangedWeapon = (_currentRangedWeapon + 1) % _rangedWeapons.Length;
+                _activeWeapon = _rangedWeapons[_currentRangedWeapon];
+            }
+            Debug.Log("after: " + _activeWeapon.Name);
+        }
+
+        public void SwitchWeaponType()
+        {
+            _activeWeapon =
+                _activeWeapon == _meleeWeapons[_currentMeleeWeapon]
+                    ? _rangedWeapons[_currentRangedWeapon] : _meleeWeapons[_currentMeleeWeapon];
+            Debug.Log("after: " + _activeWeapon.Name);
+        }
     }
 }

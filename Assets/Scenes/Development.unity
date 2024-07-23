@@ -2005,7 +2005,7 @@ CharacterController:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 1048576
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2040,7 +2040,6 @@ MonoBehaviour:
     _health: 100
     _moveSpeed: 100
     _turnSpeed: 1
-    _damage: 10
     _flashAbility:
       _name: Flash
       _description: The player jumps straight
@@ -2054,6 +2053,13 @@ MonoBehaviour:
       _description: The player becomes immune to damage
       _cooldownDuration: 20
       _abilityDuration: 5
+    _meleeWeapons:
+    - {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
+    - {fileID: 11400000, guid: d3023b9ad7aa6474196cb2e3efd756b1, type: 2}
+    _rangedWeapons:
+    - {fileID: 11400000, guid: f1c3f65b4f20bab40b1591eb02f5ba7b, type: 2}
+    - {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
+    _activeWeapon: {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
   _view: {fileID: 0}
   _movementAction: {fileID: -2714811556044068283, guid: d688dede981b4ba4aa2d32a9f862a2d9,
     type: 3}
@@ -2120,6 +2126,74 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 1f6c45cc-a43b-4b7c-9ac9-5941d1945254
+    m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1608342308}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 698b1cb8-52a6-4dbe-b2a1-6e5c142c2f8c
+    m_ActionName: Player/Test Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1608342308}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerSwitchWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 954b900a-f1b7-4f45-a01a-c45e3976807d
+    m_ActionName: 'Player/Switch: Weapon[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1608342308}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerSwitchWeaponType
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: ac663642-dee8-40cb-ad8d-d31df58d005b
+    m_ActionName: 'Player/Switch: Weapon type[/Keyboard/tab]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1608342308}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerReloadWeapon
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: c3a9f8f8-c160-47b4-a099-708c43401417
     m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
