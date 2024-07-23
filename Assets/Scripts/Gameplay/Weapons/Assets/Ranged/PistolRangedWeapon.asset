@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _name: Pistol
   _description: This is Pistol description
-  _damage: 1
+  _damage: 2
   _range: 5
   _icon: {fileID: 0}
   _prefab: {fileID: 0}
   _clips: []
-  _reloadDuration: 0.5
+  _reloadDuration: 1
   _ammoMax: 10
   _ammoPerShot: 1
