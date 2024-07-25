@@ -32,7 +32,8 @@ public class FlockOfEnemies : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, _target.position);
         if (distanceToTarget < _detectionRange)
         {
-            if (!Physics.Linecast(transform.position, _target.position))
+            if (!Physics.Linecast(transform.position, _target.position) && 
+                _target.gameObject.layer == SortingLayer.NameToID("Player"))
             {
                 Debug.Log("Target detected!");
                 _targetDetected = true;
@@ -49,6 +50,14 @@ public class FlockOfEnemies : MonoBehaviour
     {
         if (_targetDetected)
         {
+            if (_target.gameObject.layer == SortingLayer.NameToID("Enemy"))
+            {
+                _targetDetected = false;
+
+                StartCoroutine(ScanTarget());
+                return;
+            }
+
             _enemies.ForEach(enemy =>
             {
                 Vector3 enemyDirectionToTarget = (_target.position - enemy.transform.position).normalized;

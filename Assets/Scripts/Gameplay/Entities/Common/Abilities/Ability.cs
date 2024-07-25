@@ -52,6 +52,11 @@ namespace Spark.Gameplay.Entities.Common.Abilities
         {
             AbilityActive = Time.time < _abilityTimeLeft;
             _cooldownTimeLeft = Mathf.Max(0, _nextReadyTime - Time.time);
+
+            if (!AbilityActive && !IsReady)
+            {
+                Cancel();
+            }
         }
 
         public void Use()
