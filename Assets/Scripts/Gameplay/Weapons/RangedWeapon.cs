@@ -19,6 +19,14 @@ namespace Spark.Gameplay.Weapons
         public bool HasAmmo => _ammo > 0;
         public int Ammo => _ammo;
 
+        private void OnValidate()
+        {
+            _ammo = _ammoMax;
+
+            _nextReadyTime = 0.0f;
+            _reloadTimeLeft = 0.0f;
+        }
+
         public void Shoot()
         {
             if (!IsReloading) _ammo = Mathf.Max(0, _ammo - _ammoPerShot);
