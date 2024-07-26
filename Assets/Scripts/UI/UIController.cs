@@ -19,10 +19,15 @@ namespace Spark.UI
 #if UNITY_STANDALONE_WIN
             _mobileUI.SetActive(false);
 #elif UNITY_ANDROID || UNITY_IOS
-            _androidUI.SetActive(true);
+            _mobileUI.SetActive(true);
 #endif
 
             _playerAmmo.enabled = false;
+        }
+
+        public void UpdatePlayerHealthUI(float health)
+        {
+            _playerHealthBar.value = health;
         }
 
         public void UpdatePlayerWeaponUI(Weapon weapon)
