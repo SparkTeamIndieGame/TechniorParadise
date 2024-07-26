@@ -24,7 +24,7 @@ namespace Spark.Gameplay.Entities.Player
             _uiController.UpdatePlayerHealthUI(points);
         }
 
-        public void UpdateActiveWeaponUI(Weapon weapon)
+        public void UpdateWeaponUI(Weapon weapon)
         {
             _uiController.UpdatePlayerWeaponUI(weapon);
         }
