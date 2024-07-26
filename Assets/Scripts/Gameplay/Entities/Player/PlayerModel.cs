@@ -62,15 +62,11 @@ namespace Spark.Gameplay.Entities.Player
             Health = HealthMax;
 
             _flashAbility = new FlashAbility(_controller, _transform);
+            _invulnerAbility = new InvulnerAbility();
         }
 
-        public PlayerModel(
-            PlayerView playerView, 
-            CharacterController controller, 
-            Transform transform) : this()
+        public PlayerModel(CharacterController controller, Transform transform) : this()
         {
-            _invulnerAbility = new InvulnerAbility(playerView);
-
             _controller = controller;
             _transform = transform;
         }
