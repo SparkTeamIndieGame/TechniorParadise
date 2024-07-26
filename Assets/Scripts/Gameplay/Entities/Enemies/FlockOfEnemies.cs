@@ -2,7 +2,6 @@ using Spark.Gameplay.Entities.Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FlockOfEnemies : MonoBehaviour
 {
@@ -12,11 +11,7 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] float _detectionRange;
     [SerializeField, Range(0.1f, 1.0f)] float _scanInterval;
 
-    [SerializeField] private float _distanceView = 8;
-    [SerializeField] private List<int> idEnemy;
-
     [SerializeField] bool _targetDetected = false;
-    private Vector3 _directionToTarget;
 
     private void Start()
     {
@@ -49,66 +44,29 @@ public class FlockOfEnemies : MonoBehaviour
 
     private void Update()
     {
-        _directionToTarget = (_target.position - transform.position).normalized;
+
     }
 
     private void FixedUpdate()
     {
-
         if (_targetDetected)
         {
-            _enemies.ForEach(enemy =>
+            if (_target.gameObject.layer == SortingLayer.NameToID("Enemy"))
             {
-                enemy.MoveToTarget(_target.position);
+                _targetDetected = false;
 
-            });
-
-            CheackDistanceToTarget();
-        }
-
-        else
-        {
-            _enemies.ForEach(enemy =>
-            {
-                enemy.ReturnToPoint();
-            });
-        }
-
-    }
-
-    private void CheackDistanceToTarget()
-    {
-        _enemies.ForEach(enemy =>
-        {
-            if (enemy.DistanceToTarget(_target.position) <= _distanceView)
-            {
-                if (idEnemy.Contains(enemy.GetInstanceID()))
-                    return;
-
-                else
-                    idEnemy.Add(enemy.GetInstanceID());
-
+                StartCoroutine(ScanTarget());
+                return;
             }
 
-            else if (enemy.DistanceToTarget(_target.position) > _distanceView)
+            _enemies.ForEach(enemy =>
             {
-                if (idEnemy.Contains(enemy.GetInstanceID()))
-                    idEnemy.Remove(enemy.GetInstanceID());
+                Vector3 enemyDirectionToTarget = (_target.position - enemy.transform.position).normalized;
 
-                else
-                    return;
-
-            }
-        });
-
-        if (idEnemy.Count == 0)
-        {
-            _targetDetected = false;
-            StopAllCoroutines();
-            StartCoroutine(ScanTarget());
+                enemy.Move(enemyDirectionToTarget);
+                enemy.Turn(enemyDirectionToTarget);
+            });
         }
-        else
-            _targetDetected = true;
     }
 
 #if UNITY_EDITOR
