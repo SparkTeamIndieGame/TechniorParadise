@@ -19,6 +19,6 @@ MonoBehaviour:
   _icon: {fileID: 0}
   _prefab: {fileID: 0}
   _clips: []
-  _reloadDuration: 2
+  _reloadDuration: 7.02
   _ammoMax: 24
-  _ammoPerShot: 1
+  _ammoPerShot: 3

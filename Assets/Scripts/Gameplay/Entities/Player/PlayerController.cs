@@ -36,7 +36,6 @@ namespace Spark.Gameplay.Entities.Player
         private void Update()
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
-            _model.Update();
 
             SyncModelWithView();
         }
@@ -49,6 +48,7 @@ namespace Spark.Gameplay.Entities.Player
 
         private void SyncModelWithView()
         {
+            _model.Update();
             UpdateRangedWeaponAmmo();
         }
 
