@@ -1,6 +1,4 @@
-using Spark.Gameplay.Items.Interactable;
 using Spark.Gameplay.Weapons;
-using Spark.Items.Pickups;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
