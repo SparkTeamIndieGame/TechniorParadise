@@ -62,11 +62,15 @@ namespace Spark.Gameplay.Entities.Player
             Health = HealthMax;
 
             _flashAbility = new FlashAbility(_controller, _transform);
-            _invulnerAbility = new InvulnerAbility();
         }
 
-        public PlayerModel(CharacterController controller, Transform transform) : this()
+        public PlayerModel(
+            PlayerView playerView, 
+            CharacterController controller, 
+            Transform transform) : this()
         {
+            _invulnerAbility = new InvulnerAbility(playerView);
+
             _controller = controller;
             _transform = transform;
         }
@@ -114,6 +118,12 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (_activeWeapon is RangedWeapon)
             {
+                if ((_activeWeapon as RangedWeapon).IsReloading)
+                {
+                    Debug.Log("Weapon reloading...");
+                    return;
+                }
+
                 if ((_activeWeapon as RangedWeapon).HasAmmo)
                     (_activeWeapon as RangedWeapon).Shoot();
                 
@@ -151,6 +161,11 @@ namespace Spark.Gameplay.Entities.Player
                 _activeWeapon == _meleeWeapons[_currentMeleeWeapon]
                     ? _rangedWeapons[_currentRangedWeapon] : _meleeWeapons[_currentMeleeWeapon];
             Debug.Log("after: " + _activeWeapon.Name);
+        }
+
+        public Weapon GetActiveWeapon()
+        {
+            return _activeWeapon;
         }
     }
 }

@@ -16,7 +16,6 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] private List<int> idEnemy;
 
     [SerializeField] bool _targetDetected = false;
-    private Vector3 _directionToTarget;
 
     private void Start()
     {
@@ -37,19 +36,18 @@ public class FlockOfEnemies : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, _target.position);
         if (distanceToTarget < _detectionRange)
         {
-
-            if (!Physics.Linecast(transform.position, _target.position))
+            if (!Physics.Linecast(transform.position, _target.position) && 
+                _target.gameObject.layer == SortingLayer.NameToID("Player"))
             {
                 Debug.Log("Target detected!");
                 _targetDetected = true;
-            }
-
+            } 
         }
     }
 
     private void Update()
     {
-        _directionToTarget = (_target.position - transform.position).normalized;
+
     }
 
     private void FixedUpdate()
@@ -57,6 +55,14 @@ public class FlockOfEnemies : MonoBehaviour
 
         if (_targetDetected)
         {
+            if (_target.gameObject.layer == SortingLayer.NameToID("Enemy"))
+            {
+                _targetDetected = false;
+
+                StartCoroutine(ScanTarget());
+                return;
+            }
+
             _enemies.ForEach(enemy =>
             {
                 enemy.MoveToTarget(_target.position);
@@ -119,8 +125,6 @@ public class FlockOfEnemies : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, _detectionRange);
         Gizmos.DrawLine(transform.position, _target.position);
-
-
     }
 #endif
 }
