@@ -13,6 +13,11 @@ namespace Spark.Gameplay.Entities.Player
             if (_uiController == null) _uiController = GetComponent<UIController>();
         }
 
+        public void UpdateHealtUI(float points)
+        {
+            _uiController.UpdatePlayerHealthUI(points);
+        }
+
         public void UpdateWeaponUI(Weapon weapon)
         {
             _uiController.UpdatePlayerWeaponUI(weapon);
