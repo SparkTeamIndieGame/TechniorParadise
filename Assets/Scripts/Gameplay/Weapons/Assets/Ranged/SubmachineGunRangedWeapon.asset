@@ -15,7 +15,7 @@ MonoBehaviour:
   _name: SubmachineGun
   _description: This is SubmachineGun description
   _damage: 1
-  _range: 8
+  _range: 15
   _icon: {fileID: 0}
   _prefab: {fileID: 0}
   _clips: []

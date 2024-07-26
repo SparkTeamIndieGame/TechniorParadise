@@ -16,6 +16,7 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] private List<int> idEnemy;
 
     [SerializeField] bool _targetDetected = false;
+    private Vector3 _directionToTarget;
 
     private void Start()
     {
@@ -47,7 +48,7 @@ public class FlockOfEnemies : MonoBehaviour
 
     private void Update()
     {
-
+        _directionToTarget = (_target.position - transform.position).normalized;
     }
 
     private void FixedUpdate()
@@ -55,14 +56,6 @@ public class FlockOfEnemies : MonoBehaviour
 
         if (_targetDetected)
         {
-            if (_target.gameObject.layer == SortingLayer.NameToID("Enemy"))
-            {
-                _targetDetected = false;
-
-                StartCoroutine(ScanTarget());
-                return;
-            }
-
             _enemies.ForEach(enemy =>
             {
                 enemy.MoveToTarget(_target.position);

@@ -16,19 +16,9 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
 
-        private void OnEnable()
-        {
-            _model.OnHealthChanged += _view.UpdateHealtUI;
-        }
-
-        private void OnDisable()
-        {
-            _model.OnHealthChanged -= _view.UpdateHealtUI;
-        }
-
         private void Start()
         {
-            _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+            _view.UpdateWeaponUI(_model.GetActiveWeapon());
         }
 
         private void Update()
@@ -72,7 +62,7 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeapon();
-                _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+                _view.UpdateWeaponUI(_model.GetActiveWeapon());
             }
         }
         public void OnPlayerSwitchWeaponType(InputAction.CallbackContext context)
@@ -80,23 +70,8 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeaponType();
-                _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+                _view.UpdateWeaponUI(_model.GetActiveWeapon());
             }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            TryActivateItemTo(other, _model);
-            TryActivateInteractableObject(other);
-        }
-
-        private void TryActivateItemTo(Collider item, PlayerModel player)
-        {
-            item.GetComponent<IPickupable>()?.Activate();
-        }
-        private void TryActivateInteractableObject(Collider interactableObject)
-        {
-            interactableObject.GetComponent<IInteractable>()?.Activate();
         }
     }
 }
