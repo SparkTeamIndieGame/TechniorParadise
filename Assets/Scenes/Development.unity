@@ -134,7 +134,8 @@ GameObject:
   - component: {fileID: 14360587}
   - component: {fileID: 14360589}
   - component: {fileID: 14360588}
-  m_Layer: 0
+  - component: {fileID: 14360590}
+  m_Layer: 20
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,6 +201,29 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &14360590
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14360586}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &87020264
 GameObject:
@@ -559,8 +583,8 @@ GameObject:
   - component: {fileID: 181267435}
   - component: {fileID: 181267437}
   - component: {fileID: 181267436}
-  m_Layer: 0
-  m_Name: Cylinder
+  m_Layer: 20
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -601,7 +625,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 56d5ebcfbc6675948b2943b1b3211446, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -940,7 +964,7 @@ GameObject:
   - component: {fileID: 323610262}
   - component: {fileID: 323610265}
   - component: {fileID: 323610264}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1259,8 +1283,8 @@ GameObject:
   - component: {fileID: 448675621}
   - component: {fileID: 448675623}
   - component: {fileID: 448675622}
-  m_Layer: 0
-  m_Name: Cylinder
+  m_Layer: 20
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1301,7 +1325,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 56d5ebcfbc6675948b2943b1b3211446, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1501,7 +1525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 598861982}
   - component: {fileID: 598861983}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3055,7 +3079,7 @@ RectTransform:
   m_Father: {fileID: 987401421}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3132,6 +3156,7 @@ Transform:
   m_Children:
   - {fileID: 1466538862}
   - {fileID: 1354189635}
+  - {fileID: 1860203573}
   m_Father: {fileID: 1179454448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1608342307
@@ -3178,7 +3203,7 @@ MonoBehaviour:
     _healthMax: 100
     _health: 100
     _moveSpeed: 100
-    _turnSpeed: 1
+    _turnSpeed: 2
     _flashAbility:
       _name: Flash
       _description: The player jumps straight
@@ -3200,9 +3225,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: d8da62bfb34866a49bd3137a31322f72, type: 2}
     - {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
     _activeWeapon: {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
+    _target: {fileID: 0}
   _view: {fileID: 1608342310}
+  _firePoint: {fileID: 1860203573}
+  _zooming: 2.5
   _movementAction: {fileID: -2714811556044068283, guid: d688dede981b4ba4aa2d32a9f862a2d9,
     type: 3}
+  pref: {fileID: 448675620}
 --- !u!114 &1608342309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3335,6 +3364,23 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c3a9f8f8-c160-47b4-a099-708c43401417
     m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1608342308}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerSelectTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e11abfa5-3243-427f-9345-6501cdd9455e
+    m_ActionName: Player/Select Target[/Mouse/rightButton]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -3370,7 +3416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1638835116
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3613,6 +3659,8 @@ MonoBehaviour:
   _playerHealthBar: {fileID: 275611227}
   _playerWeapon: {fileID: 843249080}
   _playerAmmo: {fileID: 2026267503}
+  _targetUI: {fileID: 1638835115}
+  _targetHealthBar: {fileID: 850916755}
 --- !u!1 &1725913398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,6 +3765,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ControlPath: <Keyboard>/tab
+--- !u!1 &1860203572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860203573}
+  m_Layer: 19
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860203573
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860203572}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608342306}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1860988341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3728,7 +3807,8 @@ GameObject:
   - component: {fileID: 1860988342}
   - component: {fileID: 1860988344}
   - component: {fileID: 1860988343}
-  m_Layer: 0
+  - component: {fileID: 1860988345}
+  m_Layer: 20
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3794,6 +3874,29 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!136 &1860988345
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860988341}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1934595026
 GameObject:

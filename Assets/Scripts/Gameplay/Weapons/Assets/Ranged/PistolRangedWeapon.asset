@@ -22,3 +22,10 @@ MonoBehaviour:
   _reloadDuration: 1
   _ammoMax: 10
   _ammoPerShot: 1
+  _automatic: 0
+  _bulletSpreadRange: 0
+  _bulletSpawnPoint: {fileID: 0}
+  _bulletTrail: {fileID: 0}
+  _shootingParticleSystem: {fileID: 0}
+  _impactParticleSystem: {fileID: 0}
+  _shootDelay: 1

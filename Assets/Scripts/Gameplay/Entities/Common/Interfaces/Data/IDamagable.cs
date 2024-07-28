@@ -2,7 +2,7 @@ namespace Spark.Gameplay.Entities.Common.Data
 {
     public interface IDamagable
     {
-        public float HealthMax { get; }
+        public float MaxHealth { get; }
         public float Health { get; }
 
         public bool IsAlive { get; }

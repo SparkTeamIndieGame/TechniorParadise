@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Select Target",
+                    "type": "Button",
+                    "id": "e11abfa5-3243-427f-9345-6501cdd9455e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "698b1cb8-52a6-4dbe-b2a1-6e5c142c2f8c",
@@ -243,6 +252,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Reload weapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8b204e6c-bb32-478e-852c-006dcc096592",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Target",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

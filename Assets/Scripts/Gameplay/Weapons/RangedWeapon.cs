@@ -1,4 +1,7 @@
+﻿using Spark.Gameplay.Entities.Common.Data;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
+using TMPro;
 using UnityEngine;
 
 namespace Spark.Gameplay.Weapons
@@ -9,11 +12,22 @@ namespace Spark.Gameplay.Weapons
         [SerializeField, Min(0.5f)] private float _reloadDuration;
         [SerializeField, Min(1)] private int _ammoMax;
         [SerializeField, Min(1)] private int _ammoPerShot;
+        [SerializeField] private bool _automatic;
+
+        [SerializeField, Range(0.0f, 1.0f)] private float _bulletSpreadRange;
+        [SerializeField] private Transform _bulletSpawnPoint;
+        [SerializeField] private TrailRenderer _bulletTrail;
+
+        [SerializeField] private ParticleSystem _shootingParticleSystem;
+        [SerializeField] private ParticleSystem _impactParticleSystem;
+        [SerializeField, Min(0.1f)] private float _shootDelay;
+        private float _lastShootTime;
 
         private float _reloadTimeLeft;
         private float _nextReadyTime;
         private int _ammo;
 
+        public bool IsAutomatic => _automatic;
         public float ReloadTimeLeft => _reloadTimeLeft;
         public bool IsReloading => Time.time < _nextReadyTime;
         public bool HasAmmo => _ammo > 0;
@@ -25,11 +39,27 @@ namespace Spark.Gameplay.Weapons
 
             _nextReadyTime = 0.0f;
             _reloadTimeLeft = 0.0f;
+
+            _lastShootTime = 0.0f;
+        }
+
+        public void SetBulletSpawnPoint(Transform transform)
+        {
+            _bulletSpawnPoint = transform;
         }
 
         public void Shoot()
         {
-            if (!IsReloading) _ammo = Mathf.Max(0, _ammo - _ammoPerShot);
+            if (IsReloading || _lastShootTime + _shootDelay > Time.time) return;
+
+            Vector3 direction = GetBulletDirection();
+            if (Physics.Raycast(_bulletSpawnPoint.position, direction, out var hit, float.MaxValue))
+            {
+                hit.transform.GetComponent<IDamagable>()
+                    ?.TakeDamage(Damage);
+            }
+            _lastShootTime = Time.time;
+            _ammo = Mathf.Max(0, _ammo - _ammoPerShot);
         }
 
         public void Reload()
@@ -43,6 +73,17 @@ namespace Spark.Gameplay.Weapons
         {
             _ammoPerShot = Mathf.Min(_ammoPerShot, _ammoMax);
             _reloadTimeLeft = Mathf.Max(0, _nextReadyTime - Time.time);
+        }
+
+        private Vector3 GetBulletDirection()
+        {
+            var direction = _bulletSpawnPoint.forward + new Vector3(
+                    Random.Range(-_bulletSpreadRange, +_bulletSpreadRange),
+                    Random.Range(-_bulletSpreadRange, +_bulletSpreadRange),
+                    Random.Range(-_bulletSpreadRange, +_bulletSpreadRange)
+                );
+            direction.Normalize();
+            return direction;
         }
     }
 }

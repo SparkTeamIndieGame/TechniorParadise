@@ -1,3 +1,4 @@
+using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Weapons;
 using Spark.UI;
 using UnityEngine;
@@ -19,9 +20,9 @@ namespace Spark.Gameplay.Entities.Player
             _playerMeshes = gameObject.GetComponentsInChildren<MeshRenderer>();
         }
 
-        public void UpdateHealtUI(float points)
+        public void UpdateHealtUI(float health)
         {
-            _uiController.UpdatePlayerHealthUI(points);
+            _uiController.UpdatePlayerHealthUI(health);
         }
 
         public void UpdateActiveWeaponUI(Weapon weapon)
@@ -41,6 +42,16 @@ namespace Spark.Gameplay.Entities.Player
                 renderer.material = enabled ? _invulner : _normal;
             }
             gameObject.layer = SortingLayer.NameToID(enabled ? "Enemy" : "Player");
+        }
+
+        public void SetTarget(Transform target)
+        {
+            // todo!
+        }
+
+        public void UpdateTargetHealtUI(IDamagable damagable)
+        {
+            _uiController.UpdateTargetHealthUI(damagable);
         }
     }
 }

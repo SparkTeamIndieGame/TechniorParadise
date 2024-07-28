@@ -1,6 +1,8 @@
+using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +11,17 @@ namespace Spark.UI
     public class UIController : MonoBehaviour
     {
         [SerializeField] private GameObject _mobileUI;
-        
+
+        #region Player UI
         [SerializeField] private Slider _playerHealthBar;
         [SerializeField] private Text _playerWeapon;
         [SerializeField] private Text _playerAmmo;
+        #endregion
+
+        #region Target UI
+        [SerializeField] private GameObject _targetUI;
+        [SerializeField] private Slider _targetHealthBar;
+        #endregion
 
         private void Awake()
         {
@@ -44,6 +53,19 @@ namespace Spark.UI
             
             else
                 _playerAmmo.text = "Ammo: " + rangedWeapon.Ammo;
+        }
+
+        public void UpdateTargetHealthUI(IDamagable damagable)
+        {
+            if (damagable == null)
+            {
+                _targetUI.SetActive(false);
+                return;
+            }
+
+            _targetHealthBar.maxValue = damagable.MaxHealth;
+            _targetHealthBar.value = damagable.Health;
+            _targetUI.SetActive(damagable.Health > 0);
         }
     }
 }

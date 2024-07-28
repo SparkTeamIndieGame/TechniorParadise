@@ -10,26 +10,20 @@ namespace Spark.Gameplay.Entities.Enemies
         [SerializeField] private float _health;
         [SerializeField] private float _damage;
 
-        public float HealthMax => _healthMax;
+        public float MaxHealth => _healthMax;
         public float Health
         {
             get => _health;
-            private set
-            {
-                float points = value;
-
-                if (points > 0) _health = Mathf.Min(Health + points, HealthMax);
-                else if (points < 0)
-                {
-                    _health -= points;
-                    if (_health <= 0) Die();
-                }
-            }
+            private set => _health = value;
         }
         public bool IsAlive => Health > 0;
 
-        public void Heal(float points) => Health += points;
-        public void TakeDamage(float points) => Health -= points;
+        public void Heal(float points) => Health = Mathf.Min(Health + points, MaxHealth);
+        public void TakeDamage(float points)
+        {
+            Health -= points;
+            if (Health <= 0) Die();
+        }
         public void Die() => Destroy(gameObject);
 
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);

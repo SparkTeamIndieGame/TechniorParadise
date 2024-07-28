@@ -27,31 +27,25 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private MeleeWeapon[] _meleeWeapons;
         [SerializeField] private RangedWeapon[] _rangedWeapons;
         [SerializeField] private Weapon _activeWeapon;
+        
+        [SerializeField] private Transform _target;
+
 
         private int _currentMeleeWeapon;
         private int _currentRangedWeapon;
 
-
         public float FlashCooldown => _flashAbility.Cooldown;
         public float InvulnerCooldown => _invulnerAbility.Cooldown;
 
-        public float HealthMax => _healthMax;
+        public float MaxHealth => _healthMax;
         public float Health
         {
             get => _health;
-            private set
-            {
-                float points = value;
-
-                if (points > 0) _health = Mathf.Min(Health + points, HealthMax);
-                else if (points < 0)
-                {
-                    _health -= points;
-                    if (_health <= 0) Die();
-                }
-            }
+            private set => _health = value;
         }
         public bool IsAlive => Health > 0;
+
+        public bool HasTarget => _target != null;
 
         private PlayerModel()
         {
@@ -59,9 +53,7 @@ namespace Spark.Gameplay.Entities.Player
             _moveSpeed = 100.0f;
             _turnSpeed = 1.0f;
 
-            Health = HealthMax;
-
-            _flashAbility = new FlashAbility(_controller, _transform);
+            Health = MaxHealth;
         }
 
         public PlayerModel(
@@ -69,6 +61,7 @@ namespace Spark.Gameplay.Entities.Player
             CharacterController controller, 
             Transform transform) : this()
         {
+            _flashAbility = new FlashAbility(_controller, _transform);
             _invulnerAbility = new InvulnerAbility(playerView);
 
             _controller = controller;
@@ -89,6 +82,14 @@ namespace Spark.Gameplay.Entities.Player
             }
         }
 
+        public void LookAtTarget()
+        {
+            // Quaternion toRotation = Quaternion.LookRotation(_target.position, Vector3.up);
+            // _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, 2.5f * _turnSpeed * Time.deltaTime * 360.0f);
+
+            _transform.LookAt(_target);
+        }
+
         public void UseFlashAbility() => _flashAbility.Use();
         public void UseInvulnerAbility() => _invulnerAbility.Use();
         
@@ -102,14 +103,15 @@ namespace Spark.Gameplay.Entities.Player
 
         public void Heal(float points)
         {
-            Health += points;
-            // OnHealthChanged?.Invoke(Health);
+            Health = Mathf.Min(Health + points, MaxHealth);
+            OnHealthChanged?.Invoke(Health);
         }
 
         public void TakeDamage(float points)
         {
             Health -= points;
-            // OnHealthChanged?.Invoke(Health);
+            if (Health <= 0) Die();
+            OnHealthChanged?.Invoke(Health);
         }
 
         public void Die() => Debug.Log("You are dead!");
@@ -118,23 +120,13 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (_activeWeapon is RangedWeapon)
             {
-                if ((_activeWeapon as RangedWeapon).IsReloading)
-                {
-                    Debug.Log("Weapon reloading...");
-                    return;
-                }
+                var weapon = _activeWeapon as RangedWeapon;
+                if (weapon.IsReloading) return;
 
-                if ((_activeWeapon as RangedWeapon).HasAmmo)
-                    (_activeWeapon as RangedWeapon).Shoot();
-                
-                else
-                {
-                    Debug.Log("No ammo!");
-                    return;
-                }
-                Debug.Log("Shot! Ammo: " + (_activeWeapon as RangedWeapon).Ammo);
+                if (weapon.HasAmmo)
+                    weapon.Shoot();
             }
-            damagable?.TakeDamage(damage);
+            damagable?.TakeDamage(_activeWeapon.Damage);
         }
         public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
 
@@ -147,25 +139,26 @@ namespace Spark.Gameplay.Entities.Player
                 _currentMeleeWeapon = (_currentMeleeWeapon + 1) % _meleeWeapons.Length;
                 _activeWeapon = _meleeWeapons[_currentMeleeWeapon];
             }
-            else
+            else if (_activeWeapon is RangedWeapon)
             {
                 _currentRangedWeapon = (_currentRangedWeapon + 1) % _rangedWeapons.Length;
                 _activeWeapon = _rangedWeapons[_currentRangedWeapon];
-            }
-            Debug.Log("after: " + _activeWeapon.Name);
-        }
 
+                (_activeWeapon as RangedWeapon).SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
+            }
+        }
         public void SwitchWeaponType()
         {
             _activeWeapon =
                 _activeWeapon == _meleeWeapons[_currentMeleeWeapon]
                     ? _rangedWeapons[_currentRangedWeapon] : _meleeWeapons[_currentMeleeWeapon];
-            Debug.Log("after: " + _activeWeapon.Name);
+
+            (_activeWeapon as RangedWeapon)?.SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
         }
 
-        public Weapon GetActiveWeapon()
-        {
-            return _activeWeapon;
-        }
+        public Weapon GetActiveWeapon() => _activeWeapon;
+
+        public void SetTarget(Transform target) => _target = target;
+        public void ResetTarget() => _target = null;
     }
 }

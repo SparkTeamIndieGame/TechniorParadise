@@ -60,6 +60,8 @@ public class FlockOfEnemies : MonoBehaviour
 
             _enemies.ForEach(enemy =>
             {
+                if (enemy == null) return;
+
                 Vector3 enemyDirectionToTarget = (_target.position - enemy.transform.position).normalized;
 
                 enemy.Move(enemyDirectionToTarget);
