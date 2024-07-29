@@ -84,9 +84,6 @@ namespace Spark.Gameplay.Entities.Player
 
         public void LookAtTarget()
         {
-            // Quaternion toRotation = Quaternion.LookRotation(_target.position, Vector3.up);
-            // _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, 2.5f * _turnSpeed * Time.deltaTime * 360.0f);
-
             _transform.LookAt(_target);
         }
 
@@ -110,8 +107,9 @@ namespace Spark.Gameplay.Entities.Player
         public void TakeDamage(float points)
         {
             Health -= points;
-            if (Health <= 0) Die();
             OnHealthChanged?.Invoke(Health);
+
+            if (Health <= 0) Die();
         }
 
         public void Die() => Debug.Log("You are dead!");

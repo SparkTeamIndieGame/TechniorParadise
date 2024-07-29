@@ -23,7 +23,7 @@ MonoBehaviour:
   _ammoMax: 10
   _ammoPerShot: 1
   _automatic: 0
-  _bulletSpreadRange: 0
+  _bulletSpreadRange: 1
   _bulletSpawnPoint: {fileID: 0}
   _bulletTrail: {fileID: 0}
   _shootingParticleSystem: {fileID: 0}
