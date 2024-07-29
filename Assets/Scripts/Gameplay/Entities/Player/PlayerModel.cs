@@ -31,6 +31,8 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private Transform _target;
 
 
+        [SerializeField] private Transform pointHand;
+
         private int _currentMeleeWeapon;
         private int _currentRangedWeapon;
 
@@ -125,7 +127,10 @@ namespace Spark.Gameplay.Entities.Player
                     weapon.Shoot();
             }
             else if (_activeWeapon is MeleeWeapon)
+            {
                 damagable?.TakeDamage(_activeWeapon.Damage);
+                pointHand.GetComponentInChildren<Animation>().Play();
+            }
         }
         public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
 
@@ -133,6 +138,8 @@ namespace Spark.Gameplay.Entities.Player
 
         public void SwitchWeapon()
         {
+            ClearChild(pointHand);
+
             if (_activeWeapon is MeleeWeapon)
             {
                 _currentMeleeWeapon = (_currentMeleeWeapon + 1) % _meleeWeapons.Length;
@@ -142,6 +149,13 @@ namespace Spark.Gameplay.Entities.Player
             {
                 _currentRangedWeapon = (_currentRangedWeapon + 1) % _rangedWeapons.Length;
                 _activeWeapon = _rangedWeapons[_currentRangedWeapon];
+            }
+
+            // todo: ?
+            GameObject activeWeapon = MonoBehaviour.Instantiate(_activeWeapon.Prefab, pointHand);
+            _activeWeapon.Prefab.transform.position = Vector3.zero;
+            Debug.Log("after: " + _activeWeapon.Name);
+        }
 
                 (_activeWeapon as RangedWeapon).SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
             }
@@ -155,9 +169,22 @@ namespace Spark.Gameplay.Entities.Player
             (_activeWeapon as RangedWeapon)?.SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
         }
 
-        public Weapon GetActiveWeapon() => _activeWeapon;
+        public Weapon GetActiveWeapon()
+        {
+           // MonoBehaviour.Instantiate(_activeWeapon.Prefab, pointHand);
+            return _activeWeapon;
+        }
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
+
+        private void ClearChild(Transform parent)
+        {
+            for(int i =0; i < parent.childCount; i++)
+            {
+                Transform destroyChild = parent.GetChild(i);
+                MonoBehaviour.Destroy(destroyChild.gameObject);
+            }
+        }
     }
 }
