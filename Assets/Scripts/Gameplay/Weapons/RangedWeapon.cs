@@ -53,10 +53,11 @@ namespace Spark.Gameplay.Weapons
             if (IsReloading || _lastShootTime + _shootDelay > Time.time) return;
 
             Vector3 direction = GetBulletDirection();
-            if (Physics.Raycast(_bulletSpawnPoint.position, direction, out var hit, float.MaxValue))
+            Debug.DrawRay(_bulletSpawnPoint.position + Vector3.up, direction, Color.magenta, Range);
+            if (Physics.Raycast(_bulletSpawnPoint.position + Vector3.up, direction + Vector3.up, out var hit, Range))
             {
-                hit.transform.GetComponent<IDamagable>()
-                    ?.TakeDamage(Damage);
+                hit.transform.TryGetComponent(out IDamagable damagable);
+                damagable?.TakeDamage(Damage);  
             }
             _lastShootTime = Time.time;
             _ammo = Mathf.Max(0, _ammo - _ammoPerShot);

@@ -126,7 +126,8 @@ namespace Spark.Gameplay.Entities.Player
                 if (weapon.HasAmmo)
                     weapon.Shoot();
             }
-            damagable?.TakeDamage(_activeWeapon.Damage);
+            else if (_activeWeapon is MeleeWeapon)
+                damagable?.TakeDamage(_activeWeapon.Damage);
         }
         public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
 
