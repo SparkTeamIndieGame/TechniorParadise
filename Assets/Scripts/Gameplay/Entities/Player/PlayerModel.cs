@@ -149,16 +149,13 @@ namespace Spark.Gameplay.Entities.Player
             {
                 _currentRangedWeapon = (_currentRangedWeapon + 1) % _rangedWeapons.Length;
                 _activeWeapon = _rangedWeapons[_currentRangedWeapon];
+
+                (_activeWeapon as RangedWeapon).SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
             }
 
             // todo: ?
             GameObject activeWeapon = MonoBehaviour.Instantiate(_activeWeapon.Prefab, pointHand);
             _activeWeapon.Prefab.transform.position = Vector3.zero;
-            Debug.Log("after: " + _activeWeapon.Name);
-        }
-
-                (_activeWeapon as RangedWeapon).SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
-            }
         }
         public void SwitchWeaponType()
         {
