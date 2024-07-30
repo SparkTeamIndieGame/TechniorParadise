@@ -265,17 +265,6 @@
                     "action": "Select Target",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "1a9194ca-66f4-4675-aa5a-9cbf908dd15a",
-                    "path": "<Touchscreen>/Press",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Select Target",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         }
