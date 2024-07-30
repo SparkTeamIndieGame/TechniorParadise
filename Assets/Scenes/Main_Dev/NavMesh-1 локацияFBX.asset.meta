@@ -1,9 +1,15 @@
 fileFormatVersion: 2
-
+<<<<<<<< HEAD:Assets/Materials/Enemies/M_Enemy.mat.meta
+guid: 185a7e8e08f1e2b469b7ce4dfdd67eca
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+========
 guid: eb145ebe332c34f99b8285d50036de31
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 23800000
+>>>>>>>> BackToFuture:Assets/Scenes/Main_Dev/NavMesh-1 локацияFBX.asset.meta
   userData: 
   assetBundleName: 
   assetBundleVariant: 
