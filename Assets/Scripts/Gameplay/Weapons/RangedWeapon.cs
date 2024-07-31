@@ -1,7 +1,4 @@
 ﻿using Spark.Gameplay.Entities.Common.Data;
-using System.Collections;
-using System.Diagnostics.CodeAnalysis;
-using TMPro;
 using UnityEngine;
 
 namespace Spark.Gameplay.Weapons
@@ -15,12 +12,14 @@ namespace Spark.Gameplay.Weapons
         [SerializeField] private bool _automatic;
 
         [SerializeField, Range(0.0f, 1.0f)] private float _bulletSpreadRange;
-        [SerializeField] private Transform _bulletSpawnPoint;
         [SerializeField] private TrailRenderer _bulletTrail;
 
         [SerializeField] private ParticleSystem _shootingParticleSystem;
         [SerializeField] private ParticleSystem _impactParticleSystem;
         [SerializeField, Min(0.1f)] private float _shootDelay;
+        
+        private Transform _firePoint;
+        
         private float _lastShootTime;
 
         private float _reloadTimeLeft;
@@ -43,9 +42,9 @@ namespace Spark.Gameplay.Weapons
             _lastShootTime = 0.0f;
         }
 
-        public void SetBulletSpawnPoint(Transform transform)
+        public void SetFirePoint(Transform firePoint)
         {
-            _bulletSpawnPoint = transform;
+            _firePoint = firePoint;
         }
 
         public void Shoot()
@@ -53,8 +52,8 @@ namespace Spark.Gameplay.Weapons
             if (IsReloading || _lastShootTime + _shootDelay > Time.time) return;
 
             Vector3 direction = GetBulletDirection();
-            Debug.DrawRay(_bulletSpawnPoint.position + Vector3.up, direction, Color.magenta, Range);
-            if (Physics.Raycast(_bulletSpawnPoint.position + Vector3.up, direction, out var hit, Range))
+            Debug.DrawRay(_firePoint.position, direction, Color.magenta, Range);
+            if (Physics.Raycast(_firePoint.position, direction, out var hit, Range))
             {
                 hit.transform.TryGetComponent(out IDamagable damagable);
                 damagable?.TakeDamage(Damage);  
@@ -77,7 +76,7 @@ namespace Spark.Gameplay.Weapons
 
         private Vector3 GetBulletDirection()
         {
-            var direction = _bulletSpawnPoint.forward + new Vector3(
+            var direction = _firePoint.forward + new Vector3(
                     Random.Range(-_bulletSpreadRange, +_bulletSpreadRange),
                     Random.Range(-_bulletSpreadRange, +_bulletSpreadRange),
                     Random.Range(-_bulletSpreadRange, +_bulletSpreadRange)

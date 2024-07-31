@@ -2,7 +2,6 @@ using Spark.Gameplay.Entities.Enemies;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FlockOfEnemies : MonoBehaviour
 {
@@ -23,7 +22,7 @@ public class FlockOfEnemies : MonoBehaviour
     }
 
     IEnumerator ScanTarget()
-    {        
+    {
         while (!_targetDetected)
         {
             DetectTarget();
@@ -36,12 +35,11 @@ public class FlockOfEnemies : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, _target.position);
         if (distanceToTarget < _detectionRange)
         {
-            if (!Physics.Linecast(transform.position, _target.position) && 
+            if (!Physics.Linecast(transform.position, _target.position) &&
                 _target.gameObject.layer == SortingLayer.NameToID("Player"))
             {
-                Debug.Log("Target detected!");
                 _targetDetected = true;
-            } 
+            }
         }
     }
 
@@ -52,6 +50,8 @@ public class FlockOfEnemies : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (_enemies.Count <= 0)
+            Destroy(gameObject);
 
         if (_targetDetected)
         {
@@ -63,27 +63,23 @@ public class FlockOfEnemies : MonoBehaviour
                 return;
             }
 
-            _enemies.ForEach(enemy =>
-            {
-                if (enemy == null) return;
-                enemy.MoveToTarget(_target.position);
-            });
+            _enemies.RemoveAll(enemy => enemy == null);
+            _enemies.ForEach(enemy => enemy.MoveToTarget(_target.position));
 
             CheackDistanceToTarget();
         }
 
         else
         {
-            _enemies.ForEach(enemy =>
-            {
-                enemy.ReturnToPoint();
-            });
+            _enemies.RemoveAll(enemy => enemy == null);
+            _enemies.ForEach(enemy => enemy.ReturnToPoint());
         }
 
     }
 
     private void CheackDistanceToTarget()
     {
+        _enemies.RemoveAll(enemy => enemy == null);
         _enemies.ForEach(enemy =>
         {
             if (enemy.DistanceToTarget(_target.position) <= _distanceView)
@@ -101,9 +97,7 @@ public class FlockOfEnemies : MonoBehaviour
                 if (idEnemy.Contains(enemy.GetInstanceID()))
                     idEnemy.Remove(enemy.GetInstanceID());
 
-                else
-                    return;
-
+                else return;
             }
         });
 

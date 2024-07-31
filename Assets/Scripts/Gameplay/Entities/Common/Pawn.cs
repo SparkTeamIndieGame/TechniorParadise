@@ -1,4 +1,3 @@
-using Spark.Gameplay.Entities.Common.Behaviour;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
@@ -6,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Spark.Gameplay.Entities.Common
 {
-    [RequireComponent(typeof (NavMeshAgent))]
+    [RequireComponent(typeof(NavMeshAgent))]
 
     public class Pawn : Actor
     {
@@ -19,25 +18,25 @@ namespace Spark.Gameplay.Entities.Common
 
         public void Start()
         {
-            if(points.Count == 0)
+            if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>();
+
+            if (points.Count == 0)
             {
                 _defaultPoint = transform.position;
             }
-
-
         }
 
         public void MoveToTarget(Vector3 target)
         {
             navMeshAgent.SetDestination(target);
-        
+
             //if (Vector3.Distance(target, transform.position) > _radiusView)
             //    _playerDetection = false;
         }
 
         private void FixedUpdate()
         {
-            
+
         }
 
         public void ReturnToPoint()

@@ -17,14 +17,15 @@ MonoBehaviour:
   _damage: 1
   _range: 8
   _icon: {fileID: 0}
-  _prefab: {fileID: 0}
+  _prefab: {fileID: 3281516993081201943, guid: 558fcd3ce5277473299d1b15d1d2a261, type: 3}
   _clips: []
+  _animation: {fileID: 0}
+  _animator: {fileID: 0}
   _reloadDuration: 2
   _ammoMax: 24
   _ammoPerShot: 1
   _automatic: 0
-  _bulletSpreadRange: 0
-  _bulletSpawnPoint: {fileID: 0}
+  _bulletSpreadRange: 0.24
   _bulletTrail: {fileID: 0}
   _shootingParticleSystem: {fileID: 0}
   _impactParticleSystem: {fileID: 0}

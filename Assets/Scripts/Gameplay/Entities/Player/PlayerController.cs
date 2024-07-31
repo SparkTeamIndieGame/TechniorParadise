@@ -1,16 +1,12 @@
 using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Entities.Enemies;
-using Spark.Gameplay.Items.Interactable;
 using Spark.Gameplay.Weapons;
-using Spark.Items.Pickups;
+using Spark.Gameplay.Items.Interactable;
+using Spark.Gameplay.Items.Pickupable;
 using Spark.Utilities;
 using System;
-using TMPro;
-using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.InputSystem.UI;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -29,9 +25,6 @@ namespace Spark.Gameplay.Entities.Player
 
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
-        private Camera mainCamera;
-        private RaycastHit hit;
-        private bool tracking;
 
         private Transform _target;
 
@@ -46,27 +39,11 @@ namespace Spark.Gameplay.Entities.Player
 
         private void Start()
         {
+            _view.UpdateActiveWeapon(_model.GetActiveWeapon());
             _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
-
-            mainCamera = Camera.main;
         }
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.Mouse1))
-            {
-                Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-
-                if(Physics.Raycast(ray, out hit))
-                {
-                    print(hit.transform.name);
-
-                    if(hit.transform.gameObject.GetComponent<Enemy>())
-                    {
-                        tracking = true;
-                    }
-                }
-
-            }
             _movement = _movementAction.action.ReadValue<Vector2>();
             _model.Update();
 
@@ -88,18 +65,7 @@ namespace Spark.Gameplay.Entities.Player
         private void MovementWithoutTarget()
         {
             _model.Move(new Vector3(_movement.x, .0f, _movement.y));
-
-            if(tracking && Vector3.Distance(transform.position, hit.transform.position) < _distanceView)
-            {
-                Transform target = hit.transform;
-                target.position = new Vector3(hit.transform.position.x, 0, hit.transform.position.z);
-                transform.LookAt(target);
-            }
-
-            else
-                _model.Turn(new Vector3(_movement.x, .0f, _movement.y));
-
-
+            _model.Turn(new Vector3(_movement.x, .0f, _movement.y));
         }
         #endregion
 
@@ -179,6 +145,7 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeapon();
+                _view.UpdateActiveWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
             }
         }
@@ -187,6 +154,7 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeaponType();
+                _view.UpdateActiveWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
 
                 Camera.main.GetComponent<FollowCamera>()
@@ -219,11 +187,12 @@ namespace Spark.Gameplay.Entities.Player
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
+            var playerCenter = transform.position;
+            var playerAttackRadius = _model.GetActiveWeapon().Range;
 
-            Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, _distanceView);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawWireSphere(playerCenter, playerAttackRadius);
         }
 #endif
-
     }
 }
