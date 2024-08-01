@@ -7,6 +7,7 @@ using Spark.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -168,10 +169,22 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region TODO: Items & Interactables
-        private void OnTriggerEnter(Collider other)
+        public void OnPlayerActive(InputAction.CallbackContext context)
         {
-            TryActivateItemTo(other, _model);
-            TryActivateInteractableObject(other);
+            if (context.performed)
+            {
+                Collider[] items = Physics.OverlapSphere(
+                    transform.position, 
+                    1.0f, 
+                    Physics.AllLayers, 
+                    QueryTriggerInteraction.Collide
+                );
+                foreach (Collider item in items) 
+                { 
+                    TryActivateItemTo(item, _model);
+                    TryActivateInteractableObject(item);
+                }
+            }
         }
 
         private void TryActivateItemTo(Collider item, PlayerModel player)
