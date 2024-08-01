@@ -12,7 +12,7 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] private NavMeshAgent _navMeshAgent;
         [SerializeField] private List<Transform> _patrolPoints;
 
-        [SerializeField] private bool _canMove;
+        [SerializeField] protected bool canMove = true;
 
         private int _lastIndexPoint;
         private Vector3 _spawnPoint;
@@ -26,12 +26,12 @@ namespace Spark.Gameplay.Entities.Common
 
         public void MoveToTarget(Vector3 target)
         {
-            if (_canMove) _navMeshAgent.SetDestination(target);
+            if (canMove) _navMeshAgent.SetDestination(target);
         }
 
         public void ReturnToPatrol()
         {
-            if (_canMove) Patrol();
+            if (canMove) Patrol();
         }
 
         public float DistanceToTarget(Vector3 target)

@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 14360587}
-  - component: {fileID: 14360589}
   - component: {fileID: 14360588}
   - component: {fileID: 14360590}
   - component: {fileID: 14360591}
@@ -171,39 +170,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3474b59a13b445b7cf8ed4fd578fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 14360591}
+  _navMeshAgent: {fileID: 0}
   _patrolPoints: []
-  _canMove: 1
+  canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
-  _mayCallForReinforcements: 0
---- !u!143 &14360589
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 14360586}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &14360590
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -219,7 +191,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -684,6 +656,7 @@ GameObject:
   - component: {fileID: 181267435}
   - component: {fileID: 181267437}
   - component: {fileID: 181267436}
+  - component: {fileID: 181267438}
   m_Layer: 20
   m_Name: Model
   m_TagString: Untagged
@@ -756,6 +729,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181267434}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &181267438
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181267434}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &257767056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1368,13 +1364,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3474b59a13b445b7cf8ed4fd578fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   _patrolPoints: []
-  _canMove: 0
+  canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
-  _mayCallForReinforcements: 0
 --- !u!195 &446894765
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1408,6 +1403,7 @@ GameObject:
   - component: {fileID: 448675621}
   - component: {fileID: 448675623}
   - component: {fileID: 448675622}
+  - component: {fileID: 448675624}
   m_Layer: 20
   m_Name: Model
   m_TagString: Untagged
@@ -1480,6 +1476,29 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 448675620}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &448675624
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448675620}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &545054563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,9 +1878,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31abb5d12eb57749bb12585cb55e92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
+  _navMeshAgent: {fileID: 0}
   _patrolPoints: []
-  _canMove: 0
+  canMove: 1
 --- !u!143 &693515812
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3462,6 +3481,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1588284915}
+  - component: {fileID: 1588284916}
   m_Layer: 0
   m_Name: FlockOfMeleeEnemies
   m_TagString: Untagged
@@ -3484,6 +3504,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1179454448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1588284916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588284914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa31fc6d046aa419bf8064af02791f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemies: []
+  _target: {fileID: 1608342306}
+  _detectionRange: 10
+  _scanInterval: 0
+  _distanceView: 8
+  idEnemy: 
+  _targetDetected: 0
 --- !u!1 &1598838612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4334,7 +4373,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860988342}
-  - component: {fileID: 1860988344}
   - component: {fileID: 1860988343}
   - component: {fileID: 1860988345}
   - component: {fileID: 1860988346}
@@ -4373,39 +4411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3474b59a13b445b7cf8ed4fd578fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 1860988346}
+  _navMeshAgent: {fileID: 0}
   _patrolPoints: []
-  _canMove: 0
+  canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
-  _mayCallForReinforcements: 0
---- !u!143 &1860988344
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1860988341}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &1860988345
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4421,7 +4432,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
