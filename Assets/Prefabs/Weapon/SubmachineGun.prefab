@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7606733652783783660}
   - component: {fileID: 8474579435271237590}
   - component: {fileID: 5241000658415990420}
-  - component: {fileID: 1298724668017438700}
   m_Layer: 0
   m_Name: SubmachineGun
   m_TagString: Untagged
@@ -111,22 +110,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &1298724668017438700
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3281516993081201943}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d67dbee03cc8b45109503ea245416cee, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: d67dbee03cc8b45109503ea245416cee, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &3553786449307934402
 GameObject:
   m_ObjectHideFlags: 0
