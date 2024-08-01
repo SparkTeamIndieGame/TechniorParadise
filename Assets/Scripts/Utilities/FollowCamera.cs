@@ -9,6 +9,6 @@ namespace Spark.Utilities
 
         void LateUpdate() => transform.position = _player.transform.position + _offset;
 
-        public void Zoom(float zooming) => _offset.y += zooming;
+        public void Zoom(float zooming) => _offset.y -= zooming;
     }
 }

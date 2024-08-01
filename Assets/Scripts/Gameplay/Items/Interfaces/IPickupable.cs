@@ -1,4 +1,4 @@
-namespace Spark.Items.Pickups
+namespace Spark.Gameplay.Items.Pickupable
 {
     interface IPickupable
     {

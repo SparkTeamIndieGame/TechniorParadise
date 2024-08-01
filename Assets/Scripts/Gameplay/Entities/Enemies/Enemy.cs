@@ -1,11 +1,14 @@
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Data;
+using System;
 using UnityEngine;
 
 namespace Spark.Gameplay.Entities.Enemies
 {
     public class Enemy : Pawn, IEnemy
     {
+        public event Action<IDamagable> OnHealthChanged;
+
         [SerializeField] private float _healthMax;
         [SerializeField] private float _health;
         [SerializeField] private float _damage;
@@ -22,9 +25,13 @@ namespace Spark.Gameplay.Entities.Enemies
         public void TakeDamage(float points)
         {
             Health -= points;
+            OnHealthChanged?.Invoke(this);
             if (Health <= 0) Die();
         }
-        public void Die() => Destroy(gameObject);
+        public void Die()
+        { 
+            Destroy(gameObject);
+        }
 
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
         public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);

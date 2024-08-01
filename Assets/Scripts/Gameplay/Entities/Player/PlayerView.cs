@@ -25,6 +25,16 @@ namespace Spark.Gameplay.Entities.Player
             _uiController.UpdatePlayerHealthUI(health);
         }
 
+        public void UpdateActiveWeapon(Weapon weapon)
+        {
+            Transform weaponTransform = transform.Find("Weapon");
+
+            while (weaponTransform.childCount > 0) 
+                DestroyImmediate(weaponTransform.GetChild(0).gameObject);
+
+            Transform firePoint = Instantiate(weapon.Prefab, weaponTransform).transform.Find("FirePoint");
+            if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
+        }    
         public void UpdateActiveWeaponUI(Weapon weapon)
         {
             _uiController.UpdatePlayerWeaponUI(weapon);
@@ -39,7 +49,7 @@ namespace Spark.Gameplay.Entities.Player
         {
             foreach (var renderer in _playerMeshes)
             {
-                renderer.material = enabled ? _invulner : _normal;
+                if (renderer != null) renderer.material = enabled ? _invulner : _normal;
             }
             gameObject.layer = SortingLayer.NameToID(enabled ? "Enemy" : "Player");
         }

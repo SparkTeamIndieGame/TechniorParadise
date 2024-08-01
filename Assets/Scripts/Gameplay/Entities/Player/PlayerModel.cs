@@ -1,8 +1,8 @@
 using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Entities.Common.Abilities;
+using Spark.Gameplay.Weapons;
 using System;
 using UnityEngine;
-using Spark.Gameplay.Weapons;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -29,7 +29,6 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private Weapon _activeWeapon;
         
         [SerializeField] private Transform _target;
-
 
         private int _currentMeleeWeapon;
         private int _currentRangedWeapon;
@@ -84,9 +83,6 @@ namespace Spark.Gameplay.Entities.Player
 
         public void LookAtTarget()
         {
-            // Quaternion toRotation = Quaternion.LookRotation(_target.position, Vector3.up);
-            // _transform.rotation = Quaternion.RotateTowards(_transform.rotation, toRotation, 2.5f * _turnSpeed * Time.deltaTime * 360.0f);
-
             _transform.LookAt(_target);
         }
 
@@ -110,8 +106,9 @@ namespace Spark.Gameplay.Entities.Player
         public void TakeDamage(float points)
         {
             Health -= points;
-            if (Health <= 0) Die();
             OnHealthChanged?.Invoke(Health);
+
+            if (Health <= 0) Die();
         }
 
         public void Die() => Debug.Log("You are dead!");
@@ -126,7 +123,11 @@ namespace Spark.Gameplay.Entities.Player
                 if (weapon.HasAmmo)
                     weapon.Shoot();
             }
-            damagable?.TakeDamage(_activeWeapon.Damage);
+            else if (_activeWeapon is MeleeWeapon)
+            {
+                damagable?.TakeDamage(_activeWeapon.Damage);
+                // pointHand.GetComponentInChildren<Animation>().Play();
+            }
         }
         public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
 
@@ -143,8 +144,6 @@ namespace Spark.Gameplay.Entities.Player
             {
                 _currentRangedWeapon = (_currentRangedWeapon + 1) % _rangedWeapons.Length;
                 _activeWeapon = _rangedWeapons[_currentRangedWeapon];
-
-                (_activeWeapon as RangedWeapon).SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
             }
         }
         public void SwitchWeaponType()
@@ -152,8 +151,6 @@ namespace Spark.Gameplay.Entities.Player
             _activeWeapon =
                 _activeWeapon == _meleeWeapons[_currentMeleeWeapon]
                     ? _rangedWeapons[_currentRangedWeapon] : _meleeWeapons[_currentMeleeWeapon];
-
-            (_activeWeapon as RangedWeapon)?.SetBulletSpawnPoint(_transform); // ?!?!?!?! from WEAPON PREFAB!
         }
 
         public Weapon GetActiveWeapon() => _activeWeapon;

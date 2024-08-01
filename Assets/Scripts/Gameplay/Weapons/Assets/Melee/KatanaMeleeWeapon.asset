@@ -17,5 +17,4 @@ MonoBehaviour:
   _damage: 3
   _range: 1
   _icon: {fileID: 0}
-  _prefab: {fileID: 0}
-  _clips: []
+  _prefab: {fileID: 5970483429101685861, guid: c0e19741a840840aaa48b6abb24a5ef3, type: 3}

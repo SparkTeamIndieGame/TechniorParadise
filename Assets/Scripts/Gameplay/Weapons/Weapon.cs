@@ -40,5 +40,11 @@ namespace Spark.Gameplay.Weapons
 
         [SerializeField] private AnimationClip[] _clips;
         public virtual AnimationClip[] Clips => _clips;
+
+        [SerializeField] private Animation _animation;
+        public virtual Animation Animation => _animation;
+
+        [SerializeField] private Animator _animator;
+        public virtual Animator Animator => _animator;
     }
 }

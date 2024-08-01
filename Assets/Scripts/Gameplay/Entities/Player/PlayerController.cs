@@ -1,15 +1,12 @@
 using Spark.Gameplay.Entities.Common.Data;
-using Spark.Gameplay.Items.Interactable;
+using Spark.Gameplay.Entities.Enemies;
 using Spark.Gameplay.Weapons;
-using Spark.Items.Pickups;
+using Spark.Gameplay.Items.Interactable;
+using Spark.Gameplay.Items.Pickupable;
 using Spark.Utilities;
 using System;
-using TMPro;
-using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.HID;
-using UnityEngine.InputSystem.UI;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -20,6 +17,7 @@ namespace Spark.Gameplay.Entities.Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerModel _model;
+        [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
         [SerializeField] private Transform _firePoint;
 
@@ -34,7 +32,6 @@ namespace Spark.Gameplay.Entities.Player
         {
             _model.OnHealthChanged += _view.UpdateHealtUI;
         }
-
         private void OnDisable()
         {
             _model.OnHealthChanged -= _view.UpdateHealtUI;
@@ -42,22 +39,23 @@ namespace Spark.Gameplay.Entities.Player
 
         private void Start()
         {
+            _view.UpdateActiveWeapon(_model.GetActiveWeapon());
             _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
         }
-
         private void Update()
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
+            _model.Update();
 
             SyncModelWithView();
         }
-
         private void FixedUpdate()
         {
             if (_model.HasTarget) MovementHasTarget();
             else MovementWithoutTarget();
         }
 
+        #region Player movement
         private void MovementHasTarget()
         {
             _model.LookAtTarget();
@@ -69,67 +67,59 @@ namespace Spark.Gameplay.Entities.Player
             _model.Move(new Vector3(_movement.x, .0f, _movement.y));
             _model.Turn(new Vector3(_movement.x, .0f, _movement.y));
         }
+        #endregion
 
+        #region Update player Model and View
         private void SyncModelWithView()
         {
             _model.Update();
 
             UpdateRangedWeaponAmmo();
-            // GetPlayerRangeAttack();
         }
-
         private void UpdateRangedWeaponAmmo()
         {
             if (_model.GetActiveWeapon() is RangedWeapon)
                 _view.UpdateWeaponRangedAmmoUI(_model.GetActiveWeapon() as RangedWeapon);
         }
+        #endregion
 
-        /*private void GetPlayerRangeAttack()
-        {
-            RangedWeapon weapon = _model.GetActiveWeapon() as RangedWeapon;
-            if (weapon == null || weapon.IsReloading) return;
-
-            if (TryClickOnEnemy(out var enemy))
-            {
-                Debug.Log(enemy.transform);
-                _model.RotateTowards(enemy.point);
-            }
-        }
-
-        private bool TryClickOnEnemy(out RaycastHit hit)
-        {
-            hit = default;
-            if (Mouse.current.leftButton.wasPressedThisFrame)
-            {
-                Vector2 screenPosition = Mouse.current.position.ReadValue();
-                Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-                return Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
-            }
-            return false;
-        }*/
-
-        private void GetFromMouseClickPositionTarget(out Transform transform)
-        {
-            transform = null;
-            
-            Vector2 screenPosition = Mouse.current.position.ReadValue();
-            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-            Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
-
-            transform = hit.transform;
-        }
-
+        #region Player abilities
         public void OnFlashAbilityButton(InputAction.CallbackContext context) => _model.UseFlashAbility();
         public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _model.UseInvulnerAbility();
+        #endregion
+
+        #region Player select target
+        private Transform GetTargetFromMouseRightButtonClickPosition()
+        {
+            Vector2 screenPosition = Vector2.zero;
+
+            if (Mouse.current.rightButton.wasPressedThisFrame)
+                screenPosition = Mouse.current.position.ReadValue();
+            else if (Touchscreen.current.primaryTouch.tap.wasPressedThisFrame)
+                screenPosition = Touchscreen.current.position.ReadValue();
+            
+            else
+                new NullReferenceException("What kind of device is this?");
+
+            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
+            Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
+            return hit.transform;
+        }
 
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                GetFromMouseClickPositionTarget(out _target);
+                if (_target != null && _target.TryGetComponent(out Enemy enemy))
+                    enemy.OnHealthChanged -= _view.UpdateTargetHealtUI;
+
+                _target = GetTargetFromMouseRightButtonClickPosition();
                 if (_target != null)
                 {
                     _model.SetTarget(_target);
+                    enemy = _target.GetComponent<Enemy>();
+
+                    enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
                     _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
                 }
                 else
@@ -139,27 +129,12 @@ namespace Spark.Gameplay.Entities.Player
                 }
             }
         }
+        #endregion
 
-        public GameObject pref;
-
+        #region Player Attack system
         public void OnPlayerAttack(InputAction.CallbackContext context)
         {
-            if (context.performed)
-            {
-                IDamagable damagable = null;
-                if (_target != null)
-                {
-                    float distance = Vector3.Distance(_firePoint.position, _target.position);
-                    bool inWeaponRange = distance <= _model.GetActiveWeapon().Range;
-
-                    if (inWeaponRange && Physics.Linecast(_firePoint.position, _target.position, out var hit))
-                    {
-                        hit.transform.TryGetComponent(out damagable);
-                    }
-                }
-                _model.Attack(damagable);
-                _view.UpdateTargetHealtUI(damagable);
-            }
+            if (context.performed) _model.Attack(null);
         }
         public void OnPlayerReloadWeapon(InputAction.CallbackContext context)
         {
@@ -170,6 +145,7 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeapon();
+                _view.UpdateActiveWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
             }
         }
@@ -178,12 +154,20 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeaponType();
+                _view.UpdateActiveWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
 
-                Camera.main.GetComponent<FollowCamera>().Zoom(_model.GetActiveWeapon() is RangedWeapon ? +_zooming : -_zooming);
+                Camera.main.GetComponent<FollowCamera>()
+                    .Zoom(
+                        _model.GetActiveWeapon() is MeleeWeapon ? 
+                        +_zooming : 
+                        -_zooming
+                    );
             }
         }
+        #endregion
 
+        #region TODO: Items & Interactables
         private void OnTriggerEnter(Collider other)
         {
             TryActivateItemTo(other, _model);
@@ -198,16 +182,16 @@ namespace Spark.Gameplay.Entities.Player
         {
             interactableObject.GetComponent<IInteractable>()?.Activate();
         }
+        #endregion
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            if (_model.GetActiveWeapon() is not RangedWeapon) return;
+            var playerCenter = transform.position;
+            var playerAttackRadius = _model.GetActiveWeapon().Range;
 
             Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, _model.GetActiveWeapon().Range);
-            if (_target != null) Gizmos.DrawLine(transform.position, _target.position);
-            Debug.DrawRay(transform.position, transform.forward * _model.GetActiveWeapon().Range, Color.magenta);
+            Gizmos.DrawWireSphere(playerCenter, playerAttackRadius);
         }
 #endif
     }
