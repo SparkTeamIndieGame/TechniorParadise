@@ -17,6 +17,7 @@ namespace Spark.Gameplay.Entities.Player
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private PlayerModel _model;
+        [SerializeField] private AnimController _animController;
         [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
         [SerializeField] private Transform _firePoint;
@@ -41,11 +42,16 @@ namespace Spark.Gameplay.Entities.Player
         {
             _view.UpdateActiveWeapon(_model.GetActiveWeapon());
             _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+            _animController.Animator = GetComponent<Animator>();
         }
         private void Update()
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
+            _animController.AnimMove(_movement);
             _model.Update();
+
+           
+
 
             SyncModelWithView();
         }
@@ -134,7 +140,22 @@ namespace Spark.Gameplay.Entities.Player
         #region Player Attack system
         public void OnPlayerAttack(InputAction.CallbackContext context)
         {
-            if (context.performed) _model.Attack(null);
+            if (context.performed)
+            {
+                _model.Attack(null);
+
+                if(_animController.GetTypeWeapon())
+                {
+                    _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
+                }
+
+                else
+                {
+                    _animController.AnimAttack(_model.GetCurrentRangedWeapon());
+
+                }
+               // print(_model.GetCurrentMeleeWeapon());
+            }
         }
         public void OnPlayerReloadWeapon(InputAction.CallbackContext context)
         {
@@ -154,6 +175,7 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeaponType();
+                _animController.SwitchAnimForTypeWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
 

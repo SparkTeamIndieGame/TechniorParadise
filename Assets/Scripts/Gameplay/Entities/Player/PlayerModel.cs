@@ -128,6 +128,8 @@ namespace Spark.Gameplay.Entities.Player
                 damagable?.TakeDamage(_activeWeapon.Damage);
                 // pointHand.GetComponentInChildren<Animation>().Play();
             }
+
+
         }
         public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
 
@@ -139,6 +141,7 @@ namespace Spark.Gameplay.Entities.Player
             {
                 _currentMeleeWeapon = (_currentMeleeWeapon + 1) % _meleeWeapons.Length;
                 _activeWeapon = _meleeWeapons[_currentMeleeWeapon];
+                
             }
             else if (_activeWeapon is RangedWeapon)
             {
@@ -154,6 +157,9 @@ namespace Spark.Gameplay.Entities.Player
         }
 
         public Weapon GetActiveWeapon() => _activeWeapon;
+
+        public int GetCurrentMeleeWeapon() => _currentMeleeWeapon;
+        public int GetCurrentRangedWeapon() => _currentRangedWeapon;
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
