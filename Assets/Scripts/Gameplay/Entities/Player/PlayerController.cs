@@ -12,7 +12,8 @@ namespace Spark.Gameplay.Entities.Player
 {
     [RequireComponent(
         typeof(PlayerView),
-        typeof(CharacterController)
+        typeof(CharacterController),
+        typeof(Animator)
     )]
     public class PlayerController : MonoBehaviour
     {
@@ -42,7 +43,9 @@ namespace Spark.Gameplay.Entities.Player
         {
             _view.UpdateActiveWeapon(_model.GetActiveWeapon());
             _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+
             _animController.Animator = GetComponent<Animator>();
+            _animController.SwitchAnimForTypeWeapon(_model.GetActiveWeapon());
         }
         private void Update()
         {
@@ -59,6 +62,11 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (_model.HasTarget) MovementHasTarget();
             else MovementWithoutTarget();
+        }
+
+        public void OnRegisterMeleeWeaponEvent()
+        {
+            _model.Attack();
         }
 
         #region Player movement
@@ -142,7 +150,7 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (context.performed)
             {
-                _model.Attack(null);
+                _model.Attack();
 
                 if(_animController.GetTypeWeapon())
                 {

@@ -7,7 +7,7 @@ namespace Spark.Gameplay.Entities.Player
     [Serializable]
     public class AnimController
     {
-        private Animator _animator;
+        [SerializeField] private Animator _animator;
         public Animator Animator { get => _animator; set => _animator = value; }
 
         /// <summary>

@@ -113,7 +113,7 @@ namespace Spark.Gameplay.Entities.Player
 
         public void Die() => Debug.Log("You are dead!");
 
-        public void Attack(IDamagable damagable, float damage)
+        public void Attack()
         {
             if (_activeWeapon is RangedWeapon)
             {
@@ -123,15 +123,13 @@ namespace Spark.Gameplay.Entities.Player
                 if (weapon.HasAmmo)
                     weapon.Shoot();
             }
-            else if (_activeWeapon is MeleeWeapon)
+            else if (_activeWeapon is MeleeWeapon melee)
             {
-                damagable?.TakeDamage(_activeWeapon.Damage);
-                // pointHand.GetComponentInChildren<Animation>().Play();
+                melee.TakeSwing();
             }
-
-
         }
-        public void Attack(IDamagable damagable) => Attack(damagable, _activeWeapon.Damage);
+        public void Attack(IDamagable damagable) => Attack();
+        public void Attack(IDamagable damagable, float damage) => Attack();
 
         public void ReloadWeapon() => (_activeWeapon as RangedWeapon)?.Reload();
 
