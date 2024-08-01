@@ -72,7 +72,7 @@ public class FlockOfEnemies : MonoBehaviour
         else
         {
             _enemies.RemoveAll(enemy => enemy == null);
-            _enemies.ForEach(enemy => enemy.ReturnToPoint());
+            _enemies.ForEach(enemy => enemy.ReturnToPatrol());
         }
 
     }

@@ -172,11 +172,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 14360591}
-  points: []
-  npc: 0
+  _patrolPoints: []
+  _canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
+  _mayCallForReinforcements: 0
 --- !u!143 &14360589
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1368,11 +1369,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
-  points: []
-  npc: 0
+  _patrolPoints: []
+  _canMove: 0
   _healthMax: 5
   _health: 5
   _damage: 0
+  _mayCallForReinforcements: 0
 --- !u!195 &446894765
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1858,8 +1860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 0}
-  points: []
-  npc: 0
+  _patrolPoints: []
+  _canMove: 0
 --- !u!143 &693515812
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2805,6 +2807,7 @@ Transform:
   - {fileID: 550056531}
   - {fileID: 1419147950}
   - {fileID: 1934595027}
+  - {fileID: 1588284915}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1188956518
@@ -3450,6 +3453,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1487162760}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1588284914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1588284915}
+  m_Layer: 0
+  m_Name: FlockOfMeleeEnemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1588284915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1588284914}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1179454448}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1598838612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4340,11 +4374,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 1860988346}
-  points: []
-  npc: 0
+  _patrolPoints: []
+  _canMove: 0
   _healthMax: 5
   _health: 5
   _damage: 0
+  _mayCallForReinforcements: 0
 --- !u!143 &1860988344
 CharacterController:
   m_ObjectHideFlags: 0
