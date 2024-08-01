@@ -15,6 +15,10 @@ MonoBehaviour:
   _name: Knife
   _description: This is Knife description
   _damage: 1
-  _range: 0.5
+  _range: 1
   _icon: {fileID: 0}
   _prefab: {fileID: 1143760275867387377, guid: 72ab17e70946947d7b80c0effb7366da, type: 3}
+  _clips: []
+  _animation: {fileID: 0}
+  _animator: {fileID: 0}
+  _swingDelay: 1
