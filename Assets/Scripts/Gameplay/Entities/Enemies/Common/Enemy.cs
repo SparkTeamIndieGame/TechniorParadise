@@ -4,6 +4,8 @@ using Spark.Gameplay.Entities.Player;
 using System;
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using UnityEngine.UIElements;
 
 namespace Spark.Gameplay.Entities.Enemies
 {
@@ -13,11 +15,15 @@ namespace Spark.Gameplay.Entities.Enemies
 
         public event Action<IDamagable> OnHealthChanged;
 
+        [SerializeField] protected Transform _target;
+
         [SerializeField] private float _healthMax;
         [SerializeField] private float _health;
 
         [SerializeField] protected float _damage;
         [SerializeField] protected float _attackRange;
+        [SerializeField] protected float _distanceView;
+
 
         [SerializeField, Min(.1f)] private float _attackDelay;
         private float _lastAttackTime;
@@ -38,11 +44,39 @@ namespace Spark.Gameplay.Entities.Enemies
             if (Health <= 0) Die();
         }
         public void Die()
-        { 
+        {
             Destroy(gameObject);
         }
+        public override void Update()
+        {
+            base.Update();
 
-        public void Attack() 
+            if (alone)
+            {
+                float _distanceToTarget = Vector3.Distance(transform.position, _target.position);
+
+                if (_distanceToTarget > _distanceView)
+                {
+                    ReturnToPatrol();
+
+                }
+                else if (_distanceToTarget <= _distanceView)
+                {
+                //    if (!Physics.Linecast(transform.position, _target.position) &&
+                //_target.gameObject.layer == SortingLayer.NameToID("Player"))
+                        MoveToTarget(_target.position);
+                }
+
+                else
+                {
+                    _animator.SetTrigger("Attack");
+                }
+
+            }
+
+        }
+
+        public void Attack()
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
 
@@ -57,5 +91,18 @@ namespace Spark.Gameplay.Entities.Enemies
         }
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
         public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
+
+
+#if UNITY_EDITOR
+        private void OnDrawGizmos()
+        {
+            if (!alone) return;
+
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _distanceView);
+            Gizmos.DrawLine(transform.position, _target.position);
+        }
+#endif
     }
+
 }

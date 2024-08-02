@@ -5,7 +5,10 @@ using System.Collections.Generic;
 
 namespace Spark.Gameplay.Entities.Common
 {
-    [RequireComponent(typeof(NavMeshAgent))]
+    [RequireComponent
+        (typeof(NavMeshAgent),
+        (typeof(Animator)))
+        ]
 
     public class Pawn : Actor
     {
@@ -13,7 +16,9 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] private List<Transform> _patrolPoints;
 
         [SerializeField] protected bool canMove = true;
+        [SerializeField] protected bool alone = true;
 
+        protected Animator _animator;
         private int _lastIndexPoint;
         private Vector3 _spawnPoint;
 
@@ -22,21 +27,40 @@ namespace Spark.Gameplay.Entities.Common
             if (_navMeshAgent == null) _navMeshAgent = GetComponent<NavMeshAgent>();
 
             _spawnPoint = transform.position;
+            _animator = GetComponent<Animator>();
         }
 
+        public virtual void Update()
+        {
+            AnimMoveState();
+
+        }
         public void MoveToTarget(Vector3 target)
         {
-            if (canMove) _navMeshAgent.SetDestination(target);
+            if (canMove)
+            {
+                _navMeshAgent.stoppingDistance = 2;
+                _navMeshAgent.SetDestination(target);
+            }
         }
 
         public void ReturnToPatrol()
         {
-            if (canMove) Patrol();
+            if (canMove)
+            {
+                _navMeshAgent.stoppingDistance = 0;
+                Patrol();
+            }
         }
 
         public float DistanceToTarget(Vector3 target)
         {
-            return Vector3.Distance(transform.position, target);
+            float distance = Vector3.Distance(transform.position, target);
+
+            if (distance <= _navMeshAgent.stoppingDistance)
+                _animator.SetTrigger("Attack");
+
+                return distance;
         }
 
         private void Patrol()
@@ -54,5 +78,18 @@ namespace Spark.Gameplay.Entities.Common
             if (_distanceEnemyToPoint <= _navMeshAgent.stoppingDistance)
                 _lastIndexPoint = (_lastIndexPoint + 1) % _patrolPoints.Count;
         }
+
+        private void AnimMoveState()
+        {
+            if (!_navMeshAgent.hasPath)
+            {
+                _animator.SetBool("Run", false);
+            }
+            else
+            {
+                _animator.SetBool("Run", true);
+            }
+        }
+
     }
 }
