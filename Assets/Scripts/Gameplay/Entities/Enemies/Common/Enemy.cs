@@ -47,34 +47,6 @@ namespace Spark.Gameplay.Entities.Enemies
         {
             Destroy(gameObject);
         }
-        public override void Update()
-        {
-            base.Update();
-
-            if (alone)
-            {
-                float _distanceToTarget = Vector3.Distance(transform.position, _target.position);
-
-                if (_distanceToTarget > _distanceView)
-                {
-                    ReturnToPatrol();
-
-                }
-                else if (_distanceToTarget <= _distanceView)
-                {
-                //    if (!Physics.Linecast(transform.position, _target.position) &&
-                //_target.gameObject.layer == SortingLayer.NameToID("Player"))
-                        MoveToTarget(_target.position);
-                }
-
-                else
-                {
-                    _animator.SetTrigger("Attack");
-                }
-
-            }
-
-        }
 
         public void Attack()
         {
@@ -91,18 +63,6 @@ namespace Spark.Gameplay.Entities.Enemies
         }
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
         public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
-
-
-#if UNITY_EDITOR
-        private void OnDrawGizmos()
-        {
-            if (!alone) return;
-
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, _distanceView);
-            Gizmos.DrawLine(transform.position, _target.position);
-        }
-#endif
     }
 
 }

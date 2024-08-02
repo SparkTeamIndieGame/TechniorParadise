@@ -17,6 +17,8 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] bool _targetDetected = false;
     [SerializeField] bool _wasAttackCorutineStart = false;
 
+    [SerializeField] private LayerMask _layerMask;
+
     private void Start()
     {
         StartCoroutine(ScanTarget());
@@ -47,7 +49,7 @@ public class FlockOfEnemies : MonoBehaviour
         float distanceToTarget = Vector3.Distance(transform.position, _target.position);
         if (distanceToTarget < _detectionRange)
         {
-            if (!Physics.Linecast(transform.position, _target.position) &&
+            if (!Physics.Linecast(transform.position, _target.position, _layerMask) &&
                 _target.gameObject.layer == SortingLayer.NameToID("Player"))
             {
                 _targetDetected = true;

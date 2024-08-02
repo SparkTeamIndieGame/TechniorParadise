@@ -12,7 +12,7 @@ namespace Spark.Gameplay.Entities.Common
 
     public class Pawn : Actor
     {
-        [SerializeField] private NavMeshAgent _navMeshAgent;
+        [SerializeField] protected NavMeshAgent _navMeshAgent;
         [SerializeField] private List<Transform> _patrolPoints;
 
         [SerializeField] protected bool canMove = true;
@@ -48,7 +48,7 @@ namespace Spark.Gameplay.Entities.Common
         {
             if (canMove)
             {
-                _navMeshAgent.stoppingDistance = 0;
+                _navMeshAgent.stoppingDistance = 0.5f;
                 Patrol();
             }
         }
