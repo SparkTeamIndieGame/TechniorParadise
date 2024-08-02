@@ -15,6 +15,7 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] private List<int> idEnemy;
 
     [SerializeField] bool _targetDetected = false;
+    [SerializeField] bool _wasAttackCorutineStart = false;
 
     private void Start()
     {
@@ -25,9 +26,20 @@ public class FlockOfEnemies : MonoBehaviour
     {
         while (!_targetDetected)
         {
-            DetectTarget();
+            DetectTarget();            
             yield return new WaitForSeconds(_scanInterval);
         }
+    }
+
+    public IEnumerator DoAttackWithDelay()
+    {
+        while (_enemies.Count > 0)
+        {
+            _wasAttackCorutineStart = true;
+            _enemies.ForEach(e => e.Attack());
+            yield return new WaitForSeconds(1 + .01f);
+        }
+        yield return null;
     }
 
     void DetectTarget()
@@ -39,6 +51,7 @@ public class FlockOfEnemies : MonoBehaviour
                 _target.gameObject.layer == SortingLayer.NameToID("Player"))
             {
                 _targetDetected = true;
+                if (!_wasAttackCorutineStart) StartCoroutine(DoAttackWithDelay());
             }
         }
     }

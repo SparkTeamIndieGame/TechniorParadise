@@ -8,7 +8,5 @@ namespace Spark.Gameplay.Entities.Enemies
         {
             canMove = false;
         }
-
-
     }
 }

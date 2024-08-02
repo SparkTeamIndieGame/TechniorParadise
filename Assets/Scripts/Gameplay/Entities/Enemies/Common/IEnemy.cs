@@ -5,6 +5,6 @@ namespace Spark.Gameplay.Entities.Enemies
 {
     public interface IEnemy : IDamagable, IAttackable
     {
-
+        public delegate void EnemyAttack(float damage);
     }
 }
