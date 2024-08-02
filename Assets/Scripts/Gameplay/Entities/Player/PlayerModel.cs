@@ -3,6 +3,7 @@ using Spark.Gameplay.Entities.Common.Abilities;
 using Spark.Gameplay.Weapons;
 using System;
 using UnityEngine;
+using Spark.Gameplay.Entities.Enemies;
 
 namespace Spark.Gameplay.Entities.Player
 {
