@@ -34,7 +34,8 @@ namespace Spark.Gameplay.Entities.Player
 
             Transform firePoint = Instantiate(weapon.Prefab, weaponTransform).transform.Find("FirePoint");
             if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
-        }    
+            else (weapon as MeleeWeapon).SetHandPoint(weaponTransform);
+        }
         public void UpdateActiveWeaponUI(Weapon weapon)
         {
             _uiController.UpdatePlayerWeaponUI(weapon);

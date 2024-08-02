@@ -117,7 +117,6 @@ GameObject:
   - component: {fileID: 5608805784053085465}
   - component: {fileID: 4740581845592112630}
   - component: {fileID: 1123921129272385006}
-  - component: {fileID: 2335873593909869078}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -213,22 +212,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &2335873593909869078
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2681849453170993100}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: e4e9f35c4c91b472b8cd52f234bf8fc6, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: e4e9f35c4c91b472b8cd52f234bf8fc6, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &4123426994259375146
 GameObject:
   m_ObjectHideFlags: 0

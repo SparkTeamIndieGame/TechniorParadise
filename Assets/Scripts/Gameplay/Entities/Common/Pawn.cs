@@ -9,43 +9,29 @@ namespace Spark.Gameplay.Entities.Common
 
     public class Pawn : Actor
     {
-        [SerializeField] private NavMeshAgent navMeshAgent;
-        [SerializeField] private List<Transform> points;
-        [SerializeField] private bool npc;
+        [SerializeField] private NavMeshAgent _navMeshAgent;
+        [SerializeField] private List<Transform> _patrolPoints;
+
+        [SerializeField] protected bool canMove = true;
 
         private int _lastIndexPoint;
-        private Vector3 _defaultPoint;
+        private Vector3 _spawnPoint;
 
         public void Start()
         {
-            if (navMeshAgent == null) navMeshAgent = GetComponent<NavMeshAgent>();
+            if (_navMeshAgent == null) _navMeshAgent = GetComponent<NavMeshAgent>();
 
-            if (points.Count == 0)
-            {
-                _defaultPoint = transform.position;
-            }
+            _spawnPoint = transform.position;
         }
 
         public void MoveToTarget(Vector3 target)
         {
-            navMeshAgent.SetDestination(target);
-
-            //if (Vector3.Distance(target, transform.position) > _radiusView)
-            //    _playerDetection = false;
+            if (canMove) _navMeshAgent.SetDestination(target);
         }
 
-        private void FixedUpdate()
+        public void ReturnToPatrol()
         {
-
-        }
-
-        public void ReturnToPoint()
-        {
-
-            if (points.Count == 0)
-                navMeshAgent.SetDestination(_defaultPoint);
-            else
-                Patrol();
+            if (canMove) Patrol();
         }
 
         public float DistanceToTarget(Vector3 target)
@@ -55,19 +41,18 @@ namespace Spark.Gameplay.Entities.Common
 
         private void Patrol()
         {
-            navMeshAgent.SetDestination(points[_lastIndexPoint].position);
+            // get spawn point or last point position if enemy has points
+            var pointPosition = 
+                _patrolPoints.Count == 0 ? 
+                _spawnPoint :
+                _patrolPoints[_lastIndexPoint].position;
 
+            _navMeshAgent.SetDestination(pointPosition);
+            if (_patrolPoints.Count == 0) return;
 
-            var _distanceEnemyToPoint = Vector3.Distance(points[_lastIndexPoint].position, transform.position);
-
-            if (_distanceEnemyToPoint <= navMeshAgent.stoppingDistance)
-            {
-                if (_lastIndexPoint == points.Count - 1)
-                    _lastIndexPoint = 0;
-                else
-                    _lastIndexPoint += 1;
-            }
+            var _distanceEnemyToPoint = Vector3.Distance(pointPosition, transform.position);
+            if (_distanceEnemyToPoint <= _navMeshAgent.stoppingDistance)
+                _lastIndexPoint = (_lastIndexPoint + 1) % _patrolPoints.Count;
         }
-
     }
 }

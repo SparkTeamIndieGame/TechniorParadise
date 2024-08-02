@@ -8,7 +8,7 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] List<Enemy> _enemies;
     [SerializeField] Transform _target;
 
-    [SerializeField] float _detectionRange;
+    [SerializeField, Min(1.0f)] float _detectionRange;
     [SerializeField, Range(0.1f, 1.0f)] float _scanInterval;
 
     [SerializeField] private float _distanceView = 8;
@@ -72,7 +72,7 @@ public class FlockOfEnemies : MonoBehaviour
         else
         {
             _enemies.RemoveAll(enemy => enemy == null);
-            _enemies.ForEach(enemy => enemy.ReturnToPoint());
+            _enemies.ForEach(enemy => enemy.ReturnToPatrol());
         }
 
     }

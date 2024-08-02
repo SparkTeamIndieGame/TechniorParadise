@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3479164}
-  - component: {fileID: 3479168}
   - component: {fileID: 3479167}
   - component: {fileID: 3479166}
   - component: {fileID: 3479165}
@@ -216,38 +215,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3474b59a13b445b7cf8ed4fd578fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 3479165}
-  points: []
-  npc: 0
+  _navMeshAgent: {fileID: 0}
+  _patrolPoints: []
+  canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
---- !u!143 &3479168
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3479163}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &31733847
 GameObject:
   m_ObjectHideFlags: 0
@@ -770,6 +743,7 @@ GameObject:
   - component: {fileID: 244951183}
   - component: {fileID: 244951182}
   - component: {fileID: 244951181}
+  - component: {fileID: 244951185}
   m_Layer: 19
   m_Name: Player
   m_TagString: Untagged
@@ -1004,6 +978,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
     _activeWeapon: {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
     _target: {fileID: 0}
+  _animController:
+    _animator: {fileID: 0}
   _distanceView: 0
   _view: {fileID: 244951182}
   _firePoint: {fileID: 1401287723}
@@ -1036,6 +1012,27 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!95 &244951185
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244951179}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 18011c277c27f4e529b00d648d3390b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &279744977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,7 +1150,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 364585075}
-  - component: {fileID: 364585079}
   - component: {fileID: 364585078}
   - component: {fileID: 364585077}
   - component: {fileID: 364585076}
@@ -1237,38 +1233,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3474b59a13b445b7cf8ed4fd578fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 364585076}
-  points: []
-  npc: 0
+  _navMeshAgent: {fileID: 0}
+  _patrolPoints: []
+  canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
---- !u!143 &364585079
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364585074}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &432738123
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,9 +4347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31abb5d12eb57749bb12585cb55e92f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  points: []
-  npc: 0
+  _navMeshAgent: {fileID: 0}
+  _patrolPoints: []
+  canMove: 1
 --- !u!143 &802551735
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5339,9 +5309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e3474b59a13b445b7cf8ed4fd578fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navMeshAgent: {fileID: 0}
-  points: []
-  npc: 0
+  _navMeshAgent: {fileID: 0}
+  _patrolPoints: []
+  canMove: 1
   _healthMax: 5
   _health: 5
   _damage: 0
@@ -5613,7 +5583,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 244951180}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0, y: 0, z: 0}
 --- !u!1 &1417729399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6319,13 +6289,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875793597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.60876137, y: 0, z: 0, w: 0.7933534}
-  m_LocalPosition: {x: 0, y: 10, z: -2}
+  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
+  m_LocalPosition: {x: 0, y: 7, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1548636491}
-  m_LocalEulerAnglesHint: {x: 75, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &1875793599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6339,7 +6309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 244951180}
-  _offset: {x: 0, y: 10, z: 5}
+  _offset: {x: 0, y: 7, z: -3}
 --- !u!81 &1875793600
 AudioListener:
   m_ObjectHideFlags: 0
