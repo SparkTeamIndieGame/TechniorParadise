@@ -9,9 +9,9 @@ using UnityEngine.UIElements;
 
 namespace Spark.Gameplay.Entities.Enemies
 {
-    public class Enemy : Pawn, IEnemy
+    public abstract class Enemy : Pawn, IEnemy
     {
-        public static event IEnemy.EnemyAttack OnEnemyAttack;
+        public static Action<float> OnEnemyAttack;
 
         public event Action<IDamagable> OnHealthChanged;
 
@@ -22,7 +22,7 @@ namespace Spark.Gameplay.Entities.Enemies
 
         [SerializeField] protected float _damage;
         [SerializeField] protected float _attackRange;
-        [SerializeField] protected float _distanceView;
+        [SerializeField] protected LayerMask layerMask;
 
 
         [SerializeField, Min(.1f)] private float _attackDelay;
@@ -51,18 +51,13 @@ namespace Spark.Gameplay.Entities.Enemies
         public void Attack()
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
-
-            var hits = Physics.OverlapSphere(transform.position, _attackRange);
-            foreach (var hit in hits)
-            {
-                if (hit.transform.TryGetComponent<PlayerController>(out var _))
-                    OnEnemyAttack?.Invoke(_damage);
-            }
-
+            CalculateHit();
             _lastAttackTime = Time.time;
         }
         public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
         public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
+
+        protected abstract void CalculateHit();
     }
 
 }

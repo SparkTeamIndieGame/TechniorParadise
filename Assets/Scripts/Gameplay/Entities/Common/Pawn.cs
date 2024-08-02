@@ -12,12 +12,11 @@ namespace Spark.Gameplay.Entities.Common
 
     public class Pawn : Actor
     {
-        [SerializeField] protected NavMeshAgent _navMeshAgent;
         [SerializeField] private List<Transform> _patrolPoints;
 
         [SerializeField] protected bool canMove = true;
-        [SerializeField] protected bool alone = true;
 
+        protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
         private int _lastIndexPoint;
         private Vector3 _spawnPoint;
@@ -79,7 +78,7 @@ namespace Spark.Gameplay.Entities.Common
                 _lastIndexPoint = (_lastIndexPoint + 1) % _patrolPoints.Count;
         }
 
-        private void AnimMoveState()
+        public virtual void AnimMoveState()
         {
             if (!_navMeshAgent.hasPath)
             {

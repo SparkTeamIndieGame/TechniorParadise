@@ -1,3 +1,4 @@
+using System;
 using Spark.Gameplay.Entities.Common.Behaviour;
 using Spark.Gameplay.Entities.Common.Data;
 
@@ -5,6 +6,6 @@ namespace Spark.Gameplay.Entities.Enemies
 {
     public interface IEnemy : IDamagable, IAttackable
     {
-        public delegate void EnemyAttack(float damage);
+        public static Action<float> OnEnemyAttack;
     }
 }
