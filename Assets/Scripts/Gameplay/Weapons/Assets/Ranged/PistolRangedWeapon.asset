@@ -18,13 +18,16 @@ MonoBehaviour:
   _range: 5
   _icon: {fileID: 0}
   _prefab: {fileID: 2681849453170993100, guid: 4fceff4238ec54394a6d0cdb634e775f, type: 3}
+  _clips: []
+  _animation: {fileID: 0}
+  _animator: {fileID: 0}
   _reloadDuration: 1
   _ammoMax: 10
   _ammoPerShot: 1
   _automatic: 0
   _bulletSpreadRange: 1
-  _bulletSpawnPoint: {fileID: 0}
-  _bulletTrail: {fileID: 0}
+  _bulletTrail: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
+    type: 3}
   _shootingParticleSystem: {fileID: 0}
   _impactParticleSystem: {fileID: 0}
   _shootDelay: 1

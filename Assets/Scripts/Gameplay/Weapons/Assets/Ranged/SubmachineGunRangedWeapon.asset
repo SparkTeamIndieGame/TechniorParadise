@@ -26,7 +26,8 @@ MonoBehaviour:
   _ammoPerShot: 1
   _automatic: 0
   _bulletSpreadRange: 0.24
-  _bulletTrail: {fileID: 0}
+  _bulletTrail: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
+    type: 3}
   _shootingParticleSystem: {fileID: 0}
   _impactParticleSystem: {fileID: 0}
   _shootDelay: 0.1
