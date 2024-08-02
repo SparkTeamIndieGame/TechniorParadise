@@ -52,7 +52,6 @@ namespace Spark.Gameplay.Weapons
             if (IsReloading || _lastShootTime + _shootDelay > Time.time) return;
 
             Vector3 direction = GetBulletDirection();
-            Debug.DrawRay(_firePoint.position, direction, Color.magenta, Range);
             if (Physics.Raycast(_firePoint.position, direction, out var hit, Range))
             {
                 hit.transform.TryGetComponent(out IDamagable damagable);

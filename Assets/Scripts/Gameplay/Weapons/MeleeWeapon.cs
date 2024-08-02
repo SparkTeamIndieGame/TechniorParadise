@@ -26,13 +26,10 @@ namespace Spark.Gameplay.Weapons
         {
             if (_lastSwingTime + _swingDelay > Time.time) return;
 
-            Debug.DrawRay(_handPoint.position, _handPoint.forward, Color.black, Range);
             var hits = Physics.OverlapSphere(_handPoint.position, Range);
-            foreach ( var hit in hits ) 
+            foreach (var hit in hits)
             {
                 hit.transform.GetComponent<IDamagable>()?.TakeDamage(Damage);
-                if (hit.transform.GetComponent<IDamagable>() != null)
-                    Debug.Log("I attack it!");
             }
             _lastSwingTime = Time.time;
         }
