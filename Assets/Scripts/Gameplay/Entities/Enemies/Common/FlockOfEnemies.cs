@@ -53,7 +53,7 @@ public class FlockOfEnemies : MonoBehaviour
                 _target.gameObject.layer == SortingLayer.NameToID("Player"))
             {
                 _targetDetected = true;
-                if (!_wasAttackCorutineStart) StartCoroutine(DoAttackWithDelay());
+                //if (!_wasAttackCorutineStart) StartCoroutine(DoAttackWithDelay());
             }
         }
     }
