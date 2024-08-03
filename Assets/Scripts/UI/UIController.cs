@@ -3,6 +3,7 @@ using Spark.Gameplay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +22,11 @@ namespace Spark.UI
         #region Target UI
         [SerializeField] private GameObject _targetUI;
         [SerializeField] private Slider _targetHealthBar;
+        #endregion
+
+        #region Boss UI
+        [SerializeField] private GameObject _bossUI;
+        [SerializeField] private Slider _bossHealthBar;
         #endregion
 
         private void Awake()
@@ -55,17 +61,19 @@ namespace Spark.UI
                 _playerAmmo.text = "Ammo: " + rangedWeapon.Ammo;
         }
 
-        public void UpdateTargetHealthUI(IDamagable damagable)
+        private void UpdateHealthUI(IDamagable damagable, ref GameObject target, ref Slider bar)
         {
             if (damagable == null)
             {
-                _targetUI.SetActive(false);
+                target.SetActive(false);
                 return;
             }
 
-            _targetHealthBar.maxValue = damagable.MaxHealth;
-            _targetHealthBar.value = damagable.Health;
-            _targetUI.SetActive(damagable.Health > 0);
+            bar.maxValue = damagable.MaxHealth;
+            bar.value = damagable.Health;
+            target.SetActive(damagable.Health > 0);
         }
+        public void UpdateTargetHealthUI(IDamagable damagable) => UpdateHealthUI(damagable, ref _targetUI, ref _targetHealthBar);
+        public void UpdateBossHealthUI(IDamagable damagable) => UpdateHealthUI(damagable, ref _bossUI, ref _bossHealthBar);
     }
 }
