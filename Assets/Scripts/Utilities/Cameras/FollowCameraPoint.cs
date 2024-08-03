@@ -16,8 +16,6 @@ namespace Spark.Utilities.Cameras
             if (_turnableFollowCamera == null) _turnableFollowCamera = Camera.main.transform.GetComponent<TurnableFollowCamera>();
         }
 
-        [SerializeField] private bool _toggleLookAtPlayerCameraBehaviour = false;
-
         private void OnTriggerEnter(Collider other)
         {
             _turnableFollowCamera.ToggleLookAtPlayerCameraBehaviour();
