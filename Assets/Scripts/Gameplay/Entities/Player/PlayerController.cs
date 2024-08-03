@@ -18,6 +18,7 @@ namespace Spark.Gameplay.Entities.Player
     )]
     public class PlayerController : MonoBehaviour
     {
+
         [SerializeField] private PlayerModel _model;
         [SerializeField] private AnimController _animController;
         [SerializeField] private float _distanceView;
@@ -28,6 +29,16 @@ namespace Spark.Gameplay.Entities.Player
 
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
+
+        [Serializable]
+        private enum MovementDirection
+        {
+            Up,
+            Left,
+            Right,
+            Down
+        }
+        [SerializeField] private MovementDirection _movementDirection;
 
         private Transform _target;
 
@@ -78,13 +89,25 @@ namespace Spark.Gameplay.Entities.Player
         private void MovementHasTarget()
         {
             _model.LookAtTarget();
-            _model.Move(new Vector3(_movement.x, .0f, _movement.y));
+            _model.Move(CalculateDirectionFromSide(_movementDirection));
         }
 
         private void MovementWithoutTarget()
         {
-            _model.Move(new Vector3(_movement.x, .0f, _movement.y));
-            _model.Turn(new Vector3(_movement.x, .0f, _movement.y));
+            _model.Move(CalculateDirectionFromSide(_movementDirection));
+            _model.Turn(CalculateDirectionFromSide(_movementDirection));
+        }
+
+        private Vector3 CalculateDirectionFromSide(MovementDirection side)
+        {
+            switch (side)
+            {
+            case MovementDirection.Up: return new Vector3(-_movement.y, .0f, _movement.x);
+            case MovementDirection.Left: return new Vector3(-_movement.x, .0f, -_movement.y);
+            case MovementDirection.Right: return new Vector3(_movement.x, .0f, _movement.y); // ok
+            case MovementDirection.Down: return new Vector3(_movement.y, .0f, -_movement.x);
+            }
+            return Vector3.zero;
         }
         #endregion
 
