@@ -24,6 +24,9 @@ namespace Spark.Gameplay.Entities.Enemies
         [SerializeField] protected float _attackRange;
         [SerializeField] protected LayerMask layerMask;
 
+        [SerializeField] protected ParticleSystem _shootingParticleSystem;
+        [SerializeField] protected ParticleSystem _impactParticleSystem;
+
 
         [SerializeField, Min(.1f)] private float _attackDelay;
         private float _lastAttackTime;
@@ -51,6 +54,7 @@ namespace Spark.Gameplay.Entities.Enemies
         public void Attack()
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
+            ParticlPlay(_shootingParticleSystem, transform);
             CalculateHit();
             _lastAttackTime = Time.time;
         }
@@ -58,6 +62,13 @@ namespace Spark.Gameplay.Entities.Enemies
         public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
 
         protected abstract void CalculateHit();
+
+        public virtual void ParticlPlay(ParticleSystem particle, Transform positionSpawn)
+        {
+            var effect = Instantiate(particle, positionSpawn.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, 1);
+        }
     }
 
 }

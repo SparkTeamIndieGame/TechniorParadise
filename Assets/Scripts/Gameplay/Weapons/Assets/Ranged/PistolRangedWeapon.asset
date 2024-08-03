@@ -21,6 +21,8 @@ MonoBehaviour:
   _clips: []
   _animation: {fileID: 0}
   _animator: {fileID: 0}
+  _impactParticleSystem: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+    type: 3}
   _reloadDuration: 1
   _ammoMax: 10
   _ammoPerShot: 1
@@ -28,6 +30,6 @@ MonoBehaviour:
   _bulletSpreadRange: 1
   _bulletTrail: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
-  _shootingParticleSystem: {fileID: 0}
-  _impactParticleSystem: {fileID: 0}
   _shootDelay: 1
+  _shootingParticleSystem: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+    type: 3}

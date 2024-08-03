@@ -11,7 +11,10 @@ namespace Spark.Gameplay.Entities.Enemies
             foreach (var hit in hits)
             {
                 if (hit.transform.TryGetComponent<PlayerController>(out var playerModel))
+                {
                     OnEnemyAttack?.Invoke(_damage);
+                    ParticlPlay(_impactParticleSystem, hit.transform);
+                }
             }
         }
     }
