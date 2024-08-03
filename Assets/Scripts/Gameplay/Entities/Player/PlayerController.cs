@@ -7,6 +7,8 @@ using Spark.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
+using Spark.Utilities.Cameras;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -17,7 +19,6 @@ namespace Spark.Gameplay.Entities.Player
     )]
     public class PlayerController : MonoBehaviour
     {
-
         [SerializeField] private PlayerModel _model;
         [SerializeField] private AnimController _animController;
         [SerializeField] private float _distanceView;
@@ -30,14 +31,14 @@ namespace Spark.Gameplay.Entities.Player
         private Vector2 _movement;
 
         [Serializable]
-        private enum MovementDirection
+        public enum MovementDirectionSetting
         {
             Up,
             Left,
             Right,
             Down
         }
-        [SerializeField] private MovementDirection _movementDirection;
+        [field: SerializeField] public MovementDirectionSetting MovementDirection { get; set; } 
 
         private Transform _target;
 
@@ -88,23 +89,23 @@ namespace Spark.Gameplay.Entities.Player
         private void MovementHasTarget()
         {
             _model.LookAtTarget();
-            _model.Move(CalculateDirectionFromSide(_movementDirection));
+            _model.Move(CalculateDirectionFromSide(MovementDirection));
         }
 
         private void MovementWithoutTarget()
         {
-            _model.Move(CalculateDirectionFromSide(_movementDirection));
-            _model.Turn(CalculateDirectionFromSide(_movementDirection));
+            _model.Move(CalculateDirectionFromSide(MovementDirection));
+            _model.Turn(CalculateDirectionFromSide(MovementDirection));
         }
 
-        private Vector3 CalculateDirectionFromSide(MovementDirection side)
+        private Vector3 CalculateDirectionFromSide(MovementDirectionSetting side)
         {
             switch (side)
             {
-            case MovementDirection.Up: return new Vector3(-_movement.y, .0f, _movement.x);
-            case MovementDirection.Left: return new Vector3(-_movement.x, .0f, -_movement.y);
-            case MovementDirection.Right: return new Vector3(_movement.x, .0f, _movement.y); // ok
-            case MovementDirection.Down: return new Vector3(_movement.y, .0f, -_movement.x);
+            case MovementDirectionSetting.Up: return new Vector3(-_movement.y, .0f, _movement.x);
+            case MovementDirectionSetting.Left: return new Vector3(-_movement.x, .0f, -_movement.y);
+            case MovementDirectionSetting.Right: return new Vector3(_movement.x, .0f, _movement.y); // ok
+            case MovementDirectionSetting.Down: return new Vector3(_movement.y, .0f, -_movement.x);
             }
             return Vector3.zero;
         }
@@ -136,6 +137,7 @@ namespace Spark.Gameplay.Entities.Player
 
             if (Mouse.current.rightButton.wasPressedThisFrame)
                 screenPosition = Mouse.current.position.ReadValue();
+
             else if (Touchscreen.current.primaryTouch.tap.wasPressedThisFrame)
                 screenPosition = Touchscreen.current.position.ReadValue();
             
@@ -214,7 +216,7 @@ namespace Spark.Gameplay.Entities.Player
                 _view.UpdateActiveWeapon(_model.GetActiveWeapon());
                 _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
 
-                Camera.main.GetComponent<FollowCamera>()
+                Camera.main.GetComponent<TurnableFollowCamera>()
                     .Zoom(
                         _model.GetActiveWeapon() is MeleeWeapon ? 
                         +_zooming : 
