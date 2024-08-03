@@ -11,6 +11,7 @@ namespace Spark.Gameplay.Weapons
 
         private Transform _handPoint;
         private float _lastSwingTime;
+        private TrailRenderer trail;
 
         private void OnValidate()
         {
@@ -26,11 +27,18 @@ namespace Spark.Gameplay.Weapons
         {
             if (_lastSwingTime + _swingDelay > Time.time) return;
 
+            //trail.GetComponent<TrailRenderer>().emitting = true;
+
             var hits = Physics.OverlapSphere(_handPoint.position, Range);
             foreach (var hit in hits)
             {
-                hit.transform.GetComponent<IDamagable>()?.TakeDamage(Damage);
+                if (hit.transform.TryGetComponent(out IDamagable damagable))
+                {
+                    ParticlPlay(_impactParticleSystem, hit.transform);
+                    damagable.TakeDamage(Damage);
+                }
             }
+
             _lastSwingTime = Time.time;
         }
     }

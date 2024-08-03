@@ -18,3 +18,9 @@ MonoBehaviour:
   _range: 1
   _icon: {fileID: 0}
   _prefab: {fileID: 5970483429101685861, guid: c0e19741a840840aaa48b6abb24a5ef3, type: 3}
+  _clips: []
+  _animation: {fileID: 0}
+  _animator: {fileID: 0}
+  _impactParticleSystem: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+    type: 3}
+  _swingDelay: 0

@@ -46,5 +46,16 @@ namespace Spark.Gameplay.Weapons
 
         [SerializeField] private Animator _animator;
         public virtual Animator Animator => _animator;
+
+
+        [SerializeField] protected ParticleSystem _shootingParticleSystem;
+        [SerializeField] protected ParticleSystem _impactParticleSystem;
+
+        public virtual void ParticlPlay(ParticleSystem particle, Transform positionSpawn)
+        {
+            var effect = Instantiate(particle, positionSpawn.position, Quaternion.identity);
+            effect.Play();
+            Destroy(effect.gameObject, 1);
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Spark.Gameplay.Entities.Common.Data;
 using UnityEngine;
+using UnityEngine.InputSystem.HID;
 
 namespace Spark.Gameplay.Weapons
 {
@@ -14,10 +15,8 @@ namespace Spark.Gameplay.Weapons
         [SerializeField, Range(0.0f, 1.0f)] private float _bulletSpreadRange;
         [SerializeField] private TrailRenderer _bulletTrail;
 
-        [SerializeField] private ParticleSystem _shootingParticleSystem;
-        [SerializeField] private ParticleSystem _impactParticleSystem;
         [SerializeField, Min(0.1f)] private float _shootDelay;
-        
+
         private Transform _firePoint;
         
         private float _lastShootTime;
@@ -54,10 +53,15 @@ namespace Spark.Gameplay.Weapons
             Vector3 direction = GetBulletDirection();
             if (Physics.Raycast(_firePoint.position, direction, out var hit, Range))
             {
-                hit.transform.TryGetComponent(out IDamagable damagable);
-                damagable?.TakeDamage(Damage);  
+                if(hit.transform.TryGetComponent(out IDamagable damagable))
+                {
+                    ParticlPlay(_impactParticleSystem, hit.transform);
+                    damagable.TakeDamage(Damage);  
+
+                }
             }
             _lastShootTime = Time.time;
+            ParticlPlay(_shootingParticleSystem, _firePoint);
             _ammo = Mathf.Max(0, _ammo - _ammoPerShot);
         }
 
@@ -83,5 +87,6 @@ namespace Spark.Gameplay.Weapons
             direction.Normalize();
             return direction;
         }
+
     }
 }

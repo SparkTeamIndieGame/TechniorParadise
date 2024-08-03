@@ -14,8 +14,12 @@ namespace Spark.Gameplay.Entities.Enemies
         {
             if (DistanceToTarget(_target.position) <= _attackRange)
             {
-                _animator.SetTrigger("Attack");
-                transform.LookAt(_target);
+                if (!Physics.Linecast(transform.position, _target.position, layerMask) &&
+               _target.gameObject.layer == SortingLayer.NameToID("Player"))
+                {
+                    _animator.SetTrigger("Attack");
+                    transform.LookAt(_target);
+                }
             }
         }
 
@@ -25,7 +29,11 @@ namespace Spark.Gameplay.Entities.Enemies
 
             if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out var hit, _attackRange, layerMask) && 
                 hit.transform.TryGetComponent<PlayerController>(out var playerModel))
+            {
                 OnEnemyAttack?.Invoke(_damage);
+                ParticlPlay(_impactParticleSystem, hit.transform);
+            }
+
 
 
 

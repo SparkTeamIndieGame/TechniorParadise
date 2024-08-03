@@ -3,6 +3,7 @@ using Spark.Gameplay.Entities.Common.Abilities;
 using Spark.Gameplay.Weapons;
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Spark.Gameplay.Entities.Enemies;
 
 namespace Spark.Gameplay.Entities.Player
@@ -112,7 +113,7 @@ namespace Spark.Gameplay.Entities.Player
             if (Health <= 0) Die();
         }
 
-        public void Die() => Debug.Log("You are dead!");
+        public void Die() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         public void Attack()
         {

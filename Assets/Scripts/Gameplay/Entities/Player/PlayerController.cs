@@ -7,7 +7,6 @@ using Spark.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 
 namespace Spark.Gameplay.Entities.Player
 {
