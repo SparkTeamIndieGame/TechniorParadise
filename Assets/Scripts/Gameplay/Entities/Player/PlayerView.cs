@@ -6,6 +6,7 @@ using UnityEngine;
 namespace Spark.Gameplay.Entities.Player
 {
     public class PlayerView : MonoBehaviour
+    public class PlayerView : MonoBehaviour, IInvulnerable
     {
         [SerializeField] UIController _uiController;
         
