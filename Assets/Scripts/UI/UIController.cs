@@ -31,7 +31,7 @@ namespace Spark.UI
 
         private void Awake()
         {
-#if UNITY_STANDALONE_WIN
+#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
             _mobileUI.SetActive(false);
 #elif UNITY_ANDROID || UNITY_IOS
             _mobileUI.SetActive(true);
