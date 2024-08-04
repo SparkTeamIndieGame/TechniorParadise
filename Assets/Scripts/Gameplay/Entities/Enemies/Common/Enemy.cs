@@ -58,8 +58,6 @@ namespace Spark.Gameplay.Entities.Enemies
             CalculateHit();
             _lastAttackTime = Time.time;
         }
-        public void Attack(IDamagable damagable) => damagable.TakeDamage(_damage);
-        public void Attack(IDamagable damagable, float damage) => damagable.TakeDamage(damage);
 
         protected abstract void CalculateHit();
 

@@ -130,8 +130,6 @@ namespace Spark.Gameplay.Entities.Player
                 melee.TakeSwing();
             }
         }
-        public void Attack(IDamagable damagable) => Attack();
-        public void Attack(IDamagable damagable, float damage) => Attack();
 
         public void ReloadWeapon() => (_activeWeapon as RangedWeapon)?.Reload();
 

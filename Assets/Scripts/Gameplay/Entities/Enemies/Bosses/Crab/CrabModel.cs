@@ -99,8 +99,6 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
         {
 
         }
-        public void Attack(IDamagable damagable) => Attack();
-        public void Attack(IDamagable damagable, float damage) => Attack();
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
