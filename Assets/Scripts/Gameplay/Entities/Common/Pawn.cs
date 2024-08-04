@@ -27,13 +27,19 @@ namespace Spark.Gameplay.Entities.Common
 
             _spawnPoint = transform.position;
             _animator = GetComponent<Animator>();
+
+            AfterStart();
         }
+
+        protected virtual void AfterStart() { }
 
         public virtual void Update()
         {
             AnimMoveState();
-
+            AfterUpdate();
         }
+        protected virtual void AfterUpdate() { }
+
         public void MoveToTarget(Vector3 target)
         {
             if (canMove)
