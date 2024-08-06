@@ -25,7 +25,7 @@ MonoBehaviour:
     type: 3}
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
-  <BulletSpreadRange>k__BackingField: {x: 0.3, y: 0.1, z: 0.1}
+  <BulletSpreadRange>k__BackingField: {x: 0.15, y: 0.1, z: 0.1}
   <ReloadDuration>k__BackingField: 2
   <AmmoMax>k__BackingField: 10
   <AmmoPerShot>k__BackingField: 1
