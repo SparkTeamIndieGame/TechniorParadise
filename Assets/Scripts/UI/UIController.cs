@@ -1,4 +1,6 @@
 using Spark.Gameplay.Entities.Common.Data;
+using Spark.Gameplay.Weapons.MeleeWeapon;
+using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,13 +47,13 @@ namespace Spark.UI
             _playerHealthBar.value = health;
         }
 
-        public void UpdatePlayerWeaponUI(Weapon weapon)
+        public void UpdatePlayerWeaponUI(WeaponData weapon)
         {
-            _playerAmmo.enabled = (weapon is RangedWeapon);            
+            _playerAmmo.enabled = (weapon is RangedWeaponData);            
             _playerWeapon.text = weapon.Name;
         }
 
-        public void UpdatePlayerRangedWeaponAmmoUI(RangedWeapon rangedWeapon)
+        public void UpdatePlayerRangedWeaponAmmoUI(RangedWeaponData rangedWeapon)
         {
             _playerAmmo.enabled = true;
             if (rangedWeapon.IsReloading)

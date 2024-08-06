@@ -99,8 +99,5 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
         {
 
         }
-
-        public void SetTarget(Transform target) => _target = target;
-        public void ResetTarget() => _target = null;
     }
 }

@@ -1,43 +1,34 @@
 using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Entities.Enemies;
+using Spark.Gameplay.Weapons.MeleeWeapon;
+using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using Spark.Gameplay.Items.Interactable;
 using Spark.Gameplay.Items.Pickupable;
-using Spark.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 using Spark.Utilities.Cameras;
+using Spark.Gameplay.Entities.Common;
+using Spark.Utilities;
 
 namespace Spark.Gameplay.Entities.Player
 {
     [RequireComponent(
         typeof(PlayerView),
-        typeof(CharacterController),
-        typeof(Animator)
+        typeof(CharacterController)
     )]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Actor
     {
         [SerializeField] private PlayerModel _model;
         [SerializeField] private AnimController _animController;
         [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
-        [SerializeField] private Transform _firePoint;
-
-        [SerializeField, Range(0.5f, 5.0f)] private float _zooming = 2.5f;
 
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
 
-        [Serializable]
-        public enum MovementDirectionSetting
-        {
-            Up,
-            Left,
-            Right,
-            Down
-        }
+        [Serializable] public enum MovementDirectionSetting { Up, Left, Right, Down }
         [field: SerializeField] public MovementDirectionSetting MovementDirection { get; set; } 
 
         private Transform _target;
@@ -57,12 +48,21 @@ namespace Spark.Gameplay.Entities.Player
 
         private void Start()
         {
-            _view.UpdateActiveWeapon(_model.GetActiveWeapon());
-            _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+            if (_view == null) _view = GetComponent<PlayerView>();
+            _model.SetInvulnerViewer(_view);
 
-            _animController.Animator = GetComponent<Animator>();
-            _animController.SwitchAnimForTypeWeapon(_model.GetActiveWeapon());
+            UpdateActiveWeapon(_model.ActiveWeapon);
+
+            if (_animController.Animator == null) _animController.Animator = GetComponent<Animator>();
+            _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
         }
+
+        private void UpdateActiveWeapon(Weapon activeWeapon)
+        {
+            _view.UpdateActiveWeapon(activeWeapon);
+            _view.UpdateActiveWeaponUI(activeWeapon.Data);
+        }
+
         private void Update()
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
@@ -78,11 +78,6 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (_model.HasTarget) MovementHasTarget();
             else MovementWithoutTarget();
-        }
-
-        public void OnRegisterMeleeWeaponEvent()
-        {
-            _model.Attack();
         }
 
         #region Player movement
@@ -120,8 +115,8 @@ namespace Spark.Gameplay.Entities.Player
         }
         private void UpdateRangedWeaponAmmo()
         {
-            if (_model.GetActiveWeapon() is RangedWeapon)
-                _view.UpdateWeaponRangedAmmoUI(_model.GetActiveWeapon() as RangedWeapon);
+            if (_model.ActiveWeapon.Data is RangedWeaponData)
+                _view.UpdateWeaponRangedAmmoUI(_model.ActiveWeapon.Data as RangedWeaponData);
         }
         #endregion
 
@@ -177,34 +172,59 @@ namespace Spark.Gameplay.Entities.Player
         #region Player Attack system
         public void OnPlayerAttack(InputAction.CallbackContext context)
         {
+            if (_model.ActiveWeapon.Data is RangedWeaponData rangedWeapon)
+            {
+                if (rangedWeapon.IsAutomatic)
+                {
+                    if (context.performed) StartShooting(rangedWeapon.FireRate);
+                    else if (context.canceled) StopShooting();
+
+                    return;
+                }
+            }
+
             if (context.performed)
             {
-                _model.Attack();
-
-                if(_animController.GetTypeWeapon())
-                {
-                    _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
-                }
-
-                else
-                {
-                    _animController.AnimAttack(_model.GetCurrentRangedWeapon());
-
-                }
-               // print(_model.GetCurrentMeleeWeapon());
+                DoAttack();
             }
         }
+
+        private void StartShooting(float fireRate)
+        {
+            InvokeRepeating(nameof(DoAttack), 0f, fireRate);
+        }
+
+        private void StopShooting()
+        {
+            CancelInvoke(nameof(DoAttack));
+        }
+
+        private void DoAttack()
+        {
+            _model.Attack();
+
+            if (_animController.GetTypeWeapon())
+            {
+                _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
+            }
+
+            else
+            {
+                _animController.AnimAttack(_model.GetCurrentRangedWeapon());
+            }
+        }
+
         public void OnPlayerReloadWeapon(InputAction.CallbackContext context)
         {
             if (context.performed) _model.ReloadWeapon();
         }
+        #endregion
         public void OnPlayerSwitchWeapon(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
                 _model.SwitchWeapon();
-                _view.UpdateActiveWeapon(_model.GetActiveWeapon());
-                _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
+                UpdateActiveWeapon(_model.ActiveWeapon);
             }
         }
         public void OnPlayerSwitchWeaponType(InputAction.CallbackContext context)
@@ -212,19 +232,10 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed)
             {
                 _model.SwitchWeaponType();
-                _animController.SwitchAnimForTypeWeapon(_model.GetActiveWeapon());
-                _view.UpdateActiveWeapon(_model.GetActiveWeapon());
-                _view.UpdateActiveWeaponUI(_model.GetActiveWeapon());
-
-                Camera.main.GetComponent<TurnableFollowCamera>()
-                    .Zoom(
-                        _model.GetActiveWeapon() is MeleeWeapon ? 
-                        +_zooming : 
-                        -_zooming
-                    );
+                _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                UpdateActiveWeapon(_model.ActiveWeapon);
             }
         }
-        #endregion
 
         #region TODO: Items & Interactables
         public void OnPlayerActive(InputAction.CallbackContext context)
@@ -258,11 +269,7 @@ namespace Spark.Gameplay.Entities.Player
 #if UNITY_EDITOR
         private void OnDrawGizmos()
         {
-            var playerCenter = transform.position;
-            var playerAttackRadius = _model.GetActiveWeapon().Range;
 
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(playerCenter, playerAttackRadius);
         }
 #endif
     }

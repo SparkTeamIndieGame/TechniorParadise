@@ -32,14 +32,16 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
             _model.OnHealthChanged -= _view.UpdateHealtUI;
         }
 
-        private void Start()
+        protected override void AfterStart()
         {
 
         }
-        private void Update()
+
+        protected override void AfterUpdate()
         {
             SyncModelWithView();
         }
+
         private void FixedUpdate()
         {
             if (_model.HasTarget) MovementHasTarget();

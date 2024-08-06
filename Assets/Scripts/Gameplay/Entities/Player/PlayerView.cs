@@ -1,11 +1,14 @@
+using Spark.Gameplay.Entities.Common.Behaviour;
 using Spark.Gameplay.Entities.Common.Data;
+using Spark.Gameplay.Weapons.MeleeWeapon;
+using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using Spark.UI;
+using System;
 using UnityEngine;
 
 namespace Spark.Gameplay.Entities.Player
 {
-    public class PlayerView : MonoBehaviour
     public class PlayerView : MonoBehaviour, IInvulnerable
     {
         [SerializeField] UIController _uiController;
@@ -21,31 +24,56 @@ namespace Spark.Gameplay.Entities.Player
             _playerMeshes = gameObject.GetComponentsInChildren<MeshRenderer>();
         }
 
+        #region Update Player UI
         public void UpdateHealtUI(float health)
         {
             _uiController.UpdatePlayerHealthUI(health);
         }
+        #endregion
 
+        #region Update Target UI
+        public void UpdateTargetHealtUI(IDamagable damagable)
+        {
+            _uiController.UpdateTargetHealthUI(damagable);
+        }
+        #endregion
+
+        #region Change and display active weapon
         public void UpdateActiveWeapon(Weapon weapon)
         {
             Transform weaponTransform = transform.Find("Weapon");
-
-            while (weaponTransform.childCount > 0) 
-                DestroyImmediate(weaponTransform.GetChild(0).gameObject);
-
-            Transform firePoint = Instantiate(weapon.Prefab, weaponTransform).transform.Find("FirePoint");
-            if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
-            else (weapon as MeleeWeapon).SetHandPoint(weaponTransform);
+            DestroyChildrenImmediate(weaponTransform);
+            InstatiateWeapon(weapon, weapon.Data, weaponTransform);
         }
-        public void UpdateActiveWeaponUI(Weapon weapon)
+
+        private void DestroyChildrenImmediate(Transform parent)
+        {
+            while (parent.childCount > 0)
+            {
+                var child = parent.GetChild(0);
+                DestroyImmediate(child.gameObject);
+            }
+        }
+
+        private void InstatiateWeapon(Weapon weapon, WeaponData weaponData, Transform hand)
+        {
+            Transform firePoint = Instantiate(weaponData.Prefab, hand).transform.Find("FirePoint");
+            if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
+            else (weapon as MeleeWeapon).SetHandPoint(hand);
+        }
+        #endregion
+
+        #region Update weapon UI
+        public void UpdateActiveWeaponUI(WeaponData weapon)
         {
             _uiController.UpdatePlayerWeaponUI(weapon);
         }
 
-        public void UpdateWeaponRangedAmmoUI(RangedWeapon rangedWeapon)
+        public void UpdateWeaponRangedAmmoUI(RangedWeaponData rangedWeapon)
         {
             _uiController.UpdatePlayerRangedWeaponAmmoUI(rangedWeapon);
         }
+        #endregion
 
         public void SetInvulner(bool enabled)
         {
@@ -54,16 +82,6 @@ namespace Spark.Gameplay.Entities.Player
                 if (renderer != null) renderer.material = enabled ? _invulner : _normal;
             }
             gameObject.layer = SortingLayer.NameToID(enabled ? "Enemy" : "Player");
-        }
-
-        public void SetTarget(Transform target)
-        {
-            // todo!
-        }
-
-        public void UpdateTargetHealtUI(IDamagable damagable)
-        {
-            _uiController.UpdateTargetHealthUI(damagable);
         }
     }
 }

@@ -12,15 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1baa8d0327eb42469bca3118170b4bc, type: 3}
   m_Name: KatanaMeleeWeapon
   m_EditorClassIdentifier: 
-  _name: Katana
-  _description: This is Katana description
-  _damage: 3
-  _range: 1
-  _icon: {fileID: 0}
-  _prefab: {fileID: 5970483429101685861, guid: c0e19741a840840aaa48b6abb24a5ef3, type: 3}
-  _clips: []
-  _animation: {fileID: 0}
-  _animator: {fileID: 0}
-  _impactParticleSystem: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+  <Name>k__BackingField: Katana
+  <Description>k__BackingField: 
+  <AttackDamage>k__BackingField: 0
+  <AttackRange>k__BackingField: 5
+  <Icon>k__BackingField: {fileID: 0}
+  <Prefab>k__BackingField: {fileID: 5970483429101685861, guid: c0e19741a840840aaa48b6abb24a5ef3,
     type: 3}
-  _swingDelay: 0
+  <ImpactParticleSystem>k__BackingField: {fileID: 0}
+  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+    type: 3}
+  <SwingDelay>k__BackingField: 3

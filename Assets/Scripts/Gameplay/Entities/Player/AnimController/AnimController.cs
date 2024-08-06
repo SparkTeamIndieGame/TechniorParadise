@@ -1,5 +1,7 @@
 using UnityEngine;
 using System;
+using Spark.Gameplay.Weapons.MeleeWeapon;
+using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 
 namespace Spark.Gameplay.Entities.Player
@@ -24,34 +26,15 @@ namespace Spark.Gameplay.Entities.Player
             _animator.SetInteger("item", currentWeapon);
         }
 
-
-        public void SwitchAnimForTypeWeapon(Weapon weaponsType)
+        public void SwitchAnimForTypeWeapon(WeaponData weaponsType)
         {
-            if((weaponsType is MeleeWeapon))
-            {
-                _animator.SetBool("MeleWeapon", true);
-                _animator.SetBool("RangeWeapon", false);
-            }
-
-            else if((weaponsType is RangedWeapon))
-            {
-                _animator.SetBool("MeleWeapon", false);
-                _animator.SetBool("RangeWeapon", true);
-            }
+            _animator.SetBool("MeleWeapon", weaponsType is MeleeWeaponData);
+            _animator.SetBool("RangeWeapon", weaponsType is RangedWeaponData);
         }
 
         public void AnimMove(Vector2 movement)
         {
-            if (movement != Vector2.zero)
-            {
-                _animator.SetBool("Run", true);
-            }
-
-            else
-            {
-                _animator.SetBool("Run", false);
-            }
+            _animator.SetBool("Run", movement != Vector2.zero);
         }
     }
-
 }

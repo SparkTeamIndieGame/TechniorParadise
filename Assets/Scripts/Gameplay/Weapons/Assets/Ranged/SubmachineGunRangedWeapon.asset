@@ -12,24 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3aaf03a3f33444da30b40a970e39b6, type: 3}
   m_Name: SubmachineGunRangedWeapon
   m_EditorClassIdentifier: 
-  _name: SubmachineGun
-  _description: This is SubmachineGun description
-  _damage: 2
-  _range: 8
-  _icon: {fileID: 0}
-  _prefab: {fileID: 3281516993081201943, guid: 558fcd3ce5277473299d1b15d1d2a261, type: 3}
-  _clips: []
-  _animation: {fileID: 0}
-  _animator: {fileID: 0}
-  _shootingParticleSystem: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+  <Name>k__BackingField: Submachine Gun
+  <Description>k__BackingField: 
+  <AttackDamage>k__BackingField: 2
+  <AttackRange>k__BackingField: 12
+  <Icon>k__BackingField: {fileID: 0}
+  <Prefab>k__BackingField: {fileID: 3281516993081201943, guid: 558fcd3ce5277473299d1b15d1d2a261,
     type: 3}
-  _impactParticleSystem: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+  <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
     type: 3}
-  _reloadDuration: 2
-  _ammoMax: 24
-  _ammoPerShot: 1
-  _automatic: 0
-  _bulletSpreadRange: 0
-  _bulletTrail: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
+  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
     type: 3}
-  _shootDelay: 0.1
+  <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
+    type: 3}
+  <BulletSpreadRange>k__BackingField: {x: 0.6, y: 0.1, z: 0.1}
+  <ReloadDuration>k__BackingField: 3
+  <AmmoMax>k__BackingField: 30
+  <AmmoPerShot>k__BackingField: 1
+  <Automatic>k__BackingField: 1
+  <FireRate>k__BackingField: 0.25

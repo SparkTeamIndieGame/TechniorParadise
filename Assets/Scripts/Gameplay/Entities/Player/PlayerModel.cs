@@ -1,10 +1,14 @@
 using Spark.Gameplay.Entities.Common.Data;
 using Spark.Gameplay.Entities.Common.Abilities;
+using Spark.Gameplay.Weapons.MeleeWeapon;
+using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Spark.Gameplay.Entities.Enemies;
+using UnityEngine.UI;
+using Spark.Gameplay.Entities.Common.Behaviour;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -26,14 +30,27 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private FlashAbility _flashAbility;
         [SerializeField] private InvulnerAbility _invulnerAbility;
 
-        [SerializeField] private MeleeWeapon[] _meleeWeapons;
-        [SerializeField] private RangedWeapon[] _rangedWeapons;
-        [SerializeField] private Weapon _activeWeapon;
-        
+        [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;
+        [SerializeField] private RangedWeaponData[] _rangedWeaponsData;
+        [SerializeField] public Weapon ActiveWeapon 
+        { 
+            get => _toggleActiveWeaponType ? ActiveRangedWeapon : ActiveMeleeWeapon;
+            set
+            {
+                if (!value) return; // ?
+                if (value is MeleeWeapon) ActiveMeleeWeapon.Data = (value as MeleeWeapon).Data;
+                else ActiveRangedWeapon.Data = (value as RangedWeapon).Data;
+            }
+        }
+        bool _toggleActiveWeaponType = true;
+
+        [SerializeField] private MeleeWeapon ActiveMeleeWeapon;
+        [SerializeField] private RangedWeapon ActiveRangedWeapon;
+
         [SerializeField] private Transform _target;
 
-        private int _currentMeleeWeapon;
-        private int _currentRangedWeapon;
+        private int _currentMeleeWeaponData;
+        private int _currentRangedWeaponData;
 
         public float FlashCooldown => _flashAbility.Cooldown;
         public float InvulnerCooldown => _invulnerAbility.Cooldown;
@@ -55,6 +72,8 @@ namespace Spark.Gameplay.Entities.Player
             _turnSpeed = 1.0f;
 
             Health = MaxHealth;
+
+            ActiveWeapon = ActiveMeleeWeapon;
         }
 
         public PlayerModel(
@@ -63,12 +82,12 @@ namespace Spark.Gameplay.Entities.Player
             Transform transform) : this()
         {
             _flashAbility = new FlashAbility(_controller, _transform);
-            _invulnerAbility = new InvulnerAbility(playerView);
 
             _controller = controller;
             _transform = transform;
         }
 
+        #region Movement
         public void Move(Vector3 direction)
         {
             _controller.SimpleMove(direction * _moveSpeed * Time.deltaTime);
@@ -87,6 +106,11 @@ namespace Spark.Gameplay.Entities.Player
         {
             _transform.LookAt(_target);
         }
+        #endregion
+
+        #region Abilities
+        // todo: temporary solution, to be deleted
+        public void SetInvulnerViewer(IInvulnerable invulnerable) => _invulnerAbility = new InvulnerAbility(invulnerable);
 
         public void UseFlashAbility() => _flashAbility.Use();
         public void UseInvulnerAbility() => _invulnerAbility.Use();
@@ -95,10 +119,10 @@ namespace Spark.Gameplay.Entities.Player
         {
             _flashAbility.Update();
             _invulnerAbility.Update();
-
-            (_activeWeapon as RangedWeapon)?.Update();
         }
+        #endregion
 
+        #region Damagable
         public void Heal(float points)
         {
             Health = Mathf.Min(Health + points, MaxHealth);
@@ -114,50 +138,46 @@ namespace Spark.Gameplay.Entities.Player
         }
 
         public void Die() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        #endregion
 
         public void Attack()
         {
-            if (_activeWeapon is RangedWeapon)
+            if (ActiveWeapon.Data is RangedWeaponData rwData)
             {
-                var weapon = _activeWeapon as RangedWeapon;
-                if (weapon.IsReloading) return;
+                if (rwData.IsReloading) return;
 
-                if (weapon.HasAmmo)
-                    weapon.Shoot();
+                if (rwData.HasAmmo)
+                    (ActiveWeapon as RangedWeapon).Shoot();
             }
-            else if (_activeWeapon is MeleeWeapon melee)
+            else if (ActiveWeapon.Data is MeleeWeaponData)
             {
-                melee.TakeSwing();
+                (ActiveWeapon as MeleeWeapon).TakeSwing();
             }
         }
 
-        public void ReloadWeapon() => (_activeWeapon as RangedWeapon)?.Reload();
+        public void ReloadWeapon() => (ActiveWeapon.Data as RangedWeaponData)?.Reload();
 
         public void SwitchWeapon()
         {
-            if (_activeWeapon is MeleeWeapon)
+            if (ActiveWeapon.Data is MeleeWeaponData)
             {
-                _currentMeleeWeapon = (_currentMeleeWeapon + 1) % _meleeWeapons.Length;
-                _activeWeapon = _meleeWeapons[_currentMeleeWeapon];
-                
+                _currentMeleeWeaponData = (_currentMeleeWeaponData + 1) % _meleeWeaponsData.Length;
+                ActiveWeapon.Data = _meleeWeaponsData[_currentMeleeWeaponData];
             }
-            else if (_activeWeapon is RangedWeapon)
+            else if (ActiveWeapon.Data is RangedWeaponData)
             {
-                _currentRangedWeapon = (_currentRangedWeapon + 1) % _rangedWeapons.Length;
-                _activeWeapon = _rangedWeapons[_currentRangedWeapon];
+                _currentRangedWeaponData = (_currentRangedWeaponData + 1) % _rangedWeaponsData.Length;
+                ActiveWeapon.Data = _rangedWeaponsData[_currentRangedWeaponData];
             }
         }
         public void SwitchWeaponType()
         {
-            _activeWeapon =
-                _activeWeapon == _meleeWeapons[_currentMeleeWeapon]
-                    ? _rangedWeapons[_currentRangedWeapon] : _meleeWeapons[_currentMeleeWeapon];
+            _toggleActiveWeaponType = !_toggleActiveWeaponType;
+            ActiveWeapon.Data = _toggleActiveWeaponType ? ActiveRangedWeapon.Data : ActiveMeleeWeapon.Data;
         }
 
-        public Weapon GetActiveWeapon() => _activeWeapon;
-
-        public int GetCurrentMeleeWeapon() => _currentMeleeWeapon;
-        public int GetCurrentRangedWeapon() => _currentRangedWeapon;
+        public int GetCurrentMeleeWeapon() => _currentMeleeWeaponData;
+        public int GetCurrentRangedWeapon() => _currentRangedWeaponData;
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
