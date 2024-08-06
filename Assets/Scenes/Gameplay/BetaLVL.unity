@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1814971, g: 0.22713327, b: 0.3073437, a: 1}
+  m_IndirectSpecularColor: {r: 0.18154866, g: 0.22718975, b: 0.30740783, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -505,7 +505,6 @@ MonoBehaviour:
   _distanceView: 8
   idEnemy: 
   _targetDetected: 0
-  _wasAttackCorutineStart: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 655360
@@ -863,7 +862,6 @@ MonoBehaviour:
   _distanceView: 8
   idEnemy: 
   _targetDetected: 0
-  _wasAttackCorutineStart: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 655360
@@ -1443,13 +1441,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566596884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40557975, y: -0.579228, z: 0.40557975, w: 0.579228}
-  m_LocalPosition: {x: -154.72, y: 33.6, z: 115.7}
+  m_LocalRotation: {x: 0.45794198, y: -0.5387849, z: 0.45794198, w: 0.5387849}
+  m_LocalPosition: {x: -167.5, y: 13.6, z: 111.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 70, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 80.726, y: -90, z: 0}
 --- !u!114 &566596888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1463,32 +1461,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 1062505321}
-  _offset: {x: 2, y: 9, z: 0}
---- !u!1 &570515622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570515623}
-  - component: {fileID: 570515625}
-  - component: {fileID: 570515624}
-  m_Layer: 20
-  m_Name: Model
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!4 &570515623
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570515622}
+  m_GameObject: {fileID: 575505000}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
@@ -1503,7 +1482,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570515622}
+  m_GameObject: {fileID: 575505000}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1545,8 +1524,26 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570515622}
+  m_GameObject: {fileID: 575505000}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &575505000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 570515623}
+  - component: {fileID: 570515625}
+  - component: {fileID: 570515624}
+  m_Layer: 20
+  m_Name: Model
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &598018624
 GameObject:
   m_ObjectHideFlags: 0
@@ -4774,24 +4771,22 @@ MonoBehaviour:
       _description: The player becomes immune to damage
       _cooldownDuration: 20
       _abilityDuration: 10
-      _view: {fileID: 1062505318}
-    _meleeWeapons:
+    _meleeWeaponsData:
     - {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
     - {fileID: 11400000, guid: d3023b9ad7aa6474196cb2e3efd756b1, type: 2}
-    _rangedWeapons:
+    _rangedWeaponsData:
     - {fileID: 11400000, guid: d8da62bfb34866a49bd3137a31322f72, type: 2}
     - {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
-    _activeWeapon: {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
+    ActiveMeleeWeapon: {fileID: 1882596911}
+    ActiveRangedWeapon: {fileID: 1882596910}
     _target: {fileID: 0}
   _animController:
-    _animator: {fileID: 0}
+    _animator: {fileID: 1062505316}
   _distanceView: 0
   _view: {fileID: 1062505318}
-  _firePoint: {fileID: 1882596909}
-  _zooming: 2.5
   _movementAction: {fileID: -2714811556044068283, guid: d688dede981b4ba4aa2d32a9f862a2d9,
     type: 3}
-  _movementDirection: 0
+  <MovementDirection>k__BackingField: 0
 --- !u!143 &1062505320
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5444,7 +5439,6 @@ MonoBehaviour:
   _distanceView: 8
   idEnemy: 
   _targetDetected: 0
-  _wasAttackCorutineStart: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 655360
@@ -6581,6 +6575,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1882596909}
+  - component: {fileID: 1882596911}
+  - component: {fileID: 1882596910}
   m_Layer: 19
   m_Name: Weapon
   m_TagString: Untagged
@@ -6603,6 +6599,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1062505321}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1882596910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882596908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb290f1e1b23f224597206fac73232a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: d8da62bfb34866a49bd3137a31322f72, type: 2}
+--- !u!114 &1882596911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882596908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0edc6c5e5acf739448784097d837cc1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
 --- !u!1 &1887450811
 GameObject:
   m_ObjectHideFlags: 0
@@ -7320,7 +7342,6 @@ MonoBehaviour:
   _distanceView: 40
   idEnemy: 
   _targetDetected: 0
-  _wasAttackCorutineStart: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 655360
@@ -7402,6 +7423,8 @@ MonoBehaviour:
   _playerAmmo: {fileID: 598018627}
   _targetUI: {fileID: 1326013995}
   _targetHealthBar: {fileID: 324084863}
+  _bossUI: {fileID: 0}
+  _bossHealthBar: {fileID: 0}
 --- !u!224 &2090756906
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7947,7 +7970,6 @@ MonoBehaviour:
   _distanceView: 8
   idEnemy: 
   _targetDetected: 0
-  _wasAttackCorutineStart: 0
   _layerMask:
     serializedVersion: 2
     m_Bits: 655360
