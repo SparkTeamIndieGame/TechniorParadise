@@ -5,6 +5,7 @@ using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using Spark.Gameplay.Items.Interactable;
 using Spark.Gameplay.Items.Pickupable;
+using Spark.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -21,6 +22,7 @@ namespace Spark.Gameplay.Entities.Player
     {
         [SerializeField] private PlayerModel _model;
         [SerializeField] private AnimController _animController;
+        [SerializeField] private AudioSystem _audioSystem;
         [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
 
@@ -61,6 +63,8 @@ namespace Spark.Gameplay.Entities.Player
 
             if (_animController.Animator == null) _animController.Animator = GetComponent<Animator>();
             _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+
+            _audioSystem.Instalize();
         }
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
@@ -74,7 +78,15 @@ namespace Spark.Gameplay.Entities.Player
             _movement = _movementAction.action.ReadValue<Vector2>();
             _animController.AnimMove(_movement);
            
+            if(_movement == Vector2.zero)
+            {
+                _audioSystem.AudioDictinory["Walk"].mute = true;
+            }
 
+            else if(_movement != Vector2.zero)
+            {
+                _audioSystem.AudioDictinory["Walk"].mute = false;
+            }
 
             SyncModelWithView();
         }
@@ -205,19 +217,21 @@ namespace Spark.Gameplay.Entities.Player
         {
             CancelInvoke(nameof(DoAttack));
         }
+        //public void MeleAttackEvent() => _model.Attack();
 
         private void DoAttack()
         {
-            _model.Attack();
 
             if (_animController.GetTypeWeapon())
             {
                 _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
+                _model.Attack();
             }
 
             else
             {
                 _animController.AnimAttack(_model.GetCurrentRangedWeapon());
+                _model.Attack();
             }
         }
 
