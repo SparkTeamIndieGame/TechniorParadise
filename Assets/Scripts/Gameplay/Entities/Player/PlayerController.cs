@@ -262,6 +262,8 @@ namespace Spark.Gameplay.Entities.Player
             }
         }
 
+        public bool PickUpMedKit() => _medKitAbility.Add();
+
         private void OnTriggerEnter(Collider other)
         {
             TryActivateItemTo(other, _model);

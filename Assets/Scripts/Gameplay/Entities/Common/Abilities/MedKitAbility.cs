@@ -37,8 +37,10 @@ namespace Spark.Gameplay.Entities.Common.Abilities
 
         public bool Add()
         {
-            if (_amount + 1 <= _maxAmount) ++_amount;
-            return _amount <= _maxAmount;
+            if (_amount >= _maxAmount) return false;
+            
+            ++_amount;
+            return true;
         }        
     }
 }
