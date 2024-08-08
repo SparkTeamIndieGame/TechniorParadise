@@ -21,12 +21,8 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
         [SerializeField, Min(0.0f)] private float _health;
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
-
-        [SerializeField] private FlashAbility _flashAbility;
                 
         [SerializeField] private Transform _target;
-
-        public float FlashCooldown => _flashAbility.Cooldown;
 
         public float MaxHealth => _healthMax;
         public float Health
@@ -47,17 +43,6 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
             Health = MaxHealth;
         }
 
-        public CrabModel(
-            CrabView playerView, 
-            CharacterController controller, 
-            Transform transform) : this()
-        {
-            _flashAbility = new FlashAbility(_controller, _transform);
-
-            _controller = controller;
-            _transform = transform;
-        }
-
         public void Move(Vector3 direction)
         {
             _controller.SimpleMove(direction * _moveSpeed * Time.deltaTime);
@@ -76,8 +61,6 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
         {
             _transform.LookAt(_target);
         }
-
-        public void UseFlashAbility() => _flashAbility.Use();
 
         public void Heal(float points)
         {

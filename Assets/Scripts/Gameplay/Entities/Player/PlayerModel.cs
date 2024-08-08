@@ -27,8 +27,7 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
 
-        [SerializeField] private FlashAbility _flashAbility;
-        [SerializeField] private InvulnerAbility _invulnerAbility;
+        [field: SerializeField] public int Details { get; set; }
 
         [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;
         [SerializeField] private RangedWeaponData[] _rangedWeaponsData;
@@ -52,9 +51,6 @@ namespace Spark.Gameplay.Entities.Player
         private int _currentMeleeWeaponData;
         private int _currentRangedWeaponData;
 
-        public float FlashCooldown => _flashAbility.Cooldown;
-        public float InvulnerCooldown => _invulnerAbility.Cooldown;
-
         public float MaxHealth => _healthMax;
         public float Health
         {
@@ -76,17 +72,6 @@ namespace Spark.Gameplay.Entities.Player
             ActiveWeapon = ActiveMeleeWeapon;
         }
 
-        public PlayerModel(
-            PlayerView playerView, 
-            CharacterController controller, 
-            Transform transform) : this()
-        {
-            _flashAbility = new FlashAbility(_controller, _transform);
-
-            _controller = controller;
-            _transform = transform;
-        }
-
         #region Movement
         public void Move(Vector3 direction)
         {
@@ -105,20 +90,6 @@ namespace Spark.Gameplay.Entities.Player
         public void LookAtTarget()
         {
             _transform.LookAt(_target);
-        }
-        #endregion
-
-        #region Abilities
-        // todo: temporary solution, to be deleted
-        public void SetInvulnerViewer(IInvulnerable invulnerable) => _invulnerAbility = new InvulnerAbility(invulnerable);
-
-        public void UseFlashAbility() => _flashAbility.Use();
-        public void UseInvulnerAbility() => _invulnerAbility.Use();
-        
-        public void Update()
-        {
-            _flashAbility.Update();
-            _invulnerAbility.Update();
         }
         #endregion
 

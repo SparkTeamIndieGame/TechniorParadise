@@ -8,9 +8,8 @@ using Spark.Gameplay.Items.Pickupable;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Spark.Utilities.Cameras;
 using Spark.Gameplay.Entities.Common;
-using Spark.Utilities;
+using Spark.Gameplay.Entities.Common.Abilities;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -27,6 +26,10 @@ namespace Spark.Gameplay.Entities.Player
 
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
+
+        [SerializeField] private FlashAbility _flashAbility;
+        [SerializeField] private InvulnerAbility _invulnerability;
+        [SerializeField] private MedKitAbility _medKitAbility;
 
         [Serializable] public enum MovementDirectionSetting { Up, Left, Right, Down }
         [field: SerializeField] public MovementDirectionSetting MovementDirection { get; set; } 
@@ -49,7 +52,10 @@ namespace Spark.Gameplay.Entities.Player
         private void Start()
         {
             if (_view == null) _view = GetComponent<PlayerView>();
-            _model.SetInvulnerViewer(_view);
+
+            _flashAbility.Intstantiate(GetComponent<CharacterController>(), transform);
+            _invulnerability.Intstantiate(_view);
+            _medKitAbility.Intstantiate(_model);
 
             UpdateActiveWeapon(_model.ActiveWeapon);
 
@@ -67,8 +73,6 @@ namespace Spark.Gameplay.Entities.Player
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
             _animController.AnimMove(_movement);
-            _model.Update();
-
            
 
 
@@ -109,7 +113,9 @@ namespace Spark.Gameplay.Entities.Player
         #region Update player Model and View
         private void SyncModelWithView()
         {
-            _model.Update();
+            _flashAbility.Update();
+            _invulnerability.Update();
+            _medKitAbility.Update();
 
             UpdateRangedWeaponAmmo();
         }
@@ -121,8 +127,9 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region Player abilities
-        public void OnFlashAbilityButton(InputAction.CallbackContext context) => _model.UseFlashAbility();
-        public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _model.UseInvulnerAbility();
+        public void OnFlashAbilityButton(InputAction.CallbackContext context) => _flashAbility.Use();
+        public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _invulnerability.Use();
+        public void OnMedKitAbilityButton(InputAction.CallbackContext context) => _medKitAbility.Use();
         #endregion
 
         #region Player select target
@@ -250,15 +257,19 @@ namespace Spark.Gameplay.Entities.Player
                 );
                 foreach (Collider item in items) 
                 { 
-                    TryActivateItemTo(item, _model);
                     TryActivateInteractableObject(item);
                 }
             }
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            TryActivateItemTo(other, _model);
+        }
+
         private void TryActivateItemTo(Collider item, PlayerModel player)
         {
-            item.GetComponent<IPickupable>()?.Activate();
+            item.GetComponent<IPickupable>()?.Activate(player);
         }
         private void TryActivateInteractableObject(Collider interactableObject)
         {

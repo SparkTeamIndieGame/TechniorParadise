@@ -1,7 +1,9 @@
+using Spark.Gameplay.Entities.Player;
+
 namespace Spark.Gameplay.Items.Pickupable
 {
     interface IPickupable
     {
-        void Activate();
+        void Activate(PlayerModel player);
     }
 }
