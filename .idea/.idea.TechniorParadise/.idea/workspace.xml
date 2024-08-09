@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/UI_elements.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/UI_elements.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/BetaLVL.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/BetaLVL.unity" afterDir="false" />
-    </list>
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +90,7 @@
       <updated>1722629046269</updated>
       <workItem from="1722629049532" duration="1568000" />
       <workItem from="1723050488021" duration="28000" />
+      <workItem from="1723245478033" duration="5000" />
     </task>
     <servers />
   </component>
