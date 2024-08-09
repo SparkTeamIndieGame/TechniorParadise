@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
+using Spark.Utilities;
 
 
 namespace Spark.Gameplay.Entities.Common
@@ -15,6 +16,7 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] private List<Transform> _patrolPoints;
 
         [SerializeField] protected bool canMove = true;
+        [SerializeField] protected AudioSystem _audioSystem;
 
         protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
@@ -27,6 +29,7 @@ namespace Spark.Gameplay.Entities.Common
 
             _spawnPoint = transform.position;
             _animator = GetComponent<Animator>();
+            _audioSystem.Instalize();
 
             AfterStart();
         }
@@ -89,10 +92,12 @@ namespace Spark.Gameplay.Entities.Common
             if (!_navMeshAgent.hasPath)
             {
                 _animator.SetBool("Run", false);
+                _audioSystem.AudioDictinory["Move"].mute = true;
             }
             else
             {
                 _animator.SetBool("Run", true);
+                _audioSystem.AudioDictinory["Move"].mute = false;
             }
         }
 

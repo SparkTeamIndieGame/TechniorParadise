@@ -50,6 +50,8 @@ namespace Spark.Gameplay.Entities.Enemies
         {
             Health -= points;
             OnHealthChanged?.Invoke(this);
+            _audioSystem.AudioDictinory["TakeDamage"].Play();
+
             if (Health <= 0) Die();
         }
         public void Die()
@@ -57,7 +59,10 @@ namespace Spark.Gameplay.Entities.Enemies
             TryToDrop(_dropDetailsPickup);
             TryToDrop(_dropAidKitPickup);
 
-            Destroy(gameObject);
+            _animator.SetBool("Dead", true);
+            _audioSystem.AudioDictinory["Dead"].Play();
+            _navMeshAgent.isStopped = true;
+            Destroy(gameObject, 3);
         }
 
         private void TryToDrop(DropEnemyItem dropInfo)
@@ -70,6 +75,7 @@ namespace Spark.Gameplay.Entities.Enemies
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
             ParticlPlay(_shootingParticleSystem, transform);
+            _audioSystem.AudioDictinory["Attack"].Play();
             CalculateHit();
             _lastAttackTime = Time.time;
         }

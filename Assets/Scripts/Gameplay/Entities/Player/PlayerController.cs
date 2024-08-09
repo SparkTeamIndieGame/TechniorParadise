@@ -22,7 +22,6 @@ namespace Spark.Gameplay.Entities.Player
     {
         [SerializeField] private PlayerModel _model;
         [SerializeField] private AnimController _animController;
-        [SerializeField] private AudioSystem _audioSystem;
         [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
 
@@ -47,7 +46,7 @@ namespace Spark.Gameplay.Entities.Player
         private void OnDisable()
         {
             Enemy.OnEnemyAttack -= _model.TakeDamage;
-            
+
             _model.OnHealthChanged -= _view.UpdateHealtUI;
         }
 
@@ -64,7 +63,7 @@ namespace Spark.Gameplay.Entities.Player
             if (_animController.Animator == null) _animController.Animator = GetComponent<Animator>();
             _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
 
-            _audioSystem.Instalize();
+            _model.AudioSystem.Instalize();
         }
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
@@ -77,15 +76,15 @@ namespace Spark.Gameplay.Entities.Player
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
             _animController.AnimMove(_movement);
-           
-            if(_movement == Vector2.zero)
+
+            if (_movement == Vector2.zero)
             {
-                _audioSystem.AudioDictinory["Walk"].mute = true;
+                _model.AudioSystem.AudioDictinory["Walk"].mute = true;
             }
 
-            else if(_movement != Vector2.zero)
+            else if (_movement != Vector2.zero)
             {
-                _audioSystem.AudioDictinory["Walk"].mute = false;
+                _model.AudioSystem.AudioDictinory["Walk"].mute = false;
             }
 
             SyncModelWithView();
@@ -292,6 +291,7 @@ namespace Spark.Gameplay.Entities.Player
             interactableObject.GetComponent<IInteractable>()?.Activate();
         }
         #endregion
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

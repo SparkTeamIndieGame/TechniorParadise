@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace Spark.Utilities
 {
-    [RequireComponent(typeof(AudioSource))]
-
-    
     [Serializable]
     public class AudioSystem
     {
@@ -18,7 +15,7 @@ namespace Spark.Utilities
 
             for(int i =0; i < audioSources.Length; i++)
             {
-                AudioDictinory.Add(audioSources[i].clip.name, audioSources[i]);
+                AudioDictinory.Add(audioSources[i].gameObject.name, audioSources[i]);
             }
         }
     }
