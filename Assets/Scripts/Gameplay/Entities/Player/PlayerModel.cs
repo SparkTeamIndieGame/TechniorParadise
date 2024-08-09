@@ -29,6 +29,7 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
 
         [field: SerializeField] public int Details { get; set; }
+        [field: SerializeField] public FlashCard.FlashCard FlashCard { get; set; }
 
         [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;
         [SerializeField] private RangedWeaponData[] _rangedWeaponsData;

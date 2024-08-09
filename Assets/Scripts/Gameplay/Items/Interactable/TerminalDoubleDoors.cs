@@ -1,5 +1,6 @@
 using Spark.Gameplay.Entities.Player;
 using Spark.Gameplay.Items.Interactable;
+using UnityEngine;
 
 namespace Spark.Gameplay.Items.Pickupable.Doors.Terminal
 {
@@ -12,6 +13,6 @@ namespace Spark.Gameplay.Items.Pickupable.Doors.Terminal
         }
 
         public override void Activate(PlayerModel player) { } // cleared for IPickupable
-        public void Activate() => _isActivated = true;
+        public virtual void Activate() => _isActivated = true;
     }
 }
