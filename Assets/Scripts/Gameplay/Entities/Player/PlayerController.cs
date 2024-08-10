@@ -63,7 +63,7 @@ namespace Spark.Gameplay.Entities.Player
             if (_animController.Animator == null) _animController.Animator = GetComponent<Animator>();
             _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
 
-            _model.AudioSystem.Instalize();
+            //_model.AudioSystem.Instalize();
         }
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
@@ -77,15 +77,15 @@ namespace Spark.Gameplay.Entities.Player
             _movement = _movementAction.action.ReadValue<Vector2>();
             _animController.AnimMove(_movement);
 
-            if (_movement == Vector2.zero)
-            {
-                _model.AudioSystem.AudioDictinory["Walk"].mute = true;
-            }
+            //if (_movement == Vector2.zero)
+            //{
+            //    _model.AudioSystem.AudioDictinory["Walk"].mute = true;
+            //}
 
-            else if (_movement != Vector2.zero)
-            {
-                _model.AudioSystem.AudioDictinory["Walk"].mute = false;
-            }
+            //else if (_movement != Vector2.zero)
+            //{
+            //    _model.AudioSystem.AudioDictinory["Walk"].mute = false;
+            //}
 
             SyncModelWithView();
         }

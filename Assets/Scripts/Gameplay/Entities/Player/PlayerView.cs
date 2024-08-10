@@ -15,6 +15,7 @@ namespace Spark.Gameplay.Entities.Player
         
         [SerializeField] Material _normal;
         [SerializeField] Material _invulner;
+        [SerializeField] Transform _weapon;
         MeshRenderer[] _playerMeshes;
 
         private void Start()
@@ -41,7 +42,7 @@ namespace Spark.Gameplay.Entities.Player
         #region Change and display active weapon
         public void UpdateActiveWeapon(Weapon weapon)
         {
-            Transform weaponTransform = transform.Find("Weapon");
+            Transform weaponTransform = _weapon;
             DestroyChildrenImmediate(weaponTransform);
             InstatiateWeapon(weapon, weapon.Data, weaponTransform);
         }

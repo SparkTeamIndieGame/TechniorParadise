@@ -17,7 +17,7 @@ MonoBehaviour:
   <AttackDamage>k__BackingField: 1
   <AttackRange>k__BackingField: 2
   <Icon>k__BackingField: {fileID: 0}
-  <Prefab>k__BackingField: {fileID: 5970483429101685861, guid: c0e19741a840840aaa48b6abb24a5ef3,
+  <Prefab>k__BackingField: {fileID: 7301990941002630720, guid: 4bd3567a17ba94d91853aea801de83a8,
     type: 3}
   <ImpactParticleSystem>k__BackingField: {fileID: 0}
   <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,

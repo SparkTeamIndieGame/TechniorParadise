@@ -15,9 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: Submachine Gun
   <Description>k__BackingField: 
   <AttackDamage>k__BackingField: 2
-  <AttackRange>k__BackingField: 12
+  <AttackRange>k__BackingField: 100
   <Icon>k__BackingField: {fileID: 0}
-  <Prefab>k__BackingField: {fileID: 3281516993081201943, guid: 558fcd3ce5277473299d1b15d1d2a261,
+  <Prefab>k__BackingField: {fileID: 3759053644476711317, guid: b3f6b11499a984696a0195429208c503,
     type: 3}
   <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
     type: 3}
@@ -27,7 +27,7 @@ MonoBehaviour:
     type: 3}
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
-  <BulletSpreadRange>k__BackingField: {x: 0.2, y: 0.1, z: 0.1}
+  <BulletSpreadRange>k__BackingField: {x: 0, y: 0, z: 0}
   <ReloadDuration>k__BackingField: 3
   <AmmoMax>k__BackingField: 30
   <AmmoPerShot>k__BackingField: 1

@@ -15,9 +15,9 @@ MonoBehaviour:
   <Name>k__BackingField: Pistol
   <Description>k__BackingField: 
   <AttackDamage>k__BackingField: 4
-  <AttackRange>k__BackingField: 15
+  <AttackRange>k__BackingField: 100
   <Icon>k__BackingField: {fileID: 0}
-  <Prefab>k__BackingField: {fileID: 2681849453170993100, guid: 4fceff4238ec54394a6d0cdb634e775f,
+  <Prefab>k__BackingField: {fileID: 6870294464982199676, guid: 35bb49edbee7c4f48be39fa36d8f30fc,
     type: 3}
   <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
     type: 3}
@@ -27,9 +27,9 @@ MonoBehaviour:
     type: 3}
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
-  <BulletSpreadRange>k__BackingField: {x: 0.15, y: 0.1, z: 0.1}
+  <BulletSpreadRange>k__BackingField: {x: 0, y: 0, z: 0}
   <ReloadDuration>k__BackingField: 2
   <AmmoMax>k__BackingField: 10
   <AmmoPerShot>k__BackingField: 1
-  <Automatic>k__BackingField: 0
+  <Automatic>k__BackingField: 1
   <FireRate>k__BackingField: 1
