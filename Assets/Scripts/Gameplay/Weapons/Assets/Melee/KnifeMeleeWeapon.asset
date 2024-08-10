@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1baa8d0327eb42469bca3118170b4bc, type: 3}
+  m_Name: KnifeMeleeWeapon
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Knife
+  <Description>k__BackingField: 
+  <AttackDamage>k__BackingField: 1
+  <AttackRange>k__BackingField: 3
+  <Icon>k__BackingField: {fileID: 0}
+  <Prefab>k__BackingField: {fileID: 4547496760225910273, guid: 83a2491316a6e4377967422c8ba20ef4,
+    type: 3}
+  <ImpactParticleSystem>k__BackingField: {fileID: 0}
+  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+    type: 3}
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: e86133e968f99ba44a124597cee3bdb3,
+    type: 3}
+  <SwingDelay>k__BackingField: 2
