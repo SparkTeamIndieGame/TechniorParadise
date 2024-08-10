@@ -14746,7 +14746,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 9.199413, y: 11.300217, z: 7.342148}
+  m_Size: {x: 17.7529, y: 11.300217, z: 7.342148}
   m_Center: {x: 1.086473, y: 0, z: -0.66352844}
 --- !u!4 &550454385
 Transform:
@@ -14757,7 +14757,7 @@ Transform:
   m_GameObject: {fileID: 550454382}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.52, y: 5.99, z: -27.25}
+  m_LocalPosition: {x: 7.52, y: 5.99, z: -26.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56234,7 +56234,7 @@ PrefabInstance:
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
       propertyPath: _model.<FlashCard>k__BackingField.<MaxAmount>k__BackingField
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9141589180813926664, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
