@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using Spark.Gameplay.Entities.Enemies;
 using UnityEngine.UI;
 using Spark.Gameplay.Entities.Common.Behaviour;
+using Spark.Utilities;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -27,8 +28,8 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
 
-        [SerializeField] private FlashAbility _flashAbility;
-        [SerializeField] private InvulnerAbility _invulnerAbility;
+        [field: SerializeField] public int Details { get; set; }
+        [field: SerializeField] public FlashCard.FlashCard FlashCard { get; set; }
 
         [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;
         [SerializeField] private RangedWeaponData[] _rangedWeaponsData;
@@ -52,9 +53,7 @@ namespace Spark.Gameplay.Entities.Player
         private int _currentMeleeWeaponData;
         private int _currentRangedWeaponData;
 
-        public float FlashCooldown => _flashAbility.Cooldown;
-        public float InvulnerCooldown => _invulnerAbility.Cooldown;
-
+        public AudioSystem AudioSystem;
         public float MaxHealth => _healthMax;
         public float Health
         {
@@ -74,17 +73,6 @@ namespace Spark.Gameplay.Entities.Player
             Health = MaxHealth;
 
             ActiveWeapon = ActiveMeleeWeapon;
-        }
-
-        public PlayerModel(
-            PlayerView playerView, 
-            CharacterController controller, 
-            Transform transform) : this()
-        {
-            _flashAbility = new FlashAbility(_controller, _transform);
-
-            _controller = controller;
-            _transform = transform;
         }
 
         #region Movement
@@ -108,20 +96,6 @@ namespace Spark.Gameplay.Entities.Player
         }
         #endregion
 
-        #region Abilities
-        // todo: temporary solution, to be deleted
-        public void SetInvulnerViewer(IInvulnerable invulnerable) => _invulnerAbility = new InvulnerAbility(invulnerable);
-
-        public void UseFlashAbility() => _flashAbility.Use();
-        public void UseInvulnerAbility() => _invulnerAbility.Use();
-        
-        public void Update()
-        {
-            _flashAbility.Update();
-            _invulnerAbility.Update();
-        }
-        #endregion
-
         #region Damagable
         public void Heal(float points)
         {
@@ -133,11 +107,16 @@ namespace Spark.Gameplay.Entities.Player
         {
             Health -= points;
             OnHealthChanged?.Invoke(Health);
+            AudioSystem.AudioDictinory["TakeDamage"].Play();
 
             if (Health <= 0) Die();
         }
 
-        public void Die() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        public void Die()
+        {
+            AudioSystem.AudioDictinory["Dead"].Play();
+            
+        }
         #endregion
 
         public void Attack()

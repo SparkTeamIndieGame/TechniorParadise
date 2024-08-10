@@ -33,12 +33,14 @@ namespace Spark.Gameplay.Weapons.MeleeWeapon
         {
             if (_lastSwingTime + _data.SwingDelay > Time.time) return;
 
+            PlaySound(_data.AudioClip, audioSource);
+
             var hits = Physics.OverlapSphere(_handPoint.position, _data.AttackRange);
             foreach (var hit in hits)
             {
                 if (hit.transform.TryGetComponent(out IDamagable damagable))
                 {
-                    _data.PlayParticleSystem(_data.ImpactParticleSystem, hit.transform);
+                    _data.PlayParticleSystem(_data.HitEntityParticleSystem, hit.transform);
                     damagable.TakeDamage(_data.AttackDamage);
                 }
             }

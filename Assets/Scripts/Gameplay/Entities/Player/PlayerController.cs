@@ -5,12 +5,12 @@ using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using Spark.Gameplay.Items.Interactable;
 using Spark.Gameplay.Items.Pickupable;
+using Spark.Utilities;
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Spark.Utilities.Cameras;
 using Spark.Gameplay.Entities.Common;
-using Spark.Utilities;
+using Spark.Gameplay.Entities.Common.Abilities;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -28,10 +28,16 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
 
+        [SerializeField] private FlashAbility _flashAbility;
+        [SerializeField] private InvulnerAbility _invulnerability;
+        [SerializeField] private MedKitAbility _medKitAbility;
+
         [Serializable] public enum MovementDirectionSetting { Up, Left, Right, Down }
         [field: SerializeField] public MovementDirectionSetting MovementDirection { get; set; } 
 
         private Transform _target;
+
+        public FlashCard.FlashCard FlashCard => _model.FlashCard;
 
         private void OnEnable()
         {
@@ -42,19 +48,25 @@ namespace Spark.Gameplay.Entities.Player
         private void OnDisable()
         {
             Enemy.OnEnemyAttack -= _model.TakeDamage;
-            
+
             _model.OnHealthChanged -= _view.UpdateHealtUI;
         }
 
         private void Start()
         {
             if (_view == null) _view = GetComponent<PlayerView>();
-            _model.SetInvulnerViewer(_view);
+            _view.NeedCardUI(_model.FlashCard.MaxAmount);
+
+            _flashAbility.Intstantiate(GetComponent<CharacterController>(), transform);
+            _invulnerability.Intstantiate(_view);
+            _medKitAbility.Intstantiate(_model);
 
             UpdateActiveWeapon(_model.ActiveWeapon);
 
             if (_animController.Animator == null) _animController.Animator = GetComponent<Animator>();
             _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+
+            _model.AudioSystem.Instalize();
         }
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
@@ -67,10 +79,23 @@ namespace Spark.Gameplay.Entities.Player
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
             _animController.AnimMove(_movement);
-            _model.Update();
+            _view.UpdateCardUI(FlashCard);
 
-           
+            if (_movement == Vector2.zero)
+            {
+                _model.AudioSystem.AudioDictinory["Walk"].mute = true;
+            }
 
+            else if (_movement != Vector2.zero)
+            {
+                _model.AudioSystem.AudioDictinory["Walk"].mute = false;
+            }
+
+            if(_model.Health <= 0)
+            {
+                _animController.Animator.SetTrigger("Dead");
+                this.enabled = false;
+            }
 
             SyncModelWithView();
         }
@@ -109,7 +134,9 @@ namespace Spark.Gameplay.Entities.Player
         #region Update player Model and View
         private void SyncModelWithView()
         {
-            _model.Update();
+            _flashAbility.Update();
+            _invulnerability.Update();
+            _medKitAbility.Update();
 
             UpdateRangedWeaponAmmo();
         }
@@ -121,8 +148,9 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region Player abilities
-        public void OnFlashAbilityButton(InputAction.CallbackContext context) => _model.UseFlashAbility();
-        public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _model.UseInvulnerAbility();
+        public void OnFlashAbilityButton(InputAction.CallbackContext context) => _flashAbility.Use();
+        public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _invulnerability.Use();
+        public void OnMedKitAbilityButton(InputAction.CallbackContext context) => _medKitAbility.Use();
         #endregion
 
         #region Player select target
@@ -199,18 +227,21 @@ namespace Spark.Gameplay.Entities.Player
             CancelInvoke(nameof(DoAttack));
         }
 
+        public void Hit() => _model.Attack();
+
         private void DoAttack()
         {
-            _model.Attack();
 
             if (_animController.GetTypeWeapon())
             {
                 _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
+                //_model.Attack();
             }
 
             else
             {
                 _animController.AnimAttack(_model.GetCurrentRangedWeapon());
+                _model.Attack();
             }
         }
 
@@ -250,21 +281,28 @@ namespace Spark.Gameplay.Entities.Player
                 );
                 foreach (Collider item in items) 
                 { 
-                    TryActivateItemTo(item, _model);
                     TryActivateInteractableObject(item);
                 }
             }
         }
 
+        public bool PickUpMedKit() => _medKitAbility.Add();
+
+        private void OnTriggerEnter(Collider other)
+        {
+            TryActivateItemTo(other, _model);
+        }
+
         private void TryActivateItemTo(Collider item, PlayerModel player)
         {
-            item.GetComponent<IPickupable>()?.Activate();
+            item.GetComponent<IPickupable>()?.Activate(player);
         }
         private void TryActivateInteractableObject(Collider interactableObject)
         {
             interactableObject.GetComponent<IInteractable>()?.Activate();
         }
         #endregion
+
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

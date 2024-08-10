@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Ability: MedKit",
+                    "type": "Button",
+                    "id": "7333b4f8-0b12-49d7-aa02-6aaf0e6e6dfb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Select Target",
                     "type": "Button",
                     "id": "e11abfa5-3243-427f-9345-6501cdd9455e",
@@ -283,6 +292,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Active",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3d31d89-41fa-4082-9b57-0f9066dc0883",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Ability: MedKit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

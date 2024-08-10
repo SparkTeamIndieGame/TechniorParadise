@@ -39,13 +39,16 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
 
         public void Shoot()
         {
+
             if (_data.IsReloading || _lastShootTime + _data.FireRate > Time.time) return;
+
+            PlaySound(_data.AudioClip, audioSource);
 
             Vector3 direction = GetBulletDirection();
             if (Physics.Raycast(_firePoint.position, direction, out var hit, _data.AttackRange))
             {
                 _data.Shot();
-                TrailRenderer trail = Instantiate(_data.BulletTrail, _firePoint.position, Quaternion.identity, _firePoint);
+                TrailRenderer trail = Instantiate(_data.BulletTrail, _firePoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit));
                 _lastShootTime = Time.time;
             }

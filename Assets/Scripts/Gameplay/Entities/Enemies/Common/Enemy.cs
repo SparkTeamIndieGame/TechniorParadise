@@ -1,11 +1,7 @@
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Data;
-using Spark.Gameplay.Entities.Player;
 using System;
-using System.Collections;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-using UnityEngine.UIElements;
 
 namespace Spark.Gameplay.Entities.Enemies
 {
@@ -27,6 +23,16 @@ namespace Spark.Gameplay.Entities.Enemies
         [SerializeField] protected ParticleSystem _shootingParticleSystem;
         [SerializeField] protected ParticleSystem _impactParticleSystem;
 
+        [Serializable] protected struct DropEnemyItem
+        {
+            [SerializeField] public GameObject Prefab;
+            [SerializeField, Range(1, 100)] public int Chance;
+
+            public int CalculateDropChance() => UnityEngine.Random.Range(0, 100);
+        }
+
+        [SerializeField] protected DropEnemyItem _dropDetailsPickup;
+        [SerializeField] protected DropEnemyItem _dropAidKitPickup;
 
         [SerializeField, Min(.1f)] private float _attackDelay;
         private float _lastAttackTime;
@@ -44,17 +50,32 @@ namespace Spark.Gameplay.Entities.Enemies
         {
             Health -= points;
             OnHealthChanged?.Invoke(this);
+            _audioSystem.AudioDictinory["TakeDamage"].Play();
+
             if (Health <= 0) Die();
         }
         public void Die()
         {
-            Destroy(gameObject);
+            TryToDrop(_dropDetailsPickup);
+            TryToDrop(_dropAidKitPickup);
+
+            _animator.SetBool("Dead", true);
+            _audioSystem.AudioDictinory["Dead"].Play();
+            _navMeshAgent.isStopped = true;
+            Destroy(gameObject, 3);
+        }
+
+        private void TryToDrop(DropEnemyItem dropInfo)
+        {
+            if (dropInfo.CalculateDropChance() <= dropInfo.Chance)
+                Instantiate(dropInfo.Prefab, transform.position, Quaternion.identity, transform.parent.parent);
         }
 
         public void Attack()
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
             ParticlPlay(_shootingParticleSystem, transform);
+            _audioSystem.AudioDictinory["Attack"].Play();
             CalculateHit();
             _lastAttackTime = Time.time;
         }

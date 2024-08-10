@@ -6,15 +6,20 @@ using Spark.Gameplay.Weapons;
 using Spark.UI;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Spark.Gameplay.Entities.Player
 {
     public class PlayerView : MonoBehaviour, IInvulnerable
     {
         [SerializeField] UIController _uiController;
-        
+
+        [SerializeField] Text _currentCard;
+        [SerializeField] Text _needCard;
+
         [SerializeField] Material _normal;
         [SerializeField] Material _invulner;
+        [SerializeField] Transform _weapon;
         MeshRenderer[] _playerMeshes;
 
         private void Start()
@@ -41,11 +46,20 @@ namespace Spark.Gameplay.Entities.Player
         #region Change and display active weapon
         public void UpdateActiveWeapon(Weapon weapon)
         {
-            Transform weaponTransform = transform.Find("Weapon");
+            Transform weaponTransform = _weapon;
             DestroyChildrenImmediate(weaponTransform);
             InstatiateWeapon(weapon, weapon.Data, weaponTransform);
         }
 
+        public void UpdateCardUI(FlashCard.FlashCard card)
+        {
+            _currentCard.text = card.Count.ToString();
+        }
+
+        public void NeedCardUI(int NeedCard)
+        {
+            _needCard.text = NeedCard.ToString();
+        }
         private void DestroyChildrenImmediate(Transform parent)
         {
             while (parent.childCount > 0)

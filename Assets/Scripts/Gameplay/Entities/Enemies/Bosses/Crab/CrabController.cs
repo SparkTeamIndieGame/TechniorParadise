@@ -75,7 +75,7 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
         #endregion
 
         #region C.R.A.B. abilities
-        public void UseFlashAbilityButton(InputAction.CallbackContext context) => _model.UseFlashAbility();
+        public void UseFlashAbilityButton(InputAction.CallbackContext context) => Debug.Log("Hello, I'm C.R.A.B flash");
        #endregion
 
         #region C.R.A.B. select target
@@ -96,11 +96,11 @@ namespace Spark.Gameplay.Entities.Enemies.Bosses.Crab
         }
         #endregion
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR 
         private void OnDrawGizmos()
         {
 
-        }
+        } 
 #endif
     }
 }

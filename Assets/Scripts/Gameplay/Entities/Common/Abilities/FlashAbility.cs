@@ -19,12 +19,12 @@ namespace Spark.Gameplay.Entities.Common.Abilities
             CooldownDuration = 5.0f;
         }
 
-        public FlashAbility(CharacterController controller, Transform transform) : this()
+        protected override void DoAction() => _controller.Move(_transform.forward * _distance);
+
+        public void Intstantiate(CharacterController controller, Transform transform)
         { 
             _controller = controller;
             _transform = transform;
         }
-
-        protected override void DoAction() => _controller.Move(_transform.forward * _distance);
     }
 }

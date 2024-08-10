@@ -15,6 +15,7 @@ namespace Spark.Gameplay.Weapons
 
         [field: SerializeField] public ParticleSystem ImpactParticleSystem { get; private set; }
         [field: SerializeField] public ParticleSystem HitEntityParticleSystem { get; private set; }
+        [field: SerializeField] public AudioClip AudioClip { get; private set; }
 
         public virtual void PlayParticleSystem(ParticleSystem particleSystem, Transform parent)
         {
