@@ -37,6 +37,8 @@ namespace Spark.Gameplay.Entities.Player
 
         private Transform _target;
 
+        public FlashCard.FlashCard FlashCard => _model.FlashCard;
+
         private void OnEnable()
         {
             Enemy.OnEnemyAttack += _model.TakeDamage;
