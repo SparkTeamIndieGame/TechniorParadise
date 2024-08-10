@@ -1368,6 +1368,8 @@ MonoBehaviour:
     _moveSpeed: 230
     _turnSpeed: 2
     <Details>k__BackingField: 0
+    <FlashCard>k__BackingField:
+      <MaxAmount>k__BackingField: 0
     _meleeWeaponsData:
     - {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
     - {fileID: 11400000, guid: d3023b9ad7aa6474196cb2e3efd756b1, type: 2}
@@ -1377,6 +1379,11 @@ MonoBehaviour:
     ActiveMeleeWeapon: {fileID: 4958221339698423770}
     ActiveRangedWeapon: {fileID: 6523296775253604113}
     _target: {fileID: 0}
+    AudioSystem:
+      audioSources:
+      - {fileID: 5471658747048805892}
+      - {fileID: 6793484577546850783}
+      - {fileID: 6495163031058991024}
   _animController:
     _animator: {fileID: 2412526853637422414}
   _distanceView: 0

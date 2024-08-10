@@ -32,4 +32,4 @@ MonoBehaviour:
   <AmmoMax>k__BackingField: 30
   <AmmoPerShot>k__BackingField: 1
   <Automatic>k__BackingField: 1
-  <FireRate>k__BackingField: 0.3
+  <FireRate>k__BackingField: 1.05

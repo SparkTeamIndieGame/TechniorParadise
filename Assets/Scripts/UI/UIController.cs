@@ -31,20 +31,29 @@ namespace Spark.UI
         [SerializeField] private Slider _bossHealthBar;
         #endregion
 
+        #region Menu UI
+        [SerializeField] private GameObject _restartUI;
+        #endregion
+
         private void Awake()
         {
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
-            _mobileUI.SetActive(false);
-#elif UNITY_ANDROID || UNITY_IOS
-            _mobileUI.SetActive(true);
-#endif
+//#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
+//            _mobileUI.SetActive(false);
+//#elif UNITY_ANDROID || UNITY_IOS
+//            _mobileUI.SetActive(true);
+//#endif
 
             _playerAmmo.enabled = false;
+            _restartUI.SetActive(false);
         }
 
         public void UpdatePlayerHealthUI(float health)
         {
             _playerHealthBar.value = health;
+            if(_playerHealthBar.value == 0)
+            {
+                _restartUI.SetActive(true);
+            }
         }
 
         public void UpdatePlayerWeaponUI(WeaponData weapon)

@@ -15,5 +15,7 @@ namespace Spark.Gameplay.Items.Pickupable
             // todo: add visual effect here
             Destroy(gameObject);
         }
+
+
     }
 }

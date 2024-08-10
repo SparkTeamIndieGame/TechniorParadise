@@ -6,13 +6,17 @@ using Spark.Gameplay.Weapons;
 using Spark.UI;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Spark.Gameplay.Entities.Player
 {
     public class PlayerView : MonoBehaviour, IInvulnerable
     {
         [SerializeField] UIController _uiController;
-        
+
+        [SerializeField] Text _currentCard;
+        [SerializeField] Text _needCard;
+
         [SerializeField] Material _normal;
         [SerializeField] Material _invulner;
         [SerializeField] Transform _weapon;
@@ -47,6 +51,15 @@ namespace Spark.Gameplay.Entities.Player
             InstatiateWeapon(weapon, weapon.Data, weaponTransform);
         }
 
+        public void UpdateCardUI(FlashCard.FlashCard card)
+        {
+            _currentCard.text = card.Count.ToString();
+        }
+
+        public void NeedCardUI(int NeedCard)
+        {
+            _needCard.text = NeedCard.ToString();
+        }
         private void DestroyChildrenImmediate(Transform parent)
         {
             while (parent.childCount > 0)

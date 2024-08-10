@@ -55,6 +55,7 @@ namespace Spark.Gameplay.Entities.Player
         private void Start()
         {
             if (_view == null) _view = GetComponent<PlayerView>();
+            _view.NeedCardUI(_model.FlashCard.MaxAmount);
 
             _flashAbility.Intstantiate(GetComponent<CharacterController>(), transform);
             _invulnerability.Intstantiate(_view);
@@ -65,7 +66,7 @@ namespace Spark.Gameplay.Entities.Player
             if (_animController.Animator == null) _animController.Animator = GetComponent<Animator>();
             _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
 
-            //_model.AudioSystem.Instalize();
+            _model.AudioSystem.Instalize();
         }
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
@@ -78,16 +79,23 @@ namespace Spark.Gameplay.Entities.Player
         {
             _movement = _movementAction.action.ReadValue<Vector2>();
             _animController.AnimMove(_movement);
+            _view.UpdateCardUI(FlashCard);
 
-            //if (_movement == Vector2.zero)
-            //{
-            //    _model.AudioSystem.AudioDictinory["Walk"].mute = true;
-            //}
+            if (_movement == Vector2.zero)
+            {
+                _model.AudioSystem.AudioDictinory["Walk"].mute = true;
+            }
 
-            //else if (_movement != Vector2.zero)
-            //{
-            //    _model.AudioSystem.AudioDictinory["Walk"].mute = false;
-            //}
+            else if (_movement != Vector2.zero)
+            {
+                _model.AudioSystem.AudioDictinory["Walk"].mute = false;
+            }
+
+            if(_model.Health <= 0)
+            {
+                _animController.Animator.SetTrigger("Dead");
+                this.enabled = false;
+            }
 
             SyncModelWithView();
         }
@@ -218,7 +226,8 @@ namespace Spark.Gameplay.Entities.Player
         {
             CancelInvoke(nameof(DoAttack));
         }
-        //public void MeleAttackEvent() => _model.Attack();
+
+        public void Hit() => _model.Attack();
 
         private void DoAttack()
         {
@@ -226,7 +235,7 @@ namespace Spark.Gameplay.Entities.Player
             if (_animController.GetTypeWeapon())
             {
                 _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
-                _model.Attack();
+                //_model.Attack();
             }
 
             else

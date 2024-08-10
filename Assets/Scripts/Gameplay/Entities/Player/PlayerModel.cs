@@ -53,7 +53,7 @@ namespace Spark.Gameplay.Entities.Player
         private int _currentMeleeWeaponData;
         private int _currentRangedWeaponData;
 
-        //public AudioSystem AudioSystem;
+        public AudioSystem AudioSystem;
         public float MaxHealth => _healthMax;
         public float Health
         {
@@ -107,14 +107,15 @@ namespace Spark.Gameplay.Entities.Player
         {
             Health -= points;
             OnHealthChanged?.Invoke(Health);
-            //AudioSystem.AudioDictinory["TakeDamage"].Play();
+            AudioSystem.AudioDictinory["TakeDamage"].Play();
 
             if (Health <= 0) Die();
         }
 
         public void Die()
         {
-            //AudioSystem.AudioDictinory["Dead"].Play();
+            AudioSystem.AudioDictinory["Dead"].Play();
+            
         }
         #endregion
 
