@@ -6,13 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Komix.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Comics/Komix.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Komix.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Komix/First.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Komix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Komix_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Entites/Player/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Entites/Player/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphy - Ultimate Stats Monitor/Graphy_CustomizationScene.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PlayerTestAnimation/PlayerMaskWeapon.mask" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerTestAnimation/PlayerMaskWeapon.mask" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/FlockOfEnemies.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/FlockOfEnemies.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/MeleeEnemyAlone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/MeleeEnemyAlone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/RangedEnemyAlone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/RangedEnemyAlone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Lvl_1.lighting" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Lvl_1.lighting" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/PistolRangedWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/PistolRangedWeapon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/SubmachineGunRangedWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/SubmachineGunRangedWeapon.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/RangedWeapon/RangedWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/RangedWeapon/RangedWeapon.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +41,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;GameDesinger&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -45,7 +52,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/Новая папка\TechniorParadise.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/TP_test10_08\TechniorParadise.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Games\Новая папка" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -102,6 +109,11 @@
       <workItem from="1723245478033" duration="5000" />
       <workItem from="1723303693797" duration="3000" />
       <workItem from="1723303745383" duration="5000" />
+      <workItem from="1723411483974" duration="3000" />
+      <workItem from="1723413720118" duration="1023000" />
+      <workItem from="1723414771762" duration="1211000" />
+      <workItem from="1723416076768" duration="100000" />
+      <workItem from="1723416697683" duration="436000" />
     </task>
     <servers />
   </component>

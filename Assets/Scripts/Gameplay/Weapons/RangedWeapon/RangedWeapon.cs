@@ -24,14 +24,14 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
 
         private Transform _firePoint;
 
-        private float _lastShootTime = .0f;
+        private float _lastShootTime = 0.0f;
 
         [SerializeField] private AudioClip reloadWeapon;
 
         private void OnValidate()
         {
             _firePoint = null;
-            _lastShootTime = .0f;
+            _lastShootTime = 0.0f;
         }
 
         public void SetFirePoint(Transform firePoint)
@@ -47,7 +47,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             PlaySound(_data.AudioClip, audioSource);
 
             Vector3 direction = GetBulletDirection();
-            if (Physics.Raycast(_firePoint.position, direction, out var hit, _data.AttackRange))
+            if (Physics.Raycast(_firePoint.position, direction, out var hit, _data.AttackRange)) 
             {
                 _data.Shot();
                 TrailRenderer trail = Instantiate(_data.BulletTrail, _firePoint.position, Quaternion.identity);
@@ -109,7 +109,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             float time = 0;
             Vector3 startPosition = trail.transform.position;
 
-            _data.PlayParticleSystem(_data.ImpactParticleSystem, _firePoint);
+            _data.PlayParticleSystem(_data.ImpactParticleSystem, _firePoint);  
             while (time < 1.0f)
             {
                 trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
@@ -124,6 +124,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
                 damagable.TakeDamage(_data.AttackDamage);
             }
             Destroy(trail.gameObject, trail.time);
+            
         }
     }
 }

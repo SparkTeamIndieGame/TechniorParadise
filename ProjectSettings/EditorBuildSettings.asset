@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay/SparkIntro.unity
     guid: f7b54509772b7894da12e452e9bf3a7e
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Menu 3D.unity
-    guid: e26ab8ecfe81c5846995251e4f61dd0d
+    path: Assets/Scenes/Gameplay/MainMenu.unity
+    guid: 99e5b9dc2f43e5841a0b58dba444c2a4
   - enabled: 1
     path: Assets/Scenes/Gameplay/Komix_1.unity
     guid: bcac00968038dd649baf0410bc2ad427
