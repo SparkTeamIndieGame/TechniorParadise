@@ -17,6 +17,7 @@ namespace Spark.Gameplay.Entities.Common
 
         [SerializeField] protected bool canMove = true;
         [SerializeField] protected AudioSystem _audioSystem;
+        [SerializeField] protected float _stopDic;
 
         protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
@@ -47,7 +48,7 @@ namespace Spark.Gameplay.Entities.Common
         {
             if (canMove)
             {
-                _navMeshAgent.stoppingDistance = 2;
+                _navMeshAgent.stoppingDistance = _stopDic;
                 _navMeshAgent.SetDestination(target);
             }
         }
