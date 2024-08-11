@@ -11,6 +11,7 @@ namespace Spark.Gameplay.Items.Pickupable.Doors
         [SerializeField] protected Transform _rightDoor;
         [SerializeField, Range(0.5f, 3.0f)] protected float _moveTime = 1.2f;
         [SerializeField, Range(0.1f, 3.0f)] protected float _openOffset = 0.75f;
+        [SerializeField] protected AudioSource audioSourceDoor;
 
         protected bool _isActivated = false;
         protected bool _isUsed = false;
@@ -21,7 +22,12 @@ namespace Spark.Gameplay.Items.Pickupable.Doors
             if (_isActivated) OpenDoubleDoors();
         }
 
-        protected void OpenDoubleDoors() => StartCoroutine(OpenDoorCoroutine());
+        protected void OpenDoubleDoors()
+        {
+            if (!audioSourceDoor.isPlaying) audioSourceDoor.Play();
+
+            StartCoroutine(OpenDoorCoroutine());
+        }
 
         IEnumerator OpenDoorCoroutine()
         {
@@ -42,6 +48,7 @@ namespace Spark.Gameplay.Items.Pickupable.Doors
                 yield return null;
             }
             _isUsed = true;
+            audioSourceDoor.Stop();
         }
 
         public virtual void Activate(PlayerModel player) => _isActivated = true;

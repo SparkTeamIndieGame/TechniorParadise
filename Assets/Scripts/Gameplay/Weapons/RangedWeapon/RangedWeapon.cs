@@ -26,6 +26,8 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
 
         private float _lastShootTime = .0f;
 
+        [SerializeField] private AudioClip reloadWeapon;
+
         private void OnValidate()
         {
             _firePoint = null;
@@ -58,6 +60,16 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
         public void Update()
         {
             _data.Update();
+
+            if(_data.IsReloading)
+            {
+                ReloadSoundPlay(reloadWeapon, audioSource);
+            }
+
+            else
+            {
+                ReloadSoundStop(reloadWeapon);
+            }
         }
 
         private Vector3 GetBulletDirection()
@@ -69,6 +81,27 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
                 );
             direction.Normalize();
             return direction;
+        }
+
+        private void ReloadSoundPlay(AudioClip clip, AudioSource audioSource)
+        {
+
+            if (!audioSource.loop) audioSource.loop = true;
+
+            audioSource.clip = clip;
+
+            if (!audioSource.isPlaying) audioSource.Play();
+
+        }
+
+        private void ReloadSoundStop(AudioClip clip)
+        {
+            if (audioSource.clip != clip) return;
+
+            if (audioSource.loop) audioSource.loop = false;
+
+            if (audioSource.isPlaying) audioSource.Stop();
+
         }
 
         public IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)

@@ -156,7 +156,7 @@ namespace Spark.Gameplay.Entities.Player
         }
 
         public int GetCurrentMeleeWeapon() => _currentMeleeWeaponData;
-        public int GetCurrentRangedWeapon() => _currentRangedWeaponData;
+        public int GetCurrentRangedWeapon() => _currentRangedWeaponData;  
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;

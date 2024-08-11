@@ -97,6 +97,16 @@ namespace Spark.Gameplay.Entities.Player
                 this.enabled = false;
             }
 
+            if(_model.ActiveWeapon.Data is RangedWeaponData reload)
+            {
+                if (reload.IsReloading)
+                    _animController.ReloadAnim(true);
+                else
+                    _animController.ReloadAnim(false);
+            }
+            
+
+
             SyncModelWithView();
         }
         private void FixedUpdate()
@@ -234,13 +244,13 @@ namespace Spark.Gameplay.Entities.Player
 
             if (_animController.GetTypeWeapon())
             {
-                _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
+                _animController.AnimAttack();
                 //_model.Attack();
             }
 
             else
             {
-                _animController.AnimAttack(_model.GetCurrentRangedWeapon());
+                _animController.AnimAttack();
                 _model.Attack();
             }
         }
@@ -296,10 +306,12 @@ namespace Spark.Gameplay.Entities.Player
         private void TryActivateItemTo(Collider item, PlayerModel player)
         {
             item.GetComponent<IPickupable>()?.Activate(player);
+            _model.AudioSystem.AudioDictinory["TakeItem"].Play();
         }
         private void TryActivateInteractableObject(Collider interactableObject)
         {
             interactableObject.GetComponent<IInteractable>()?.Activate();
+            _model.AudioSystem.AudioDictinory["Interact"].Play();
         }
         #endregion
 

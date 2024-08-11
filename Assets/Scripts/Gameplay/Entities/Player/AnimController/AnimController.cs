@@ -20,10 +20,9 @@ namespace Spark.Gameplay.Entities.Player
             return _animator.GetBool("MeleWeapon");
         }
 
-        public void AnimAttack(int currentWeapon)
+        public void AnimAttack()
         {
             _animator.SetTrigger("Attack");
-            _animator.SetInteger("item", currentWeapon);
         }
 
         public void SwitchAnimForTypeWeapon(WeaponData weaponsType)
@@ -35,6 +34,14 @@ namespace Spark.Gameplay.Entities.Player
         public void AnimMove(Vector2 movement)
         {
             _animator.SetBool("Run", movement != Vector2.zero);
+        }
+
+        public void ReloadAnim(bool reload)
+        {
+            if (reload)
+                _animator.SetBool("Reload", true);
+            else
+                _animator.SetBool("Reload", false);
         }
     }
 }
