@@ -11,6 +11,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Abilities;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -164,32 +166,16 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region Player select target
-        private Transform GetTargetFromMouseRightButtonClickPosition()
-        {
-            Vector2 screenPosition = Vector2.zero;
-
-            if (Mouse.current.rightButton.wasPressedThisFrame)
-                screenPosition = Mouse.current.position.ReadValue();
-
-            else if (Touchscreen.current.primaryTouch.tap.wasPressedThisFrame)
-                screenPosition = Touchscreen.current.position.ReadValue();
-            
-            else
-                new NullReferenceException("What kind of device is this?");
-
-            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-            Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
-            return hit.transform;
-        }
-
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
+                if (IsPointerOnUI(context.ReadValue<Vector2>())) return;
+
                 if (_target != null && _target.TryGetComponent(out Enemy enemy))
                     enemy.OnHealthChanged -= _view.UpdateTargetHealtUI;
 
-                _target = GetTargetFromMouseRightButtonClickPosition();
+                _target = GetTargetFromClickOrTapPosition(context, out _);
                 if (_target != null)
                 {
                     _model.SetTarget(_target);
@@ -204,6 +190,26 @@ namespace Spark.Gameplay.Entities.Player
                     _view.UpdateTargetHealtUI(null);
                 }
             }
+        }
+
+        private Transform GetTargetFromClickOrTapPosition(InputAction.CallbackContext context, out RaycastHit hit)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(context.ReadValue<Vector2>());
+            Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
+            return hit.transform;
+        }
+
+        private bool IsPointerOnUI(Vector2 touchPosition)
+        {
+            PointerEventData pointerEventData = new(EventSystem.current)
+            {
+                position = touchPosition
+            };
+
+            List<RaycastResult> results = new();
+            EventSystem.current.RaycastAll(pointerEventData, results);
+
+            return results.Count > 0;
         }
         #endregion
 
