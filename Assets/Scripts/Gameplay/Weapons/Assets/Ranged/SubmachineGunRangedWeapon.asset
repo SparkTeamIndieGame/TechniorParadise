@@ -15,7 +15,7 @@ MonoBehaviour:
   <Name>k__BackingField: Submachine Gun
   <Description>k__BackingField: 
   <AttackDamage>k__BackingField: 2
-  <AttackRange>k__BackingField: 1000
+  <AttackRange>k__BackingField: 10000
   <Icon>k__BackingField: {fileID: 0}
   <Prefab>k__BackingField: {fileID: 3759053644476711317, guid: b3f6b11499a984696a0195429208c503,
     type: 3}
@@ -32,4 +32,4 @@ MonoBehaviour:
   <AmmoMax>k__BackingField: 30
   <AmmoPerShot>k__BackingField: 1
   <Automatic>k__BackingField: 1
-  <FireRate>k__BackingField: 1.05
+  <FireRate>k__BackingField: 0.1

@@ -43,12 +43,12 @@
                 },
                 {
                     "name": "Select Target",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "e11abfa5-3243-427f-9345-6501cdd9455e",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": false
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Attack",
@@ -276,7 +276,18 @@
                 {
                     "name": "",
                     "id": "8b204e6c-bb32-478e-852c-006dcc096592",
-                    "path": "<Mouse>/rightButton",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Target",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "071e0aea-496a-400a-afb5-dd96bc235dff",
+                    "path": "<Touchscreen>/primaryTouch/startPosition",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
