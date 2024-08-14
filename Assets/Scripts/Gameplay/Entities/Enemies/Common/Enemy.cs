@@ -59,6 +59,9 @@ namespace Spark.Gameplay.Entities.Enemies
             TryToDrop(_dropDetailsPickup);
             TryToDrop(_dropAidKitPickup);
 
+            _dropDetailsPickup.Prefab = null;
+            _dropAidKitPickup.Prefab = null;
+
             _animator.SetBool("Dead", true);
             _audioSystem.AudioDictinory["Dead"].Play();
             _navMeshAgent.isStopped = true;
@@ -67,8 +70,8 @@ namespace Spark.Gameplay.Entities.Enemies
 
         private void TryToDrop(DropEnemyItem dropInfo)
         {
-            if (dropInfo.CalculateDropChance() <= dropInfo.Chance)
-                Instantiate(dropInfo.Prefab, transform.position, Quaternion.identity, transform.parent.parent);
+            if (dropInfo.Prefab != null && dropInfo.CalculateDropChance() <= dropInfo.Chance)
+                Instantiate(dropInfo.Prefab, transform.position, Quaternion.identity);
         }
 
         public void Attack()

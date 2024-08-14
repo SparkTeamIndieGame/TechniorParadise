@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 6563126094294638068}
   - component: {fileID: 1692351753460026934}
   - component: {fileID: 3412292651902265720}
+  - component: {fileID: 7114942223899047168}
+  - component: {fileID: -2319709363064062705}
   m_Layer: 0
   m_Name: HealthBoxL
   m_TagString: Untagged
@@ -84,6 +86,40 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7114942223899047168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747753229812157455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0fa1249ceeb51648934274daf60aab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _turnSpeed: 240
+--- !u!135 &-2319709363064062705
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747753229812157455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.01348801
+  m_Center: {x: -0.000000014901161, y: -1.2105484e-16, z: -9.313228e-10}
 --- !u!1 &9092947108108411000
 GameObject:
   m_ObjectHideFlags: 0

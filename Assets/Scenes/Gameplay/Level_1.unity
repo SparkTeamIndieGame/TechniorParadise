@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18154685, g: 0.22718762, b: 0.3074059, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -38680,17 +38680,19 @@ PrefabInstance:
         type: 3}
       propertyPath: _dropAidKitPickup.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5516641868757244060, guid: 7459f784229a3dc49999b7c75e03e67b,
+        type: 3}
     - target: {fileID: 8186198458959015116, guid: 14dc856d05f094d8d826fd9247186762,
         type: 3}
       propertyPath: _dropDetailsPickup.Chance
-      value: 1
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8186198458959015116, guid: 14dc856d05f094d8d826fd9247186762,
         type: 3}
       propertyPath: _dropDetailsPickup.Prefab
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 899539485898209206, guid: 5a3926ffb513cfd4cb440b5681895944,
+        type: 3}
     - target: {fileID: 8186198458959015116, guid: 14dc856d05f094d8d826fd9247186762,
         type: 3}
       propertyPath: _audioSystem.audioSources.Array.size
