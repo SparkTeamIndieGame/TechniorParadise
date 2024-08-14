@@ -153,11 +153,17 @@ namespace Spark.Gameplay.Entities.Player
             _medKitAbility.Update();
 
             UpdateRangedWeaponAmmo();
+            UpdateMedKitButtonUI();
         }
         private void UpdateRangedWeaponAmmo()
         {
             if (_model.ActiveWeapon.Data is RangedWeaponData)
                 _view.UpdateWeaponRangedAmmoUI(_model.ActiveWeapon.Data as RangedWeaponData);
+        }
+
+        private void UpdateMedKitButtonUI()
+        {
+            _view.UpdatePlayerMedKitButtonUI(_medKitAbility);
         }
         #endregion
 
@@ -170,7 +176,6 @@ namespace Spark.Gameplay.Entities.Player
             if (_medKitAbility.Cooldown <= 0)
             {
                 _model.AudioSystem.AudioDictinory["Dead"].Play();
-                _view.UpdatePlayerMedKitButtonUI(_medKitAbility);
             }
             _medKitAbility.Use();
         }

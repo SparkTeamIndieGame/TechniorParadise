@@ -92,10 +92,10 @@ namespace Spark.UI
 
         public void UpdatePlayerMedKitButtonUI(MedKitAbility medKit)
         {
-            if (!medKit.IsReady)
-            {
+            if (!medKit.IsReady) 
                 _medKitIcon.fillAmount = medKit.Cooldown / medKit.CooldownDuration;
-            }
+
+            else _medKitIcon.fillAmount = 1.0f;
         }
         private void UpdateHealthUI(IDamagable damagable, ref GameObject target, ref Slider bar)
         {
