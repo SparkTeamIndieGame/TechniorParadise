@@ -13,6 +13,8 @@ using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Abilities;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using System.Linq;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -176,19 +178,26 @@ namespace Spark.Gameplay.Entities.Player
                     enemy.OnHealthChanged -= _view.UpdateTargetHealtUI;
 
                 _target = GetTargetFromClickOrTapPosition(context, out _);
-                if (_target != null)
-                {
-                    _model.SetTarget(_target);
-                    enemy = _target.GetComponent<Enemy>();
+                SetEnemyTargetWithUI(_target);
+            }
+        }
 
-                    enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
-                    _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
-                }
-                else
-                {
-                    _model.ResetTarget();
-                    _view.UpdateTargetHealtUI(null);
-                }
+        private void SetEnemyTargetWithUI(Transform target)
+        {
+            if (target != null)
+            {
+                _target = target;
+
+                _model.SetTarget(_target);
+                Enemy enemy = _target.GetComponent<Enemy>();
+
+                enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
+                _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
+            }
+            else
+            {
+                _model.ResetTarget();
+                _view.UpdateTargetHealtUI(null);
             }
         }
 
@@ -214,10 +223,23 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region Player Attack system
+        private List<Collider> _enemiesInAttackRange = new();
         public void OnPlayerAttack(InputAction.CallbackContext context)
         {
             if (_model.ActiveWeapon.Data is RangedWeaponData rangedWeapon)
             {
+                if (_target == null)
+                {
+                    ClearAllNullPointerOfEnemies();
+                    ClearAllOutRangeEnemies();
+                    FillArrayOfInRangeEnemies();
+
+                    if (_enemiesInAttackRange.Count > 0)
+                    {
+                        SetEnemyTargetWithUI(_enemiesInAttackRange[0].transform);
+                    }
+                }
+
                 if (rangedWeapon.IsAutomatic)
                 {
                     if (context.performed) StartShooting(rangedWeapon.FireRate);
@@ -231,6 +253,20 @@ namespace Spark.Gameplay.Entities.Player
             {
                 DoAttack();
             }
+        }
+        private void ClearAllNullPointerOfEnemies()
+        {
+            _enemiesInAttackRange.RemoveAll(enemyCollider => enemyCollider == null);
+        }
+
+        private void ClearAllOutRangeEnemies()
+        {
+            _enemiesInAttackRange.RemoveAll(enemy => Vector3.Distance(enemy.transform.position, transform.position) > _model.ActiveWeapon.Data.AttackRange);
+        }
+
+        private void FillArrayOfInRangeEnemies()
+        {
+            _enemiesInAttackRange = Physics.OverlapSphere(_model.ActiveWeapon.transform.position, _distanceView, LayerMask.GetMask("Enemy")).ToList();
         }
 
         private void StartShooting(float fireRate)
