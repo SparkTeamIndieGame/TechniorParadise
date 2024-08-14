@@ -6,7 +6,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Spark.Gameplay.Entities.Common.Abilities;
-using Unity.VisualScripting;
+using Spark.Gameplay.Entities.Player;
+using System;
+using Spark.Gameplay.Items.Pickupable;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +16,7 @@ namespace Spark.UI
 {
     public class UIController : MonoBehaviour
     {
+        
         [SerializeField] private GameObject _mobileUI;
 
         #region Player UI
@@ -25,6 +28,10 @@ namespace Spark.UI
         [SerializeField] private Image _meleWeaponIcon;
         [SerializeField] private Image _reloadIcon;
         [SerializeField] private Image _medKitIcon;
+        [SerializeField] private Text _currentAmmoText;
+        [SerializeField] private Text _maxAmmoText;
+        
+        [SerializeField] private Text _currentDetails;
         #endregion
 
         #region Target UI
@@ -62,6 +69,11 @@ namespace Spark.UI
             }
         }
 
+        public void UpdatePlayerDetailsUI(int details)
+        {
+            _currentDetails.text = details.ToString();
+        }
+
         public void UpdatePlayerWeaponUI(WeaponData weapon)
         {
             _playerAmmo.enabled = (weapon is RangedWeaponData);            
@@ -79,15 +91,22 @@ namespace Spark.UI
         public void UpdatePlayerRangedWeaponAmmoUI(RangedWeaponData rangedWeapon)
         {
             _playerAmmo.enabled = true;
+            _maxAmmoText.text = rangedWeapon.AmmoMax.ToString();
+            
             if (rangedWeapon.IsReloading)
             {
                 _reloadIcon.fillAmount = rangedWeapon.ReloadTimeLeft / rangedWeapon.ReloadDuration;
+                _currentAmmoText.text = rangedWeapon.Ammo.ToString();
             }
             //_playerAmmo.text = $"Reloading: {rangedWeapon.ReloadTimeLeft:f1}";
 
             else
+            {
                 _reloadIcon.fillAmount = 1.0f;
-                _playerAmmo.text = "Ammo: " + rangedWeapon.Ammo;
+                _currentAmmoText.text = rangedWeapon.Ammo.ToString();
+            }
+                
+                //_playerAmmo.text = "Ammo: " + rangedWeapon.Ammo;
         }
 
         public void UpdatePlayerMedKitButtonUI(MedKitAbility medKit)
@@ -108,7 +127,9 @@ namespace Spark.UI
             bar.maxValue = damagable.MaxHealth;
             bar.value = damagable.Health;
             target.SetActive(damagable.Health > 0);
+            
         }
+        
         public void UpdateTargetHealthUI(IDamagable damagable) => UpdateHealthUI(damagable, ref _targetUI, ref _targetHealthBar);
         public void UpdateBossHealthUI(IDamagable damagable) => UpdateHealthUI(damagable, ref _bossUI, ref _bossHealthBar);
     }

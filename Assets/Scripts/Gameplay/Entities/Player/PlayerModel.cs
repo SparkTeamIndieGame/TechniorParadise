@@ -16,8 +16,10 @@ namespace Spark.Gameplay.Entities.Player
     [Serializable]
     public class PlayerModel : IPlayer
     {
+        
         #region Player events
         public event Action<float> OnHealthChanged;
+        public event Action<int> OnDetailsChanged;
         #endregion
 
         [SerializeField] private CharacterController _controller;
@@ -28,7 +30,20 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
 
-        [field: SerializeField] public int Details { get; set; }
+        [SerializeField] private int _details;
+        public int Details
+        {
+            get
+            {
+                return _details;
+            }
+            set
+            {
+                OnDetailsChanged?.Invoke(value);
+                _details = value;
+            }
+        }
+
         [field: SerializeField] public FlashCard.FlashCard FlashCard { get; set; }
 
         [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;

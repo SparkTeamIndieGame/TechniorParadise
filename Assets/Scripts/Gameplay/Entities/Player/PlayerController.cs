@@ -48,12 +48,14 @@ namespace Spark.Gameplay.Entities.Player
             Enemy.OnEnemyAttack += _model.TakeDamage;
 
             _model.OnHealthChanged += _view.UpdateHealtUI;
+            _model.OnDetailsChanged += _view.UpdateDetailsUI;
         }
         private void OnDisable()
         {
             Enemy.OnEnemyAttack -= _model.TakeDamage;
 
             _model.OnHealthChanged -= _view.UpdateHealtUI;
+            _model.OnDetailsChanged -= _view.UpdateDetailsUI;
         }
 
         private void Start()

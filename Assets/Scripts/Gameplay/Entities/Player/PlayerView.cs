@@ -35,6 +35,11 @@ namespace Spark.Gameplay.Entities.Player
         {
             _uiController.UpdatePlayerHealthUI(health);
         }
+
+        public void UpdateDetailsUI(int details)
+        {
+            _uiController.UpdatePlayerDetailsUI(details);
+        }
         #endregion
 
         #region Update Target UI
