@@ -6,21 +6,36 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/InteractiveEnvironments/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/InteractiveEnvironments/Door.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/1. Gun 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/1. Gun 2.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/2. Semi-automatic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/2. Semi-automatic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/3. The rifle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/3. The rifle.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/4. Knife.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/4. Knife.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/MeleeEnemyAlone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/MeleeEnemyAlone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Automat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Automat.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Rife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Rife.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/ShootGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/ShootGun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/StormGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/StormGun.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Common/Abilities/Ability.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Common/Abilities/Ability.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sound/SFX/Character/grab_item2.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sound/SFX/Character/grab_item2.wav.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eef08f56e2e042f1b3027eca477293d946ac00/5f/d07762c0/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/InputSystem/Plugins/OnScreen/OnScreenButton.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -32,20 +47,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;GameDesinger&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "GameDesinger",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/TP_test10_08/TechniorParadise.exe" />
@@ -81,10 +97,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="31152">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
+      <option name="pid" value="31152" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />

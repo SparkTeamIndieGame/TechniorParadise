@@ -5,6 +5,7 @@ using Spark.Gameplay.Weapons.RangedWeapon;
 using Spark.Gameplay.Weapons;
 using Spark.UI;
 using System;
+using Spark.Gameplay.Entities.Common.Abilities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -86,6 +87,10 @@ namespace Spark.Gameplay.Entities.Player
         public void UpdateWeaponRangedAmmoUI(RangedWeaponData rangedWeapon)
         {
             _uiController.UpdatePlayerRangedWeaponAmmoUI(rangedWeapon);
+        }
+        public void UpdatePlayerMedKitButtonUI(MedKitAbility medKitAbility)
+        {
+            _uiController.UpdatePlayerMedKitButtonUI(medKitAbility);
         }
         #endregion
 

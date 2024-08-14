@@ -445,9 +445,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.85
-  m_Height: 3.17
+  m_Height: 4.0050755
   m_Direction: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Center: {x: 0, y: 0.9175377, z: 0}
 --- !u!114 &238519502401031953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
     - {fileID: 257855419136582311}
     - {fileID: 5163385629218923273}
     - {fileID: 7395066679791570292}
-  _stopDic: 0
+  _stopDic: 3
   _target: {fileID: 0}
   _healthMax: 10
   _health: 10

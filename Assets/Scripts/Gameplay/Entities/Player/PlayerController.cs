@@ -164,7 +164,18 @@ namespace Spark.Gameplay.Entities.Player
         #region Player abilities
         public void OnFlashAbilityButton(InputAction.CallbackContext context) => _flashAbility.Use();
         public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _invulnerability.Use();
-        public void OnMedKitAbilityButton(InputAction.CallbackContext context) => _medKitAbility.Use();
+
+        public void OnMedKitAbilityButton(InputAction.CallbackContext context)
+        {
+            if (_medKitAbility.Cooldown <= 0)
+            {
+                _model.AudioSystem.AudioDictinory["Dead"].Play();
+                _view.UpdatePlayerMedKitButtonUI(_medKitAbility);
+            }
+            _medKitAbility.Use();
+        }
+    
+            
         #endregion
 
         #region Player select target

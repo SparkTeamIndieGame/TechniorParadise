@@ -5,6 +5,7 @@ using Spark.Gameplay.Weapons;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using Spark.Gameplay.Entities.Common.Abilities;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,11 @@ namespace Spark.UI
         [SerializeField] private Slider _playerHealthBar;
         [SerializeField] private Text _playerWeapon;
         [SerializeField] private Text _playerAmmo;
+        //Andrei
+        [SerializeField] private Image _rangeWeaponIcon;
+        [SerializeField] private Image _meleWeaponIcon;
+        [SerializeField] private Image _reloadIcon;
+        [SerializeField] private Image _medKitIcon;
         #endregion
 
         #region Target UI
@@ -59,19 +65,38 @@ namespace Spark.UI
         public void UpdatePlayerWeaponUI(WeaponData weapon)
         {
             _playerAmmo.enabled = (weapon is RangedWeaponData);            
-            _playerWeapon.text = weapon.Name;
+            //_playerWeapon.text = weapon.Name;
+            if (weapon is RangedWeaponData )
+            {
+                _rangeWeaponIcon.sprite = weapon.Icon;
+            }
+            else if (weapon is MeleeWeaponData)
+            {
+                _meleWeaponIcon.sprite = weapon.Icon;
+            }
         }
 
         public void UpdatePlayerRangedWeaponAmmoUI(RangedWeaponData rangedWeapon)
         {
             _playerAmmo.enabled = true;
             if (rangedWeapon.IsReloading)
-                _playerAmmo.text = $"Reloading: {rangedWeapon.ReloadTimeLeft:f1}";
-            
+            {
+                _reloadIcon.fillAmount = rangedWeapon.ReloadTimeLeft / rangedWeapon.ReloadDuration;
+            }
+            //_playerAmmo.text = $"Reloading: {rangedWeapon.ReloadTimeLeft:f1}";
+
             else
+                _reloadIcon.fillAmount = 1.0f;
                 _playerAmmo.text = "Ammo: " + rangedWeapon.Ammo;
         }
 
+        public void UpdatePlayerMedKitButtonUI(MedKitAbility medKit)
+        {
+            if (!medKit.IsReady)
+            {
+                _medKitIcon.fillAmount = medKit.Cooldown / medKit.CooldownDuration;
+            }
+        }
         private void UpdateHealthUI(IDamagable damagable, ref GameObject target, ref Slider bar)
         {
             if (damagable == null)
