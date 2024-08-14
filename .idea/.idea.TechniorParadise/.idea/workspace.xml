@@ -6,46 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/6.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Komix.controller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Komix.controller.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page1.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page1.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page10.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page10.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page11.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page11.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page12.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page12.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page13.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page13.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page2.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page2.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page3.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page3.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page4.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page4.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page5.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page5.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6_5.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6_5.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page7.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page7.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page8.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page8.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page9.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page9.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/source/EvilFBX.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/source/EvilFBX.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Komix_1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Komix_1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/MainMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Comix/ComixShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Comix/ComixShow.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Environment/InteractiveEnvironments/Door.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Environment/InteractiveEnvironments/Door.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/DynamicsManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +19,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/InputSystem/Plugins/OnScreen/OnScreenButton.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -143,6 +111,10 @@
       <workItem from="1723416076768" duration="100000" />
       <workItem from="1723416697683" duration="436000" />
       <workItem from="1723552703885" duration="16059000" />
+      <workItem from="1723631620610" duration="652000" />
+      <workItem from="1723632494429" duration="1183000" />
+      <workItem from="1723633925802" duration="1235000" />
+      <workItem from="1723636890093" duration="597000" />
     </task>
     <servers />
   </component>

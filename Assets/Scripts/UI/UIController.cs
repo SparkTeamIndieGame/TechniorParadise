@@ -50,7 +50,7 @@ namespace Spark.UI
         public void UpdatePlayerHealthUI(float health)
         {
             _playerHealthBar.value = health;
-            if(_playerHealthBar.value == 0)
+            if(_playerHealthBar.value <= 0)
             {
                 _restartUI.SetActive(true);
             }
