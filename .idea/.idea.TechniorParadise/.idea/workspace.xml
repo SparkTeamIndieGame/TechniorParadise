@@ -6,14 +6,46 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/5.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/5.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page1.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Comics/Page1.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/6.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Comix/First/6.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix_1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Komix.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Komix.controller.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page1.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page1.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page10.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page10.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page11.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page11.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page12.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page12.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page13.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page13.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page2.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page2.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page3.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page3.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page4.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page4.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page5.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page5.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6_5.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page6_5.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page7.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page7.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page8.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page8.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page9.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Page9.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/source/EvilFBX.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/source/EvilFBX.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Komix_1.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Komix_1.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/MainMenu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Comix/ComixShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Comix/ComixShow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,20 +64,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "GameDesinger",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GameDesinger&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/TP_test10_08/TechniorParadise.exe" />
@@ -124,6 +156,17 @@
     <option name="unityProjectFolder" value="true" />
   </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
