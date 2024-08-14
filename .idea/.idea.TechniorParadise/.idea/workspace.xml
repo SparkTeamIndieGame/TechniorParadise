@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/1. Gun 2.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/1. Gun 2.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/2. Semi-automatic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/2. Semi-automatic.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/3. The rifle.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/3. The rifle.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/4. Knife.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/Gameplay/Weapon/4. Knife.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/MeleeEnemyAlone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Entites/Enemies/MeleeEnemyAlone.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Automat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Automat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Rife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Rife.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/ShootGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/ShootGun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/StormGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/StormGun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Common/Abilities/Ability.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Common/Abilities/Ability.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sound/SFX/Character/grab_item2.wav.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sound/SFX/Character/grab_item2.wav.meta" afterDir="false" />
-    </list>
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

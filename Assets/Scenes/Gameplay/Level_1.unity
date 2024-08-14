@@ -22081,6 +22081,10 @@ MonoBehaviour:
   _playerHealthBar: {fileID: 1641020159}
   _playerWeapon: {fileID: 172457789}
   _playerAmmo: {fileID: 1809470532}
+  _rangeWeaponIcon: {fileID: 1844109411}
+  _meleWeaponIcon: {fileID: 2109428278}
+  _reloadIcon: {fileID: 1819629541}
+  _medKitIcon: {fileID: 1367075468}
   _targetUI: {fileID: 100771093}
   _targetHealthBar: {fileID: 1321749964}
   _bossUI: {fileID: 0}
@@ -39557,7 +39561,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: -766989498, guid: 7fe5962e692098845a939596cb892a53, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -53176,7 +53180,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1546983935, guid: 7fe5962e692098845a939596cb892a53, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -53804,7 +53808,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 150}
+  m_SizeDelta: {x: 350, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844109411
 MonoBehaviour:
@@ -53828,13 +53832,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cce89fc985cf53b41a0dba34f4e21edf, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1844109412
 CanvasRenderer:
@@ -55614,6 +55618,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _medKitAbility._maxAmount
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _medKitAbility._cooldownDuration
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
@@ -62377,7 +62386,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 150}
+  m_SizeDelta: {x: 350, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109428278
 MonoBehaviour:
@@ -62401,13 +62410,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cf3e51f809849794e8a0cf294e9c84c0, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &2109428279
 CanvasRenderer:
