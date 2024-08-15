@@ -320,23 +320,38 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed) _model.ReloadWeapon();
         }
         #endregion
-        public void OnPlayerSwitchWeapon(InputAction.CallbackContext context)
+
+        #region Player weapon change system
+        public void OnPlayerChangedMeleeWeapon(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _model.SwitchWeapon();
+                if (_model.ActiveWeapon is MeleeWeapon) _model.SwitchWeapon();
+
+                else
+                {
+                    _model.SwitchWeaponType();
+                    _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                }
                 UpdateActiveWeapon(_model.ActiveWeapon);
             }
         }
-        public void OnPlayerSwitchWeaponType(InputAction.CallbackContext context)
+
+        public void OnPlayerChangedRangedWeapon(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _model.SwitchWeaponType();
-                _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                if (_model.ActiveWeapon is RangedWeapon) _model.SwitchWeapon();
+
+                else
+                {
+                    _model.SwitchWeaponType();
+                    _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                }
                 UpdateActiveWeapon(_model.ActiveWeapon);
             }
         }
+        #endregion
 
         #region TODO: Items & Interactables
         public void OnPlayerActive(InputAction.CallbackContext context)

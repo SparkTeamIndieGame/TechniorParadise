@@ -523,7 +523,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnSpeed: 240
-  _playerController: {fileID: 0}
 --- !u!1 &17093322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 464638595969543914, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -11214,7 +11213,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnSpeed: 240
-  _playerController: {fileID: 0}
 --- !u!1001 &430310516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28414,7 +28412,7 @@ GameObject:
   - component: {fileID: 1050320254}
   - component: {fileID: 1050320255}
   m_Layer: 5
-  m_Name: P_WeaponButton
+  m_Name: P_ChangeRangedWeaponButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38680,7 +38678,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _dropAidKitPickup.Prefab
       value: 
-      objectReference: {fileID: 5516641868757244060, guid: 7459f784229a3dc49999b7c75e03e67b,
+      objectReference: {fileID: 747753229812157455, guid: d6c6b489e95e9f04cb4d695ff8786f44,
         type: 3}
     - target: {fileID: 8186198458959015116, guid: 14dc856d05f094d8d826fd9247186762,
         type: 3}
@@ -39983,8 +39981,8 @@ RectTransform:
   - {fileID: 1296768597}
   - {fileID: 2139982569}
   - {fileID: 1329386551}
-  - {fileID: 1050320254}
   - {fileID: 1834666489}
+  - {fileID: 1050320254}
   - {fileID: 641738483}
   - {fileID: 1686616251}
   - {fileID: 402093322}
@@ -43932,7 +43930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _turnSpeed: 240
-  _playerController: {fileID: 0}
 --- !u!4 &1495795122 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 952910425773782096, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -54410,7 +54407,7 @@ GameObject:
   - component: {fileID: 1834666489}
   - component: {fileID: 1834666490}
   m_Layer: 5
-  m_Name: P_WeaponTypeButton
+  m_Name: P_ChangeMeleeWeaponButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56595,6 +56592,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800285596050591933, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerChangedMeleeWeapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 5800285596050591933, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnPlayerChangedRangedWeapon
       objectReference: {fileID: 0}
     - target: {fileID: 5800285596050591933, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}

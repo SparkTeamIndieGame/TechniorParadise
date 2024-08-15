@@ -69,7 +69,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Switch: Weapon",
+                    "name": "Switch: MeleeWeapon",
                     "type": "Button",
                     "id": "954b900a-f1b7-4f45-a01a-c45e3976807d",
                     "expectedControlType": "Button",
@@ -78,7 +78,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Switch: Weapon type",
+                    "name": "Switch: RangedWeapon",
                     "type": "Button",
                     "id": "ac663642-dee8-40cb-ad8d-d31df58d005b",
                     "expectedControlType": "Button",
@@ -243,22 +243,22 @@
                 {
                     "name": "",
                     "id": "7cb0e69d-5d34-48e1-a120-8c8165fb4361",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch: Weapon",
+                    "action": "Switch: MeleeWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9817b0a4-fba7-46c9-bf57-89b93d48e91c",
-                    "path": "<Keyboard>/tab",
+                    "path": "<Keyboard>/q",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Switch: Weapon type",
+                    "action": "Switch: RangedWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

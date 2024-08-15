@@ -11,6 +11,7 @@ using System;
 using Spark.Gameplay.Items.Pickupable;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 namespace Spark.UI
 {
@@ -78,13 +79,19 @@ namespace Spark.UI
         {
             _playerAmmo.enabled = (weapon is RangedWeaponData);            
             //_playerWeapon.text = weapon.Name;
-            if (weapon is RangedWeaponData )
+            if (weapon is RangedWeaponData)
             {
                 _rangeWeaponIcon.sprite = weapon.Icon;
+
+                _rangeWeaponIcon.color = Color.white;
+                _meleWeaponIcon.color = Color.gray;
             }
             else if (weapon is MeleeWeaponData)
             {
                 _meleWeaponIcon.sprite = weapon.Icon;
+
+                _meleWeaponIcon.color = Color.white;
+                _rangeWeaponIcon.color = Color.gray;
             }
         }
 
