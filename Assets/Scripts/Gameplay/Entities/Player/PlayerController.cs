@@ -390,6 +390,9 @@ namespace Spark.Gameplay.Entities.Player
         }
         #endregion
 
+        #region Player purchasing weapons from a dealer
+        public void OnPlayerPurchaseWeapon(WeaponData weaponData) => _model.AddNewWeapon(weaponData);
+        #endregion
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

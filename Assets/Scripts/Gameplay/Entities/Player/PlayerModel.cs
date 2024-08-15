@@ -10,6 +10,9 @@ using Spark.Gameplay.Entities.Enemies;
 using UnityEngine.UI;
 using Spark.Gameplay.Entities.Common.Behaviour;
 using Spark.Utilities;
+using Unity.VisualScripting;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -46,8 +49,8 @@ namespace Spark.Gameplay.Entities.Player
 
         [field: SerializeField] public FlashCard.FlashCard FlashCard { get; set; }
 
-        [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;
-        [SerializeField] private RangedWeaponData[] _rangedWeaponsData;
+        [SerializeField] private List<MeleeWeaponData> _meleeWeaponsData;
+        [SerializeField] private List<RangedWeaponData> _rangedWeaponsData;
         [SerializeField] public Weapon ActiveWeapon 
         { 
             get => _toggleActiveWeaponType ? ActiveRangedWeapon : ActiveMeleeWeapon;
@@ -155,12 +158,12 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (ActiveWeapon.Data is MeleeWeaponData)
             {
-                _currentMeleeWeaponData = (_currentMeleeWeaponData + 1) % _meleeWeaponsData.Length;
+                _currentMeleeWeaponData = (_currentMeleeWeaponData + 1) % _meleeWeaponsData.Count;
                 ActiveWeapon.Data = _meleeWeaponsData[_currentMeleeWeaponData];
             }
             else if (ActiveWeapon.Data is RangedWeaponData)
             {
-                _currentRangedWeaponData = (_currentRangedWeaponData + 1) % _rangedWeaponsData.Length;
+                _currentRangedWeaponData = (_currentRangedWeaponData + 1) % _rangedWeaponsData.Count;
                 ActiveWeapon.Data = _rangedWeaponsData[_currentRangedWeaponData];
             }
         }
@@ -175,5 +178,19 @@ namespace Spark.Gameplay.Entities.Player
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
+
+        public void AddNewWeapon(WeaponData weaponData)
+        {
+            if (weaponData is MeleeWeaponData)
+            {
+                if (_meleeWeaponsData.Find(weapon => weapon == weaponData) == null)
+                    _meleeWeaponsData.Add(weaponData as MeleeWeaponData);
+            }
+            else
+            {
+                if (_rangedWeaponsData.Find(weapon => weapon == weaponData) == null)
+                    _rangedWeaponsData.Add(weaponData as RangedWeaponData);
+            }
+        }
     }
 }
