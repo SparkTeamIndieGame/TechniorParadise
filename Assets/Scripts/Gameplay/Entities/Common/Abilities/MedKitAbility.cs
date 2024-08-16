@@ -35,6 +35,8 @@ namespace Spark.Gameplay.Entities.Common.Abilities
             _damagable = damagable;
         }
 
+        public int Count => _amount;
+        public bool IsCollected => Count >= _maxAmount;
         public bool Add()
         {
             if (_amount >= _maxAmount) return false;

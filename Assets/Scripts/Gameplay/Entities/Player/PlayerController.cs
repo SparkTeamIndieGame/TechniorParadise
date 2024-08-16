@@ -392,6 +392,18 @@ namespace Spark.Gameplay.Entities.Player
 
         #region Player purchasing weapons from a dealer
         public void OnPlayerPurchaseWeapon(WeaponData weaponData) => _model.AddNewWeapon(weaponData);
+        public void OnPlayerPurchaseCard(int price)
+        {
+            if (_model.FlashCard.IsCollected) return;
+            _model.FlashCard.Add();
+            _model.Details -= price;
+        }
+
+        public void OnPlayerPurchaseMedKit(int price)
+        {
+            if (_medKitAbility.Add())
+                _model.Details -= price;
+        }
         #endregion
 
 #if UNITY_EDITOR
