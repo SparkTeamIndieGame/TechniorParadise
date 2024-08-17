@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18154685, g: 0.22718757, b: 0.3074059, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10917,7 +10917,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20.000122, y: 0}
+  m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &402093323
@@ -52366,7 +52366,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 20.000122, y: 0}
+  m_AnchoredPosition: {x: 20, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1686616252
@@ -59412,6 +59412,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
+      propertyPath: _model._details
+      value: 265
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
       propertyPath: _medKitAbility._amount
       value: 5
       objectReference: {fileID: 0}
@@ -59429,6 +59434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _medKitAbility._healingPointsPerUse
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model.<FlashCard>k__BackingField.<MaxAmount>k__BackingField
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9141589180813926664, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
