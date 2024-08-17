@@ -71,6 +71,8 @@ namespace Spark.Gameplay.Entities.Player
         private int _currentMeleeWeaponData;
         private int _currentRangedWeaponData;
 
+        public bool CanShoot { get; set; }
+
         public AudioSystem AudioSystem;
         public float MaxHealth => _healthMax;
         public float Health
@@ -139,6 +141,8 @@ namespace Spark.Gameplay.Entities.Player
 
         public void Attack()
         {
+            if (!CanShoot) return;
+
             if (ActiveWeapon.Data is RangedWeaponData rwData)
             {
                 if (rwData.IsReloading) return;
@@ -179,18 +183,24 @@ namespace Spark.Gameplay.Entities.Player
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
 
-        public void AddNewWeapon(WeaponData weaponData)
+        public bool AddNewWeapon(WeaponData weaponData)
         {
+            bool success = true;
             if (weaponData is MeleeWeaponData)
             {
                 if (_meleeWeaponsData.Find(weapon => weapon == weaponData) == null)
                     _meleeWeaponsData.Add(weaponData as MeleeWeaponData);
+
+                else success = false;
             }
             else
             {
                 if (_rangedWeaponsData.Find(weapon => weapon == weaponData) == null)
                     _rangedWeaponsData.Add(weaponData as RangedWeaponData);
+
+                else success = false;
             }
+            return success;
         }
     }
 }

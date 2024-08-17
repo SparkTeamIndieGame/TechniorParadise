@@ -36442,6 +36442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiDealer: {fileID: 1955866809}
+  _playerController: {fileID: 2047970430}
 --- !u!95 &1240678508
 Animator:
   serializedVersion: 5
