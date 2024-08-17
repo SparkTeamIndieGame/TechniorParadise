@@ -42,6 +42,11 @@ namespace Spark.Gameplay.Entities.Player
         private Transform _target;
 
         public FlashCard.FlashCard FlashCard => _model.FlashCard;
+        public bool CanShoot
+        {
+            get => _model.CanShoot;
+            set => _model.CanShoot = value;
+        }
 
         private void OnEnable()
         {
@@ -391,16 +396,25 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region Player purchasing weapons from a dealer
-        public void OnPlayerPurchaseWeapon(WeaponData weaponData) => _model.AddNewWeapon(weaponData);
+        public void OnPlayerPurchaseWeapon(WeaponData weaponData, int price)
+        {
+            if (_model.Details < price) return;
+
+            if (_model.AddNewWeapon(weaponData)) _model.Details -= price;            
+        }
         public void OnPlayerPurchaseCard(int price)
         {
             if (_model.FlashCard.IsCollected) return;
+            if (_model.Details < price) return;
+
             _model.FlashCard.Add();
             _model.Details -= price;
         }
 
         public void OnPlayerPurchaseMedKit(int price)
         {
+            if (_model.Details < price) return;
+
             if (_medKitAbility.Add())
                 _model.Details -= price;
         }
