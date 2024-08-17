@@ -1,3 +1,4 @@
+using System;
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Player;
 using Spark.Gameplay.Items.Interactable;
@@ -31,5 +32,7 @@ namespace Spark.Gameplay.Entities
                 _playerController.CanShoot = true;
             }
         }
+
+        
     }
 }

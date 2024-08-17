@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Katana
   <Description>k__BackingField: 
-  <AttackDamage>k__BackingField: 1
-  <AttackRange>k__BackingField: 2
+  <AttackDamage>k__BackingField: 25
+  <AttackRange>k__BackingField: 9
   <Icon>k__BackingField: {fileID: 21300000, guid: a563e522c5b14d04c896b8a18b7818f9,
     type: 3}
   <Prefab>k__BackingField: {fileID: 7301990941002630720, guid: 4bd3567a17ba94d91853aea801de83a8,
@@ -25,4 +25,5 @@ MonoBehaviour:
     type: 3}
   <AudioClip>k__BackingField: {fileID: 8300000, guid: 1b1dd195190d8d040b8b78d65d9ee274,
     type: 3}
-  <SwingDelay>k__BackingField: 2
+  <Price>k__BackingField: 2000
+  <SwingDelay>k__BackingField: 4

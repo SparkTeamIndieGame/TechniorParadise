@@ -2000,11 +2000,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1600762152}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 91.9, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &71932713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2047,7 +2047,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 54
-    m_Alignment: 2
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -2847,7 +2847,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &100771094
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4640,6 +4640,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 174261133}
+  - component: {fileID: 174261134}
   m_Layer: 5
   m_Name: Element_1
   m_TagString: Untagged
@@ -4670,6 +4671,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 805, y: 200}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &174261134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174261132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166, type: 2}
+  _buyButton: {fileID: 643583151}
+  _actualDetailCount: {fileID: 1955866811}
+  _priceText: {fileID: 1152329594}
+  _itemImage: {fileID: 2035955148}
 --- !u!1 &174905816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 464638595969543914, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -8444,87 +8462,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1492569427}
   m_SourcePrefab: {fileID: 100100000, guid: a5a5a63409d2719408d43f6f27dda7a0, type: 3}
---- !u!1 &314904003
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 314904004}
-  - component: {fileID: 314904006}
-  - component: {fileID: 314904005}
-  m_Layer: 5
-  m_Name: Text (Legacy)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &314904004
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314904003}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1417692979}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &314904005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314904003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 'Buy NewRanged
-
-'
---- !u!222 &314904006
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314904003}
-  m_CullTransparentMesh: 1
 --- !u!1 &315455362
 GameObject:
   m_ObjectHideFlags: 0
@@ -17596,11 +17533,11 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1837104874}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 140.7, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &631757275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17643,7 +17580,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 54
-    m_Alignment: 2
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
@@ -18246,7 +18183,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -18264,7 +18201,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 643583152}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2047970430}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerPurchaseWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Spark.Gameplay.Weapons.WeaponData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 174261134}
+        m_TargetAssemblyTypeName: InteractivShopBt, Assembly-CSharp
+        m_MethodName: CheckPrice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &643583152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18413,7 +18376,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 5324d955841ec6a44a2a2eac73bdfb6f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -18940,7 +18903,19 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 150
+          m_IntArgument: 175
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1707826136}
+        m_TargetAssemblyTypeName: InteractivShopBt, Assembly-CSharp
+        m_MethodName: CheckPrice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -21243,6 +21218,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 740872789}
+  - component: {fileID: 740872790}
   m_Layer: 5
   m_Name: Element_3
   m_TagString: Untagged
@@ -21273,6 +21249,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 60}
   m_SizeDelta: {x: 805, y: 200}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &740872790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740872788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb, type: 2}
+  _buyButton: {fileID: 1413466902}
+  _actualDetailCount: {fileID: 1955866811}
+  _priceText: {fileID: 1888176910}
+  _itemImage: {fileID: 1848048910}
 --- !u!1 &743518925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8576057934684809892, guid: 83921cdbbed654843a29b766990e18dc,
@@ -23029,6 +23022,162 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 334861810}
   m_SourcePrefab: {fileID: 100100000, guid: d7ab2ba8b80a10e4d89a70f89bea587b, type: 3}
+--- !u!1 &818631670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 818631671}
+  - component: {fileID: 818631673}
+  - component: {fileID: 818631672}
+  m_Layer: 0
+  m_Name: TM_Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &818631671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818631670}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1966985490}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &818631672
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818631670}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &818631673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 818631670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d0c048307bef6a43af0ad00893ffc02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSource: {fileID: 818631672}
+  _openShop:
+  - {fileID: 8300000, guid: 5a7e29bc64df53d48acbad1422382f1d, type: 3}
+  - {fileID: 8300000, guid: 2b85f1b94b801f646a168041786f1096, type: 3}
+  - {fileID: 8300000, guid: 89833af46ebf80f4c8e2aad117a4e094, type: 3}
+  - {fileID: 8300000, guid: 394683b3a473d1d4d936781282c71e64, type: 3}
+  - {fileID: 8300000, guid: a8435450283eaea438e52aeeb5164a9f, type: 3}
+  - {fileID: 8300000, guid: 6778e020751ed5b4eacf78d35e624ca1, type: 3}
+  - {fileID: 8300000, guid: 915c9eb0d95b2a845931c2c05340349d, type: 3}
+  _closedShop:
+  - {fileID: 8300000, guid: cd15ab0e2cdfd8b48b5c5996d6cd6a6c, type: 3}
+  - {fileID: 8300000, guid: a1d7024ff47651d4f8597aadc2061ce3, type: 3}
+  - {fileID: 8300000, guid: 95d61f2e23dc7424f9b2a1d1f75e53a8, type: 3}
+  - {fileID: 8300000, guid: 5edc903d26258aa45872e94d25b0cd17, type: 3}
+  _buyItemShop: {fileID: 8300000, guid: 32d8bc1426d8ff14f9ba1a0dc48b61f1, type: 3}
 --- !u!1 &820118952
 GameObject:
   m_ObjectHideFlags: 0
@@ -23760,9 +23909,13 @@ MonoBehaviour:
   _meleWeaponIcon: {fileID: 2109428278}
   _reloadIcon: {fileID: 1819629541}
   _medKitIcon: {fileID: 1367075468}
+  _medKitButton: {fileID: 402093323}
+  _medKitCountText: {fileID: 1116500481}
   _currentAmmoText: {fileID: 786444997}
   _maxAmmoText: {fileID: 713528783}
   _currentDetails: {fileID: 248911645}
+  _meleWeaponButton: {fileID: 1834666490}
+  _rangeWeaponButton: {fileID: 1050320255}
   _targetUI: {fileID: 100771093}
   _targetHealthBar: {fileID: 1321749964}
   _bossUI: {fileID: 0}
@@ -33383,7 +33536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -35308,7 +35461,7 @@ RectTransform:
   m_Father: {fileID: 734580690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 14.9999695, y: -7.6992035}
   m_SizeDelta: {x: 6.3595, y: -28.8239}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -36550,7 +36703,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 150
+  m_Text: 175
 --- !u!222 &1240830955
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -40491,7 +40644,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _dropAidKitPickup.Prefab
       value: 
-      objectReference: {fileID: 747753229812157455, guid: d6c6b489e95e9f04cb4d695ff8786f44,
+      objectReference: {fileID: 5516641868757244060, guid: 7459f784229a3dc49999b7c75e03e67b,
         type: 3}
     - target: {fileID: 8186198458959015116, guid: 14dc856d05f094d8d826fd9247186762,
         type: 3}
@@ -43694,7 +43847,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -43712,7 +43865,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1413466903}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2047970430}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerPurchaseWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Spark.Gameplay.Weapons.WeaponData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 740872790}
+        m_TargetAssemblyTypeName: InteractivShopBt, Assembly-CSharp
+        m_MethodName: CheckPrice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1413466903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43865,141 +44044,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.001, z: 0.013}
   m_TimeToStationary: 0.5
---- !u!1 &1417692978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1417692979}
-  - component: {fileID: 1417692982}
-  - component: {fileID: 1417692981}
-  - component: {fileID: 1417692980}
-  m_Layer: 5
-  m_Name: BuyRangedWeaponButton
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1417692979
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417692978}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 314904004}
-  m_Father: {fileID: 1955866810}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1417692980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417692978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1417692981}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2047970430}
-        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
-          Assembly-CSharp
-        m_MethodName: OnPlayerPurchaseWeapon
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: Spark.Gameplay.Weapons.WeaponData, Assembly-CSharp
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1417692981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417692978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1417692982
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1417692978}
-  m_CullTransparentMesh: 1
 --- !u!4 &1419069189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 952910425773782096, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -50125,6 +50169,12 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.018000001}
   m_TimeToStationary: 0.5
+--- !u!1 &1613033042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7419736667952291303, guid: fa2e84824036a244fae4c45b77047769,
+    type: 3}
+  m_PrefabInstance: {fileID: 6543840147167952510}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1613275066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52818,6 +52868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1707826135}
+  - component: {fileID: 1707826136}
   m_Layer: 5
   m_Name: Element_1
   m_TagString: Untagged
@@ -52848,6 +52899,23 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: -136}
   m_SizeDelta: {x: 805, y: 200}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1707826136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707826134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 0}
+  _buyButton: {fileID: 680223358}
+  _actualDetailCount: {fileID: 1955866811}
+  _priceText: {fileID: 1240830954}
+  _itemImage: {fileID: 0}
 --- !u!1001 &1708581176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54740,6 +54808,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1763940781}
+  - component: {fileID: 1763940782}
   m_Layer: 5
   m_Name: Element_2
   m_TagString: Untagged
@@ -54770,6 +54839,23 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 805, y: 200}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1763940782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1763940780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
+  _buyButton: {fileID: 1967096898}
+  _actualDetailCount: {fileID: 1955866811}
+  _priceText: {fileID: 1856684039}
+  _itemImage: {fileID: 2067169487}
 --- !u!4 &1766938713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6095722573513115480, guid: 6f8a3470666e7894d820b4d6d1acc01e,
@@ -58046,7 +58132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -59259,7 +59345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -59414,12 +59500,17 @@ PrefabInstance:
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
       propertyPath: _model._details
-      value: 265
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
+      propertyPath: _shopBaseControl
+      value: 
+      objectReference: {fileID: 1966985492}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
       propertyPath: _medKitAbility._amount
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
@@ -59436,6 +59527,46 @@ PrefabInstance:
       propertyPath: _medKitAbility._healingPointsPerUse
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._meleeWeaponsData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._rangedWeaponsData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._meleeWeaponsData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb,
+        type: 2}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._rangedWeaponsData.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d520e51de6b4894bb1504b5b65c5457,
+        type: 2}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._rangedWeaponsData.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166,
+        type: 2}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._rangedWeaponsData.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 74752a016fa08434ab85ca9d3d6fd98c,
+        type: 2}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model._rangedWeaponsData.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 15c199d7ab1d26340acab6f532b4b87a,
+        type: 2}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
       propertyPath: _model.<FlashCard>k__BackingField.<MaxAmount>k__BackingField
@@ -59474,6 +59605,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1891618016}
+  - component: {fileID: 1891618017}
   m_Layer: 5
   m_Name: Element_2
   m_TagString: Untagged
@@ -59504,6 +59636,23 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000030517578, y: 131}
   m_SizeDelta: {x: 805, y: 200}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1891618017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891618015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weaponData: {fileID: 0}
+  _buyButton: {fileID: 1957158353}
+  _actualDetailCount: {fileID: 1955866811}
+  _priceText: {fileID: 2058407581}
+  _itemImage: {fileID: 0}
 --- !u!4 &1892495914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 952910425773782096, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -61255,6 +61404,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1955866810}
+  - component: {fileID: 1955866811}
   m_Layer: 5
   m_Name: UI_Dealer
   m_TagString: Untagged
@@ -61276,7 +61426,7 @@ RectTransform:
   m_Children:
   - {fileID: 316632019}
   - {fileID: 701101475}
-  - {fileID: 1417692979}
+  - {fileID: 2073624291}
   m_Father: {fileID: 853971334}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -61284,6 +61434,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1955866811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955866809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e17f6329c8f38c498a06e482b1e1403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detailCount: {fileID: 959185270}
+  _playerController: {fileID: 2047970430}
 --- !u!1 &1957158351
 GameObject:
   m_ObjectHideFlags: 0
@@ -61375,6 +61539,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 150
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1891618017}
+        m_TargetAssemblyTypeName: InteractivShopBt, Assembly-CSharp
+        m_MethodName: CheckPrice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -61529,6 +61705,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6543840147167952510}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966985492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613033042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a03e120708d3644839f1383389d745, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _semiAutomat: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166, type: 2}
+  _rife: {fileID: 11400000, guid: 0d520e51de6b4894bb1504b5b65c5457, type: 2}
+  _shotgun: {fileID: 11400000, guid: 74752a016fa08434ab85ca9d3d6fd98c, type: 2}
+  _automat: {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
+  _stormGun: {fileID: 11400000, guid: 15c199d7ab1d26340acab6f532b4b87a, type: 2}
+  _saw: {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb, type: 2}
+  _katana: {fileID: 11400000, guid: d3023b9ad7aa6474196cb2e3efd756b1, type: 2}
 --- !u!1001 &1967071516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61684,7 +61879,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -61702,7 +61897,33 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1967096899}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2047970430}
+        m_TargetAssemblyTypeName: Spark.Gameplay.Entities.Player.PlayerController,
+          Assembly-CSharp
+        m_MethodName: OnPlayerPurchaseWeapon
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Spark.Gameplay.Weapons.WeaponData, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1763940782}
+        m_TargetAssemblyTypeName: InteractivShopBt, Assembly-CSharp
+        m_MethodName: CheckPrice
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1967096899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63688,7 +63909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e2bbf60dad58cc9409ff86c5c53aa222, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a480b720d7bc03e428b724a0b363b6be, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -65642,6 +65863,153 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1910624634}
   m_SourcePrefab: {fileID: 100100000, guid: a5a5a63409d2719408d43f6f27dda7a0, type: 3}
+--- !u!1 &2073624290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2073624291}
+  - component: {fileID: 2073624293}
+  - component: {fileID: 2073624292}
+  m_Layer: 5
+  m_Name: DealerAudioUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2073624291
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073624290}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1955866810}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!82 &2073624292
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073624290}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 813637655a7db194488554611b6ee982, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &2073624293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073624290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fc016295ec0da4cb71387eb3de1a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameplaySound: {fileID: 654253038}
+  _dealerSound: {fileID: 818631673}
 --- !u!4 &2074155730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4566049111648925853, guid: a5a5a63409d2719408d43f6f27dda7a0,
@@ -68610,7 +68978,15 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1240678503}
-    m_AddedComponents: []
+    - targetCorrespondingSourceObject: {fileID: 100948337781015587, guid: fa2e84824036a244fae4c45b77047769,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 818631671}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7419736667952291303, guid: fa2e84824036a244fae4c45b77047769,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966985492}
   m_SourcePrefab: {fileID: 100100000, guid: fa2e84824036a244fae4c45b77047769, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

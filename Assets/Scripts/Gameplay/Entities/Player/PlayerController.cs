@@ -29,6 +29,8 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
 
+        [SerializeField] private ShopBaseControl _shopBaseControl;
+
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
 
@@ -396,11 +398,12 @@ namespace Spark.Gameplay.Entities.Player
         #endregion
 
         #region Player purchasing weapons from a dealer
-        public void OnPlayerPurchaseWeapon(WeaponData weaponData, int price)
+        public void OnPlayerPurchaseWeapon(WeaponData weaponData)
         {
-            if (_model.Details < price) return;
+            //WeaponData weaponData = _shopBaseControl.BuyWeapon(ID);
+            if (_model.Details < weaponData.Price) return;
 
-            if (_model.AddNewWeapon(weaponData)) _model.Details -= price;            
+            if (_model.AddNewWeapon(weaponData)) _model.Details -= weaponData.Price;            
         }
         public void OnPlayerPurchaseCard(int price)
         {
@@ -418,6 +421,7 @@ namespace Spark.Gameplay.Entities.Player
             if (_medKitAbility.Add())
                 _model.Details -= price;
         }
+        public int GetDetails() => _model.Details;
         #endregion
 
 #if UNITY_EDITOR

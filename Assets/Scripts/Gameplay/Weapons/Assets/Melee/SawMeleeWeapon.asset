@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1baa8d0327eb42469bca3118170b4bc, type: 3}
+  m_Name: SawMeleeWeapon
+  m_EditorClassIdentifier: 
+  <Name>k__BackingField: Saw
+  <Description>k__BackingField: fromDealer
+  <AttackDamage>k__BackingField: 6
+  <AttackRange>k__BackingField: 12
+  <Icon>k__BackingField: {fileID: 21300000, guid: e2bbf60dad58cc9409ff86c5c53aa222,
+    type: 3}
+  <Prefab>k__BackingField: {fileID: 1412392902477808523, guid: ec559e1feff754cf193bd2b6633c45a7,
+    type: 3}
+  <ImpactParticleSystem>k__BackingField: {fileID: 0}
+  <HitEntityParticleSystem>k__BackingField: {fileID: 0}
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 7eb1bbb49903a084b978ea97326f37fb,
+    type: 3}
+  <Price>k__BackingField: 1000
+  <SwingDelay>k__BackingField: 4

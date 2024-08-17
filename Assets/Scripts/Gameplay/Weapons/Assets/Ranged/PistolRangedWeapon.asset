@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Pistol
   <Description>k__BackingField: 
-  <AttackDamage>k__BackingField: 4
+  <AttackDamage>k__BackingField: 2
   <AttackRange>k__BackingField: 10000
   <Icon>k__BackingField: {fileID: 21300000, guid: cce89fc985cf53b41a0dba34f4e21edf,
     type: 3}
@@ -33,4 +33,4 @@ MonoBehaviour:
   <AmmoMax>k__BackingField: 10
   <AmmoPerShot>k__BackingField: 1
   <Automatic>k__BackingField: 1
-  <FireRate>k__BackingField: 1
+  <FireRate>k__BackingField: 0.7

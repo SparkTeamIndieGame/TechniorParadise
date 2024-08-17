@@ -10,8 +10,9 @@ using Spark.Gameplay.Entities.Player;
 using System;
 using Spark.Gameplay.Items.Pickupable;
 using UnityEngine;
+using UnityEngine.InputSystem.OnScreen;
 using UnityEngine.UI;
-using System;
+
 
 namespace Spark.UI
 {
@@ -29,10 +30,14 @@ namespace Spark.UI
         [SerializeField] private Image _meleWeaponIcon;
         [SerializeField] private Image _reloadIcon;
         [SerializeField] private Image _medKitIcon;
+        [SerializeField] private OnScreenButton _medKitButton;
+        [SerializeField] private Text _medKitCountText;
         [SerializeField] private Text _currentAmmoText;
         [SerializeField] private Text _maxAmmoText;
         
         [SerializeField] private Text _currentDetails;
+        [SerializeField] private OnScreenButton _meleWeaponButton;
+        [SerializeField] private OnScreenButton _rangeWeaponButton;
         #endregion
 
         #region Target UI
@@ -59,6 +64,7 @@ namespace Spark.UI
 
             _playerAmmo.enabled = false;
             _restartUI.SetActive(false);
+            
         }
 
         public void UpdatePlayerHealthUI(float health)
@@ -82,14 +88,14 @@ namespace Spark.UI
             if (weapon is RangedWeaponData)
             {
                 _rangeWeaponIcon.sprite = weapon.Icon;
-
+                _reloadIcon.gameObject.SetActive(true);
                 _rangeWeaponIcon.color = Color.white;
                 _meleWeaponIcon.color = Color.gray;
             }
             else if (weapon is MeleeWeaponData)
             {
                 _meleWeaponIcon.sprite = weapon.Icon;
-
+                _reloadIcon.gameObject.SetActive(false);
                 _meleWeaponIcon.color = Color.white;
                 _rangeWeaponIcon.color = Color.gray;
             }
@@ -99,16 +105,23 @@ namespace Spark.UI
         {
             _playerAmmo.enabled = true;
             _maxAmmoText.text = rangedWeapon.AmmoMax.ToString();
-            
+            _reloadIcon.fillAmount = 0.0f;
+            float temple = 0.0f;
             if (rangedWeapon.IsReloading)
             {
-                _reloadIcon.fillAmount = rangedWeapon.ReloadTimeLeft / rangedWeapon.ReloadDuration;
+                _meleWeaponButton.enabled = false;
+                _rangeWeaponButton.enabled = false;
+                //_reloadIcon.fillAmount = rangedWeapon.ReloadTimeLeft / rangedWeapon.ReloadDuration;
+                temple = rangedWeapon.ReloadTimeLeft / rangedWeapon.ReloadDuration;
+                _reloadIcon.fillAmount += 1.0f - temple;                     
                 _currentAmmoText.text = rangedWeapon.Ammo.ToString();
             }
             //_playerAmmo.text = $"Reloading: {rangedWeapon.ReloadTimeLeft:f1}";
 
             else
             {
+                _meleWeaponButton.enabled = true;
+                _rangeWeaponButton.enabled = true;
                 _reloadIcon.fillAmount = 1.0f;
                 _currentAmmoText.text = rangedWeapon.Ammo.ToString();
             }
@@ -118,10 +131,30 @@ namespace Spark.UI
 
         public void UpdatePlayerMedKitButtonUI(MedKitAbility medKit)
         {
-            if (!medKit.IsReady) 
-                _medKitIcon.fillAmount = medKit.Cooldown / medKit.CooldownDuration;
-
-            else _medKitIcon.fillAmount = 1.0f;
+            if (_playerHealthBar.value == _playerHealthBar.maxValue)
+            {
+                _medKitButton.enabled = false;
+            }
+            else
+            {
+                _medKitButton.enabled = true;
+            }
+            //_medKitCountText.text = medKit.Count.ToString();
+            _medKitIcon.fillAmount = 0.0f;
+            float temple = 0.0f;
+            if (!medKit.IsReady)
+            {
+                temple = medKit.Cooldown / medKit.CooldownDuration;
+                _medKitIcon.fillAmount += 1.0f - temple;   
+                
+            }
+            //_medKitIcon.fillAmount = medKit.Cooldown / medKit.CooldownDuration;
+            else
+            {
+                _medKitIcon.fillAmount = 1.0f;
+                //_medKitCountText.text = medKit.Count.ToString();
+            }
+            _medKitCountText.text = medKit.Count.ToString();
         }
         private void UpdateHealthUI(IDamagable damagable, ref GameObject target, ref Slider bar)
         {

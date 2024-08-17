@@ -71,7 +71,7 @@ namespace Spark.Gameplay.Entities.Enemies
         private void TryToDrop(DropEnemyItem dropInfo)
         {
             if (dropInfo.Prefab != null && dropInfo.CalculateDropChance() <= dropInfo.Chance)
-                Instantiate(dropInfo.Prefab, transform.position, Quaternion.identity);
+                Instantiate(dropInfo.Prefab, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
         }
 
         public void Attack()
