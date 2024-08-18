@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/HealthBoxL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/HealthBoxL.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Items/HealthBoxL.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Items/HealthBoxL.prefab.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/MeleeWeapons/Knife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/MeleeWeapons/Knife.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/MeleeWeapons/Saw.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/MeleeWeapons/Saw.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/MeleeWeapons/spear.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/MeleeWeapons/spear.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Rife.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/Rife.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/SemiAutomat.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/SemiAutomat.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/ShootGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/ShootGun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/StormGun.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Weapon/RangedWeapons/StormGun.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Dealer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Dealer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Enemies/Common/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Enemies/Common/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Melee/KatanaMeleeWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Melee/KatanaMeleeWeapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Melee/KnifeMeleeWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Melee/KnifeMeleeWeapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/NewRangedWeapon.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/NewRangedWeapon.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/PistolRangedWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/PistolRangedWeapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/SubmachineGunRangedWeapon.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/Assets/Ranged/SubmachineGunRangedWeapon.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/WeaponData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/WeaponData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,7 +118,7 @@
       <workItem from="1723636890093" duration="597000" />
       <workItem from="1723759351856" duration="856000" />
       <workItem from="1723895574344" duration="635000" />
-      <workItem from="1723910662739" duration="22850000" />
+      <workItem from="1723910662739" duration="23191000" />
     </task>
     <servers />
   </component>
