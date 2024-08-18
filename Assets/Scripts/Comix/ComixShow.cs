@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ComixShow : MonoBehaviour
@@ -19,11 +20,16 @@ public class ComixShow : MonoBehaviour
     private const string DEFAULT_TITLE = " ";
     
     private int currentPage = 0;
+    private int currentSceneNumber;
+    private int allSceneNumber;
     
     private void Start()
     {
+        currentSceneNumber = SceneManager.GetActiveScene().buildIndex;
+        allSceneNumber = SceneManager.sceneCountInBuildSettings - 1;
         GetAllComponents();
     }
+    
     private void GetAllComponents() // получаем все ссылки
     {
         for (int i = 0; i < _pages.Count; i++)
@@ -82,7 +88,16 @@ public class ComixShow : MonoBehaviour
     private IEnumerator EndComix()
     {
         yield return new WaitForSeconds(3.0f);
-        _loaderScens.NextScene(); //номер сцены
+        if (currentSceneNumber == allSceneNumber)
+        {
+            _loaderScens.LoadScene(0); //номер сцены
+        }
+        else
+        {
+            _loaderScens.NextScene(); //номер сцены
+        }
+        
+        
     }
     public void OnSkipTextClicked()
     {
@@ -112,6 +127,13 @@ public class ComixShow : MonoBehaviour
     public void OnFullSkipClicked()
     {
         StopAllCoroutines();
-        _loaderScens.NextScene();
+        if (currentSceneNumber == allSceneNumber)
+        {
+            _loaderScens.LoadScene(0); //номер сцены
+        }
+        else
+        {
+            _loaderScens.NextScene(); //номер сцены
+        }
     }
 }
