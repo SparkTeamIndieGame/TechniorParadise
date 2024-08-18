@@ -66,7 +66,7 @@ namespace Spark.Gameplay.Entities.Common
         {
             float distance = Vector3.Distance(transform.position, target);
 
-            if (distance <= _navMeshAgent.stoppingDistance)
+            if (distance <= _navMeshAgent.stoppingDistance && !_navMeshAgent.isStopped)
                 _animator.SetTrigger("Attack");
 
                 return distance;
