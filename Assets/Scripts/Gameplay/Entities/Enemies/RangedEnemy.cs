@@ -5,11 +5,22 @@ namespace Spark.Gameplay.Entities.Enemies
 {
     public class RangedEnemy : Enemy
     {
+        static Vector3 vector;
+        public Vector3 ddd;
         private void Awake()
         {
             canMove = false;
         }
 
+        public override void Update()
+        {
+            base.Update();
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                vector += new Vector3(0, 1, 0);
+                ddd = vector;
+            }
+        }
         public override void AnimMoveState()
         {
             if (DistanceToTarget(_target.position) <= _attackRange)
@@ -18,7 +29,7 @@ namespace Spark.Gameplay.Entities.Enemies
                _target.gameObject.layer == SortingLayer.NameToID("Player"))
                 {
                     _animator.SetTrigger("Attack");
-                    transform.LookAt(_target);
+                    transform.LookAt(_target, vector);
                 }
             }
         }
