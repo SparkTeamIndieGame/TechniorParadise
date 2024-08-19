@@ -23,7 +23,7 @@ MonoBehaviour:
   <ImpactParticleSystem>k__BackingField: {fileID: 0}
   <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
     type: 3}
-  <AudioClip>k__BackingField: {fileID: 8300000, guid: 1b1dd195190d8d040b8b78d65d9ee274,
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 97155114887790647a20cf11e0c5ba15,
     type: 3}
   <Price>k__BackingField: 2000
   <SwingDelay>k__BackingField: 4

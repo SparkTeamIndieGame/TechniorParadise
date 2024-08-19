@@ -24,7 +24,7 @@ MonoBehaviour:
     type: 3}
   <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
     type: 3}
-  <AudioClip>k__BackingField: {fileID: 8300000, guid: bc83bb5e9786c714c881848f57634eff,
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: 70ab0416804b9e545bd3211f816d977e,
     type: 3}
   <Price>k__BackingField: 700
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
