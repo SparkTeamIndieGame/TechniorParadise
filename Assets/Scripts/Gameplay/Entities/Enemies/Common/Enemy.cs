@@ -1,7 +1,9 @@
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Data;
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
 
 namespace Spark.Gameplay.Entities.Enemies
 {
@@ -62,10 +64,19 @@ namespace Spark.Gameplay.Entities.Enemies
             _dropDetailsPickup.Prefab = null;
             _dropAidKitPickup.Prefab = null;
 
+            StartCoroutine(PlayAnimationWithDestroy());
+        }
+
+        IEnumerator PlayAnimationWithDestroy()
+        {
             _animator.SetBool("Dead", true);
             _audioSystem.AudioDictinory["Dead"].Play();
             _navMeshAgent.isStopped = true;
-            Destroy(gameObject, 3);
+
+            yield return new WaitForSeconds(3.0f);
+
+            Destroy(this);
+            // gameObject.SetActive(false);
         }
 
         private void TryToDrop(DropEnemyItem dropInfo)
