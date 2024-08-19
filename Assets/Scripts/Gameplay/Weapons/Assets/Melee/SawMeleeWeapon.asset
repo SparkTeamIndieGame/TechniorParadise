@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Saw
   <Description>k__BackingField: fromDealer
-  <AttackDamage>k__BackingField: 6
+  <AttackDamage>k__BackingField: 20
   <AttackRange>k__BackingField: 12
   <Icon>k__BackingField: {fileID: 21300000, guid: e2bbf60dad58cc9409ff86c5c53aa222,
     type: 3}
