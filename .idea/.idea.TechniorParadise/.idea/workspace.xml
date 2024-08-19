@@ -5,10 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_Final.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_Final.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Comix/ComixShow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Comix/ComixShow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/barrel2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/barrel2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/barrel3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/barrel3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/barrier.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/barrier.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/box2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/box2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/box3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/box3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cabinet1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cabinet1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cabinet2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cabinet2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cistern2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cistern2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cistern3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/cistern3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/crane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/crane.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/electric station.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/electric station.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe6 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe6 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipe6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipes2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/pipes2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/turbine.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Locations/lok2/turbine.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
