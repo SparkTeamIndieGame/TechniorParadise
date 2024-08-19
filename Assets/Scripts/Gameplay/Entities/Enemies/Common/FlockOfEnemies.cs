@@ -1,10 +1,13 @@
 using Spark.Gameplay.Entities.Enemies;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class FlockOfEnemies : MonoBehaviour
 {
+    public Action OnRespawnRequest;
+
     [SerializeField] List<Enemy> _enemies;
     [SerializeField] Transform _target;
 
@@ -49,7 +52,10 @@ public class FlockOfEnemies : MonoBehaviour
     private void FixedUpdate()
     {
         if (_enemies.Count <= 0)
+        {
+            OnRespawnRequest?.Invoke();
             Destroy(gameObject);
+        }
 
         if (_targetDetected)
         {
