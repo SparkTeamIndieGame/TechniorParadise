@@ -69,7 +69,14 @@ public class ComixShow : MonoBehaviour
         if (currentPage +1 >= _pages.Count)
         {
             yield return new WaitForSeconds(3.0f);
-            _loaderScens.NextScene(); //номер сцены
+            if (currentSceneNumber == allSceneNumber)
+            {
+                _loaderScens.LoadScene(0); //номер сцены
+            }
+            else
+            {
+                _loaderScens.NextScene(); //номер сцены
+            }
         }
         else
         {

@@ -184,7 +184,7 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (_medKitAbility.Cooldown <= 0)
             {
-                _model.AudioSystem.AudioDictinory["Dead"].Play();
+                _model.AudioSystem.AudioDictinory["HealthBox"].Play();
             }
             _medKitAbility.Use();
         }
