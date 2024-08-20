@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay/Comix_1.unity
     guid: 295dac2e0a9c948499405fd31deec6d7
   - enabled: 1
-    path: Assets/Scenes/Gameplay/Level_1.unity
-    guid: b3074df95e7aa6f4aba410ed8f248b29
+    path: Assets/Scenes/Gameplay/Level_2.unity
+    guid: 2d446d952a5815341ae6387e3c4459f2
   - enabled: 1
     path: Assets/Scenes/Gameplay/Comix_Final.unity
     guid: 2d46f57a42c0e6942a70c1569695b3b8
