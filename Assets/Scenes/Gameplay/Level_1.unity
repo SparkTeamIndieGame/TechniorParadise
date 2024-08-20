@@ -62659,6 +62659,31 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
+      propertyPath: _model.AudioSystem.audioSources.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model.AudioSystem.audioSources.Array.data[5]
+      value: 
+      objectReference: {fileID: 37695069}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model.AudioSystem.audioSources.Array.data[6]
+      value: 
+      objectReference: {fileID: 37695069}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model.AudioSystem.audioSources.Array.data[7]
+      value: 
+      objectReference: {fileID: 37695069}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
+      propertyPath: _model.AudioSystem.audioSources.Array.data[8]
+      value: 
+      objectReference: {fileID: 37695069}
+    - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
+        type: 3}
       propertyPath: _model.<FlashCard>k__BackingField.<MaxAmount>k__BackingField
       value: 10
       objectReference: {fileID: 0}
@@ -72063,7 +72088,7 @@ PrefabInstance:
     - target: {fileID: 5253794708908071294, guid: c04fc847da64ac04ea58fede08513161,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6199234245430479615, guid: c04fc847da64ac04ea58fede08513161,
         type: 3}
