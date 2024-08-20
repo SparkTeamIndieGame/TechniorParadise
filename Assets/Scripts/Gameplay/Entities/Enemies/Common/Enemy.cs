@@ -53,6 +53,7 @@ namespace Spark.Gameplay.Entities.Enemies
             Health -= points;
             OnHealthChanged?.Invoke(this);
             _audioSystem.AudioDictinory["TakeDamage"].Play();
+            _animator.SetTrigger("TakeDamage");
 
             if (Health <= 0) Die();
         }
@@ -69,7 +70,7 @@ namespace Spark.Gameplay.Entities.Enemies
 
         IEnumerator PlayAnimationWithDestroy()
         {
-            _animator.SetBool("Dead", true);
+            _animator.SetTrigger("Dead");
             _audioSystem.AudioDictinory["Dead"].Play();
             _navMeshAgent.isStopped = true;
 
@@ -88,6 +89,7 @@ namespace Spark.Gameplay.Entities.Enemies
         public void Attack()
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
+            if (Health <= 0) return;
             ParticlPlay(_shootingParticleSystem, transform);
             _audioSystem.AudioDictinory["Attack"].Play();
             CalculateHit();
@@ -101,6 +103,14 @@ namespace Spark.Gameplay.Entities.Enemies
             var effect = Instantiate(particle, positionSpawn.position, Quaternion.identity);
             effect.Play();
             Destroy(effect.gameObject, 1);
+        }
+
+        public void StopAgent(int state)
+        {
+            if (state == 0)
+                _navMeshAgent.isStopped = true;
+            else
+                _navMeshAgent.isStopped = false;
         }
     }
 

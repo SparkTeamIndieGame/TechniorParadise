@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7241360154288057719}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Bicep1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1793739742968843789}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: dog_reference_skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3264237707932830262}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Toe_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1607660055550846170}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5310139451362860639}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky3_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2798289020469436089}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7840799249054661622}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index3_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3368513898469663027}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye_Panel_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2223607450442759050}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.phalanges_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -296,7 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868499699820971861}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Spine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6693072683881583711}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.forward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3644402967013475635}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pully_Arm_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4568522407885513982}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye_Panel_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -422,7 +422,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3489069388254204302}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Leg2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -454,7 +454,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7816954066221153340}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Spine3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944207030579182029}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4618050921612962702}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5688263016340030914}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5776714557183481537}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Hand_R_Drill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -619,7 +619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8584654478178054202}
   - component: {fileID: 8023601955028497618}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: dog_reference_lod2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 338745449799399338}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Neck2_Length
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3804513947138194596}
   - component: {fileID: 5664436472484481717}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: dog_reference_lod1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -939,7 +939,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4318124936156222902}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -972,7 +972,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3535734892388553034}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1004,7 +1004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 637855436173672360}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.forward_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1035,7 +1035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1464004810331591733}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky3_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1067,13 +1067,17 @@ GameObject:
   m_Component:
   - component: {fileID: 3813785882205578579}
   - component: {fileID: 382589842945434535}
-  m_Layer: 0
+  - component: {fileID: 868818768926204424}
+  - component: {fileID: 5008286197398061113}
+  - component: {fileID: 594512701563504772}
+  - component: {fileID: 4207497520819593550}
+  m_Layer: 20
   m_Name: FightBotMelee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3813785882205578579
 Transform:
   m_ObjectHideFlags: 0
@@ -1091,6 +1095,7 @@ Transform:
   - {fileID: 3804513947138194596}
   - {fileID: 8584654478178054202}
   - {fileID: 1793739742968843789}
+  - {fileID: 2417271057161820630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &382589842945434535
@@ -1114,6 +1119,114 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!136 &868818768926204424
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690963684371758346}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.57
+  m_Height: 4.27
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &5008286197398061113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690963684371758346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa31fc6d046aa419bf8064af02791f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemies:
+  - {fileID: 4207497520819593550}
+  _target: {fileID: 0}
+  _detectionRange: 5
+  _scanInterval: 1
+  _distanceView: 5
+  idEnemy: 
+  _targetDetected: 0
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 655360
+--- !u!195 &594512701563504772
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690963684371758346}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &4207497520819593550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3690963684371758346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baa6f5f5249cd2944b63dd74955add34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _patrolPoints: []
+  canMove: 1
+  _audioSystem:
+    audioSources:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  _stopDic: 3
+  _target: {fileID: 0}
+  _healthMax: 100
+  _health: 100
+  _damage: 2
+  _attackRange: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  _shootingParticleSystem: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+    type: 3}
+  _impactParticleSystem: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+    type: 3}
+  _dropDetailsPickup:
+    Prefab: {fileID: 0}
+    Chance: 0
+  _dropAidKitPickup:
+    Prefab: {fileID: 0}
+    Chance: 0
+  _attackDelay: 0.1
 --- !u!1 &3722496487063118489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,7 +1236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3600237310999544877}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Clavical_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1155,7 +1268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4929615594364335220}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Neck1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1188,7 +1301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4966317058851142993}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.BigPhys_Attachment_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1220,7 +1333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7978501500930839523}
   - component: {fileID: 4387753514100787144}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: dog_reference
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1363,7 +1476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4612632844219985612}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7033366055677277761}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Toe_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1426,7 +1539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7110623193306883159}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Elbow1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1458,7 +1571,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5418002485983154736}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1490,7 +1603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3869623365178309080}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,7 +1635,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8965418458035423718}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1554,7 +1667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1852417056999474915}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye_Panel_Top_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1585,7 +1698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 84110543867059350}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Leg1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2441664403197861410}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1649,7 +1762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4200174361485895303}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Leg2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1681,7 +1794,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 537750245069064372}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Shoulder_Plate_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1713,7 +1826,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5229764227968184367}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Neck1_Length
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1746,7 +1859,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5589941760526238787}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Spine1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1778,7 +1891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2576085204321534312}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1806,6 +1919,135 @@ Transform:
   - {fileID: 6693072683881583711}
   m_Father: {fileID: 338745449799399338}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5318030880680866457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579606315944499693}
+  - component: {fileID: 4150542438655529803}
+  m_Layer: 20
+  m_Name: Dead
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579606315944499693
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318030880680866457}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2417271057161820630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &4150542438655529803
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5318030880680866457}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7090483001280206855, guid: c3b2c42a0818f45f9bc4233f878ff32e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 464f0d633c76c41318c4321aa288925d, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 7
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5380761498714614675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1815,7 +2057,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 822597492981280762}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb3_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +2089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3540262204750609560}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1879,7 +2121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7108861900313231727}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Focus_Ring_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1910,7 +2152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4837213418253662233}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1948,7 +2190,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 418503003374889193}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Elbow1_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1970,6 +2212,135 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7110623193306883159}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5801685697688026923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3587051947608980613}
+  - component: {fileID: 362248826869240079}
+  m_Layer: 20
+  m_Name: Attack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3587051947608980613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801685697688026923}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2417271057161820630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &362248826869240079
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5801685697688026923}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7090483001280206855, guid: c3b2c42a0818f45f9bc4233f878ff32e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 3a398b453262b46cbb89ae06a3c02c55, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 7
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5803644042560170115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,7 +2350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5713766054246275573}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Tricep2_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2010,7 +2381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8147518115776728616}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye_Panel_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2042,7 +2413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7883204570801025208}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2074,7 +2445,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7078556576209686273}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Bicep2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2106,7 +2477,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1819318145019733135}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Bicep2_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2137,7 +2508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3244368880581379216}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2169,7 +2540,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6063334231779967039}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Neck2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2201,7 +2572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2714672157208264457}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye_Panel_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2233,7 +2604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6223099238352540460}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.phalanges_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2265,7 +2636,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4627619188354828716}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2297,7 +2668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 847561630370269758}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Elbow1_R1_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2328,7 +2699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1146725133902139891}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index3_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2359,7 +2730,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4500178082730026776}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Leg1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2391,7 +2762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4463375237488256869}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Shoulder_Plate_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2422,7 +2793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3871371107297127003}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2454,7 +2825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1200794311863685332}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2486,7 +2857,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4214995482660426765}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb2_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2517,7 +2888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 254576700716884226}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2540,6 +2911,135 @@ Transform:
   - {fileID: 944207030579182029}
   m_Father: {fileID: 2172780484520283057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7705885254907837165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3260269252420950468}
+  - component: {fileID: 7665094042773113119}
+  m_Layer: 20
+  m_Name: Move
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3260269252420950468
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705885254907837165}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2417271057161820630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &7665094042773113119
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7705885254907837165}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7090483001280206855, guid: c3b2c42a0818f45f9bc4233f878ff32e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 7850a6f93a6ac43f594b481f63bb220d, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 5
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7748473232726311086
 GameObject:
   m_ObjectHideFlags: 0
@@ -2549,7 +3049,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1424586724391807975}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Bicep1_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2580,7 +3080,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2174078120849207478}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Clavical_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2613,7 +3113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1394341249258064229}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.BigPhys_Attachment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2645,7 +3145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5496024322255759201}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2677,7 +3177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3082487297163931327}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm1_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2710,7 +3210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4216464185325088947}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Index3_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2742,7 +3242,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2172780484520283057}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2777,7 +3277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2131629261306681772}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Tricep2_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2809,7 +3309,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3592415024688257673}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Tricep1_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2832,6 +3332,41 @@ Transform:
   - {fileID: 4514913653004082238}
   m_Father: {fileID: 4837213418253662233}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8651903358253169005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2417271057161820630}
+  m_Layer: 20
+  m_Name: AudioSource
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2417271057161820630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8651903358253169005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3260269252420950468}
+  - {fileID: 229494454326971958}
+  - {fileID: 579606315944499693}
+  - {fileID: 3587051947608980613}
+  m_Father: {fileID: 3813785882205578579}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8654929062972721985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,7 +3376,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2676279710550608123}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pinky2_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2873,7 +3408,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6634646554497698618}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Thumb3_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2904,7 +3439,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4514913653004082238}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Tricep1_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2935,7 +3470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1613130266182349688}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Eye_Panel_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2966,7 +3501,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4013957096900705611}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Arm_Elbow1_R1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2999,7 +3534,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9219947190160566575}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Pully_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3031,7 +3566,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6544581275137369294}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Focus_Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3054,6 +3589,135 @@ Transform:
   - {fileID: 7108861900313231727}
   m_Father: {fileID: 2576085204321534312}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9150507403806423010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 229494454326971958}
+  - component: {fileID: 1400075870915558846}
+  m_Layer: 20
+  m_Name: TakeDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &229494454326971958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150507403806423010}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2417271057161820630}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1400075870915558846
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150507403806423010}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -7090483001280206855, guid: c3b2c42a0818f45f9bc4233f878ff32e,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 05493687411924346969cc088cdae2a1, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 2
+  MaxDistance: 7
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &9153121176771072768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,7 +3727,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6476522029391663969}
-  m_Layer: 0
+  m_Layer: 20
   m_Name: Dog_Model.Toe_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}

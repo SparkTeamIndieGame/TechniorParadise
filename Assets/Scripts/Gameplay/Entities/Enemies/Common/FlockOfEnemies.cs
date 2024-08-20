@@ -24,6 +24,11 @@ public class FlockOfEnemies : MonoBehaviour
     private void Start()
     {
         StartCoroutine(ScanTarget());
+
+        if(_enemies.Count == 0)
+        {
+            _enemies.Add(gameObject.GetComponent<Enemy>());
+        }
     }
 
     IEnumerator ScanTarget()
