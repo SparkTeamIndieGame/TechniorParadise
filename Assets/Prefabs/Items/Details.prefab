@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _turnSpeed: 100
   _maxDetails: 300
-  _minDetails: 18
+  _minDetails: 250
 --- !u!135 &8236404781916723942
 SphereCollider:
   m_ObjectHideFlags: 0

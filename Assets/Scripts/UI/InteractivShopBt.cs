@@ -14,14 +14,17 @@ public class InteractivShopBt : MonoBehaviour
     [SerializeField] private Text _priceText;
     [SerializeField] private Image _itemImage;
     [SerializeField] private int _numberElement;
-    //[SerializeField] private ShopBaseControl _firstTMan;
+
+    private ShopBaseControl _targetMan;
+
+
     
     
 
 
     private void OnEnable()
     {
-        throw new NotImplementedException();
+        _targetMan = FirstTM.ActualTM;
     }
 
     private void Start()
@@ -36,19 +39,19 @@ public class InteractivShopBt : MonoBehaviour
         switch (number)
         {
             case 1:
-                _priceText.text = FirstTM.ActualTM._rangedWeapons[0].Price.ToString();
-                _itemImage.sprite = FirstTM.ActualTM._rangedWeapons[0].Icon;
-                CheckPrice(FirstTM.ActualTM._rangedWeapons[0]);
+                _priceText.text = _targetMan._rangedWeapons[0].Price.ToString();
+                _itemImage.sprite = _targetMan._rangedWeapons[0].Icon;
+                CheckPrice(_targetMan._rangedWeapons[0]);
                 break;
             case 2:
-                _priceText.text = FirstTM.ActualTM._rangedWeapons[1].Price.ToString();
-                _itemImage.sprite = FirstTM.ActualTM._rangedWeapons[1].Icon;
-                CheckPrice(FirstTM.ActualTM._rangedWeapons[1]);
+                _priceText.text = _targetMan._rangedWeapons[1].Price.ToString();
+                _itemImage.sprite = _targetMan._rangedWeapons[1].Icon;
+                CheckPrice(_targetMan._rangedWeapons[1]);
                 break;
             case 3:
-                _priceText.text = FirstTM.ActualTM._meleeWeapon.Price.ToString();
-                _itemImage.sprite = FirstTM.ActualTM._meleeWeapon.Icon;
-                CheckPrice(FirstTM.ActualTM._meleeWeapon);
+                _priceText.text = _targetMan._meleeWeapon.Price.ToString();
+                _itemImage.sprite = _targetMan._meleeWeapon.Icon;
+                CheckPrice(_targetMan._meleeWeapon);
                 break;
             default:
                 var actualCount = _actualDetailCount.GetActualDetails();
