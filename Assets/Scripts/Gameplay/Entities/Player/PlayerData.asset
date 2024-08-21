@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce8e930e5dcb13e4092c379ff0b18392, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  Details: 0
+  FlashCard:
+    <MaxAmount>k__BackingField: 10
+  MeleeWeaponData:
+  - {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
+  RangedWeaponData:
+  - {fileID: 11400000, guid: d8da62bfb34866a49bd3137a31322f72, type: 2}
