@@ -14,10 +14,15 @@ public class InteractivShopBt : MonoBehaviour
     [SerializeField] private Text _priceText;
     [SerializeField] private Image _itemImage;
     [SerializeField] private int _numberElement;
-    [SerializeField] private ShopBaseControl _firstTMan;
-    public static ShopBaseControl _activeTMan;
+    //[SerializeField] private ShopBaseControl _firstTMan;
+    
+    
 
-   
+
+    private void OnEnable()
+    {
+        throw new NotImplementedException();
+    }
 
     private void Start()
     {
@@ -31,19 +36,19 @@ public class InteractivShopBt : MonoBehaviour
         switch (number)
         {
             case 1:
-                _priceText.text = _activeTMan._rangedWeapons[0].Price.ToString();
-                _itemImage.sprite = _activeTMan._rangedWeapons[0].Icon;
-                CheckPrice(_activeTMan._rangedWeapons[0]);
+                _priceText.text = FirstTM.ActualTM._rangedWeapons[0].Price.ToString();
+                _itemImage.sprite = FirstTM.ActualTM._rangedWeapons[0].Icon;
+                CheckPrice(FirstTM.ActualTM._rangedWeapons[0]);
                 break;
             case 2:
-                _priceText.text = _activeTMan._rangedWeapons[1].Price.ToString();
-                _itemImage.sprite = _activeTMan._rangedWeapons[1].Icon;
-                CheckPrice(_activeTMan._rangedWeapons[1]);
+                _priceText.text = FirstTM.ActualTM._rangedWeapons[1].Price.ToString();
+                _itemImage.sprite = FirstTM.ActualTM._rangedWeapons[1].Icon;
+                CheckPrice(FirstTM.ActualTM._rangedWeapons[1]);
                 break;
             case 3:
-                _priceText.text = _activeTMan._meleeWeapon.Price.ToString();
-                _itemImage.sprite = _activeTMan._meleeWeapon.Icon;
-                CheckPrice(_activeTMan._meleeWeapon);
+                _priceText.text = FirstTM.ActualTM._meleeWeapon.Price.ToString();
+                _itemImage.sprite = FirstTM.ActualTM._meleeWeapon.Icon;
+                CheckPrice(FirstTM.ActualTM._meleeWeapon);
                 break;
             default:
                 var actualCount = _actualDetailCount.GetActualDetails();

@@ -13,7 +13,7 @@ public class LoadingWindow : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _playerInput.enabled = false;
-        InteractivShopBt._activeTMan = newActiveTrader;
+        FirstTM.ActualTM = newActiveTrader;
         Time.timeScale = 0.0f;
         loadingWindow.SetActive(true);
     }
