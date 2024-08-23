@@ -25,15 +25,10 @@ public class InteractivShopBt : MonoBehaviour
     private void OnEnable()
     {
         _targetMan = FirstTM.ActualTM;
-    }
-
-    private void Start()
-    {
         UpdateShopItem(_numberElement);
     }
-    
-   
 
+   
     private void UpdateShopItem(int number)
     {
         switch (number)
