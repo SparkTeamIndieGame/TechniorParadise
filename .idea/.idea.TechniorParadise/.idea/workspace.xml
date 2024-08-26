@@ -6,37 +6,48 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2D_ArtDirection.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/2D_ArtDirection.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D_Character.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D_Character.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D_EnvironMent.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D_EnvironMent.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D_Weapon.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/3D_Weapon.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animation.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Animation.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Debug.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Development.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Development.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Development.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Development/NavMesh-Earth.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Development/NavMesh-Earth.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameDesigner.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameDesigner.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/BetaLVL.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/BetaLVL/NavMesh-Cylinder.058.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/BetaLVL/NavMesh-Cylinder.058.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lvl_designer.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Lvl_designer.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev/NavMesh-1 локацияFBX.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev/NavMesh-1 локацияFBX.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev/NavMesh-Plane.001.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main_Dev/NavMesh-Plane.001.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_back.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_back.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_bottom.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_bottom.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_front.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_front.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_left.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_left.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_right.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_right.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_top.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3Skyboxes/Skybox_BluePinkNebular_Textures/BluePinkNebular_top.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Base_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_Extra_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunHeight_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_armGunMid_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR001_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_headHR002_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legM_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_BaseColor.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_BaseColor.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_Metallic.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_Metallic.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_Normal.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_Roughness.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/Enemies/Melee/Evil/textures/texDev004_legS_Roughness.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/newScripts/Player/enemyTEST.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/Player/enemyTEST.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,24 +79,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "PlayerCharacter",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;GameDev&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.smartKeys_rider&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/ForSokal\TechniorParadise.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/ACRUAL_TP\TechniorParadise.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Games\Новая папка" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -171,6 +182,8 @@
       <workItem from="1724274346259" duration="31000" />
       <workItem from="1724274447228" duration="31000" />
       <workItem from="1724440729783" duration="9608000" />
+      <workItem from="1724603066233" duration="641000" />
+      <workItem from="1724614344801" duration="2139000" />
     </task>
     <servers />
   </component>
