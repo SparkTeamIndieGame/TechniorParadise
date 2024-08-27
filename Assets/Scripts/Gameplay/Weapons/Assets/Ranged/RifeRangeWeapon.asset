@@ -20,9 +20,9 @@ MonoBehaviour:
     type: 3}
   <Prefab>k__BackingField: {fileID: 2259003240945701252, guid: acd601ee0efe44fe1bf9fe202b7fc890,
     type: 3}
-  <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+  <ImpactParticleSystem>k__BackingField: {fileID: 5753523227002068388, guid: 0fc2b90fee600484a9866f110a8bd233,
     type: 3}
-  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+  <HitEntityParticleSystem>k__BackingField: {fileID: 7408286589713440657, guid: 955bfabea2d844cb3b18e3d8930bbd99,
     type: 3}
   <AudioClip>k__BackingField: {fileID: 8300000, guid: 70ab0416804b9e545bd3211f816d977e,
     type: 3}
