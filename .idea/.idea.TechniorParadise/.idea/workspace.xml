@@ -6,11 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerCharacter/Player input.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/PlayerCharacter/Player input.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Bullet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Bullets/Bullet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerTEST.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerTEST.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/newScripts/Player/PlayerMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/Player/PlayerMove.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/newScripts/Player/Shoot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/Player/Shoot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PolygonSciFiCity/URP_ExtractMe.unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/RangedWeapon/RangedWeapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/RangedWeapon/RangedWeapon.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/WeaponData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Weapons/WeaponData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/newScripts/Enemies/HPbarLook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/Enemies/HPbarLook.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/ACRUAL_TP\TechniorParadise.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/TP/Win\TechniorParadise.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Games\Новая папка" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -156,6 +158,7 @@
       <workItem from="1724676663855" duration="9148000" />
       <workItem from="1724755574846" duration="135000" />
       <workItem from="1724755742537" duration="3054000" />
+      <workItem from="1724759622325" duration="1629000" />
     </task>
     <servers />
   </component>

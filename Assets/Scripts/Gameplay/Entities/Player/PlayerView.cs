@@ -78,8 +78,8 @@ namespace Spark.Gameplay.Entities.Player
         private void InstatiateWeapon(Weapon weapon, WeaponData weaponData, Transform hand)
         {
             Transform firePoint = Instantiate(weaponData.Prefab, hand).transform.Find("FirePoint");
-            if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
-            else (weapon as MeleeWeapon).SetHandPoint(hand);
+            // if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
+            // else (weapon as MeleeWeapon).SetHandPoint(hand);
         }
         #endregion
 
