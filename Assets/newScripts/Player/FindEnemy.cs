@@ -2,50 +2,53 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class FindEnemy : MonoBehaviour
 {
-   
-    [SerializeField] private GameObject enemyHealthBar;
-    [SerializeField] private Image enemyHP;
-    public enemyTEST _enemyTest;
+    public enemyTEST _closestEnemy;
+    private List<enemyTEST> _allFindEnemy = new List<enemyTEST>();
 
-    private void Start()
+    private void Update()
     {
-        if (enemyHealthBar.activeSelf == true)
+        if (_allFindEnemy.Count != 0)
         {
-            enemyHealthBar.SetActive(false);
-        }
-
-        
-    }
-
-    private void FixedUpdate()
-    {
-        if (_enemyTest != null)
-        {
-           
-            enemyHealthBar.SetActive(true);
-            enemyHP.fillAmount = _enemyTest.HP / _enemyTest.MaxHP;
-         
-        }
-        else
-        {
-            enemyHealthBar.SetActive(false);
-            _enemyTest = null;
-            
+            FindClosedEnemy();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        _enemyTest = other.GetComponent<enemyTEST>();
+        _allFindEnemy.Add(other.GetComponent<enemyTEST>());
     }
 
     private void OnTriggerExit(Collider other)
     {
-        _enemyTest = null;
-        print("EXIT ОТРАБОТАЛ!");
+        _allFindEnemy.Remove(other.GetComponent<enemyTEST>());
+        _closestEnemy = null;
+    }
+    
+    public void FindClosedEnemy()
+    {
+       
+        float distance = Mathf.Infinity;
+        for (int i = 0; i < _allFindEnemy.Count; i++)
+        {
+            if (_allFindEnemy[i] != null)
+            {
+                float currentDis = Vector3.Distance(this.transform.position, _allFindEnemy[i].transform.position);
+                if (currentDis < distance)
+                {
+                    _closestEnemy = _allFindEnemy[i];
+                    distance = currentDis;
+                }
+            }
+            else
+            {
+                _allFindEnemy.Remove(_allFindEnemy[i]);
+            }
+        }
+        
     }
 }
