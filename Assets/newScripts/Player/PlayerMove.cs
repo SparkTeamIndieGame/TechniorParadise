@@ -53,11 +53,11 @@ public class PlayerMove : MonoBehaviour
 
     }
 
-    public void Shoot()
-    {
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-        bullet.GetComponent<Rigidbody>().velocity = bulletSpawn.forward * buletSpeed;
-    }
+    // public void Shoot()
+    // {
+    //     GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+    //     bullet.GetComponent<Rigidbody>().velocity = bulletSpawn.forward * buletSpeed;
+    // }
     public void Move(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();

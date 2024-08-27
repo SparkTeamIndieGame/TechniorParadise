@@ -1,18 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Spark.Gameplay.Entities.Player;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public PlayerArsenal playerArsenal;
 
-    // Update is called once per frame
-    void Update()
+    public void Shooting()
     {
-        
+        GameObject newBullet = Instantiate(playerArsenal.actualWeapon.BulletPrefab, playerArsenal.actualWeapon.SpawnPoint.position, Quaternion.identity);
+        newBullet.GetComponent<Rigidbody>().velocity = playerArsenal.actualWeapon.SpawnPoint.forward * playerArsenal.actualWeapon.BulletSpeed;
     }
 }
