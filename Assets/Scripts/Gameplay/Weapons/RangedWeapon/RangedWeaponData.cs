@@ -9,7 +9,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
     public class RangedWeaponData : WeaponData
     {
         [field: SerializeField] public TrailRenderer BulletTrail { get; private set; }
-        [field: SerializeField] public Vector3 BulletSpreadRange { get; private set; } = new(0.1f, 0.1f, 0.1f);
+        [field: SerializeField] public Vector3 BulletSpreadRange { get; private set; } = new(.0f, .0f, .0f);
 
         [field: SerializeField, Min(0.5f)] public float ReloadDuration { get; private set; }
         [field: SerializeField, Min(1)] public int AmmoMax { get; private set; }

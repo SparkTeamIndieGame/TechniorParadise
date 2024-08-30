@@ -13,23 +13,25 @@ MonoBehaviour:
   m_Name: SubmachineGunRangedWeapon
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Submachine Gun
-  <Description>k__BackingField: 
-  <AttackDamage>k__BackingField: 2
-  <AttackRange>k__BackingField: 100
-  <Icon>k__BackingField: {fileID: 0}
+  <Description>k__BackingField: fromDealer
+  <AttackDamage>k__BackingField: 7
+  <AttackRange>k__BackingField: 10000
+  <Icon>k__BackingField: {fileID: 21300000, guid: 724c9f69489011c40b8ceac2b3435adb,
+    type: 3}
   <Prefab>k__BackingField: {fileID: 3759053644476711317, guid: b3f6b11499a984696a0195429208c503,
     type: 3}
   <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
     type: 3}
   <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
     type: 3}
-  <AudioClip>k__BackingField: {fileID: 8300000, guid: 9b9d089eda9a9814194aa7a8fd17a80c,
+  <AudioClip>k__BackingField: {fileID: 8300000, guid: c89b7a0df884bec4ea4399adfd430303,
     type: 3}
+  <Price>k__BackingField: 1000
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
   <BulletSpreadRange>k__BackingField: {x: 0, y: 0, z: 0}
-  <ReloadDuration>k__BackingField: 3
+  <ReloadDuration>k__BackingField: 3.5
   <AmmoMax>k__BackingField: 30
   <AmmoPerShot>k__BackingField: 1
   <Automatic>k__BackingField: 1
-  <FireRate>k__BackingField: 1.05
+  <FireRate>k__BackingField: 0.5

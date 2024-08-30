@@ -10,14 +10,19 @@ using Spark.Gameplay.Entities.Enemies;
 using UnityEngine.UI;
 using Spark.Gameplay.Entities.Common.Behaviour;
 using Spark.Utilities;
+using Unity.VisualScripting;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Spark.Gameplay.Entities.Player
 {
     [Serializable]
     public class PlayerModel : IPlayer
     {
+        
         #region Player events
         public event Action<float> OnHealthChanged;
+        public event Action<int> OnDetailsChanged;
         #endregion
 
         [SerializeField] private CharacterController _controller;
@@ -28,11 +33,24 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
 
-        [field: SerializeField] public int Details { get; set; }
+        [SerializeField] private int _details;
+        public int Details
+        {
+            get
+            {
+                return _details;
+            }
+            set
+            {
+                OnDetailsChanged?.Invoke(value);
+                _details = value;
+            }
+        }
+
         [field: SerializeField] public FlashCard.FlashCard FlashCard { get; set; }
 
-        [SerializeField] private MeleeWeaponData[] _meleeWeaponsData;
-        [SerializeField] private RangedWeaponData[] _rangedWeaponsData;
+        [SerializeField] private List<MeleeWeaponData> _meleeWeaponsData;
+        [SerializeField] private List<RangedWeaponData> _rangedWeaponsData;
         [SerializeField] public Weapon ActiveWeapon 
         { 
             get => _toggleActiveWeaponType ? ActiveRangedWeapon : ActiveMeleeWeapon;
@@ -52,6 +70,8 @@ namespace Spark.Gameplay.Entities.Player
 
         private int _currentMeleeWeaponData;
         private int _currentRangedWeaponData;
+
+        public bool CanShoot { get; set; }
 
         public AudioSystem AudioSystem;
         public float MaxHealth => _healthMax;
@@ -121,6 +141,8 @@ namespace Spark.Gameplay.Entities.Player
 
         public void Attack()
         {
+            if (!CanShoot) return;
+
             if (ActiveWeapon.Data is RangedWeaponData rwData)
             {
                 if (rwData.IsReloading) return;
@@ -140,12 +162,12 @@ namespace Spark.Gameplay.Entities.Player
         {
             if (ActiveWeapon.Data is MeleeWeaponData)
             {
-                _currentMeleeWeaponData = (_currentMeleeWeaponData + 1) % _meleeWeaponsData.Length;
+                _currentMeleeWeaponData = (_currentMeleeWeaponData + 1) % _meleeWeaponsData.Count;
                 ActiveWeapon.Data = _meleeWeaponsData[_currentMeleeWeaponData];
             }
             else if (ActiveWeapon.Data is RangedWeaponData)
             {
-                _currentRangedWeaponData = (_currentRangedWeaponData + 1) % _rangedWeaponsData.Length;
+                _currentRangedWeaponData = (_currentRangedWeaponData + 1) % _rangedWeaponsData.Count;
                 ActiveWeapon.Data = _rangedWeaponsData[_currentRangedWeaponData];
             }
         }
@@ -156,9 +178,29 @@ namespace Spark.Gameplay.Entities.Player
         }
 
         public int GetCurrentMeleeWeapon() => _currentMeleeWeaponData;
-        public int GetCurrentRangedWeapon() => _currentRangedWeaponData;
+        public int GetCurrentRangedWeapon() => _currentRangedWeaponData;  
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;
+
+        public bool AddNewWeapon(WeaponData weaponData)
+        {
+            bool success = true;
+            if (weaponData is MeleeWeaponData)
+            {
+                if (_meleeWeaponsData.Find(weapon => weapon == weaponData) == null)
+                    _meleeWeaponsData.Add(weaponData as MeleeWeaponData);
+
+                else success = false;
+            }
+            else
+            {
+                if (_rangedWeaponsData.Find(weapon => weapon == weaponData) == null)
+                    _rangedWeaponsData.Add(weaponData as RangedWeaponData);
+
+                else success = false;
+            }
+            return success;
+        }
     }
 }

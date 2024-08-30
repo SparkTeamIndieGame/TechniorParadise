@@ -3,7 +3,16 @@ guid: 3e3aaf03a3f33444da30b40a970e39b6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - <Icon>k__BackingField: {instanceID: 0}
+  - <Prefab>k__BackingField: {instanceID: 0}
+  - <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+      type: 3}
+  - <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+      type: 3}
+  - <AudioClip>k__BackingField: {instanceID: 0}
+  - <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

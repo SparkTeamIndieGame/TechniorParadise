@@ -11,6 +11,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Abilities;
+using UnityEngine.EventSystems;
+using System.Collections.Generic;
+using System.Linq;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Spark.Gameplay.Entities.Player
 {
@@ -25,6 +29,8 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _distanceView;
         [SerializeField] private PlayerView _view;
 
+        [SerializeField] private ShopBaseControl _shopBaseControl;
+
         [SerializeField] private InputActionReference _movementAction;
         private Vector2 _movement;
 
@@ -38,18 +44,25 @@ namespace Spark.Gameplay.Entities.Player
         private Transform _target;
 
         public FlashCard.FlashCard FlashCard => _model.FlashCard;
+        public bool CanShoot
+        {
+            get => _model.CanShoot;
+            set => _model.CanShoot = value;
+        }
 
         private void OnEnable()
         {
             Enemy.OnEnemyAttack += _model.TakeDamage;
 
             _model.OnHealthChanged += _view.UpdateHealtUI;
+            _model.OnDetailsChanged += _view.UpdateDetailsUI;
         }
         private void OnDisable()
         {
             Enemy.OnEnemyAttack -= _model.TakeDamage;
 
             _model.OnHealthChanged -= _view.UpdateHealtUI;
+            _model.OnDetailsChanged -= _view.UpdateDetailsUI;
         }
 
         private void Start()
@@ -97,6 +110,16 @@ namespace Spark.Gameplay.Entities.Player
                 this.enabled = false;
             }
 
+            if(_model.ActiveWeapon.Data is RangedWeaponData reload)
+            {
+                if (reload.IsReloading)
+                    _animController.ReloadAnim(true);
+                else
+                    _animController.ReloadAnim(false);
+            }
+            
+
+
             SyncModelWithView();
         }
         private void FixedUpdate()
@@ -139,69 +162,109 @@ namespace Spark.Gameplay.Entities.Player
             _medKitAbility.Update();
 
             UpdateRangedWeaponAmmo();
+            UpdateMedKitButtonUI();
         }
         private void UpdateRangedWeaponAmmo()
         {
             if (_model.ActiveWeapon.Data is RangedWeaponData)
                 _view.UpdateWeaponRangedAmmoUI(_model.ActiveWeapon.Data as RangedWeaponData);
         }
+
+        private void UpdateMedKitButtonUI()
+        {
+            _view.UpdatePlayerMedKitButtonUI(_medKitAbility);
+        }
         #endregion
 
         #region Player abilities
         public void OnFlashAbilityButton(InputAction.CallbackContext context) => _flashAbility.Use();
         public void OnInvulnerabilityButton(InputAction.CallbackContext context) => _invulnerability.Use();
-        public void OnMedKitAbilityButton(InputAction.CallbackContext context) => _medKitAbility.Use();
+
+        public void OnMedKitAbilityButton(InputAction.CallbackContext context)
+        {
+            if (_medKitAbility.Cooldown <= 0)
+            {
+                _model.AudioSystem.AudioDictinory["HealthBox"].Play();
+            }
+            _medKitAbility.Use();
+        }
+    
+            
         #endregion
 
         #region Player select target
-        private Transform GetTargetFromMouseRightButtonClickPosition()
-        {
-            Vector2 screenPosition = Vector2.zero;
-
-            if (Mouse.current.rightButton.wasPressedThisFrame)
-                screenPosition = Mouse.current.position.ReadValue();
-
-            else if (Touchscreen.current.primaryTouch.tap.wasPressedThisFrame)
-                screenPosition = Touchscreen.current.position.ReadValue();
-            
-            else
-                new NullReferenceException("What kind of device is this?");
-
-            Ray ray = Camera.main.ScreenPointToRay(screenPosition);
-            Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
-            return hit.transform;
-        }
-
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
+                if (IsPointerOnUI(context.ReadValue<Vector2>())) return;
+
                 if (_target != null && _target.TryGetComponent(out Enemy enemy))
                     enemy.OnHealthChanged -= _view.UpdateTargetHealtUI;
 
-                _target = GetTargetFromMouseRightButtonClickPosition();
-                if (_target != null)
-                {
-                    _model.SetTarget(_target);
-                    enemy = _target.GetComponent<Enemy>();
-
-                    enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
-                    _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
-                }
-                else
-                {
-                    _model.ResetTarget();
-                    _view.UpdateTargetHealtUI(null);
-                }
+                _target = GetTargetFromClickOrTapPosition(context, out _);
+                SetEnemyTargetWithUI(_target);
             }
+        }
+
+        private void SetEnemyTargetWithUI(Transform target)
+        {
+            if (target != null)
+            {
+                _target = target;
+
+                _model.SetTarget(_target);
+                Enemy enemy = _target.GetComponent<Enemy>();
+
+                enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
+                _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
+            }
+            else
+            {
+                _model.ResetTarget();
+                _view.UpdateTargetHealtUI(null);
+            }
+        }
+
+        private Transform GetTargetFromClickOrTapPosition(InputAction.CallbackContext context, out RaycastHit hit)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(context.ReadValue<Vector2>());
+            Physics.Raycast(ray, out hit, Mathf.Infinity, LayerMask.GetMask("Enemy"));
+            return hit.transform;
+        }
+
+        private bool IsPointerOnUI(Vector2 touchPosition)
+        {
+            PointerEventData pointerEventData = new(EventSystem.current)
+            {
+                position = touchPosition
+            };
+
+            List<RaycastResult> results = new();
+            EventSystem.current.RaycastAll(pointerEventData, results);
+
+            return results.Count > 0;
         }
         #endregion
 
         #region Player Attack system
+        private List<Collider> _enemiesInAttackRange = new();
         public void OnPlayerAttack(InputAction.CallbackContext context)
         {
             if (_model.ActiveWeapon.Data is RangedWeaponData rangedWeapon)
             {
+                if (_target == null)
+                {
+                    ClearAllNullPointerOfEnemies();
+                    ClearAllOutRangeEnemies();
+                    FillArrayOfInRangeEnemies();
+
+                    if (_enemiesInAttackRange.Count > 0)
+                    {
+                        SetEnemyTargetWithUI(_enemiesInAttackRange[0].transform);
+                    }
+                }
+
                 if (rangedWeapon.IsAutomatic)
                 {
                     if (context.performed) StartShooting(rangedWeapon.FireRate);
@@ -215,6 +278,20 @@ namespace Spark.Gameplay.Entities.Player
             {
                 DoAttack();
             }
+        }
+        private void ClearAllNullPointerOfEnemies()
+        {
+            _enemiesInAttackRange.RemoveAll(enemyCollider => enemyCollider == null);
+        }
+
+        private void ClearAllOutRangeEnemies()
+        {
+            _enemiesInAttackRange.RemoveAll(enemy => Vector3.Distance(enemy.transform.position, transform.position) > _model.ActiveWeapon.Data.AttackRange);
+        }
+
+        private void FillArrayOfInRangeEnemies()
+        {
+            _enemiesInAttackRange = Physics.OverlapSphere(_model.ActiveWeapon.transform.position, _distanceView, LayerMask.GetMask("Enemy")).ToList();
         }
 
         private void StartShooting(float fireRate)
@@ -234,13 +311,13 @@ namespace Spark.Gameplay.Entities.Player
 
             if (_animController.GetTypeWeapon())
             {
-                _animController.AnimAttack(_model.GetCurrentMeleeWeapon());
+                _animController.AnimAttack();
                 //_model.Attack();
             }
 
             else
             {
-                _animController.AnimAttack(_model.GetCurrentRangedWeapon());
+                _animController.AnimAttack();
                 _model.Attack();
             }
         }
@@ -250,23 +327,38 @@ namespace Spark.Gameplay.Entities.Player
             if (context.performed) _model.ReloadWeapon();
         }
         #endregion
-        public void OnPlayerSwitchWeapon(InputAction.CallbackContext context)
+
+        #region Player weapon change system
+        public void OnPlayerChangedMeleeWeapon(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _model.SwitchWeapon();
+                if (_model.ActiveWeapon is MeleeWeapon) _model.SwitchWeapon();
+
+                else
+                {
+                    _model.SwitchWeaponType();
+                    _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                }
                 UpdateActiveWeapon(_model.ActiveWeapon);
             }
         }
-        public void OnPlayerSwitchWeaponType(InputAction.CallbackContext context)
+
+        public void OnPlayerChangedRangedWeapon(InputAction.CallbackContext context)
         {
             if (context.performed)
             {
-                _model.SwitchWeaponType();
-                _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                if (_model.ActiveWeapon is RangedWeapon) _model.SwitchWeapon();
+
+                else
+                {
+                    _model.SwitchWeaponType();
+                    _animController.SwitchAnimForTypeWeapon(_model.ActiveWeapon.Data);
+                }
                 UpdateActiveWeapon(_model.ActiveWeapon);
             }
         }
+        #endregion
 
         #region TODO: Items & Interactables
         public void OnPlayerActive(InputAction.CallbackContext context)
@@ -296,13 +388,41 @@ namespace Spark.Gameplay.Entities.Player
         private void TryActivateItemTo(Collider item, PlayerModel player)
         {
             item.GetComponent<IPickupable>()?.Activate(player);
+            _model.AudioSystem.AudioDictinory["TakeItem"].Play();
         }
         private void TryActivateInteractableObject(Collider interactableObject)
         {
             interactableObject.GetComponent<IInteractable>()?.Activate();
+            _model.AudioSystem.AudioDictinory["Interact"].Play();
         }
         #endregion
 
+        #region Player purchasing weapons from a dealer
+        public void OnPlayerPurchaseWeapon(WeaponData weaponData)
+        {
+            //WeaponData weaponData = _shopBaseControl.BuyWeapon(ID);
+            if (_model.Details < weaponData.Price) return;
+
+            if (_model.AddNewWeapon(weaponData)) _model.Details -= weaponData.Price;            
+        }
+        public void OnPlayerPurchaseCard(int price)
+        {
+            if (_model.FlashCard.IsCollected) return;
+            if (_model.Details < price) return;
+
+            _model.FlashCard.Add();
+            _model.Details -= price;
+        }
+
+        public void OnPlayerPurchaseMedKit(int price)
+        {
+            if (_model.Details < price) return;
+
+            if (_medKitAbility.Add())
+                _model.Details -= price;
+        }
+        public int GetDetails() => _model.Details;
+        #endregion
 
 #if UNITY_EDITOR
         private void OnDrawGizmos()

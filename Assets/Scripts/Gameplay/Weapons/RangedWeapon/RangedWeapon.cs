@@ -24,12 +24,14 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
 
         private Transform _firePoint;
 
-        private float _lastShootTime = .0f;
+        private float _lastShootTime = 0.0f;
+
+        [SerializeField] private AudioClip reloadWeapon;
 
         private void OnValidate()
         {
             _firePoint = null;
-            _lastShootTime = .0f;
+            _lastShootTime = 0.0f;
         }
 
         public void SetFirePoint(Transform firePoint)
@@ -45,7 +47,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             PlaySound(_data.AudioClip, audioSource);
 
             Vector3 direction = GetBulletDirection();
-            if (Physics.Raycast(_firePoint.position, direction, out var hit, _data.AttackRange))
+            if (Physics.Raycast(_firePoint.position, direction, out var hit, _data.AttackRange)) 
             {
                 _data.Shot();
                 TrailRenderer trail = Instantiate(_data.BulletTrail, _firePoint.position, Quaternion.identity);
@@ -58,6 +60,16 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
         public void Update()
         {
             _data.Update();
+
+            if(_data.IsReloading)
+            {
+                ReloadSoundPlay(reloadWeapon, audioSource);
+            }
+
+            else
+            {
+                ReloadSoundStop(reloadWeapon);
+            }
         }
 
         private Vector3 GetBulletDirection()
@@ -71,12 +83,33 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             return direction;
         }
 
+        private void ReloadSoundPlay(AudioClip clip, AudioSource audioSource)
+        {
+
+            if (!audioSource.loop) audioSource.loop = true;
+
+            audioSource.clip = clip;
+
+            if (!audioSource.isPlaying) audioSource.Play();
+
+        }
+
+        private void ReloadSoundStop(AudioClip clip)
+        {
+            if (audioSource.clip != clip) return;
+
+            if (audioSource.loop) audioSource.loop = false;
+
+            if (audioSource.isPlaying) audioSource.Stop();
+
+        }
+
         public IEnumerator SpawnTrail(TrailRenderer trail, RaycastHit hit)
         {
             float time = 0;
             Vector3 startPosition = trail.transform.position;
 
-            _data.PlayParticleSystem(_data.ImpactParticleSystem, _firePoint);
+            _data.PlayParticleSystem(_data.ImpactParticleSystem, _firePoint);  
             while (time < 1.0f)
             {
                 trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);
@@ -91,6 +124,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
                 damagable.TakeDamage(_data.AttackDamage);
             }
             Destroy(trail.gameObject, trail.time);
+            
         }
     }
 }

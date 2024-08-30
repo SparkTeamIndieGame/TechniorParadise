@@ -1,7 +1,9 @@
 using Spark.Gameplay.Entities.Common;
 using Spark.Gameplay.Entities.Common.Data;
 using System;
+using System.Collections;
 using UnityEngine;
+//using UnityEngine.InputSystem.Android;
 
 namespace Spark.Gameplay.Entities.Enemies
 {
@@ -51,6 +53,7 @@ namespace Spark.Gameplay.Entities.Enemies
             Health -= points;
             OnHealthChanged?.Invoke(this);
             _audioSystem.AudioDictinory["TakeDamage"].Play();
+            _animator.SetTrigger("TakeDamage");
 
             if (Health <= 0) Die();
         }
@@ -59,21 +62,34 @@ namespace Spark.Gameplay.Entities.Enemies
             TryToDrop(_dropDetailsPickup);
             TryToDrop(_dropAidKitPickup);
 
-            _animator.SetBool("Dead", true);
+            _dropDetailsPickup.Prefab = null;
+            _dropAidKitPickup.Prefab = null;
+
+            StartCoroutine(PlayAnimationWithDestroy());
+        }
+
+        IEnumerator PlayAnimationWithDestroy()
+        {
+            _animator.SetTrigger("Dead");
             _audioSystem.AudioDictinory["Dead"].Play();
             _navMeshAgent.isStopped = true;
-            Destroy(gameObject, 3);
+
+            yield return new WaitForSeconds(3.0f);
+
+            Destroy(this);
+            // gameObject.SetActive(false);
         }
 
         private void TryToDrop(DropEnemyItem dropInfo)
         {
-            if (dropInfo.CalculateDropChance() <= dropInfo.Chance)
-                Instantiate(dropInfo.Prefab, transform.position, Quaternion.identity, transform.parent.parent);
+            if (dropInfo.Prefab != null && dropInfo.CalculateDropChance() <= dropInfo.Chance)
+                Instantiate(dropInfo.Prefab, new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z), Quaternion.identity);
         }
 
         public void Attack()
         {
             if (_lastAttackTime + _attackDelay > Time.time) return;
+            if (Health <= 0) return;
             ParticlPlay(_shootingParticleSystem, transform);
             _audioSystem.AudioDictinory["Attack"].Play();
             CalculateHit();
@@ -87,6 +103,14 @@ namespace Spark.Gameplay.Entities.Enemies
             var effect = Instantiate(particle, positionSpawn.position, Quaternion.identity);
             effect.Play();
             Destroy(effect.gameObject, 1);
+        }
+
+        public void StopAgent(int state)
+        {
+            if (state == 0)
+                _navMeshAgent.isStopped = true;
+            else
+                _navMeshAgent.isStopped = false;
         }
     }
 

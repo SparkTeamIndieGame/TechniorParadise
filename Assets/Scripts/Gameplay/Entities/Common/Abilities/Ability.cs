@@ -22,7 +22,7 @@ namespace Spark.Gameplay.Entities.Common.Abilities
         }
 
         [SerializeField, Min(0.0f)] private float _cooldownDuration;
-        protected virtual float CooldownDuration
+        public virtual float CooldownDuration
         {
             get => _cooldownDuration;
             set => _cooldownDuration = value;

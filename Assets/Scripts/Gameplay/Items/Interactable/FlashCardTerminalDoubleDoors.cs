@@ -10,7 +10,11 @@ namespace Spark.Gameplay.Items.Pickupable.Doors.Terminal
 
         public override void Activate()
         {
-            if (_player.FlashCard.IsCollected) _isActivated = true;
+            if (_player.FlashCard.IsCollected)
+            {
+                _isActivated = true;
+                _player.FlashCard.Reset();
+            }
         }
     }
 }

@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Exit : MonoBehaviour
 {
+    public LoaderScens Loader;
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent<CharacterController>(out CharacterController component))
-        {
-            SceneManager.LoadScene(0);
-        }
+        Loader.NextScene();
     }
 }
