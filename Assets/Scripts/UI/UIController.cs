@@ -173,14 +173,15 @@ namespace Spark.UI
 
         private void UpdateAbilityButtonUI(Ability ability, Image icon)
         {
-            Debug.Log("ICON: " + icon.fillAmount + " ||| " + ability.Name + "[" + ability.IsReady + "]: " + ability.Cooldown + " / " + ability.CooldownDuration); 
-
+#if DEBUG
+            Debug.Log("ICON: " + icon.fillAmount + " ||| " + ability.Name + "[" + ability.IsReady + "]: " + ability.Cooldown + " / " + ability.CooldownDuration);
+#endif
+            icon.fillAmount = 1.0f - ability.Cooldown / ability.CooldownDuration;
             if (ability.IsReady)
             {
                 icon.fillAmount = 1.0f;
                 return;
             }
-            icon.fillAmount = 1.0f - ability.Cooldown / ability.CooldownDuration;
         }
 
         private void UpdateHealthUI(IDamagable damagable, ref GameObject target, ref Slider bar)
