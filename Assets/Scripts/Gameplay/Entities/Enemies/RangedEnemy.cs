@@ -8,6 +8,7 @@ namespace Spark.Gameplay.Entities.Enemies
     public class RangedEnemy : Enemy
     {
         [SerializeField] GameObject bullet;
+        [SerializeField] Transform[] bulletPoint;
         public float speedB;
 
         private void Awake()
@@ -35,7 +36,7 @@ namespace Spark.Gameplay.Entities.Enemies
             if (Physics.Raycast(transform.position + Vector3.up, transform.forward, out var hit, _attackRange, layerMask) &&
                 hit.transform.TryGetComponent<PlayerController>(out var playerModel))
             {
-                var InstBullet = Instantiate(bullet, transform.position + new Vector3(0, 3, 0), Quaternion.identity);
+                var InstBullet = Instantiate(bullet, bulletPoint[Random.Range(0, bulletPoint.Length)].position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(InstBullet, hit));
 
                 OnEnemyAttack?.Invoke(_damage);

@@ -1521,7 +1521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6508176649417201836
 Transform:
   m_ObjectHideFlags: 0
@@ -1558,7 +1558,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: f26e7d031b631e4499446e4d0a30cb29, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1625,7 +1625,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa6f5f5249cd2944b63dd74955add34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _patrolPoints: []
+  _patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   canMove: 1
   _audioSystem:
     audioSources:
@@ -1642,9 +1646,9 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
-  _shootingParticleSystem: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+  _shootingParticleSystem: {fileID: 5753523227002068388, guid: 0fc2b90fee600484a9866f110a8bd233,
     type: 3}
-  _impactParticleSystem: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+  _impactParticleSystem: {fileID: 2500812799767300272, guid: 84f5af065f7cc4b0a877501f9c7692ff,
     type: 3}
   _dropDetailsPickup:
     Prefab: {fileID: 0}

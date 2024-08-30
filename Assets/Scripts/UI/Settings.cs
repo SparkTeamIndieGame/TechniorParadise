@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 
+
 public class Settings : MonoBehaviour
 {
     [SerializeField] private Slider total, music, sound;
@@ -13,12 +14,27 @@ public class Settings : MonoBehaviour
     {
         Load();
     }
-    private void FixedUpdate()
+
+    public void OpenSettingAudio()
     {
-        soundGroup.SetFloat("Master", total.value);
-        soundGroup.SetFloat("Music", music.value);
-        soundGroup.SetFloat("Sound", sound.value);
-        Save();
+        StartCoroutine(OpenSetting());
+    }
+
+    public void CloseSettingAudio()
+    {
+        StopAllCoroutines();
+    }
+
+    private IEnumerator OpenSetting()
+    {
+        while(true)
+        {
+            yield return new WaitForSecondsRealtime(0.5f);
+            soundGroup.SetFloat("Master", total.value);
+            soundGroup.SetFloat("Music", music.value);
+            soundGroup.SetFloat("Sound", sound.value);
+            Save();
+        }
     }
 
     private void Save()
@@ -33,5 +49,9 @@ public class Settings : MonoBehaviour
         total.value = PlayerPrefs.GetFloat("Total");
         music.value = PlayerPrefs.GetFloat("Music");
         sound.value = PlayerPrefs.GetFloat("Sound");
+
+        soundGroup.SetFloat("Master", total.value);
+        soundGroup.SetFloat("Music", music.value);
+        soundGroup.SetFloat("Sound", sound.value);
     }
 }

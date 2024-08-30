@@ -27,9 +27,9 @@ TagManager:
   - Player
   - Enemy
   - ConsoleTraderMan
-  - 
-  - 
-  - 
+  - FindEnemy
+  - Bullets
+  - EnemyTrigger
   - 
   - 
   - 

@@ -90,7 +90,7 @@ namespace Spark.Gameplay.Entities.Player
         private int _currentMeleeWeaponData;
         private int _currentRangedWeaponData;
 
-        public bool CanShoot { get; set; }
+        public bool CanShoot { get; set; } = true;
 
         public AudioSystem AudioSystem;
         public float MaxHealth => _healthMax;
@@ -205,9 +205,6 @@ namespace Spark.Gameplay.Entities.Player
             _toggleActiveWeaponType = !_toggleActiveWeaponType;
             ActiveWeapon.Data = _toggleActiveWeaponType ? ActiveRangedWeapon.Data : ActiveMeleeWeapon.Data;
         }
-
-        public int GetCurrentMeleeWeapon() => _currentMeleeWeaponData;
-        public int GetCurrentRangedWeapon() => _currentRangedWeaponData;  
 
         public void SetTarget(Transform target) => _target = target;
         public void ResetTarget() => _target = null;

@@ -20,12 +20,13 @@ MonoBehaviour:
     type: 3}
   <Prefab>k__BackingField: {fileID: 6870294464982199676, guid: 35bb49edbee7c4f48be39fa36d8f30fc,
     type: 3}
-  <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+  <ImpactParticleSystem>k__BackingField: {fileID: 5753523227002068388, guid: 0fc2b90fee600484a9866f110a8bd233,
     type: 3}
-  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+  <HitEntityParticleSystem>k__BackingField: {fileID: 7408286589713440657, guid: 955bfabea2d844cb3b18e3d8930bbd99,
     type: 3}
   <AudioClip>k__BackingField: {fileID: 8300000, guid: b2e0f7304593a3e42aa7ceb0ae9d6f68,
     type: 3}
+  <Price>k__BackingField: 0
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
   <BulletSpreadRange>k__BackingField: {x: 0, y: 0, z: 0}

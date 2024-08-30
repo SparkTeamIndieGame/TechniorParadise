@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18149517, g: 0.22713114, b: 0.30734265, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5767,11 +5767,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponData: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166, type: 2}
   _buyButton: {fileID: 643583151}
   _actualDetailCount: {fileID: 1955866811}
   _priceText: {fileID: 1152329594}
   _itemImage: {fileID: 2035955148}
+  _numberElement: 0
 --- !u!1 &174905816 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 464638595969543914, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -16189,6 +16189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d267fe867e0a4134914128fc796d39a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Loader: {fileID: 0}
 --- !u!65 &550454384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22472,11 +22473,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponData: {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb, type: 2}
   _buyButton: {fileID: 1413466902}
   _actualDetailCount: {fileID: 1955866811}
   _priceText: {fileID: 1888176910}
   _itemImage: {fileID: 1848048910}
+  _numberElement: 0
 --- !u!1 &743518925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8576057934684809892, guid: 83921cdbbed654843a29b766990e18dc,
@@ -52746,12 +52747,6 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0.018000001}
   m_TimeToStationary: 0.5
---- !u!1 &1613033042 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7419736667952291303, guid: fa2e84824036a244fae4c45b77047769,
-    type: 3}
-  m_PrefabInstance: {fileID: 6543840147167952510}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1613275066
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55907,11 +55902,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponData: {fileID: 0}
   _buyButton: {fileID: 680223358}
   _actualDetailCount: {fileID: 1955866811}
   _priceText: {fileID: 1240830954}
   _itemImage: {fileID: 0}
+  _numberElement: 0
 --- !u!1001 &1708581176
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57816,11 +57811,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponData: {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
   _buyButton: {fileID: 1967096898}
   _actualDetailCount: {fileID: 1955866811}
   _priceText: {fileID: 1856684039}
   _itemImage: {fileID: 2067169487}
+  _numberElement: 0
 --- !u!4 &1766938713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6095722573513115480, guid: 6f8a3470666e7894d820b4d6d1acc01e,
@@ -62601,7 +62596,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _shopBaseControl
       value: 
-      objectReference: {fileID: 1966985492}
+      objectReference: {fileID: 0}
     - target: {fileID: 7828803111348871666, guid: 4fd513e4eea3a423fab58f1a36b2489c,
         type: 3}
       propertyPath: _medKitAbility._amount
@@ -62778,11 +62773,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8f3b2c4bd838744a94c555d04b10ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _weaponData: {fileID: 0}
   _buyButton: {fileID: 1957158353}
   _actualDetailCount: {fileID: 1955866811}
   _priceText: {fileID: 2058407581}
   _itemImage: {fileID: 0}
+  _numberElement: 0
 --- !u!4 &1892495914 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 952910425773782096, guid: d7ab2ba8b80a10e4d89a70f89bea587b,
@@ -64835,25 +64830,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6543840147167952510}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1966985492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1613033042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a03e120708d3644839f1383389d745, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _semiAutomat: {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166, type: 2}
-  _rife: {fileID: 11400000, guid: 0d520e51de6b4894bb1504b5b65c5457, type: 2}
-  _shotgun: {fileID: 11400000, guid: 74752a016fa08434ab85ca9d3d6fd98c, type: 2}
-  _automat: {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
-  _stormGun: {fileID: 11400000, guid: 15c199d7ab1d26340acab6f532b4b87a, type: 2}
-  _saw: {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb, type: 2}
-  _katana: {fileID: 11400000, guid: d3023b9ad7aa6474196cb2e3efd756b1, type: 2}
 --- !u!1001 &1967071516
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72428,11 +72404,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 818631671}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7419736667952291303, guid: fa2e84824036a244fae4c45b77047769,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1966985492}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa2e84824036a244fae4c45b77047769, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
