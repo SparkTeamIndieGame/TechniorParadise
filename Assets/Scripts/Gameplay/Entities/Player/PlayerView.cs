@@ -93,9 +93,21 @@ namespace Spark.Gameplay.Entities.Player
         {
             _uiController.UpdatePlayerRangedWeaponAmmoUI(rangedWeapon);
         }
+        #endregion
+        #region Update abilities UI
         public void UpdatePlayerMedKitButtonUI(MedKitAbility medKitAbility)
         {
             _uiController.UpdatePlayerMedKitButtonUI(medKitAbility);
+        }
+
+        public void UpdatePlayerFlashButtonUI(FlashAbility flashAbility)
+        {
+            _uiController.UpdatePlayerFlashButtonUI(flashAbility);
+        }
+
+        public void UpdatePlayerInvulerabilityButtonUI(InvulnerAbility invulnerAbility)
+        {
+            _uiController.UpdatePlayerInvulerabilityButtonUI(invulnerAbility);
         }
         #endregion
 

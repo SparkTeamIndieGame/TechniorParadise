@@ -162,7 +162,7 @@ namespace Spark.Gameplay.Entities.Player
             _medKitAbility.Update();
 
             UpdateRangedWeaponAmmo();
-            UpdateMedKitButtonUI();
+            UpdateAbilityButtonsUI();
         }
         private void UpdateRangedWeaponAmmo()
         {
@@ -170,9 +170,11 @@ namespace Spark.Gameplay.Entities.Player
                 _view.UpdateWeaponRangedAmmoUI(_model.ActiveWeapon.Data as RangedWeaponData);
         }
 
-        private void UpdateMedKitButtonUI()
+        private void UpdateAbilityButtonsUI()
         {
             _view.UpdatePlayerMedKitButtonUI(_medKitAbility);
+            _view.UpdatePlayerFlashButtonUI(_flashAbility);
+            _view.UpdatePlayerInvulerabilityButtonUI(_invulnerability);
         }
         #endregion
 
