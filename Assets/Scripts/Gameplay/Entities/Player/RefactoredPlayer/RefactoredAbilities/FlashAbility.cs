@@ -1,4 +1,3 @@
-using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
 using System;
 using UnityEngine;
 
@@ -15,10 +14,10 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
 
         public FlashAbility()
         {
-            Name = "Flash";
-            Description = "The player jumps straight";
+            name = "Flash";
+            description = "The player jumps straight";
 
-            CooldownDuration = 5.0f;
+            cooldownDuration = 5.0f;
         }
 
         protected override void DoAction() => _controller.Move(direction * _distance);

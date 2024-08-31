@@ -1,8 +1,6 @@
 using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
-using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Networking;
 using UnityEngine.UI;
 
 namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
@@ -19,9 +17,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 
         public IEnumerator UpdateFlashIcon(FlashAbility ability)
         {
-            while (!ability.IsReady)
+            while (!ability.isReady)
             {
-                _flashIcon.fillAmount = 1.0f - ability.Cooldown / ability.CooldownDuration;
+                _flashIcon.fillAmount = 1.0f - ability.cooldown / ability.cooldownDuration;
                 yield return new WaitForEndOfFrame();
             }
             _flashIcon.fillAmount = 1.0f;
@@ -30,9 +28,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 
         public IEnumerator UpdateInvulnerIcon(InvulnerAbility ability)
         {
-            while (!ability.IsReady)
+            while (!ability.isReady)
             {
-                _invulnerIcon.fillAmount = 1.0f - ability.Cooldown / ability.CooldownDuration;
+                _invulnerIcon.fillAmount = 1.0f - ability.cooldown / ability.cooldownDuration;
                 yield return new WaitForEndOfFrame();
             }
             _invulnerIcon.fillAmount = 1.0f;

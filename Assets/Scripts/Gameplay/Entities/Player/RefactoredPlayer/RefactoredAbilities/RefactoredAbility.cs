@@ -12,32 +12,32 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
         #endregion
 
         #region Ability attributes
-        [field: SerializeField] public virtual string Name { get; protected set; }
-        [field: SerializeField] public virtual string Description { get; protected set; }
+        [field: SerializeField] public virtual string name { get; protected set; }
+        [field: SerializeField] public virtual string description { get; protected set; }
 
-        [field: SerializeField, Min(0.0f)] public virtual float CooldownDuration { get; protected set; }
-        [field: SerializeField, Min(0.0f)] public virtual float AbilityDuration { get; protected set; }
+        [field: SerializeField, Min(0.0f)] public virtual float cooldownDuration { get; protected set; }
+        [field: SerializeField, Min(0.0f)] public virtual float abilityDuration { get; protected set; }
         #endregion
 
         #region Public properties
-        public float Cooldown
+        public float cooldown
         {
             get
             {
-                if (!AbilityActive && !IsReady)
+                if (!isActive && !isReady)
                 {
                     Deactivate();
                 }
                 return Mathf.Max(0, _abilityReadyTime - Time.time);
             }
         }
-        public bool IsReady => Time.time >= _abilityReadyTime;
-        public bool AbilityActive => Time.time < _abilityDeactivateTime;
+        public bool isReady => Time.time >= _abilityReadyTime;
+        public bool isActive => Time.time < _abilityDeactivateTime;
         #endregion
 
         public void Activate()
         {
-            if (!IsReady) return;
+            if (!isReady) return;
 
             DoAction();
             StartCooldown();
@@ -54,8 +54,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
 
         private void StartCooldown()
         {
-            _abilityReadyTime = Time.time + CooldownDuration;
-            _abilityDeactivateTime = Time.time + AbilityDuration;
+            _abilityReadyTime = Time.time + cooldownDuration;
+            _abilityDeactivateTime = Time.time + abilityDuration;
         }
     }
 }

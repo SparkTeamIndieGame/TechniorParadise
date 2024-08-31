@@ -3,9 +3,6 @@ using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
 using Spark.Gameplay.Entities.RefactoredPlayer.UI;
 using Spark.Utilities;
 using System;
-using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 
 namespace Spark.Gameplay.Entities.RefactoredPlayer
@@ -15,9 +12,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         public Action<FlashAbility> OnFlashActivated;
         public Action<InvulnerAbility> OnInvulnerActivated;
 
-        [SerializeField] private RefactoredUIController _ui;
-
-        [SerializeField] private CharacterController _controller;
+        private RefactoredUIController _ui;
+        private CharacterController _controller;
         
         [SerializeField, Min(.0f)] private float _movementSpeed;
         [SerializeField, Min(.0f)] private float _rotationSpeed;
@@ -27,27 +23,10 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
         private void Start()
         {
-            Utils.LoadComponent(gameObject, out _ui);
+            _ui = FindAnyObjectByType<RefactoredUIController>();
             Utils.LoadComponent(gameObject, out _controller);
 
-            RegisterAbilities();
-        }
-
-        void RegisterAbilities()
-        {
-            OnFlashActivated = (ability) =>
-            {
-                ability.direction = direction == Vector3.zero ? transform.forward : direction;
-                ability.Activate();
-
-                StartCoroutine(_ui.UpdateFlashIcon(ability));
-            };
-
-            OnInvulnerActivated = (ability) =>
-            {
-                ability.Activate();
-                StartCoroutine(_ui.UpdateInvulnerIcon(ability));
-            };
+            RegisterAbilityHandlers();
         }
 
         private void FixedUpdate()
@@ -56,6 +35,35 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             HandleInspection();
         }
 
+        #region Register abilities events
+        void RegisterAbilityHandlers()
+        {
+            RegisterFlashHandler();
+            RegisterInvulnerHandler();
+        }
+
+        void RegisterFlashHandler()
+        {
+            OnFlashActivated = (ability) =>
+            {
+                ability.direction = direction == Vector3.zero ? transform.forward : direction;
+                ability.Activate();
+
+                StartCoroutine(_ui.UpdateFlashIcon(ability));
+            };
+        }
+
+        void RegisterInvulnerHandler()
+        {
+            OnInvulnerActivated = (ability) =>
+            {
+                ability.Activate();
+                StartCoroutine(_ui.UpdateInvulnerIcon(ability));
+            };
+        }
+        #endregion
+
+        #region Movement and inspection
         void HandleMovement()
         {
             _controller.SimpleMove(direction * _movementSpeed * Time.fixedDeltaTime);
@@ -69,7 +77,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
             }
         }
+        #endregion
 
+        #region Invulnerability
         public void SetInvulner(bool toggle)
         {
             var meshes = gameObject.GetComponentsInChildren<MeshRenderer>();
@@ -113,5 +123,6 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             }
             gameObject.layer = SortingLayer.NameToID(enabled ? "Enemy" : "Player");
         }
+        #endregion
     }
 }

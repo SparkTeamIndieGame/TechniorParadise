@@ -1,9 +1,5 @@
 using Spark.Gameplay.Entities.RefactoredPlayer.InputSystem;
-using Spark.Gameplay.Entities.RefactoredPlayer.UI;
-using Spark.Utilities;
-using TMPro.EditorUtilities;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Spark.Gameplay.Entities.RefactoredPlayer
 {
@@ -20,14 +16,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             _view = view;
 
             InitializeAbilities(_view);
-
-            _inputActions.Enable();
-
-            RegisterMovementHandler();
-            RegisterInspectionHandler();
-
-            RegisterFlashAbilityHandler();
-            RegisterInvulnerAbilityHandler();
+            RegisterInputActions();
         }
 
         #region Initialize abilities
@@ -41,11 +30,22 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         #endregion
 
         #region Initialize Player input actions
-        void RegisterMovementHandler()
+        private void RegisterInputActions()
+        {
+            _inputActions.Enable();
+
+            RegisterMovementHandler();
+            RegisterInspectionHandler();
+
+            RegisterFlashAbilityHandler();
+            RegisterInvulnerAbilityHandler();
+        }
+
+        private void RegisterMovementHandler()
         {
             _inputActions.Player.Movement.performed += (context) => { _view.direction = context.ReadValue<Vector3>(); };
         }
-        void RegisterInspectionHandler()
+        private void RegisterInspectionHandler()
         {
             _inputActions.Player.Inspection.performed += (context) =>
             {
@@ -59,7 +59,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             };
         }
 
-        void RegisterFlashAbilityHandler()
+        private void RegisterFlashAbilityHandler()
         {
             _inputActions.Player.AbilityFlash.performed += (context) =>
             {
@@ -67,7 +67,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             };
         }
 
-        void RegisterInvulnerAbilityHandler()
+        private void RegisterInvulnerAbilityHandler()
         {
             _inputActions.Player.AbilityInvulner.performed += (context) =>
             {
