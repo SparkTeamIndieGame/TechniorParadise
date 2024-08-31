@@ -37,6 +37,15 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inspection"",
+                    ""type"": ""Value"",
+                    ""id"": ""65e0df2e-4cf7-4ed4-a10e-3a6cd1271924"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -149,6 +158,17 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85ad37d2-39ad-4122-b5ca-fdb75ab10b33"",
+                    ""path"": ""<Pointer>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inspection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -158,6 +178,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
             // Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+            m_Player_Inspection = m_Player.FindAction("Inspection", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -220,11 +241,13 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
         private readonly InputActionMap m_Player;
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Movement;
+        private readonly InputAction m_Player_Inspection;
         public struct PlayerActions
         {
             private @RefactoredPlayerInputActions m_Wrapper;
             public PlayerActions(@RefactoredPlayerInputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
+            public InputAction @Inspection => m_Wrapper.m_Player_Inspection;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -237,6 +260,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @Inspection.started += instance.OnInspection;
+                @Inspection.performed += instance.OnInspection;
+                @Inspection.canceled += instance.OnInspection;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -244,6 +270,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                 @Movement.started -= instance.OnMovement;
                 @Movement.performed -= instance.OnMovement;
                 @Movement.canceled -= instance.OnMovement;
+                @Inspection.started -= instance.OnInspection;
+                @Inspection.performed -= instance.OnInspection;
+                @Inspection.canceled -= instance.OnInspection;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -264,6 +293,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
         public interface IPlayerActions
         {
             void OnMovement(InputAction.CallbackContext context);
+            void OnInspection(InputAction.CallbackContext context);
         }
     }
 }

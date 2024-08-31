@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Inspection",
+                    "type": "Value",
+                    "id": "65e0df2e-4cf7-4ed4-a10e-3a6cd1271924",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -125,6 +134,17 @@
                     "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "85ad37d2-39ad-4122-b5ca-fdb75ab10b33",
+                    "path": "<Pointer>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inspection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
