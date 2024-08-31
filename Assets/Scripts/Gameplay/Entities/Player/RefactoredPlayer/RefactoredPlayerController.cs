@@ -1,4 +1,7 @@
 using Spark.Gameplay.Entities.RefactoredPlayer.InputSystem;
+using Spark.Gameplay.Entities.RefactoredPlayer.UI;
+using Spark.Utilities;
+using TMPro.EditorUtilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -16,11 +19,26 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             _model = model;
             _view = view;
 
+            InitializeAbilities(_view);
+
             _inputActions.Enable();
 
             RegisterMovementHandler();
             RegisterInspectionHandler();
+
+            RegisterFlashAbilityHandler();
+            RegisterInvulnerAbilityHandler();
         }
+
+        #region Initialize abilities
+        private void InitializeAbilities(MonoBehaviour gameObject)
+        {
+            var controller = gameObject.GetComponent<CharacterController>();
+
+            _model.flashAbility.Intstantiate(controller);
+            _model.invulnerAbility.Intstantiate(_view);
+        }
+        #endregion
 
         #region Initialize Player input actions
         void RegisterMovementHandler()
@@ -38,6 +56,22 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
                 {
                     _view.inspection = hit.point - _view.transform.position + Vector3.up;
                 }
+            };
+        }
+
+        void RegisterFlashAbilityHandler()
+        {
+            _inputActions.Player.AbilityFlash.performed += (context) =>
+            {
+                _view.OnFlashActivated.Invoke(_model.flashAbility);
+            };
+        }
+
+        void RegisterInvulnerAbilityHandler()
+        {
+            _inputActions.Player.AbilityInvulner.performed += (context) =>
+            {
+                _view.OnInvulnerActivated.Invoke(_model.invulnerAbility);
             };
         }
         #endregion

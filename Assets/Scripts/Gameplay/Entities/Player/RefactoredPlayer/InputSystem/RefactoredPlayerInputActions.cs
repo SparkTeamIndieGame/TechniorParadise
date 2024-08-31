@@ -46,6 +46,24 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Ability: Flash"",
+                    ""type"": ""Button"",
+                    ""id"": ""02d8f496-548f-44e4-857b-07db85660c59"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability: Invulner"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a8c6675-46d0-4bab-9b65-952da363832c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -169,6 +187,28 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                     ""action"": ""Inspection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""94a7b239-0f53-4397-8071-955796eef0ff"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability: Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7b922906-f612-4cc0-9388-9f4804c8373c"",
+                    ""path"": ""<Keyboard>/leftAlt"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability: Invulner"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -179,6 +219,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
             m_Player_Inspection = m_Player.FindAction("Inspection", throwIfNotFound: true);
+            m_Player_AbilityFlash = m_Player.FindAction("Ability: Flash", throwIfNotFound: true);
+            m_Player_AbilityInvulner = m_Player.FindAction("Ability: Invulner", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -242,12 +284,16 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Movement;
         private readonly InputAction m_Player_Inspection;
+        private readonly InputAction m_Player_AbilityFlash;
+        private readonly InputAction m_Player_AbilityInvulner;
         public struct PlayerActions
         {
             private @RefactoredPlayerInputActions m_Wrapper;
             public PlayerActions(@RefactoredPlayerInputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
             public InputAction @Inspection => m_Wrapper.m_Player_Inspection;
+            public InputAction @AbilityFlash => m_Wrapper.m_Player_AbilityFlash;
+            public InputAction @AbilityInvulner => m_Wrapper.m_Player_AbilityInvulner;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -263,6 +309,12 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                 @Inspection.started += instance.OnInspection;
                 @Inspection.performed += instance.OnInspection;
                 @Inspection.canceled += instance.OnInspection;
+                @AbilityFlash.started += instance.OnAbilityFlash;
+                @AbilityFlash.performed += instance.OnAbilityFlash;
+                @AbilityFlash.canceled += instance.OnAbilityFlash;
+                @AbilityInvulner.started += instance.OnAbilityInvulner;
+                @AbilityInvulner.performed += instance.OnAbilityInvulner;
+                @AbilityInvulner.canceled += instance.OnAbilityInvulner;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -273,6 +325,12 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                 @Inspection.started -= instance.OnInspection;
                 @Inspection.performed -= instance.OnInspection;
                 @Inspection.canceled -= instance.OnInspection;
+                @AbilityFlash.started -= instance.OnAbilityFlash;
+                @AbilityFlash.performed -= instance.OnAbilityFlash;
+                @AbilityFlash.canceled -= instance.OnAbilityFlash;
+                @AbilityInvulner.started -= instance.OnAbilityInvulner;
+                @AbilityInvulner.performed -= instance.OnAbilityInvulner;
+                @AbilityInvulner.canceled -= instance.OnAbilityInvulner;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -294,6 +352,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnInspection(InputAction.CallbackContext context);
+            void OnAbilityFlash(InputAction.CallbackContext context);
+            void OnAbilityInvulner(InputAction.CallbackContext context);
         }
     }
 }
