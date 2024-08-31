@@ -1072,7 +1072,7 @@ GameObject:
   - component: {fileID: 594512701563504772}
   - component: {fileID: 4207497520819593550}
   m_Layer: 20
-  m_Name: FightBotMelee
+  m_Name: DontWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
