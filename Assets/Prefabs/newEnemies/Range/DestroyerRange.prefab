@@ -716,6 +716,9 @@ MonoBehaviour:
   bullet: {fileID: 6671805765158463058, guid: 5a6487c5fe304485ab0c6a9bb18a0525, type: 3}
   bulletPoint:
   - {fileID: 3884788767976866660}
+  _bulletLayerMask:
+    serializedVersion: 2
+    m_Bits: 524288
   speedB: 20
 --- !u!1 &3786213272775478156
 GameObject:
