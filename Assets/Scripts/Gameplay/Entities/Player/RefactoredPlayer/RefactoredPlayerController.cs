@@ -17,6 +17,10 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
             InitializeAbilities(_view);
             RegisterInputActions();
+
+            RegisterPickupHandlers();
+
+            SyncViewWithModel();
         }
 
         #region Initialize abilities
@@ -54,7 +58,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
                 if (Physics.Raycast(ray, out var hit, Mathf.Infinity, LayerMask.GetMask("Ground")))
                 {
-                    _view.inspection = hit.point - _view.transform.position + Vector3.up;
+                    _view.inspection = hit.point - _view.transform.position + Vector3.zero;
                 }
             };
         }
@@ -75,5 +79,28 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             };
         }
         #endregion
+
+        #region 
+        private void RegisterPickupHandlers()
+        {
+            _view.OnFlashDrivePickUped = () =>
+            {
+                _model.flashDrive.Add();
+                _view.UpdateFlashDriveUI(_model.flashDrive);
+            };
+
+            _view.OnDetailsPickUped = (count) =>
+            {
+                _model.details += count;
+                _view.UpdateDetailsUI(_model.details);
+            };
+        }
+        #endregion
+
+        private void SyncViewWithModel()
+        {
+            _view.UpdateFlashDriveUI(_model.flashDrive);
+            _view.UpdateDetailsUI(_model.details);
+        }
     }
 }

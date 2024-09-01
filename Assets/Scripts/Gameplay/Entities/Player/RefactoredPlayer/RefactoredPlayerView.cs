@@ -1,6 +1,8 @@
 using Spark.Gameplay.Entities.Common.Behaviour;
 using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
+using Spark.Gameplay.Entities.RefactoredPlayer.RefactoredSystems;
 using Spark.Gameplay.Entities.RefactoredPlayer.UI;
+using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Items;
 using Spark.Utilities;
 using System;
 using UnityEngine;
@@ -11,6 +13,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
     {
         public Action<FlashAbility> OnFlashActivated;
         public Action<InvulnerAbility> OnInvulnerActivated;
+
+        public Action OnFlashDrivePickUped;
+        public Action<float> OnDetailsPickUped;
 
         private RefactoredUIController _ui;
         private CharacterController _controller;
@@ -35,6 +40,14 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             HandleInspection();
         }
 
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out IPickupable pickupable))
+            {
+                pickupable.Activate(this);
+            }
+        }
+
         #region Register abilities events
         void RegisterAbilityHandlers()
         {
@@ -49,7 +62,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
                 ability.direction = direction == Vector3.zero ? transform.forward : direction;
                 ability.Activate();
 
-                StartCoroutine(_ui.UpdateFlashIcon(ability));
+                StartCoroutine(_ui.UpdateFlashIconCoroutine(ability));
             };
         }
 
@@ -58,7 +71,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             OnInvulnerActivated = (ability) =>
             {
                 ability.Activate();
-                StartCoroutine(_ui.UpdateInvulnerIcon(ability));
+                StartCoroutine(_ui.UpdateInvulnerIconCoroutine(ability));
             };
         }
         #endregion
@@ -124,5 +137,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             gameObject.layer = SortingLayer.NameToID(enabled ? "Enemy" : "Player");
         }
         #endregion
+
+        public void UpdateFlashDriveUI(FlashDrive flashDrive) => _ui.UpdateFlashDriveUI(flashDrive);
+        public void UpdateDetailsUI(float details) => _ui.UpdateDetailsUI(details);
     }
 }

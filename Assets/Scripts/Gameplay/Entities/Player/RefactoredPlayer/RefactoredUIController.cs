@@ -1,4 +1,5 @@
 using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
+using Spark.Gameplay.Entities.RefactoredPlayer.RefactoredSystems;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +11,13 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
         [SerializeField] private Image _flashIcon;
         [SerializeField] private Image _invulnerIcon;
 
-        private void Start()
-        {
+        [SerializeField] private Text _flashDriveCount;
+        [SerializeField] private Text _flashDriveMaximum;
 
-        }
+        [SerializeField] private Text _detailsCount;
 
-        public IEnumerator UpdateFlashIcon(FlashAbility ability)
+        #region Abilities
+        public IEnumerator UpdateFlashIconCoroutine(FlashAbility ability)
         {
             while (!ability.isReady)
             {
@@ -26,7 +28,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
             yield break;
         }
 
-        public IEnumerator UpdateInvulnerIcon(InvulnerAbility ability)
+        public IEnumerator UpdateInvulnerIconCoroutine(InvulnerAbility ability)
         {
             while (!ability.isReady)
             {
@@ -35,6 +37,18 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
             }
             _invulnerIcon.fillAmount = 1.0f;
             yield break;
+        }
+        #endregion
+
+        public void UpdateFlashDriveUI(FlashDrive flashDrive)
+        {
+            _flashDriveCount.text = flashDrive.count.ToString();
+            _flashDriveMaximum.text = flashDrive.maximum.ToString();
+        }
+
+        public void UpdateDetailsUI(float details)
+        {
+            _detailsCount.text = details.ToString();
         }
     }
 }
