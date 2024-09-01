@@ -18,8 +18,14 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             InitializeAbilities(_view);
             RegisterInputActions();
 
+            _view.OnHealthUpdated += (points) =>
+            {
+                _model.health += points;
+            };
+
             RegisterPickupHandlers();
 
+            _model.health = 50.0f;
             SyncViewWithModel();
         }
 
@@ -30,6 +36,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
             _model.flashAbility.Intstantiate(controller);
             _model.invulnerAbility.Intstantiate(_view);
+            _model.medkitAbility.Intstantiate(_view);
         }
         #endregion
 
@@ -43,6 +50,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
             RegisterFlashAbilityHandler();
             RegisterInvulnerAbilityHandler();
+            RegisterMedKitAbilityHandler();
         }
 
         private void RegisterMovementHandler()
@@ -78,6 +86,14 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
                 _view.OnInvulnerActivated.Invoke(_model.invulnerAbility);
             };
         }
+
+        private void RegisterMedKitAbilityHandler()
+        {
+            _inputActions.Player.AbilityMedKit.performed += (context) =>
+            {
+                _view.OnMedKitActivated.Invoke(_model.medkitAbility);
+            };
+        }
         #endregion
 
         #region 
@@ -93,6 +109,15 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             {
                 _model.details += count;
                 _view.UpdateDetailsUI(_model.details);
+            };
+
+            _view.OnMedKitPickUped = (pickup) =>
+            {
+                if (_model.medkitAbility.TryCollect())
+                {
+                    pickup.Deactivate();
+                    _view.TryToggleMedKitIcon(_model.medkitAbility);
+                }
             };
         }
         #endregion

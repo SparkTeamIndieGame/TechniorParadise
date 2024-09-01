@@ -64,6 +64,15 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Ability: MedKit"",
+                    ""type"": ""Button"",
+                    ""id"": ""cfa6e6d0-abe6-4982-84b1-3889e3ad7e12"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -209,6 +218,17 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                     ""action"": ""Ability: Invulner"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d6bd7724-480a-48d2-8f4b-9b399ec677ff"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Ability: MedKit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -221,6 +241,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
             m_Player_Inspection = m_Player.FindAction("Inspection", throwIfNotFound: true);
             m_Player_AbilityFlash = m_Player.FindAction("Ability: Flash", throwIfNotFound: true);
             m_Player_AbilityInvulner = m_Player.FindAction("Ability: Invulner", throwIfNotFound: true);
+            m_Player_AbilityMedKit = m_Player.FindAction("Ability: MedKit", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -286,6 +307,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
         private readonly InputAction m_Player_Inspection;
         private readonly InputAction m_Player_AbilityFlash;
         private readonly InputAction m_Player_AbilityInvulner;
+        private readonly InputAction m_Player_AbilityMedKit;
         public struct PlayerActions
         {
             private @RefactoredPlayerInputActions m_Wrapper;
@@ -294,6 +316,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
             public InputAction @Inspection => m_Wrapper.m_Player_Inspection;
             public InputAction @AbilityFlash => m_Wrapper.m_Player_AbilityFlash;
             public InputAction @AbilityInvulner => m_Wrapper.m_Player_AbilityInvulner;
+            public InputAction @AbilityMedKit => m_Wrapper.m_Player_AbilityMedKit;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -315,6 +338,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                 @AbilityInvulner.started += instance.OnAbilityInvulner;
                 @AbilityInvulner.performed += instance.OnAbilityInvulner;
                 @AbilityInvulner.canceled += instance.OnAbilityInvulner;
+                @AbilityMedKit.started += instance.OnAbilityMedKit;
+                @AbilityMedKit.performed += instance.OnAbilityMedKit;
+                @AbilityMedKit.canceled += instance.OnAbilityMedKit;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -331,6 +357,9 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
                 @AbilityInvulner.started -= instance.OnAbilityInvulner;
                 @AbilityInvulner.performed -= instance.OnAbilityInvulner;
                 @AbilityInvulner.canceled -= instance.OnAbilityInvulner;
+                @AbilityMedKit.started -= instance.OnAbilityMedKit;
+                @AbilityMedKit.performed -= instance.OnAbilityMedKit;
+                @AbilityMedKit.canceled -= instance.OnAbilityMedKit;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -354,6 +383,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.InputSystem
             void OnInspection(InputAction.CallbackContext context);
             void OnAbilityFlash(InputAction.CallbackContext context);
             void OnAbilityInvulner(InputAction.CallbackContext context);
+            void OnAbilityMedKit(InputAction.CallbackContext context);
         }
     }
 }

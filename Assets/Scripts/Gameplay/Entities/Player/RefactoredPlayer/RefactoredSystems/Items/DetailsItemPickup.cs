@@ -18,6 +18,11 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Items
         {
             player.OnDetailsPickUped(Random.Range(_minimum, _maximum));
             // todo: add visual effect here
+            Deactivate();
+        }
+
+        public void Deactivate()
+        {
             Destroy(gameObject);
         }
     }

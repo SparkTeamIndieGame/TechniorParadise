@@ -9,13 +9,15 @@ using UnityEngine;
 
 namespace Spark.Gameplay.Entities.RefactoredPlayer
 {
-    public class RefactoredPlayerView : MonoBehaviour, IInvulnerable
+    public class RefactoredPlayerView : MonoBehaviour, IHealthable, IInvulnerable
     {
         public Action<FlashAbility> OnFlashActivated;
         public Action<InvulnerAbility> OnInvulnerActivated;
+        public Action<MedKitAbility> OnMedKitActivated;
 
         public Action OnFlashDrivePickUped;
         public Action<float> OnDetailsPickUped;
+        public Action<MedKitPickup> OnMedKitPickUped;
 
         private RefactoredUIController _ui;
         private CharacterController _controller;
@@ -23,8 +25,12 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         [SerializeField, Min(.0f)] private float _movementSpeed;
         [SerializeField, Min(.0f)] private float _rotationSpeed;
 
+        public event Action<float> OnHealthUpdated;
+
         public Vector3 direction { private get; set; }
         public Vector3 inspection { private get; set; }
+
+        public float health { set { OnHealthUpdated.Invoke(value); } }
 
         private void Start()
         {
@@ -32,6 +38,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             Utils.LoadComponent(gameObject, out _controller);
 
             RegisterAbilityHandlers();
+
+            OnHealthUpdated += _ui.UpdatePlayerHealthUI;
         }
 
         private void FixedUpdate()
@@ -53,6 +61,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         {
             RegisterFlashHandler();
             RegisterInvulnerHandler();
+            RegisterMedKitHandler();
         }
 
         void RegisterFlashHandler()
@@ -72,6 +81,17 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             {
                 ability.Activate();
                 StartCoroutine(_ui.UpdateInvulnerIconCoroutine(ability));
+            };
+        }
+
+        void RegisterMedKitHandler()
+        {
+            OnMedKitActivated = (ability) =>
+            {
+                if (ability.amount <= 0) return;
+
+                ability.Activate();
+                StartCoroutine(_ui.UpdateMedKitIconCoroutine(ability));
             };
         }
         #endregion
@@ -140,5 +160,11 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
         public void UpdateFlashDriveUI(FlashDrive flashDrive) => _ui.UpdateFlashDriveUI(flashDrive);
         public void UpdateDetailsUI(float details) => _ui.UpdateDetailsUI(details);
+        public bool TryToggleMedKitIcon(MedKitAbility ability) => _ui.TryToggleMedKitIcon(ability);
+
+        public void Die()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
