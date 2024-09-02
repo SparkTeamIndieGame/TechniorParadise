@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 1028123774470608865}
   - component: {fileID: 5776477452607248453}
   - component: {fileID: 8836316083112031533}
+  - component: {fileID: 3553744845446609927}
   m_Layer: 25
   m_Name: HP
   m_TagString: Untagged
@@ -320,3 +321,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 8
   m_Center: {x: 0, y: -3.5, z: 0}
+--- !u!114 &3553744845446609927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7880217526296555470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d239b0be05d863449d22ba93ae9b125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
