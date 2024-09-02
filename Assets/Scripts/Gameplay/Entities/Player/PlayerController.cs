@@ -67,6 +67,8 @@ namespace Spark.Gameplay.Entities.Player
 
         private void Start()
         {
+            _model.LoadWithMedKits(out _medKitAbility);
+
             if (_view == null) _view = GetComponent<PlayerView>();
             _view.NeedCardUI(_model.FlashCard.MaxAmount);
 
@@ -81,6 +83,9 @@ namespace Spark.Gameplay.Entities.Player
 
             _model.AudioSystem.Instalize();
         }
+
+        public void SaveData() => _model.SaveWithMedKits(_medKitAbility);
+        public void LoadData() => _model.LoadWithMedKits(out _medKitAbility);
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
         {

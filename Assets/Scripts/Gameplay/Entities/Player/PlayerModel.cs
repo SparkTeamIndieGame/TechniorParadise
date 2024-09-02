@@ -18,8 +18,7 @@ namespace Spark.Gameplay.Entities.Player
 {
     [Serializable]
     public class PlayerModel : IPlayer
-    {
-        
+    {        
         #region Player events
         public event Action<float> OnHealthChanged;
         public event Action<int> OnDetailsChanged;
@@ -33,9 +32,15 @@ namespace Spark.Gameplay.Entities.Player
         [SerializeField] private float _moveSpeed;
         [SerializeField, Range(0.0f, 2.0f)] private float _turnSpeed;
 
+        [SerializeField] PlayerData _data;
+
         [SerializeField] private int _details;
         public int Details
         {
+            get => _data.Details;
+            set => _data.Details = value;
+        }
+        /*{
             get
             {
                 return _details;
@@ -45,12 +50,26 @@ namespace Spark.Gameplay.Entities.Player
                 OnDetailsChanged?.Invoke(value);
                 _details = value;
             }
+        }*/
+
+        public FlashCard.FlashCard FlashCard
+        {
+            get => _data.FlashCard;
+            set => _data.FlashCard = value;
         }
 
-        [field: SerializeField] public FlashCard.FlashCard FlashCard { get; set; }
-
-        [SerializeField] private List<MeleeWeaponData> _meleeWeaponsData;
-        [SerializeField] private List<RangedWeaponData> _rangedWeaponsData;
+        [SerializeField]
+        private List<MeleeWeaponData> _meleeWeaponsData
+        {
+            get => _data.MeleeWeaponData;
+            set => _data.MeleeWeaponData = value;
+        }
+        [SerializeField]
+        private List<RangedWeaponData> _rangedWeaponsData
+        {
+            get => _data.RangedWeaponData;
+            set => _data.RangedWeaponData = value;
+        }
         [SerializeField] public Weapon ActiveWeapon 
         { 
             get => _toggleActiveWeaponType ? ActiveRangedWeapon : ActiveMeleeWeapon;
@@ -93,6 +112,16 @@ namespace Spark.Gameplay.Entities.Player
             Health = MaxHealth;
 
             ActiveWeapon = ActiveMeleeWeapon;
+        }
+
+        public void SaveWithMedKits(MedKitAbility medKits)
+        {
+            _data.SaveWithMedKits(medKits);
+        }
+
+        public void LoadWithMedKits(out MedKitAbility medKits)
+        {
+            _data.LoadWithMedKits(out medKits);
         }
 
         #region Movement
