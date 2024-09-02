@@ -20,7 +20,7 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] protected AudioSystem _audioSystem;
         [SerializeField] protected float _stopDic;
 
-        protected Outline _outlineThisEnemy;
+        //protected Outline _outlineThisEnemy;
         protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
         private int _lastIndexPoint;
@@ -28,12 +28,12 @@ namespace Spark.Gameplay.Entities.Common
 
         private void Awake()
         {
-            _outlineThisEnemy = GetComponent<Outline>();
+            //_outlineThisEnemy = GetComponent<Outline>();
         }
 
         public void Start()
         {
-           
+            //ChangeColor(Color.green, 5.0f);
             if (_navMeshAgent == null) _navMeshAgent = GetComponent<NavMeshAgent>();
 
             _spawnPoint = transform.position;
@@ -63,6 +63,7 @@ namespace Spark.Gameplay.Entities.Common
 
         public void ReturnToPatrol()
         {
+           // ChangeColor(Color.green, 5.0f);
             if (canMove)
             {
                 _navMeshAgent.stoppingDistance = 0.5f;
@@ -77,8 +78,7 @@ namespace Spark.Gameplay.Entities.Common
             if (distance <= _navMeshAgent.stoppingDistance && !_navMeshAgent.isStopped)
             {
                 _animator.SetTrigger("Attack");
-                _outlineThisEnemy.OutlineWidth = 8.0f;
-                _outlineThisEnemy.OutlineColor = Color.red;
+                //ChangeColor(Color.red, 8.0f);
             }
            
                 
@@ -89,8 +89,6 @@ namespace Spark.Gameplay.Entities.Common
         private void Patrol()
         {
             // get spawn point or last point position if enemy has points
-            _outlineThisEnemy.OutlineWidth = 5.0f;
-            _outlineThisEnemy.OutlineColor = Color.green;
             var pointPosition = 
                 _patrolPoints.Count == 0 ? 
                 _spawnPoint :
@@ -117,6 +115,12 @@ namespace Spark.Gameplay.Entities.Common
                 _audioSystem.AudioDictinory["Move"].mute = false;
             }
         }
+
+        // private void ChangeColor(Color color, float wightOutline)
+        // {
+        //     _outlineThisEnemy.OutlineWidth = wightOutline;
+        //     _outlineThisEnemy.OutlineColor = color;
+        // }
 
     }
 }
