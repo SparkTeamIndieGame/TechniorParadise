@@ -15,7 +15,15 @@ MonoBehaviour:
   Details: 0
   FlashCard:
     <MaxAmount>k__BackingField: 10
+    <Count>k__BackingField: 1
   MeleeWeaponData:
   - {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
+  - {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb, type: 2}
+  - {fileID: 11400000, guid: d3023b9ad7aa6474196cb2e3efd756b1, type: 2}
   RangedWeaponData:
   - {fileID: 11400000, guid: d8da62bfb34866a49bd3137a31322f72, type: 2}
+  - {fileID: 11400000, guid: 47e69339f2f295f4e9a4d7c59fc6e166, type: 2}
+  - {fileID: 11400000, guid: 0d520e51de6b4894bb1504b5b65c5457, type: 2}
+  - {fileID: 11400000, guid: fa2f14c0ccd93b04cb18311ea828dda6, type: 2}
+  - {fileID: 11400000, guid: 74752a016fa08434ab85ca9d3d6fd98c, type: 2}
+  - {fileID: 11400000, guid: 15c199d7ab1d26340acab6f532b4b87a, type: 2}
