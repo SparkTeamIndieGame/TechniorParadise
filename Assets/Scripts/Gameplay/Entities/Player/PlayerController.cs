@@ -216,7 +216,7 @@ namespace Spark.Gameplay.Entities.Player
 
         private void SetEnemyTargetWithUI(Transform target)
         {
-            
+            return;
             if (target != null)
             {
                 _target = target;

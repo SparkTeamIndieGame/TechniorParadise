@@ -19,7 +19,7 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] protected AudioSystem _audioSystem;
         [SerializeField] protected float _stopDic;
         
-        protected Outline _outlineThisEnemy;
+        
         protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
         private int _lastIndexPoint;
@@ -27,7 +27,7 @@ namespace Spark.Gameplay.Entities.Common
 
         public void Start()
         {
-            _outlineThisEnemy = GetComponent<Outline>();
+            
             if (_navMeshAgent == null) _navMeshAgent = GetComponent<NavMeshAgent>();
 
             _spawnPoint = transform.position;
@@ -71,8 +71,6 @@ namespace Spark.Gameplay.Entities.Common
             if (distance <= _navMeshAgent.stoppingDistance && !_navMeshAgent.isStopped)
             {
                 _animator.SetTrigger("Attack");
-                _outlineThisEnemy.OutlineWidth = 8.0f;
-                _outlineThisEnemy.OutlineColor = Color.red;
             }
            
                 
@@ -83,8 +81,6 @@ namespace Spark.Gameplay.Entities.Common
         private void Patrol()
         {
             // get spawn point or last point position if enemy has points
-            _outlineThisEnemy.OutlineWidth = 5.0f;
-            _outlineThisEnemy.OutlineColor = Color.green;
             var pointPosition = 
                 _patrolPoints.Count == 0 ? 
                 _spawnPoint :
