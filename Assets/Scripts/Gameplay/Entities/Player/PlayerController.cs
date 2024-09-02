@@ -197,7 +197,11 @@ namespace Spark.Gameplay.Entities.Player
         #region Player select target
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
-            return; //todo working
+            if (Vector3.Distance(this.transform.position, _target.transform.position) > 5.0f)
+            {
+                _model.ResetTarget();
+            }
+            return;
             if (context.performed) 
             {
                 if (IsPointerOnUI(context.ReadValue<Vector2>())) return;
