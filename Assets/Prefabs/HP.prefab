@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8978088403020997145}
   - component: {fileID: 6693008750804898211}
   - component: {fileID: 8373241493530562840}
-  m_Layer: 25
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 2368811926802601309}
   - component: {fileID: 5822417613449093074}
   - component: {fileID: 5011171607574003865}
-  m_Layer: 25
+  m_Layer: 5
   m_Name: BG_Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,8 +137,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.58, y: -21.72}
-  m_SizeDelta: {x: 72.27, y: 56.55}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5822417613449093074
 CanvasRenderer:
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 7390443743043209014}
   - component: {fileID: 7832615456474376246}
   - component: {fileID: 3449817771648458269}
-  m_Layer: 25
+  m_Layer: 5
   m_Name: FG_Hp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,8 +212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.93, y: -20.89}
-  m_SizeDelta: {x: 64.13, y: 39.79}
+  m_AnchoredPosition: {x: 0.49, y: 1.48}
+  m_SizeDelta: {x: 88.74, y: 70.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7832615456474376246
 CanvasRenderer:
@@ -263,8 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1028123774470608865}
   - component: {fileID: 5776477452607248453}
-  - component: {fileID: 8836316083112031533}
-  m_Layer: 25
+  m_Layer: 20
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -299,24 +298,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafd0030afe0be047b933480ae6c2ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &8836316083112031533
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7880217526296555470}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 8
-  m_Center: {x: 0, y: -3.65, z: 0}
