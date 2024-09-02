@@ -25,10 +25,11 @@ namespace Spark.Gameplay.Entities.Common
         protected Animator _animator;
         private int _lastIndexPoint;
         private Vector3 _spawnPoint;
+        private OutlineView _outlineView;
 
         private void Awake()
         {
-            //_outlineThisEnemy = GetComponent<Outline>();
+            _outlineView = transform.GetChild(0).GetComponent<OutlineView>();
         }
 
         public void Start()
@@ -77,8 +78,8 @@ namespace Spark.Gameplay.Entities.Common
 
             if (distance <= _navMeshAgent.stoppingDistance && !_navMeshAgent.isStopped)
             {
+                _outlineView.RedOutline();
                 _animator.SetTrigger("Attack");
-                //ChangeColor(Color.red, 8.0f);
             }
            
                 
