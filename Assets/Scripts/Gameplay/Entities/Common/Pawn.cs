@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
@@ -18,16 +19,21 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] protected bool canMove = true;
         [SerializeField] protected AudioSystem _audioSystem;
         [SerializeField] protected float _stopDic;
-        
+
         protected Outline _outlineThisEnemy;
         protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
         private int _lastIndexPoint;
         private Vector3 _spawnPoint;
 
-        public void Start()
+        private void Awake()
         {
             _outlineThisEnemy = GetComponent<Outline>();
+        }
+
+        public void Start()
+        {
+           
             if (_navMeshAgent == null) _navMeshAgent = GetComponent<NavMeshAgent>();
 
             _spawnPoint = transform.position;
