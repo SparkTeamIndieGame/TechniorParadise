@@ -15,7 +15,7 @@ MonoBehaviour:
   Details: 0
   FlashCard:
     <MaxAmount>k__BackingField: 10
-    <Count>k__BackingField: 1
+    <Count>k__BackingField: 10
   MeleeWeaponData:
   - {fileID: 11400000, guid: 67521abaf7627f249b1a85cb28fdcf61, type: 2}
   - {fileID: 11400000, guid: 6bfb0c1dc94536c458c6c710e3ba07eb, type: 2}

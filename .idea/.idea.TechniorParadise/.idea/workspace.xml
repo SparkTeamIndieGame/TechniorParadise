@@ -6,10 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/HP.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/HP.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/EvilMelee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/EvilMelee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/FightBotMelee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/FightBotMelee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/LurkerMelee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/LurkerMelee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/RaptorMelee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/RaptorMelee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/SawBotMelee.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Melee/SawBotMelee.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Range/DestroyerRange.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Range/DestroyerRange.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Range/LyncherRange.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Range/LyncherRange.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Range/ScooterRange.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/newEnemies/Range/ScooterRange.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ActualDetailCount.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ActualDetailCount.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +71,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/TP/Win\TechniorParadise.exe" />
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Games/TP/Win/TP0309\TechniorParadise.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\Games\Новая папка" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -163,7 +171,7 @@
       <workItem from="1725291793130" duration="6113000" />
       <workItem from="1725304980828" duration="16000" />
       <workItem from="1725305013903" duration="663000" />
-      <workItem from="1725312016785" duration="1577000" />
+      <workItem from="1725312016785" duration="3130000" />
     </task>
     <servers />
   </component>
