@@ -1,3 +1,4 @@
+using Spark.Gameplay.Entities.Player;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,6 +13,19 @@ public class PlayerMove : MonoBehaviour
     //временно
     public float damage = 3.0f;
     public FindEnemy findEnemy;
+    
+    //вращение
+    private float smoothTime = 0.05f;
+    private float _currentVelocity;
+    
+    //анимация
+    public AnimController animController;
+    
+    //стрельба
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+    public float buletSpeed = 10.0f;
+    public float fireRate = 0.5f;
     private void Awake()
     {
         _controller = GetComponent<CharacterController>();
@@ -19,17 +33,31 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        _controller.Move(_direction * speed * Time.deltaTime);
-        //временно
-        if (Input.GetMouseButtonDown(0))
+        animController.AnimMove(_input);
+        if (_input.sqrMagnitude != 0)
         {
-            if (findEnemy._enemyTest != null)
-            {
-                findEnemy._enemyTest.TakeDamage(damage);
-            }
+            _controller.Move(_direction * speed * Time.deltaTime);
+            var targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg; 
+            var angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref _currentVelocity, smoothTime);
+            transform.rotation = Quaternion.Euler(0.0f, angle, 0.0f);
+           
         }
+
+        if (findEnemy._closestEnemy != null)
+        {
+            transform.rotation =
+                Quaternion.LookRotation(findEnemy._closestEnemy.transform.position - this.transform.position);
+
+        }
+
+
     }
 
+    // public void Shoot()
+    // {
+    //     GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+    //     bullet.GetComponent<Rigidbody>().velocity = bulletSpawn.forward * buletSpeed;
+    // }
     public void Move(InputAction.CallbackContext context)
     {
         _input = context.ReadValue<Vector2>();

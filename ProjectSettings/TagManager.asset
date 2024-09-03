@@ -28,9 +28,9 @@ TagManager:
   - Enemy
   - ConsoleTraderMan
   - FindEnemy
-  - 
-  - 
-  - 
+  - Bullets
+  - EnemyTrigger
+  - EemyHPbar
   - 
   - 
   - 

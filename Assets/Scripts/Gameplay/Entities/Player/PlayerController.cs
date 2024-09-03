@@ -67,6 +67,8 @@ namespace Spark.Gameplay.Entities.Player
 
         private void Start()
         {
+            _model.LoadWithMedKits(out _medKitAbility);
+
             if (_view == null) _view = GetComponent<PlayerView>();
             _view.NeedCardUI(_model.FlashCard.MaxAmount);
 
@@ -81,6 +83,9 @@ namespace Spark.Gameplay.Entities.Player
 
             _model.AudioSystem.Instalize();
         }
+
+        public void SaveData() => _model.SaveWithMedKits(_medKitAbility);
+        public void LoadData() => _model.LoadWithMedKits(out _medKitAbility);
 
         private void UpdateActiveWeapon(Weapon activeWeapon)
         {
@@ -162,7 +167,7 @@ namespace Spark.Gameplay.Entities.Player
             _medKitAbility.Update();
 
             UpdateRangedWeaponAmmo();
-            UpdateMedKitButtonUI();
+            UpdateAbilityButtonsUI();
         }
         private void UpdateRangedWeaponAmmo()
         {
@@ -170,9 +175,11 @@ namespace Spark.Gameplay.Entities.Player
                 _view.UpdateWeaponRangedAmmoUI(_model.ActiveWeapon.Data as RangedWeaponData);
         }
 
-        private void UpdateMedKitButtonUI()
+        private void UpdateAbilityButtonsUI()
         {
             _view.UpdatePlayerMedKitButtonUI(_medKitAbility);
+            _view.UpdatePlayerFlashButtonUI(_flashAbility);
+            _view.UpdatePlayerInvulerabilityButtonUI(_invulnerability);
         }
         #endregion
 
@@ -195,7 +202,8 @@ namespace Spark.Gameplay.Entities.Player
         #region Player select target
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            return; //todo working
+            if (context.performed) 
             {
                 if (IsPointerOnUI(context.ReadValue<Vector2>())) return;
 
@@ -209,13 +217,14 @@ namespace Spark.Gameplay.Entities.Player
 
         private void SetEnemyTargetWithUI(Transform target)
         {
+            
             if (target != null)
             {
                 _target = target;
 
                 _model.SetTarget(_target);
                 Enemy enemy = _target.GetComponent<Enemy>();
-
+                
                 enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
                 _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
             }
@@ -223,6 +232,7 @@ namespace Spark.Gameplay.Entities.Player
             {
                 _model.ResetTarget();
                 _view.UpdateTargetHealtUI(null);
+                
             }
         }
 
@@ -261,7 +271,8 @@ namespace Spark.Gameplay.Entities.Player
 
                     if (_enemiesInAttackRange.Count > 0)
                     {
-                        SetEnemyTargetWithUI(_enemiesInAttackRange[0].transform);
+                        //SetEnemyTargetWithUI(_enemiesInAttackRange[0].transform); //todo working
+                        _model.SetTarget(_enemiesInAttackRange[0].transform);
                     }
                 }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections.Generic;
@@ -19,13 +20,21 @@ namespace Spark.Gameplay.Entities.Common
         [SerializeField] protected AudioSystem _audioSystem;
         [SerializeField] protected float _stopDic;
 
+        //protected Outline _outlineThisEnemy;
         protected NavMeshAgent _navMeshAgent;
         protected Animator _animator;
         private int _lastIndexPoint;
         private Vector3 _spawnPoint;
+        private OutlineView _outlineView;
+
+        private void Awake()
+        {
+            _outlineView = transform.GetChild(0).GetComponent<OutlineView>();
+        }
 
         public void Start()
         {
+            //ChangeColor(Color.green, 5.0f);
             if (_navMeshAgent == null) _navMeshAgent = GetComponent<NavMeshAgent>();
 
             _spawnPoint = transform.position;
@@ -55,6 +64,7 @@ namespace Spark.Gameplay.Entities.Common
 
         public void ReturnToPatrol()
         {
+           // ChangeColor(Color.green, 5.0f);
             if (canMove)
             {
                 _navMeshAgent.stoppingDistance = 0.5f;
@@ -67,9 +77,14 @@ namespace Spark.Gameplay.Entities.Common
             float distance = Vector3.Distance(transform.position, target);
 
             if (distance <= _navMeshAgent.stoppingDistance && !_navMeshAgent.isStopped)
+            {
+                _outlineView.RedOutline();
                 _animator.SetTrigger("Attack");
+            }
+           
+                
 
-                return distance;
+            return distance;
         }
 
         private void Patrol()
@@ -101,6 +116,12 @@ namespace Spark.Gameplay.Entities.Common
                 _audioSystem.AudioDictinory["Move"].mute = false;
             }
         }
+
+        // private void ChangeColor(Color color, float wightOutline)
+        // {
+        //     _outlineThisEnemy.OutlineWidth = wightOutline;
+        //     _outlineThisEnemy.OutlineColor = color;
+        // }
 
     }
 }
