@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Common/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Common/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Enemies/Common/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Enemies/Common/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/VFX/UI elements of the additional 2 copy.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/VFX/UI elements of the additional 2 copy.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/newScripts/DirectionArrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/DirectionArrow.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,10 +27,13 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/FirstTM.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/InteractivShopBt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ShopBaseControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/newScripts/ArrowManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/newScripts/Enemies/FindPlayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/newScripts/Enemies/OutlineView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/newScripts/FlachCardArrow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/newScripts/Player/PlayerArsenal.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/newScripts/Player/PlayerMove.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/newScripts/TempleFlash.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/newScripts/Weapon/WeaponBase.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.adaptiveperformance@5.1.0/Runtime/Management/AdaptivePerformanceManagerSettings.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.6.3/InputSystem/Plugins/OnScreen/OnScreenButton.cs" root0="SKIP_HIGHLIGHTING" />
@@ -163,7 +166,10 @@
       <workItem from="1725304980828" duration="16000" />
       <workItem from="1725305013903" duration="663000" />
       <workItem from="1725312016785" duration="3130000" />
-      <workItem from="1725315877459" duration="2489000" />
+      <workItem from="1725315877459" duration="3083000" />
+      <workItem from="1725353641905" duration="548000" />
+      <workItem from="1725354208570" duration="65000" />
+      <workItem from="1725354294435" duration="7423000" />
     </task>
     <servers />
   </component>
