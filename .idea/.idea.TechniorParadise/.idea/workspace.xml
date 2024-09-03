@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2D_Sprites/VFX/UI elements of the additional 2 copy.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2D_Sprites/VFX/UI elements of the additional 2 copy.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/newScripts/DirectionArrow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/DirectionArrow.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -169,7 +165,7 @@
       <workItem from="1725315877459" duration="3083000" />
       <workItem from="1725353641905" duration="548000" />
       <workItem from="1725354208570" duration="65000" />
-      <workItem from="1725354294435" duration="7423000" />
+      <workItem from="1725354294435" duration="8037000" />
     </task>
     <servers />
   </component>
