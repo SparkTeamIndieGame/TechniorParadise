@@ -202,7 +202,7 @@ namespace Spark.Gameplay.Entities.Player
         #region Player select target
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
-            return; //todo working
+            // return; //todo working
             if (context.performed) 
             {
                 if (IsPointerOnUI(context.ReadValue<Vector2>())) return;
@@ -211,7 +211,11 @@ namespace Spark.Gameplay.Entities.Player
                     enemy.OnHealthChanged -= _view.UpdateTargetHealtUI;
 
                 _target = GetTargetFromClickOrTapPosition(context, out _);
-                SetEnemyTargetWithUI(_target);
+                // SetEnemyTargetWithUI(_target);
+                if (_target)
+                    _model.SetTarget(_target);
+                else
+                    _model.ResetTarget();
             }
         }
 
@@ -297,7 +301,7 @@ namespace Spark.Gameplay.Entities.Player
 
         private void ClearAllOutRangeEnemies()
         {
-            _enemiesInAttackRange.RemoveAll(enemy => Vector3.Distance(enemy.transform.position, transform.position) > _model.ActiveWeapon.Data.AttackRange);
+            _enemiesInAttackRange.RemoveAll(enemy => Vector3.Distance(enemy.transform.position, transform.position) > 10.0f);
         }
 
         private void FillArrayOfInRangeEnemies()

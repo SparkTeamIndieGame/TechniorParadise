@@ -3,56 +3,85 @@ using UnityEngine;
 
 public class DirectionArrow : MonoBehaviour
 { 
-    [SerializeField] private Transform _target;
-    [SerializeField] private float _timeDelay = 5.0f;
+    public static GameObject TargetNew;
+    [SerializeField] protected float _timeDelay = 30.0f;
+    [SerializeField] protected float _speedCof = 20.0f;
+    [SerializeField] protected GameObject _player;
     
-    private SpriteRenderer spriteRenderer;
-    private bool courutine = true;
+    protected SpriteRenderer _spriteRenderer;
+    private bool isRepit = true;
+    private float _needDis;
+    private float _currentDis;
     
-    private void Start()  //запустить корутину
+    public virtual void Start()  //запустить корутину
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.size = new Vector2(spriteRenderer.size.x, 0.0f);
-        StartCoroutine(ArrowShow());
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer.size = new Vector2(_spriteRenderer.size.x, 0.0f);
+        StartCoroutine(ArrowShow(TargetNew, isRepit));
     }
 
-    private void Update()
+    public virtual void Update()
     {
         //направление
-        var directionVector = (_target.position - transform.position).normalized;
+        var directionVector = (TargetNew.transform.position - transform.position).normalized;
         Quaternion lookRotation = Quaternion.LookRotation(directionVector, Vector3.up);
         transform.rotation = Quaternion.Euler(90.0f,lookRotation.eulerAngles.y, 0.0f);
         
-        //удалить
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            courutine = false; // остановить
-        }
     }
     //удалить или изменить
-    private void ShowArrow()
+    public virtual void ShowArrow(GameObject target, bool isRepitloop)
     {
         StopAllCoroutines();
-        StartCoroutine(ArrowShow());
+        StartCoroutine(ArrowShow(target, isRepitloop));
     }
 
-    private IEnumerator ArrowShow()
+    public virtual IEnumerator ArrowShow(GameObject target, bool isRepit)
     {
-        while (courutine)
+        // while (true)
+        // {
+        //     transform.position = _player.transform.position;
+        //     for (float t = 0.0f; t <= Mathf.Infinity; t += Time.deltaTime * _speedCof)
+        //     {
+        //         _spriteRenderer.size = new Vector2(_spriteRenderer.size.x, t);
+        //         _spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f,t /10.0f );
+        //         _needDis = Vector3.Distance(transform.position, target.transform.position);
+        //         _currentDis = _spriteRenderer.size.y * this.transform.localScale.x;
+        //         if (_currentDis >= _needDis)
+        //         {
+        //             break;
+        //         }
+        //         yield return null;
+        //     }
+        //
+        //     for (float t = 1.0f; t >= 0.0f; t -= Time.deltaTime * 2.0f)
+        //     {
+        //         _spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f,t );
+        //         yield return null;
+        //     }
+        //     yield return new WaitForSeconds(_timeDelay);
+        // }
+        do
         {
-            for (float t = 0.0f; t <= 11.5f; t += Time.deltaTime * 6.0f)
+            transform.position = _player.transform.position;
+            for (float t = 0.0f; t <= 15.0; t += Time.deltaTime * _speedCof)
             {
-                spriteRenderer.size = new Vector2(spriteRenderer.size.x, t);
-                spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f,t /10.0f );
+                _spriteRenderer.size = new Vector2(_spriteRenderer.size.x, t);
+                _spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f,t /10.0f );
+                _needDis = Vector3.Distance(transform.position, target.transform.position);
+                _currentDis = _spriteRenderer.size.y * this.transform.localScale.x;
+                if (_currentDis >= _needDis)
+                {
+                    break;
+                }
                 yield return null;
             }
 
             for (float t = 1.0f; t >= 0.0f; t -= Time.deltaTime * 2.0f)
             {
-                spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f,t );
+                _spriteRenderer.color = new Color(1.0f, 1.0f, 1.0f,t );
                 yield return null;
             }
-            yield return new WaitForSeconds(_timeDelay); // указать время задержки
-        }
+            yield return new WaitForSeconds(_timeDelay);
+        } while (isRepit);
     }
 }
