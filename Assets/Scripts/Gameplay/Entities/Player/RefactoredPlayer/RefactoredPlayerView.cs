@@ -1,8 +1,8 @@
 using Spark.Gameplay.Entities.Common.Behaviour;
-using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
-using Spark.Gameplay.Entities.RefactoredPlayer.RefactoredSystems;
-using Spark.Gameplay.Entities.RefactoredPlayer.UI;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Items;
+using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons;
+using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Melee;
+using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged;
 using Spark.Utilities;
 using System;
 using UnityEngine;
@@ -11,35 +11,35 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 {
     public class RefactoredPlayerView : MonoBehaviour, IHealthable, IInvulnerable
     {
-        public Action<FlashAbility> OnFlashActivated;
-        public Action<InvulnerAbility> OnInvulnerActivated;
-        public Action<MedKitAbility> OnMedKitActivated;
-
         public Action OnFlashDrivePickUped;
         public Action<float> OnDetailsPickUped;
         public Action<MedKitPickup> OnMedKitPickUped;
 
-        private RefactoredUIController _ui;
         private CharacterController _controller;
+
+        private RefactoredRangedWeapon _rangedWeapon;
+        private RefactoredMeleeWeapon _meleeWeapon;
+        private IRefactoredWeapon _activeWeapon;
         
         [SerializeField, Min(.0f)] private float _movementSpeed;
         [SerializeField, Min(.0f)] private float _rotationSpeed;
 
-        public event Action<float> OnHealthUpdated;
+        public event Action<float> OnHealthChanged;
 
-        public Vector3 direction { private get; set; }
+        public Vector3 direction { get; set; }
         public Vector3 inspection { private get; set; }
 
-        public float health { set { OnHealthUpdated.Invoke(value); } }
+        public float health { set => OnHealthChanged.Invoke(value); }
 
         private void Start()
         {
-            _ui = FindAnyObjectByType<RefactoredUIController>();
             Utils.LoadComponent(gameObject, out _controller);
 
-            RegisterAbilityHandlers();
+            _rangedWeapon = FindAnyObjectByType<RefactoredRangedWeapon>();
+            _meleeWeapon = FindAnyObjectByType<RefactoredMeleeWeapon>();
 
-            OnHealthUpdated += _ui.UpdatePlayerHealthUI;
+            _activeWeapon = _rangedWeapon;
+            _meleeWeapon.DisableAllGameObjectWeapons();
         }
 
         private void FixedUpdate()
@@ -56,46 +56,6 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             }
         }
 
-        #region Register abilities events
-        void RegisterAbilityHandlers()
-        {
-            RegisterFlashHandler();
-            RegisterInvulnerHandler();
-            RegisterMedKitHandler();
-        }
-
-        void RegisterFlashHandler()
-        {
-            OnFlashActivated = (ability) =>
-            {
-                ability.direction = direction == Vector3.zero ? transform.forward : direction;
-                ability.Activate();
-
-                StartCoroutine(_ui.UpdateFlashIconCoroutine(ability));
-            };
-        }
-
-        void RegisterInvulnerHandler()
-        {
-            OnInvulnerActivated = (ability) =>
-            {
-                ability.Activate();
-                StartCoroutine(_ui.UpdateInvulnerIconCoroutine(ability));
-            };
-        }
-
-        void RegisterMedKitHandler()
-        {
-            OnMedKitActivated = (ability) =>
-            {
-                if (ability.amount <= 0) return;
-
-                ability.Activate();
-                StartCoroutine(_ui.UpdateMedKitIconCoroutine(ability));
-            };
-        }
-        #endregion
-
         #region Movement and inspection
         void HandleMovement()
         {
@@ -106,8 +66,10 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         {
             if (inspection != Vector3.zero)
             {
-                Quaternion targetRotation = Quaternion.LookRotation(inspection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.fixedDeltaTime);
+                var targetByAxisY = Quaternion.LookRotation(inspection);
+                targetByAxisY.x = targetByAxisY.z = 0.0f;
+
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
             }
         }
         #endregion
@@ -158,13 +120,70 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         }
         #endregion
 
-        public void UpdateFlashDriveUI(FlashDrive flashDrive) => _ui.UpdateFlashDriveUI(flashDrive);
-        public void UpdateDetailsUI(float details) => _ui.UpdateDetailsUI(details);
-        public bool TryToggleMedKitIcon(MedKitAbility ability) => _ui.TryToggleMedKitIcon(ability);
-
-        public void Die()
+        #region Change Weapon System
+        public void ChangeMeleeWeapon(WeaponTypeModelExtended<MeleeWeaponType> type)
         {
-            throw new NotImplementedException();
+            if (_activeWeapon is RefactoredMeleeWeapon)
+                _meleeWeapon.ChangeWeapon(type.next);
+
+            else
+            {
+                _rangedWeapon.DisableAllGameObjectWeapons();
+                _meleeWeapon.ChangeWeapon(type.current);
+                _activeWeapon = _meleeWeapon;
+            }
         }
+        public void ChangeRangedeWeapon(WeaponTypeModelExtended<RangedWeaponType> type)
+        {
+            if (_activeWeapon is RefactoredRangedWeapon)
+                _rangedWeapon.ChangeWeapon(type.next);
+
+            else
+            {
+                _meleeWeapon.DisableAllGameObjectWeapons();
+                _rangedWeapon.ChangeWeapon(type.current);
+                _activeWeapon = _rangedWeapon;
+            }
+        }
+
+        public void ChangeWeaponCategory(WeaponTypeModelExtended<MeleeWeaponType> melee, WeaponTypeModelExtended<RangedWeaponType> ranged)
+        {
+            if (_activeWeapon is RefactoredRangedWeapon)
+            {
+                _rangedWeapon.DisableAllGameObjectWeapons();
+                _meleeWeapon.ChangeWeapon(melee.current);
+                _activeWeapon = _meleeWeapon;
+            }
+            else
+            {
+                _meleeWeapon.DisableAllGameObjectWeapons();
+                _rangedWeapon.ChangeWeapon(ranged.current);
+                _activeWeapon = _rangedWeapon;
+            }
+        }
+
+        public void ChangeWeaponType(WeaponTypeModelExtended<MeleeWeaponType> melee, WeaponTypeModelExtended<RangedWeaponType> ranged)
+        {
+            if (_activeWeapon is RefactoredRangedWeapon)
+            {
+                _rangedWeapon.ChangeWeapon(ranged.next);
+                _activeWeapon = _rangedWeapon;
+            }
+            else
+            {
+                _meleeWeapon.ChangeWeapon(melee.next);
+                _activeWeapon = _meleeWeapon;
+            }
+        }
+
+        public void TryReloadWeapon()
+        {
+            if (_activeWeapon is RefactoredRangedWeapon) 
+                _rangedWeapon.Reload();
+        }
+        #endregion
+
+        public void ActivateWeapon() => _activeWeapon.Activate();
+        public void DeactivateWeapon() => _activeWeapon.Deactivate();
     }
 }

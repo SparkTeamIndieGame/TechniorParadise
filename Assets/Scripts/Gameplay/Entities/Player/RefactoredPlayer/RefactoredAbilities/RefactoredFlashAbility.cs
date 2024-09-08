@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
 {
     [Serializable]
-    public class FlashAbility : RefactoredAbility
+    public class RefactoredFlashAbility : RefactoredAbility
     {
         [SerializeField, Range(3.0f, 20.0f)] private float _distance = 5.0f;
 
@@ -12,7 +12,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
 
         public Vector3 direction { private get; set; }
 
-        public FlashAbility()
+        public RefactoredFlashAbility()
         {
             name = "Flash";
             description = "The player jumps straight";

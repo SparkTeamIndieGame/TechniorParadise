@@ -1,5 +1,8 @@
 using Spark.Gameplay.Entities.RefactoredPlayer.Abilities;
 using Spark.Gameplay.Entities.RefactoredPlayer.RefactoredSystems;
+using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons;
+using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,46 +20,80 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 
         [SerializeField] private Text _detailsCount;
 
+        [SerializeField] private Image _reloadIcon;
+        [SerializeField] private Text _ammo;
+        [SerializeField] private Text _ammoMaximum;
+
         [SerializeField] private Slider _playerHealthBar;
 
-        #region Abilities
-        public IEnumerator UpdateFlashIconCoroutine(FlashAbility ability)
+        #region Abilities & reloading icons
+        public void UpdateFlashIcon(RefactoredFlashAbility ability)
         {
-            while (!ability.isReady)
-            {
-                _flashIcon.fillAmount = 1.0f - ability.cooldown / ability.cooldownDuration;
-                yield return new WaitForEndOfFrame();
-            }
-            _flashIcon.fillAmount = 1.0f;
-            yield break;
+            StartCoroutine(UpdateIconCoroutine(
+                _flashIcon, 
+                () => !ability.isReady, 
+                () => ability.cooldown, 
+                ability.cooldownDuration
+            ));
         }
 
-        public IEnumerator UpdateInvulnerIconCoroutine(InvulnerAbility ability)
+        public void UpdateInvulnerIcon(RefactoredInvulnerAbility ability)
         {
-            while (!ability.isReady)
-            {
-                _invulnerIcon.fillAmount = 1.0f - ability.cooldown / ability.cooldownDuration;
-                yield return new WaitForEndOfFrame();
-            }
-            _invulnerIcon.fillAmount = 1.0f;
-            yield break;
-        }
-        public IEnumerator UpdateMedKitIconCoroutine(MedKitAbility ability)
-        {
-            if (!TryToggleMedKitIcon(ability)) yield return null;
-
-            while (!ability.isReady)
-            {
-                _meditIcon.fillAmount = 1.0f - ability.cooldown / ability.cooldownDuration;
-                yield return new WaitForEndOfFrame();
-            }
-            _meditIcon.fillAmount = 1.0f;
+            StartCoroutine(UpdateIconCoroutine(
+                _invulnerIcon,
+                () => !ability.isReady,
+                () => ability.cooldown,
+                ability.cooldownDuration
+            ));
         }
 
-        public bool TryToggleMedKitIcon(MedKitAbility ability)
+        public void UpdateMedKitIcon(RefactoredMedKitAbility ability)
         {
-            _meditIcon.enabled = ability.amount > 0;
-            return _meditIcon.enabled;
+            StartCoroutine(UpdateIconCoroutine(
+                _meditIcon,
+                () => !ability.isReady,
+                () => ability.cooldown,
+                ability.cooldownDuration,
+                () => !TryToggleMedKitIcon(ability)
+            ));
+        }
+
+        public void UpdateReloadingIcon(RefactoredRangedWeapon weapon)
+        {
+            StartCoroutine(UpdateIconCoroutine(
+                _meditIcon,
+                () => !weapon.isReloading,
+                () => weapon.reloading,
+                weapon.reloadingDuration,
+                () => !TryToggleReloadIcon(weapon)
+            ));
+        }
+
+        public bool TryToggleMedKitIcon(RefactoredMedKitAbility ability)
+        {
+            return _meditIcon.enabled = ability.amount > 0;
+        }
+
+        public bool TryToggleReloadIcon(bool toggle)
+        {
+            return _reloadIcon.enabled = toggle;
+        }
+
+        private IEnumerator UpdateIconCoroutine(Image icon, Func<bool> condition, Func<float> cooldown, float duration)
+        {
+            WaitForEndOfFrame waitForEndOfFrame = new();
+            while (condition())
+            {
+                icon.fillAmount = 1.0f - cooldown() / duration;
+                yield return waitForEndOfFrame;
+            }
+            icon.fillAmount = 1.0f;
+        }
+
+        private IEnumerator UpdateIconCoroutine(Image icon, Func<bool> condition, Func<float> cooldown, float duration, Func<bool> toggleIconCondition)
+        {
+            if (toggleIconCondition()) yield return null;
+            yield return UpdateIconCoroutine(icon, condition, cooldown, duration);
         }
         #endregion
 
@@ -73,7 +110,12 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 
         public void UpdatePlayerHealthUI(float health)
         {
-            _playerHealthBar.value += health;
+            _playerHealthBar.value = health;
+        }
+
+        public void UpdateAmmoUI(RefactoredRangedWeapon weapon)
+        {
+
         }
     }
 }

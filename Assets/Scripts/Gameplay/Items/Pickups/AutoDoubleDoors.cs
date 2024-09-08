@@ -24,7 +24,7 @@ namespace Spark.Gameplay.Items.Pickupable.Doors
 
         protected void OpenDoubleDoors()
         {
-            if (!audioSourceDoor.isPlaying) audioSourceDoor.Play();
+            if (audioSourceDoor != null && audioSourceDoor.isPlaying) audioSourceDoor.Play();
 
             StartCoroutine(OpenDoorCoroutine());
         }
@@ -48,7 +48,7 @@ namespace Spark.Gameplay.Items.Pickupable.Doors
                 yield return null;
             }
             _isUsed = true;
-            audioSourceDoor.Stop();
+            audioSourceDoor?.Stop();
         }
 
         public virtual void Activate(PlayerModel player) => _isActivated = true;

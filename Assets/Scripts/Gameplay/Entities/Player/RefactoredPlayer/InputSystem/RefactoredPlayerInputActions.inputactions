@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Ability: Flash",
+                    "name": "Ability: Flash Activate",
                     "type": "Button",
                     "id": "02d8f496-548f-44e4-857b-07db85660c59",
                     "expectedControlType": "Button",
@@ -33,7 +33,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability: Invulner",
+                    "name": "Ability: Invulner Activate",
                     "type": "Button",
                     "id": "2a8c6675-46d0-4bab-9b65-952da363832c",
                     "expectedControlType": "Button",
@@ -42,9 +42,63 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Ability: MedKit",
+                    "name": "Ability: MedKit Activate",
                     "type": "Button",
                     "id": "cfa6e6d0-abe6-4982-84b1-3889e3ad7e12",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon: Activate",
+                    "type": "Button",
+                    "id": "13d02d82-d57c-41a2-9a6e-29e89aa6b205",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon: Change Melee Type",
+                    "type": "Button",
+                    "id": "fd555992-dc1c-415a-a0f3-b6a543df400f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon: Change Ranged Type",
+                    "type": "Button",
+                    "id": "7dec175a-3a1e-43c7-9cbb-80b1ae2ef37b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon: Change Category",
+                    "type": "Button",
+                    "id": "eb432c73-bcb5-4014-a0fa-08450e4495e2",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon: Change Type",
+                    "type": "Button",
+                    "id": "2ed94864-e82c-47f7-a91d-772d4cd09e24",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Weapon: Reload",
+                    "type": "Button",
+                    "id": "8ea17b57-b336-4309-93f8-f7eac409348f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -180,7 +234,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ability: Flash",
+                    "action": "Ability: Flash Activate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -191,7 +245,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ability: Invulner",
+                    "action": "Ability: Invulner Activate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -202,7 +256,51 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Ability: MedKit",
+                    "action": "Ability: MedKit Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f7d847da-c52a-4408-848f-c01bc7de44fb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon: Activate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7435025d-6245-48a0-9c87-f338dae0300e",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon: Change Category",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f3f0103b-ff42-46f7-9b07-a475fce6c39e",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon: Change Type",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "263b00fa-f140-433d-99f0-0be8b8bd5a2c",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Weapon: Reload",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

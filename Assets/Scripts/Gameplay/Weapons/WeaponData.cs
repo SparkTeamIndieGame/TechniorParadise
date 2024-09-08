@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Spark.Gameplay.Weapons
 {
-    public class WeaponData : ScriptableObject
+    public abstract class WeaponData : ScriptableObject
     {
         [field: SerializeField] public string Name { get; private set; }
         [field: SerializeField] public string Description { get; private set; }
@@ -17,7 +17,7 @@ namespace Spark.Gameplay.Weapons
         [field: SerializeField] public ParticleSystem HitEntityParticleSystem { get; private set; }
         [field: SerializeField] public AudioClip AudioClip { get; private set; }
         [field: SerializeField] public int Price { get; private set; }
-        
+
 
         public virtual void PlayParticleSystem(ParticleSystem particleSystem, Transform parent)
         {

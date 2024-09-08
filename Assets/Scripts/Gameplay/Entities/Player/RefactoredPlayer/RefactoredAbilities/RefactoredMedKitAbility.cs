@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
 {
     [Serializable]
-    public class MedKitAbility : RefactoredAbility
+    public class RefactoredMedKitAbility : RefactoredAbility
     {
         private IHealthable _healthable;
 
@@ -12,7 +12,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
         [SerializeField] public int amount { get; private set; } = 2;
         [SerializeField] public float healingPointsPerUse => 20.0f;
 
-        public MedKitAbility()
+        public RefactoredMedKitAbility()
         {
             name = "Med Kit";
             description = "Healing a IHealthable";
