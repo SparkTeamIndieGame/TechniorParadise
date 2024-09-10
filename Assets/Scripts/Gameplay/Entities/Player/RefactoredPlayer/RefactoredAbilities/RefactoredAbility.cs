@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Spark.Gameplay.Entities.RefactoredPlayer.Abilities
 {
     [Serializable]
-    public abstract class RefactoredAbility
+    public abstract class RefactoredAbility // todo: ScriptableObject
     {
         #region Cooldown variables
         private float _abilityReadyTime;

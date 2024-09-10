@@ -2,17 +2,28 @@ using Spark.Gameplay.Entities.RefactoredPlayer;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
 {
     public class RefactoredRangedWeapon : RefactoredWeapon<RefactoredRangedWeaponData>
     {
+        [SerializeField] private Image _reloadIconUI;
+        [SerializeField] private Text _ammoCounterUI;
+        [SerializeField] private Text _ammoMaximumUI;
+
         private Dictionary<System.Enum, float> _reloadingReadyTime = new();
         private Dictionary<System.Enum, int> _ammo = new();
 
         public bool isReloading => true;
         public float reloading => Mathf.Max(0, _reloadingReadyTime[data.type] - Time.time);
         public float reloadingDuration => data.reloadDuration;
+
+        public void FillAmmo(System.Enum type)
+        {
+            var dataByType = _data.Find(current => current.type.Equals(type));
+            _ammo[type] = dataByType.ammoMaximum;
+        }
 
         public void Reload()
         {

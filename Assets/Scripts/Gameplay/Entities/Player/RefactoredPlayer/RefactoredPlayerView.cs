@@ -35,11 +35,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
         {
             Utils.LoadComponent(gameObject, out _controller);
 
-            _rangedWeapon = FindAnyObjectByType<RefactoredRangedWeapon>();
-            _meleeWeapon = FindAnyObjectByType<RefactoredMeleeWeapon>();
-
-            _activeWeapon = _rangedWeapon;
-            _meleeWeapon.DisableAllGameObjectWeapons();
+            InitializeWeaponSystem();
         }
 
         private void FixedUpdate()
@@ -54,6 +50,15 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             {
                 pickupable.Activate(this);
             }
+        }
+
+        private void InitializeWeaponSystem()
+        {
+            _rangedWeapon = FindAnyObjectByType<RefactoredRangedWeapon>();
+            _meleeWeapon = FindAnyObjectByType<RefactoredMeleeWeapon>();
+
+            _activeWeapon = _rangedWeapon;
+            _meleeWeapon.DisableAllGameObjectWeapons();
         }
 
         #region Movement and inspection
@@ -185,5 +190,10 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
         public void ActivateWeapon() => _activeWeapon.Activate();
         public void DeactivateWeapon() => _activeWeapon.Deactivate();
+
+        public void FillAmmo(RangedWeaponType weaponType)
+        {
+            _rangedWeapon.FillAmmo(weaponType);
+        }
     }
 }

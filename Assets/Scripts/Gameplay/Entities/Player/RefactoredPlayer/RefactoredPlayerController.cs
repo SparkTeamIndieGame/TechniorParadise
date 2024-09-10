@@ -32,6 +32,8 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
             RegisterPickupHandlers();
 
+            _model.OnFilledAmmo = _view.FillAmmo;
+
             _model.meleeTypes.TryAddNewType(MeleeWeaponType.Knife);
             _model.meleeTypes.TryAddNewType(MeleeWeaponType.Spear);
             _model.meleeTypes.TryAddNewType(MeleeWeaponType.CircularSaw);

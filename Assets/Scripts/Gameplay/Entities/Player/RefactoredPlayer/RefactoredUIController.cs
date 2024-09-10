@@ -20,10 +20,6 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 
         [SerializeField] private Text _detailsCount;
 
-        [SerializeField] private Image _reloadIcon;
-        [SerializeField] private Text _ammo;
-        [SerializeField] private Text _ammoMaximum;
-
         [SerializeField] private Slider _playerHealthBar;
 
         #region Abilities & reloading icons
@@ -76,7 +72,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 
         public bool TryToggleReloadIcon(bool toggle)
         {
-            return _reloadIcon.enabled = toggle;
+            return false; // _reloadIcon.enabled = toggle;
         }
 
         private IEnumerator UpdateIconCoroutine(Image icon, Func<bool> condition, Func<float> cooldown, float duration)

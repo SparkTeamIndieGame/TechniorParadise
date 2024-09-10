@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Spark.Gameplay.Entities.RefactoredPlayer
 {
-    public class RefactoredPlayerModel : IDamagable
+    public class RefactoredPlayerModel : IDamagable // todo: ScriptableObject, 
     {
         public RefactoredFlashAbility flashAbility { get; } = new();
         public RefactoredInvulnerAbility invulnerAbility { get; } = new();
@@ -31,6 +31,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             }
         }
 
+        public Action<RangedWeaponType> OnFilledAmmo;
         public WeaponTypeModelExtended<MeleeWeaponType> meleeTypes = new();
         public WeaponTypeModelExtended<RangedWeaponType> rangedTypes = new();
 
