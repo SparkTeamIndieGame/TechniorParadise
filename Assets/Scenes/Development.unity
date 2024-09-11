@@ -1840,6 +1840,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7212627cce7d30d4bb133e34a5877ddc, type: 2}
   - {fileID: 11400000, guid: b5c831e536efeb049b18eae753f2b849, type: 2}
   - {fileID: 11400000, guid: 853ff2cccc238a84493b0f83e67b62a3, type: 2}
+  _reloadIconUI: {fileID: 0}
+  _ammoCounterUI: {fileID: 0}
+  _ammoMaximumUI: {fileID: 0}
 --- !u!1 &914972001
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,7 +4321,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672336067}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbe31968d49e8354c9397fe21f71ba34, type: 3}
+  m_Script: {fileID: 11500000, guid: 17d7935f60e95c648a77e4c23284ed28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 100
@@ -4964,9 +4967,6 @@ MonoBehaviour:
   _flashDriveCount: {fileID: 1446273096}
   _flashDriveMaximum: {fileID: 228634278}
   _detailsCount: {fileID: 794976925}
-  _reloadIcon: {fileID: 1608475516}
-  _ammo: {fileID: 1637623174}
-  _ammoMaximum: {fileID: 24305489}
   _playerHealthBar: {fileID: 1744156889}
 --- !u!1 &1956704276
 GameObject:
