@@ -46,6 +46,9 @@ public class ShopReview : MonoBehaviour
     [SerializeField] private Text _healthBoxPrice;
     [SerializeField] private Button _buyButtonOtherFlash;
     [SerializeField] private Button _buyButtonOtherHealth;
+    
+    [Space(10)] [Header("Almanach")] 
+    [SerializeField] private GameObject _almanach;
     private WeaponData currentWeapon;
     //private WeaponData chooseWeapon;
     private void Start()
@@ -55,7 +58,7 @@ public class ShopReview : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        ShowShopItem();
     }
     private void OnDestroy()
     {
@@ -206,5 +209,10 @@ public class ShopReview : MonoBehaviour
                 break;
         }
         ShowShopItem();
+    }
+
+    public void OnClickAlmanach()
+    {
+        _almanach.SetActive(true);
     }
 }
