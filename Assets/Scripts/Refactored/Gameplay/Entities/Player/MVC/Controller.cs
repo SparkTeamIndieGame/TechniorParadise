@@ -50,8 +50,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         {
             var controller = gameObject.GetComponent<CharacterController>();
 
-            _model.flashAbility.Intstantiate(controller);
-            _model.invulnerAbility.Intstantiate(_view);
+            // _model.flashAbility.Intstantiate(controller);
+            // _model.invulnerAbility.Intstantiate(_view);
             _model.medkitAbility.Intstantiate(_view);
         }
         #endregion
@@ -71,6 +71,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
             RegisterWeaponActivateHandler();
             RegisterWeaponChangeHandler();
             RegisterWeaponReloadHandler();
+            RegisterWeaponAbilityHandler();
         }
 
         private void RegisterMovementHandler()
@@ -93,21 +94,21 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
         private void RegisterFlashAbilityActivateHandler()
         {
-            _inputActions.Player.AbilityFlashActivate.performed += (context) =>
+            /*_inputActions.Player.AbilityFlashActivate.performed += (context) =>
             {
                 var direction = _view.direction == Vector3.zero ? _view.transform.forward : _view.direction;
                 _model.flashAbility.direction = direction;
                 _model.flashAbility.Activate();
                 _ui.UpdateFlashIcon(_model.flashAbility);
-            };
+            };*/
         }
         private void RegisterInvulnerAbilityActivateHandler()
         {
-            _inputActions.Player.AbilityInvulnerActivate.performed += (context) =>
+            /*_inputActions.Player.AbilityInvulnerActivate.performed += (context) =>
             {
                 _model.invulnerAbility.Activate();
                 _ui.UpdateInvulnerIcon(_model.invulnerAbility);
-            };
+            };*/
         }
         private void RegisterMedKitAbilityActivateHandler()
         {
@@ -154,6 +155,14 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
             _inputActions.Player.WeaponReload.performed += (context) =>
             {
                 _view.TryReloadWeapon();
+            };
+        }
+
+        private void RegisterWeaponAbilityHandler()
+        {
+            _inputActions.Player.WeaponAbility.performed += (context) =>
+            {
+                _view.ActivateWeaponAbility();
             };
         }
         #endregion

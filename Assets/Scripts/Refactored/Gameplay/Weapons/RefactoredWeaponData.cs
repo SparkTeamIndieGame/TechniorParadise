@@ -1,3 +1,4 @@
+using Spark.Refactored.Gameplay.Abilities;
 using UnityEngine;
 
 namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
@@ -20,5 +21,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
         // [field: SerializeField] public int price { get; private set; }
 
         [field: SerializeField] public float rate { get; private set; }
+
+        [field: SerializeField] public Ability ability { get; private set; }
     }
 }

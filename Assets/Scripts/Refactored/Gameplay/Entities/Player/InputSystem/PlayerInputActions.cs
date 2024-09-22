@@ -48,24 +48,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Ability: Flash Activate"",
-                    ""type"": ""Button"",
-                    ""id"": ""02d8f496-548f-44e4-857b-07db85660c59"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Ability: Invulner Activate"",
-                    ""type"": ""Button"",
-                    ""id"": ""2a8c6675-46d0-4bab-9b65-952da363832c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Ability: MedKit Activate"",
                     ""type"": ""Button"",
                     ""id"": ""cfa6e6d0-abe6-4982-84b1-3889e3ad7e12"",
@@ -123,6 +105,15 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                     ""name"": ""Weapon: Reload"",
                     ""type"": ""Button"",
                     ""id"": ""8ea17b57-b336-4309-93f8-f7eac409348f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Weapon: Ability"",
+                    ""type"": ""Button"",
+                    ""id"": ""e3259b81-83e1-4ce6-bcad-816c4eead839"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -253,28 +244,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                 },
                 {
                     ""name"": """",
-                    ""id"": ""94a7b239-0f53-4397-8071-955796eef0ff"",
-                    ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability: Flash Activate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7b922906-f612-4cc0-9388-9f4804c8373c"",
-                    ""path"": ""<Keyboard>/leftAlt"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Ability: Invulner Activate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""d6bd7724-480a-48d2-8f4b-9b399ec677ff"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
@@ -327,6 +296,17 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                     ""action"": ""Weapon: Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""546e0737-57bc-44c3-bbf9-bbd8841e60ca"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Weapon: Ability"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -337,8 +317,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
             m_Player_Inspection = m_Player.FindAction("Inspection", throwIfNotFound: true);
-            m_Player_AbilityFlashActivate = m_Player.FindAction("Ability: Flash Activate", throwIfNotFound: true);
-            m_Player_AbilityInvulnerActivate = m_Player.FindAction("Ability: Invulner Activate", throwIfNotFound: true);
             m_Player_AbilityMedKitActivate = m_Player.FindAction("Ability: MedKit Activate", throwIfNotFound: true);
             m_Player_WeaponActivate = m_Player.FindAction("Weapon: Activate", throwIfNotFound: true);
             m_Player_WeaponChangeMeleeType = m_Player.FindAction("Weapon: Change Melee Type", throwIfNotFound: true);
@@ -346,6 +324,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
             m_Player_WeaponChangeCategory = m_Player.FindAction("Weapon: Change Category", throwIfNotFound: true);
             m_Player_WeaponChangeType = m_Player.FindAction("Weapon: Change Type", throwIfNotFound: true);
             m_Player_WeaponReload = m_Player.FindAction("Weapon: Reload", throwIfNotFound: true);
+            m_Player_WeaponAbility = m_Player.FindAction("Weapon: Ability", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -409,8 +388,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Movement;
         private readonly InputAction m_Player_Inspection;
-        private readonly InputAction m_Player_AbilityFlashActivate;
-        private readonly InputAction m_Player_AbilityInvulnerActivate;
         private readonly InputAction m_Player_AbilityMedKitActivate;
         private readonly InputAction m_Player_WeaponActivate;
         private readonly InputAction m_Player_WeaponChangeMeleeType;
@@ -418,14 +395,13 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
         private readonly InputAction m_Player_WeaponChangeCategory;
         private readonly InputAction m_Player_WeaponChangeType;
         private readonly InputAction m_Player_WeaponReload;
+        private readonly InputAction m_Player_WeaponAbility;
         public struct PlayerActions
         {
             private @PlayerInputActions m_Wrapper;
             public PlayerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Movement => m_Wrapper.m_Player_Movement;
             public InputAction @Inspection => m_Wrapper.m_Player_Inspection;
-            public InputAction @AbilityFlashActivate => m_Wrapper.m_Player_AbilityFlashActivate;
-            public InputAction @AbilityInvulnerActivate => m_Wrapper.m_Player_AbilityInvulnerActivate;
             public InputAction @AbilityMedKitActivate => m_Wrapper.m_Player_AbilityMedKitActivate;
             public InputAction @WeaponActivate => m_Wrapper.m_Player_WeaponActivate;
             public InputAction @WeaponChangeMeleeType => m_Wrapper.m_Player_WeaponChangeMeleeType;
@@ -433,6 +409,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
             public InputAction @WeaponChangeCategory => m_Wrapper.m_Player_WeaponChangeCategory;
             public InputAction @WeaponChangeType => m_Wrapper.m_Player_WeaponChangeType;
             public InputAction @WeaponReload => m_Wrapper.m_Player_WeaponReload;
+            public InputAction @WeaponAbility => m_Wrapper.m_Player_WeaponAbility;
             public InputActionMap Get() { return m_Wrapper.m_Player; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -448,12 +425,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                 @Inspection.started += instance.OnInspection;
                 @Inspection.performed += instance.OnInspection;
                 @Inspection.canceled += instance.OnInspection;
-                @AbilityFlashActivate.started += instance.OnAbilityFlashActivate;
-                @AbilityFlashActivate.performed += instance.OnAbilityFlashActivate;
-                @AbilityFlashActivate.canceled += instance.OnAbilityFlashActivate;
-                @AbilityInvulnerActivate.started += instance.OnAbilityInvulnerActivate;
-                @AbilityInvulnerActivate.performed += instance.OnAbilityInvulnerActivate;
-                @AbilityInvulnerActivate.canceled += instance.OnAbilityInvulnerActivate;
                 @AbilityMedKitActivate.started += instance.OnAbilityMedKitActivate;
                 @AbilityMedKitActivate.performed += instance.OnAbilityMedKitActivate;
                 @AbilityMedKitActivate.canceled += instance.OnAbilityMedKitActivate;
@@ -475,6 +446,9 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                 @WeaponReload.started += instance.OnWeaponReload;
                 @WeaponReload.performed += instance.OnWeaponReload;
                 @WeaponReload.canceled += instance.OnWeaponReload;
+                @WeaponAbility.started += instance.OnWeaponAbility;
+                @WeaponAbility.performed += instance.OnWeaponAbility;
+                @WeaponAbility.canceled += instance.OnWeaponAbility;
             }
 
             private void UnregisterCallbacks(IPlayerActions instance)
@@ -485,12 +459,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                 @Inspection.started -= instance.OnInspection;
                 @Inspection.performed -= instance.OnInspection;
                 @Inspection.canceled -= instance.OnInspection;
-                @AbilityFlashActivate.started -= instance.OnAbilityFlashActivate;
-                @AbilityFlashActivate.performed -= instance.OnAbilityFlashActivate;
-                @AbilityFlashActivate.canceled -= instance.OnAbilityFlashActivate;
-                @AbilityInvulnerActivate.started -= instance.OnAbilityInvulnerActivate;
-                @AbilityInvulnerActivate.performed -= instance.OnAbilityInvulnerActivate;
-                @AbilityInvulnerActivate.canceled -= instance.OnAbilityInvulnerActivate;
                 @AbilityMedKitActivate.started -= instance.OnAbilityMedKitActivate;
                 @AbilityMedKitActivate.performed -= instance.OnAbilityMedKitActivate;
                 @AbilityMedKitActivate.canceled -= instance.OnAbilityMedKitActivate;
@@ -512,6 +480,9 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                 @WeaponReload.started -= instance.OnWeaponReload;
                 @WeaponReload.performed -= instance.OnWeaponReload;
                 @WeaponReload.canceled -= instance.OnWeaponReload;
+                @WeaponAbility.started -= instance.OnWeaponAbility;
+                @WeaponAbility.performed -= instance.OnWeaponAbility;
+                @WeaponAbility.canceled -= instance.OnWeaponAbility;
             }
 
             public void RemoveCallbacks(IPlayerActions instance)
@@ -533,8 +504,6 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
         {
             void OnMovement(InputAction.CallbackContext context);
             void OnInspection(InputAction.CallbackContext context);
-            void OnAbilityFlashActivate(InputAction.CallbackContext context);
-            void OnAbilityInvulnerActivate(InputAction.CallbackContext context);
             void OnAbilityMedKitActivate(InputAction.CallbackContext context);
             void OnWeaponActivate(InputAction.CallbackContext context);
             void OnWeaponChangeMeleeType(InputAction.CallbackContext context);
@@ -542,6 +511,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
             void OnWeaponChangeCategory(InputAction.CallbackContext context);
             void OnWeaponChangeType(InputAction.CallbackContext context);
             void OnWeaponReload(InputAction.CallbackContext context);
+            void OnWeaponAbility(InputAction.CallbackContext context);
         }
     }
 }

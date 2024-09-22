@@ -1,13 +1,16 @@
 using Spark.Gameplay.Entities.RefactoredPlayer.UI;
+using Spark.Refactored.Gameplay.Abilities;
 using Spark.Refactored.Gameplay.Entities.Player.MVC;
 using Spark.Utilities;
 using System;
 using UnityEngine;
 
-namespace Spark.Gameplay.Entities.RefactoredPlayer
+namespace Spark.Refactored.Gameplay.Entities.Player
 {
-    public class RefactoredPlayerInitializer : MonoBehaviour
+    public class PlayerInitializer : MonoBehaviour
     {
+        [SerializeField] private MedKitAbility _medkitAbility;
+
         private void Start()
         {
             InitializeMVC();
@@ -15,7 +18,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
 
         private void InitializeMVC()
         {
-            var model = new Model();
+            var model = new Model(_medkitAbility);
             var view = Utils.LoadComponent<View>(gameObject);
             var ui = FindAnyObjectByType<RefactoredUIController>();
 

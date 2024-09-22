@@ -21,7 +21,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
 
         public void FillAmmo(System.Enum type)
         {
-            var dataByType = _data.Find(current => current.type.Equals(type));
+            var dataByType = _database.Find(current => current.type.Equals(type));
             _ammo[type] = dataByType.ammoMaximum;
         }
 

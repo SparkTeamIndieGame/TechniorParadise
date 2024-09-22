@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Spark.Refactored.Gameplay.Abilities
 {
     [Serializable]
-    public abstract class Ability // todo: ScriptableObject
+    public abstract class Ability : ScriptableObject
     {
         #region Cooldown variables
         private float _abilityReadyTime;
@@ -12,8 +14,8 @@ namespace Spark.Refactored.Gameplay.Abilities
         #endregion
 
         #region Ability attributes
-        [field: SerializeField] public virtual string name { get; protected set; }
         [field: SerializeField] public virtual string description { get; protected set; }
+        [field: SerializeField] public virtual Sprite icon { get; protected set; }
 
         [field: SerializeField, Min(0.0f)] public virtual float cooldownDuration { get; protected set; }
         [field: SerializeField, Min(0.0f)] public virtual float abilityDuration { get; protected set; }
@@ -35,6 +37,12 @@ namespace Spark.Refactored.Gameplay.Abilities
         public bool isActive => Time.time < _abilityDeactivateTime;
         #endregion
 
+        private void OnValidate()
+        {
+            _abilityReadyTime = .0f; 
+            _abilityDeactivateTime = .0f;
+        }
+
         public void Activate()
         {
             if (!isReady) return;
@@ -48,6 +56,20 @@ namespace Spark.Refactored.Gameplay.Abilities
             AbortAction();
             _abilityDeactivateTime = 0;
         }
+
+        public IEnumerator ActiveCoroutine()
+        {
+            yield return new WaitForSecondsRealtime(abilityDuration);
+            Deactivate();
+        }
+
+        public IEnumerator CooldownCoroutine()
+        {
+            yield return new WaitForSecondsRealtime(cooldownDuration);
+            _ = cooldown;
+        }
+
+        public abstract void InstantiateForPlayer();
 
         protected abstract void DoAction();
         protected virtual void AbortAction() { }

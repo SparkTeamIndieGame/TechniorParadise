@@ -1,10 +1,12 @@
+using Spark.Gameplay.Entities.Common.Behaviour;
 using Spark.Refactored.Gameplay.Entities.Interfaces;
+using Spark.Refactored.Gameplay.Entities.Player.MVC;
 using System;
 using UnityEngine;
 
 namespace Spark.Refactored.Gameplay.Abilities
 {
-    [Serializable]
+    [CreateAssetMenu(fileName = "MedKitAbility", menuName = "Abilities/Med Kit Ability", order = 73)]
     public class MedKitAbility : Ability
     {
         private IHealthable _healthable;
@@ -15,7 +17,7 @@ namespace Spark.Refactored.Gameplay.Abilities
 
         public MedKitAbility()
         {
-            name = "Med Kit";
+            // name = "Med Kit";
             description = "Healing a IHealthable";
 
             cooldownDuration = 8.0f;
@@ -24,6 +26,11 @@ namespace Spark.Refactored.Gameplay.Abilities
         public void Intstantiate(IHealthable healthable)
         {
             _healthable = healthable;
+        }
+
+        public override void InstantiateForPlayer()
+        {
+            _healthable = FindAnyObjectByType<View>();
         }
 
         protected override void DoAction()

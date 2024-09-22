@@ -61,6 +61,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
             _activeWeapon = _rangedWeapon;
             _meleeWeapon.DisableAllGameObjectWeapons();
+
+
         }
 
         #region Movement and inspection
@@ -88,6 +90,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
             foreach (var renderer in meshes)
             {
+                Debug.Log(renderer.name);
+
                 var color = renderer.material.color;
                 if (toggle)
                 {
@@ -192,6 +196,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
         public void ActivateWeapon() => _activeWeapon.Activate();
         public void DeactivateWeapon() => _activeWeapon.Deactivate();
+
+        public void ActivateWeaponAbility() => _activeWeapon.ActivateAbility();
 
         public void FillAmmo(RangedWeaponType weaponType)
         {

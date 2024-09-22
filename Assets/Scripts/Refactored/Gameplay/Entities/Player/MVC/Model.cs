@@ -5,16 +5,15 @@ using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged;
 using Spark.Refactored.Gameplay.Abilities;
 using Spark.Refactored.Gameplay.Entities.Interfaces;
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 {
     public class Model : IDamagable // todo: ScriptableObject, 
     {
-        public FlashAbility flashAbility { get; } = new();
-        public InvulnerAbility invulnerAbility { get; } = new();
-        public MedKitAbility medkitAbility { get; } = new();
+        // public FlashAbility flashAbility { get; } = new();
+        // public InvulnerAbility invulnerAbility { get; } = new();
+        public MedKitAbility medkitAbility { get; }
 
         public FlashDrive flashDrive { get; } = new();
         public float details { get; set; }
@@ -36,6 +35,11 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         public Action<RangedWeaponType> OnFilledAmmo;
         public ExtendedWeaponTypeModel<MeleeWeaponType> meleeTypes = new();
         public ExtendedWeaponTypeModel<RangedWeaponType> rangedTypes = new();
+
+        public Model(MedKitAbility medkitAbility)
+        {
+            this.medkitAbility = medkitAbility;
+        }
 
         public void Die()
         {

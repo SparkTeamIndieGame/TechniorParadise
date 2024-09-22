@@ -9,7 +9,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
     public abstract class RefactoredWeapon<Data> : MonoBehaviour, IRefactoredWeapon where Data : RefactoredWeaponData
     {
         public Data current => data;
-        [SerializeField] protected List<Data> _data = new();
+        [SerializeField] protected List<Data> _database = new();
         protected Data data;
 
         protected List<GameObject> _gameObjects = new();
@@ -20,9 +20,10 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 
         private void Start()
         {
-            data = _data[0];
+            data = _database[0];
 
             InitializeWeaponGameObjectsAndDeactive();
+            InitializeWeaponAbilities();
         }
 
         public void Activate() 
@@ -39,6 +40,12 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
             AbortAction();
         }
 
+        public void ActivateAbility()
+        {
+            data.ability?.Activate();
+            StartCoroutine(data.ability?.ActiveCoroutine());
+        }
+
         public virtual void DisableAllGameObjectWeapons()
         {
             _gameObjects.ForEach(gameObject => gameObject.SetActive(false));
@@ -47,7 +54,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
         public virtual void ChangeWeapon(System.Enum type)
         {
             DisableAllGameObjectWeapons();
-            data = _data.Find(data => data.type.Equals(type));
+            data = _database.Find(data => data.type.Equals(type));
             _gameObjects.Find(weapon => weapon.name == data.prefab.name).SetActive(true);
         }
 
@@ -80,6 +87,14 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
                 _gameObjects.Add(child);
 
                 if (data.prefab.name != child.name) child.SetActive(false);
+            }
+        }
+
+        private void InitializeWeaponAbilities()
+        {
+            foreach (var database in _database)
+            {
+                database.ability?.InstantiateForPlayer();
             }
         }
     }
