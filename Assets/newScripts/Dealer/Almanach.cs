@@ -16,7 +16,6 @@ public class Almanach : MonoBehaviour
     [Header("Almanach Data")]
     [SerializeField] private List<Sprite> _almanachIcon;
     [SerializeField] private List<string> _almanachDecription;
-    private int _pageCount;
     [Space(10)]
     [Header("Buttons")]
     [SerializeField] private Button _nextButton;
