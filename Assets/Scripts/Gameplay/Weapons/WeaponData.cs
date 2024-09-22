@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Spark.Gameplay.Weapons
 {
@@ -17,7 +17,15 @@ namespace Spark.Gameplay.Weapons
         [field: SerializeField] public ParticleSystem HitEntityParticleSystem { get; private set; }
         [field: SerializeField] public AudioClip AudioClip { get; private set; }
         [field: SerializeField] public int Price { get; private set; }
-        
+        //изменения АНДРЕЙ
+        [field: SerializeField] public Sprite NameSprite { get; private set; }
+        [field: SerializeField] public float Damage { get; private set; }
+        //ability
+        [field: SerializeField] public Sprite AbilitySprite { get; private set; }
+        [field: SerializeField] public string AbilityName { get; private set; }
+        [field: SerializeField] public string AbilityDescription { get; private set; }
+
+
 
         public virtual void PlayParticleSystem(ParticleSystem particleSystem, Transform parent)
         {

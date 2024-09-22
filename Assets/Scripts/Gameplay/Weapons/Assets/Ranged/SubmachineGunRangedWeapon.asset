@@ -27,6 +27,16 @@ MonoBehaviour:
   <AudioClip>k__BackingField: {fileID: 8300000, guid: c89b7a0df884bec4ea4399adfd430303,
     type: 3}
   <Price>k__BackingField: 1000
+  <NameSprite>k__BackingField: {fileID: -966545457, guid: e099ffa50c8889d4dbb9ed8148606eac,
+    type: 3}
+  <Damage>k__BackingField: 12.5
+  <AbilitySprite>k__BackingField: {fileID: -1247712316, guid: 4a6ed494d48975c4d810f219de9b3545,
+    type: 3}
+  <AbilityName>k__BackingField: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0434\u0443\u043B\u043E"
+  <AbilityDescription>k__BackingField: "\u0412\u044B\u043F\u0443\u0441\u043A\u0430\u0435\u0442
+    \u043E\u0434\u043D\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E \u0434\u0432\u0430
+    \u043F\u0430\u0442\u0440\u043E\u043D\u0430, \u0440\u0430\u0441\u0445\u043E\u0434\u0443\u044F
+    \u043E\u0434\u0438\u043D"
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
   <BulletSpreadRange>k__BackingField: {x: 0, y: 0, z: 0}
@@ -35,3 +45,6 @@ MonoBehaviour:
   <AmmoPerShot>k__BackingField: 1
   <Automatic>k__BackingField: 1
   <FireRate>k__BackingField: 0.5
+  <ReloadTime>k__BackingField: 5
+  <ClipCount>k__BackingField: 20
+  <ShootPeriod>k__BackingField: 0.4

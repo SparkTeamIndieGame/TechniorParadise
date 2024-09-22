@@ -16,11 +16,15 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
         [field: SerializeField, Min(1)] public int AmmoPerShot { get; private set; }
         [field: SerializeField] public bool Automatic { get; private set; }
         [field: SerializeField, Min(0.1f)] public float FireRate { get; private set; }
+        //Андрей
+        
+        [field: SerializeField] public float ReloadTime { get; private set; }
+        [field: SerializeField] public int ClipCount { get; private set; }
+        [field: SerializeField] public float ShootPeriod { get; private set; }
 
         private float _reloadTimeLeft;
         private float _nextReadyTime;
         private int _ammo;
-
         public bool IsAutomatic => Automatic;
         public float ReloadTimeLeft => _reloadTimeLeft;
         public bool IsReloading => Time.time < _nextReadyTime;
