@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DealerMan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DealerMan.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Comix_1.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/newScripts/Dealer/Almanach.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/Dealer/Almanach.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +171,7 @@
       <workItem from="1726777670564" duration="5000" />
       <workItem from="1726846871183" duration="40000" />
       <workItem from="1726846923568" duration="5806000" />
-      <workItem from="1727020171780" duration="17326000" />
+      <workItem from="1727020171780" duration="17667000" />
     </task>
     <servers />
   </component>
