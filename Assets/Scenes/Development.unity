@@ -1842,6 +1842,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7212627cce7d30d4bb133e34a5877ddc, type: 2}
   - {fileID: 11400000, guid: b5c831e536efeb049b18eae753f2b849, type: 2}
   - {fileID: 11400000, guid: 853ff2cccc238a84493b0f83e67b62a3, type: 2}
+  _icon: {fileID: 1733358007}
   _reloadIconUI: {fileID: 0}
   _ammoCounterUI: {fileID: 0}
   _ammoMaximumUI: {fileID: 0}
@@ -3472,6 +3473,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 75de8c79731262645b8dcc45a5cdb525, type: 2}
   - {fileID: 11400000, guid: 0da3bc467c1a51d45b33b40d799d553b, type: 2}
   - {fileID: 11400000, guid: cc2e55826b4d358478a089804c20057f, type: 2}
+  _icon: {fileID: 1733358007}
 --- !u!4 &1360293080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 118cebffdc3ac36479641ec2768ed55a,
@@ -4577,7 +4579,7 @@ GameObject:
   - component: {fileID: 1733358008}
   - component: {fileID: 1733358007}
   m_Layer: 0
-  m_Name: UI_InvulnerAbilityIcon
+  m_Name: UI_WeaponAbilityIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4622,7 +4624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -963553284, guid: 7fe5962e692098845a939596cb892a53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e77c7f9a6ebccc14e9ac9be7a2a2d5af, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5249,8 +5251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93944b9ade6858749a0e3e4d40c2c2fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashIcon: {fileID: 1316159058}
-  _invulnerIcon: {fileID: 1068588698}
+  _abilityIcon: {fileID: 1733358007}
   _meditIcon: {fileID: 814443488}
   _flashDriveCount: {fileID: 1446273096}
   _flashDriveMaximum: {fileID: 228634278}

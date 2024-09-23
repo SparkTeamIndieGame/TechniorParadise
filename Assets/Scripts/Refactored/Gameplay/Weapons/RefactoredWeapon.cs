@@ -1,16 +1,22 @@
+using Spark.Gameplay.Entities.RefactoredPlayer.UI;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Melee;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 {
     public abstract class RefactoredWeapon<Data> : MonoBehaviour, IRefactoredWeapon where Data : RefactoredWeaponData
     {
-        public Data current => data;
+        RefactoredUIController _ui;
+
+        public Data current => _currentData;
+
+        protected Data _currentData;
         [SerializeField] protected List<Data> _database = new();
-        protected Data data;
+        [SerializeField] protected Image _icon;
 
         protected List<GameObject> _gameObjects = new();
 
@@ -20,7 +26,9 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 
         private void Start()
         {
-            data = _database[0];
+            _ui = FindFirstObjectByType<RefactoredUIController>();
+
+            _currentData = _database[0];
 
             InitializeWeaponGameObjectsAndDeactive();
             InitializeWeaponAbilities();
@@ -42,8 +50,8 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 
         public void ActivateAbility()
         {
-            data.ability?.Activate();
-            StartCoroutine(data.ability?.ActiveCoroutine());
+            _currentData.ability?.Activate();
+            _ui.UpdateWeaponAbilityIcon(_currentData.ability);
         }
 
         public virtual void DisableAllGameObjectWeapons()
@@ -53,9 +61,13 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 
         public virtual void ChangeWeapon(System.Enum type)
         {
+            if (!_currentData.ability.isReady) return;
+
             DisableAllGameObjectWeapons();
-            data = _database.Find(data => data.type.Equals(type));
-            _gameObjects.Find(weapon => weapon.name == data.prefab.name).SetActive(true);
+            _currentData = _database.Find(data => data.type.Equals(type));
+            _gameObjects.Find(weapon => weapon.name == _currentData.prefab.name).SetActive(true);
+
+            _ui.UpdateWeaponAbilityIcon(_currentData.ability);
         }
 
         protected abstract void DoAction();
@@ -63,7 +75,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 
         protected virtual void StartCooldown()
         {
-            _actionReadyTime = Time.time + data.rate;
+            _actionReadyTime = Time.time + _currentData.rate;
         }
 
         protected static void PlayParticleSystem(ParticleSystem particleSystem, Transform parent)
@@ -86,7 +98,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
                 child = transform.GetChild(index).gameObject;
                 _gameObjects.Add(child);
 
-                if (data.prefab.name != child.name) child.SetActive(false);
+                if (_currentData.prefab.name != child.name) child.SetActive(false);
             }
         }
 
@@ -96,6 +108,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
             {
                 database.ability?.InstantiateForPlayer();
             }
+            _ui.UpdateWeaponAbilityIcon(_currentData.ability);
         }
     }
 }

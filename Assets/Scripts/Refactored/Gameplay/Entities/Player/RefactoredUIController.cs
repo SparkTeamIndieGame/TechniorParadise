@@ -11,8 +11,7 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
 {
     public class RefactoredUIController : MonoBehaviour
     {
-        [SerializeField] private Image _flashIcon;
-        [SerializeField] private Image _invulnerIcon;
+        [SerializeField] private Image _abilityIcon;
         [SerializeField] private Image _meditIcon;
 
         [SerializeField] private Text _flashDriveCount;
@@ -23,20 +22,13 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer.UI
         [SerializeField] private Slider _playerHealthBar;
 
         #region Abilities & reloading icons
-        public void UpdateFlashIcon(FlashAbility ability)
+        public void UpdateWeaponAbilityIcon(Ability ability)
         {
-            StartCoroutine(UpdateIconCoroutine(
-                _flashIcon, 
-                () => !ability.isReady, 
-                () => ability.cooldown, 
-                ability.cooldownDuration
-            ));
-        }
+            if (_abilityIcon.sprite.name != ability.sprite.name)
+                _abilityIcon.sprite = ability.sprite;
 
-        public void UpdateInvulnerIcon(InvulnerAbility ability)
-        {
             StartCoroutine(UpdateIconCoroutine(
-                _invulnerIcon,
+                _abilityIcon,
                 () => !ability.isReady,
                 () => ability.cooldown,
                 ability.cooldownDuration

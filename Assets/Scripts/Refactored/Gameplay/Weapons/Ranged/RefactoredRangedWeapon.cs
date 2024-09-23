@@ -16,8 +16,8 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
         private Dictionary<System.Enum, int> _ammo = new();
 
         public bool isReloading => true;
-        public float reloading => Mathf.Max(0, _reloadingReadyTime[data.type] - Time.time);
-        public float reloadingDuration => data.reloadDuration;
+        public float reloading => Mathf.Max(0, _reloadingReadyTime[_currentData.type] - Time.time);
+        public float reloadingDuration => _currentData.reloadDuration;
 
         public void FillAmmo(System.Enum type)
         {
@@ -27,12 +27,12 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
 
         public void Reload()
         {
-            _reloadingReadyTime[data.type] = Time.time + reloadingDuration;
+            _reloadingReadyTime[_currentData.type] = Time.time + reloadingDuration;
         }
 
         protected override void DoAction()
         {
-            if (!data.isAutomatic)       
+            if (!_currentData.isAutomatic)       
                 TakeShot();
 
             else StartShooting();
@@ -45,7 +45,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
 
         private void StartShooting()
         {
-            InvokeRepeating(nameof(TakeShot), .0f, data.rate);
+            InvokeRepeating(nameof(TakeShot), .0f, _currentData.rate);
         }
 
         private void StopShooting()
@@ -57,7 +57,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
         {
             float maxDistance = 20.0f;
             Vector3 direction = GetBulletDirection();
-            TrailRenderer trail = Instantiate(data.bulletTrail, transform.position, Quaternion.identity);
+            TrailRenderer trail = Instantiate(_currentData.bulletTrail, transform.position, Quaternion.identity);
 
             if (Physics.Raycast(transform.position, transform.forward, out var hit, maxDistance, LayerMask.GetMask("Obstacle", "Enemy")))
             {
@@ -73,9 +73,9 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
         private Vector3 GetBulletDirection()
         {
             return transform.forward + new Vector3(
-                Random.Range(-data.bulletSpreadRange.x, data.bulletSpreadRange.x),
-                Random.Range(-data.bulletSpreadRange.y, data.bulletSpreadRange.y),
-                Random.Range(-data.bulletSpreadRange.z, data.bulletSpreadRange.z)
+                Random.Range(-_currentData.bulletSpreadRange.x, _currentData.bulletSpreadRange.x),
+                Random.Range(-_currentData.bulletSpreadRange.y, _currentData.bulletSpreadRange.y),
+                Random.Range(-_currentData.bulletSpreadRange.z, _currentData.bulletSpreadRange.z)
             ).normalized;
         }
 
@@ -95,7 +95,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
                 Vector3.Distance(hitTransform.position, trail.transform.position) < 0.5f &&
                 hitTransform.TryGetComponent<IDamagable>(out var damagable))
             {
-                damagable.health -= data.damage;
+                damagable.health -= _currentData.damage;
             }
             Destroy(trail.gameObject);
         }
@@ -103,7 +103,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged
         private IEnumerator HandleReloading()
         {
             yield return new WaitForSeconds(reloadingDuration);
-            _ammo[data.type] = data.ammoMaximum;
+            _ammo[_currentData.type] = _currentData.ammoMaximum;
         }
     }
 

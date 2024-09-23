@@ -20,7 +20,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player
         {
             var model = new Model(_medkitAbility);
             var view = Utils.LoadComponent<View>(gameObject);
-            var ui = FindAnyObjectByType<RefactoredUIController>();
+            var ui = FindFirstObjectByType<RefactoredUIController>();
 
             new Controller(model, view, ui);
             Destroy(this);

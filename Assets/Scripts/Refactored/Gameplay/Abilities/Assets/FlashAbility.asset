@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc28de4177faf544a09c581f189f8b6, type: 3}
   m_Name: FlashAbility
   m_EditorClassIdentifier: 
+  <sprite>k__BackingField: {fileID: -2091652909, guid: 7fe5962e692098845a939596cb892a53,
+    type: 3}
   <description>k__BackingField: The player jumps straight
   <cooldownDuration>k__BackingField: 5
   <abilityDuration>k__BackingField: 0
   _distance: 5
   _controller: {fileID: 0}
+  _playerView: {fileID: 0}

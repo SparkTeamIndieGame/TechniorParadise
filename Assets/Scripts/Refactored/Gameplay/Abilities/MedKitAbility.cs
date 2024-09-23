@@ -30,7 +30,7 @@ namespace Spark.Refactored.Gameplay.Abilities
 
         public override void InstantiateForPlayer()
         {
-            _healthable = FindAnyObjectByType<View>();
+            _healthable = FindFirstObjectByType<View>();
         }
 
         protected override void DoAction()

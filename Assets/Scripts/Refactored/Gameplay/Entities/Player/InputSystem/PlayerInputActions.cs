@@ -256,7 +256,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.InputSystem
                 {
                     ""name"": """",
                     ""id"": ""f7d847da-c52a-4408-848f-c01bc7de44fb"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

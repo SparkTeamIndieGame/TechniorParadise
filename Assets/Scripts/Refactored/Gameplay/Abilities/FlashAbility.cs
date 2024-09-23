@@ -29,7 +29,7 @@ namespace Spark.Refactored.Gameplay.Abilities
 
         public override void InstantiateForPlayer()
         {
-            _playerView = FindAnyObjectByType<View>();
+            _playerView = FindFirstObjectByType<View>();
             _controller = _playerView.GetComponent<CharacterController>();
         }
     }

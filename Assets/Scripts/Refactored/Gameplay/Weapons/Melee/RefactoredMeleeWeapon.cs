@@ -10,7 +10,7 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Melee
     {
         protected override void DoAction()
         {
-            Debug.Log($"Active by {data.name} ({data.type})");
+            Debug.Log($"Active by {_currentData.name} ({_currentData.type})");
 
             /*if (_lastSwingTime + _data.SwingDelay > Time.time) return;
 

@@ -14,8 +14,8 @@ namespace Spark.Refactored.Gameplay.Abilities
         #endregion
 
         #region Ability attributes
+        [field: SerializeField] public virtual Sprite sprite { get; protected set; }
         [field: SerializeField] public virtual string description { get; protected set; }
-        [field: SerializeField] public virtual Sprite icon { get; protected set; }
 
         [field: SerializeField, Min(0.0f)] public virtual float cooldownDuration { get; protected set; }
         [field: SerializeField, Min(0.0f)] public virtual float abilityDuration { get; protected set; }
@@ -55,18 +55,6 @@ namespace Spark.Refactored.Gameplay.Abilities
         {
             AbortAction();
             _abilityDeactivateTime = 0;
-        }
-
-        public IEnumerator ActiveCoroutine()
-        {
-            yield return new WaitForSecondsRealtime(abilityDuration);
-            Deactivate();
-        }
-
-        public IEnumerator CooldownCoroutine()
-        {
-            yield return new WaitForSecondsRealtime(cooldownDuration);
-            _ = cooldown;
         }
 
         public abstract void InstantiateForPlayer();
