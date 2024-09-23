@@ -202,7 +202,8 @@ namespace Spark.Gameplay.Entities.Player
         #region Player select target
         public void OnPlayerSelectTarget(InputAction.CallbackContext context)
         {
-            if (context.performed)
+            // return; //todo working
+            if (context.performed) 
             {
                 if (IsPointerOnUI(context.ReadValue<Vector2>())) return;
 
@@ -210,19 +211,24 @@ namespace Spark.Gameplay.Entities.Player
                     enemy.OnHealthChanged -= _view.UpdateTargetHealtUI;
 
                 _target = GetTargetFromClickOrTapPosition(context, out _);
-                SetEnemyTargetWithUI(_target);
+                // SetEnemyTargetWithUI(_target);
+                if (_target)
+                    _model.SetTarget(_target);
+                else
+                    _model.ResetTarget();
             }
         }
 
         private void SetEnemyTargetWithUI(Transform target)
         {
+            
             if (target != null)
             {
                 _target = target;
 
                 _model.SetTarget(_target);
                 Enemy enemy = _target.GetComponent<Enemy>();
-
+                
                 enemy.OnHealthChanged += _view.UpdateTargetHealtUI;
                 _view.UpdateTargetHealtUI(_target.GetComponent<IDamagable>());
             }
@@ -230,6 +236,7 @@ namespace Spark.Gameplay.Entities.Player
             {
                 _model.ResetTarget();
                 _view.UpdateTargetHealtUI(null);
+                
             }
         }
 
@@ -268,7 +275,8 @@ namespace Spark.Gameplay.Entities.Player
 
                     if (_enemiesInAttackRange.Count > 0)
                     {
-                        SetEnemyTargetWithUI(_enemiesInAttackRange[0].transform);
+                        //SetEnemyTargetWithUI(_enemiesInAttackRange[0].transform); //todo working
+                        _model.SetTarget(_enemiesInAttackRange[0].transform);
                     }
                 }
 
@@ -293,7 +301,7 @@ namespace Spark.Gameplay.Entities.Player
 
         private void ClearAllOutRangeEnemies()
         {
-            _enemiesInAttackRange.RemoveAll(enemy => Vector3.Distance(enemy.transform.position, transform.position) > _model.ActiveWeapon.Data.AttackRange);
+            _enemiesInAttackRange.RemoveAll(enemy => Vector3.Distance(enemy.transform.position, transform.position) > 10.0f);
         }
 
         private void FillArrayOfInRangeEnemies()

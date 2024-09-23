@@ -174,7 +174,7 @@ namespace Spark.UI
         private void UpdateAbilityButtonUI(Ability ability, Image icon)
         {
 #if DEBUG
-            Debug.Log("ICON: " + icon.fillAmount + " ||| " + ability.Name + "[" + ability.IsReady + "]: " + ability.Cooldown + " / " + ability.CooldownDuration);
+            //Debug.Log("ICON: " + icon.fillAmount + " ||| " + ability.Name + "[" + ability.IsReady + "]: " + ability.Cooldown + " / " + ability.CooldownDuration);
 #endif
             icon.fillAmount = 1.0f - ability.Cooldown / ability.CooldownDuration;
             if (ability.IsReady)
