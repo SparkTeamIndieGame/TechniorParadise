@@ -17,6 +17,8 @@ MonoBehaviour:
   <prefab>k__BackingField: {fileID: 3759053644476711317, guid: b3f6b11499a984696a0195429208c503,
     type: 3}
   <rate>k__BackingField: 0.25
+  <ability>k__BackingField: {fileID: 11400000, guid: 6a31b8e94d8100b468ecb6038d94b37e,
+    type: 2}
   _weaponType: 1
   <bulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}

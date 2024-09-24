@@ -22,7 +22,7 @@ namespace Spark.Refactored.Gameplay.Abilities
         #endregion
 
         #region Public properties
-        public float cooldown
+        public virtual float cooldown
         {
             get
             {

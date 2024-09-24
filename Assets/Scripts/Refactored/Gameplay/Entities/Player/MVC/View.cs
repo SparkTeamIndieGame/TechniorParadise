@@ -78,7 +78,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
                 var targetByAxisY = Quaternion.LookRotation(inspection);
                 targetByAxisY.x = targetByAxisY.z = 0.0f;
 
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
+                // transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
             }
         }
         #endregion

@@ -1843,7 +1843,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b5c831e536efeb049b18eae753f2b849, type: 2}
   - {fileID: 11400000, guid: 853ff2cccc238a84493b0f83e67b62a3, type: 2}
   _icon: {fileID: 1733358007}
-  _reloadIconUI: {fileID: 0}
+  _reloadIconUI: {fileID: 1608475516}
   _ammoCounterUI: {fileID: 0}
   _ammoMaximumUI: {fileID: 0}
 --- !u!1 &914972001
