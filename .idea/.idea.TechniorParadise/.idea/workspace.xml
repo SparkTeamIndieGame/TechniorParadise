@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runKnife.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runKnife.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runPistol.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runPistol.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_walk.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_walk.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/NewEnvirment/ÜberdachtGerade.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/NewEnvirment/ÜberdachtGerade.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/TutorealLvl.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/TutorealLvl.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -172,6 +179,8 @@
       <workItem from="1726846871183" duration="40000" />
       <workItem from="1726846923568" duration="5806000" />
       <workItem from="1727020171780" duration="17667000" />
+      <workItem from="1727131372417" duration="4021000" />
+      <workItem from="1727179941608" duration="3173000" />
     </task>
     <servers />
   </component>
