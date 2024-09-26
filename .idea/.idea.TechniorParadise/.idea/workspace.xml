@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/NewEnvirment/props/material/low_DefaultMaterial_Normal.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/NewEnvirment/props/material/low_DefaultMaterial_Normal.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DealerMan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DealerMan.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Entities/Player/PlayerModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/newScripts/Dealer/ShopReview.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/newScripts/Dealer/ShopReview.cs" afterDir="false" />
-    </list>
+    <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +49,7 @@
   "keyToString": {
     "Attach to Unity Editor.Attach to Unity Editor.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Merging PreBuild",
+    "git-widget-placeholder": "PreBuild",
     "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -180,7 +174,7 @@
       <workItem from="1727020171780" duration="17667000" />
       <workItem from="1727131372417" duration="4021000" />
       <workItem from="1727179941608" duration="3173000" />
-      <workItem from="1727298077404" duration="2295000" />
+      <workItem from="1727298077404" duration="2997000" />
     </task>
     <servers />
   </component>
