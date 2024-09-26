@@ -78,8 +78,8 @@ namespace Spark.Gameplay.Entities.Player
         private void InstatiateWeapon(Weapon weapon, WeaponData weaponData, Transform hand)
         {
             Transform firePoint = Instantiate(weaponData.Prefab, hand).transform.Find("FirePoint");
-            if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
-            else (weapon as MeleeWeapon).SetHandPoint(hand);
+            // if (firePoint != null) (weapon as RangedWeapon).SetFirePoint(firePoint);
+            // else (weapon as MeleeWeapon).SetHandPoint(hand);
         }
         #endregion
 
@@ -93,9 +93,21 @@ namespace Spark.Gameplay.Entities.Player
         {
             _uiController.UpdatePlayerRangedWeaponAmmoUI(rangedWeapon);
         }
+        #endregion
+        #region Update abilities UI
         public void UpdatePlayerMedKitButtonUI(MedKitAbility medKitAbility)
         {
             _uiController.UpdatePlayerMedKitButtonUI(medKitAbility);
+        }
+
+        public void UpdatePlayerFlashButtonUI(FlashAbility flashAbility)
+        {
+            _uiController.UpdatePlayerFlashButtonUI(flashAbility);
+        }
+
+        public void UpdatePlayerInvulerabilityButtonUI(InvulnerAbility invulnerAbility)
+        {
+            _uiController.UpdatePlayerInvulerabilityButtonUI(invulnerAbility);
         }
         #endregion
 

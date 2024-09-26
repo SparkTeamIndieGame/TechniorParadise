@@ -20,12 +20,23 @@ MonoBehaviour:
     type: 3}
   <Prefab>k__BackingField: {fileID: 6870294464982199676, guid: 35bb49edbee7c4f48be39fa36d8f30fc,
     type: 3}
-  <ImpactParticleSystem>k__BackingField: {fileID: 7315918046086357998, guid: 41f28109d5aec445e838d1e224341ce7,
+  <ImpactParticleSystem>k__BackingField: {fileID: 5753523227002068388, guid: 0fc2b90fee600484a9866f110a8bd233,
     type: 3}
-  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+  <HitEntityParticleSystem>k__BackingField: {fileID: 7408286589713440657, guid: 955bfabea2d844cb3b18e3d8930bbd99,
     type: 3}
   <AudioClip>k__BackingField: {fileID: 8300000, guid: b2e0f7304593a3e42aa7ceb0ae9d6f68,
     type: 3}
+  <Price>k__BackingField: 0
+  <NameSprite>k__BackingField: {fileID: 1265043956, guid: e099ffa50c8889d4dbb9ed8148606eac,
+    type: 3}
+  <Damage>k__BackingField: 14
+  <AbilitySprite>k__BackingField: {fileID: 367799642, guid: 4a6ed494d48975c4d810f219de9b3545,
+    type: 3}
+  <AbilityName>k__BackingField: "\u0420\u0430\u0437\u0440\u044B\u0432\u043D\u043E\u0439
+    \u043F\u0430\u0442\u0440\u043E\u043D"
+  <AbilityDescription>k__BackingField: "\u041F\u0440\u0438 \u043F\u043E\u043F\u0430\u0434\u0430\u043D\u0438\u0438
+    \u043F\u0443\u043B\u044F \u0432\u0437\u0440\u044B\u0432\u0430\u0435\u0442\u0441\u044F,
+    \u043D\u0430\u043D\u043E\u0441\u044F \u0410\u043E\u0415 \u0443\u0440\u043E\u043D"
   <BulletTrail>k__BackingField: {fileID: 2050970629708505021, guid: 5a6487c5fe304485ab0c6a9bb18a0525,
     type: 3}
   <BulletSpreadRange>k__BackingField: {x: 0, y: 0, z: 0}
@@ -34,3 +45,6 @@ MonoBehaviour:
   <AmmoPerShot>k__BackingField: 1
   <Automatic>k__BackingField: 1
   <FireRate>k__BackingField: 0.7
+  <ReloadTime>k__BackingField: 3
+  <ClipCount>k__BackingField: 7
+  <ShootPeriod>k__BackingField: 0.5

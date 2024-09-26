@@ -21,8 +21,19 @@ MonoBehaviour:
   <Prefab>k__BackingField: {fileID: 1412392902477808523, guid: ec559e1feff754cf193bd2b6633c45a7,
     type: 3}
   <ImpactParticleSystem>k__BackingField: {fileID: 0}
-  <HitEntityParticleSystem>k__BackingField: {fileID: 0}
+  <HitEntityParticleSystem>k__BackingField: {fileID: 6684708590117396675, guid: 3b0448cb4003541ee825ced5b281c3f8,
+    type: 3}
   <AudioClip>k__BackingField: {fileID: 8300000, guid: 2f54c5d1cef1e454bbf8f80478e3abac,
     type: 3}
   <Price>k__BackingField: 1000
+  <NameSprite>k__BackingField: {fileID: -1358941330, guid: e099ffa50c8889d4dbb9ed8148606eac,
+    type: 3}
+  <Damage>k__BackingField: 20
+  <AbilitySprite>k__BackingField: {fileID: -778425671, guid: 4a6ed494d48975c4d810f219de9b3545,
+    type: 3}
+  <AbilityName>k__BackingField: "\u0420\u044B\u0432\u043E\u043A"
+  <AbilityDescription>k__BackingField: "\u0420\u044B\u0432\u043E\u043A \u0432 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0438
+    \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F"
   <SwingDelay>k__BackingField: 4
+  <AttackRadius>k__BackingField: 5
+  <AttackSpeed>k__BackingField: 10

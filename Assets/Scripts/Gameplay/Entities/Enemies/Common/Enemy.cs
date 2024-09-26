@@ -38,6 +38,8 @@ namespace Spark.Gameplay.Entities.Enemies
 
         [SerializeField, Min(.1f)] private float _attackDelay;
         private float _lastAttackTime;
+        
+        
 
         public float MaxHealth => _healthMax;
         public float Health
