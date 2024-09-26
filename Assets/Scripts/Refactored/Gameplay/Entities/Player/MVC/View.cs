@@ -5,6 +5,7 @@ using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Melee;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged;
 using Spark.Refactored.Gameplay.Entities.Interfaces;
+using Spark.Refactored.Gameplay.System.Checkpoint;
 using Spark.Utilities;
 using System;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         public Action OnFlashDrivePickUped;
         public Action<float> OnDetailsPickUped;
         public Action<MedKitPickup> OnMedKitPickUped;
+        public Action OnCheckpointPickUped;
 
         private CharacterController _controller;
 
@@ -32,6 +34,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         public Vector3 inspection { private get; set; }
 
         public float health { set => OnHealthChanged.Invoke(value); }
+
+        private bool AbilityReady => _meleeWeapon.AbilityReady && _rangedWeapon.AbilityReady;
 
         private void Start()
         {
@@ -78,7 +82,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
                 var targetByAxisY = Quaternion.LookRotation(inspection);
                 targetByAxisY.x = targetByAxisY.z = 0.0f;
 
-                // transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
             }
         }
         #endregion
@@ -90,7 +94,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
             foreach (var renderer in meshes)
             {
-                Debug.Log(renderer.name);
+                // Debug.Log(renderer.name);
 
                 var color = renderer.material.color;
                 if (toggle)
@@ -134,6 +138,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         #region Change Weapon System
         public void ChangeMeleeWeapon(WeaponTypeModel<MeleeWeaponType> type)
         {
+            if (!AbilityReady) return;
+
             if (_activeWeapon is RefactoredMeleeWeapon)
                 _meleeWeapon.ChangeWeapon(type.next);
 
@@ -146,6 +152,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         }
         public void ChangeRangedeWeapon(WeaponTypeModel<RangedWeaponType> type)
         {
+            if (!AbilityReady) return;
+
             if (_activeWeapon is RefactoredRangedWeapon)
                 _rangedWeapon.ChangeWeapon(type.next);
 
@@ -159,6 +167,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
         public void ChangeWeaponCategory(WeaponTypeModel<MeleeWeaponType> melee, WeaponTypeModel<RangedWeaponType> ranged)
         {
+            if (!AbilityReady) return;
+
             if (_activeWeapon is RefactoredRangedWeapon)
             {
                 _rangedWeapon.DisableAllGameObjectWeapons();
@@ -175,6 +185,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
         public void ChangeWeaponType(WeaponTypeModel<MeleeWeaponType> melee, WeaponTypeModel<RangedWeaponType> ranged)
         {
+            if (!AbilityReady) return;
+
             if (_activeWeapon is RefactoredRangedWeapon)
             {
                 _rangedWeapon.ChangeWeapon(ranged.next);

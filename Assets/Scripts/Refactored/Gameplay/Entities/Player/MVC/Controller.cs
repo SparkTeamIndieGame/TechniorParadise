@@ -3,6 +3,7 @@ using Spark.Gameplay.Entities.RefactoredPlayer.UI;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Melee;
 using Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons.Ranged;
 using Spark.Refactored.Gameplay.Entities.Player.InputSystem;
+using Spark.Refactored.Gameplay.System.Checkpoint;
 using System;
 using UnityEditor.Playables;
 using UnityEngine;
@@ -14,14 +15,16 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         private readonly Model _model;
         private readonly View _view;
         private readonly RefactoredUIController _ui;
+        private readonly CheckpointManager _checkpointManager;
 
         private readonly PlayerInputActions _inputActions = new();
 
-        public Controller(Model model, View view, RefactoredUIController ui)
+        public Controller(Model model, View view, RefactoredUIController ui, CheckpointManager checkpointManager)
         {
             _model = model;
             _view = view;
             _ui = ui;
+            _checkpointManager = checkpointManager;
 
             _model.health = _model.healthMaximum;
 
@@ -182,6 +185,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
             RegisterFlashDrivePickupHandler();
             RegisterDetailsPickupHandler();
             RegisterMedKitPickupHandler();
+            RegisterCheckpointPickupHandler();
         }
 
         private void RegisterFlashDrivePickupHandler()
@@ -208,6 +212,13 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
                 pickup.Deactivate();
                 _ui.TryToggleMedKitIcon(_model.medkitAbility);
+            };
+        }
+        private void RegisterCheckpointPickupHandler()
+        {
+            _view.OnCheckpointPickUped = () =>
+            {
+                _checkpointManager.SaveCheckpoint(_model);
             };
         }
         #endregion

@@ -20,5 +20,11 @@ namespace Spark.Gameplay.Entities.RefactoredPlayer
             if (!success) _data.Add(type);
             return !success; // inversion
         }
+
+        public List<Type> GetAllTypes() => new(_data);
+        public int GetCurrentIndex() => _current;
+
+        public void Clear() => _data.Clear();
+        public void SetCurrentIndex(int index) => _current = index;
     }
 }

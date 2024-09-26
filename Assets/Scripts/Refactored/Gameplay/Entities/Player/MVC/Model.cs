@@ -33,8 +33,8 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         }
 
         public Action<RangedWeaponType> OnFilledAmmo;
-        public ExtendedWeaponTypeModel<MeleeWeaponType> meleeTypes = new();
-        public ExtendedWeaponTypeModel<RangedWeaponType> rangedTypes = new();
+        public readonly ExtendedWeaponTypeModel<MeleeWeaponType> meleeTypes = new();
+        public readonly ExtendedWeaponTypeModel<RangedWeaponType> rangedTypes = new();
 
         public Model(MedKitAbility medkitAbility)
         {

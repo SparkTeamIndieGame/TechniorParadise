@@ -61,14 +61,14 @@ namespace Spark.Gameplay.RefactoredPlayer.RefactoredSystems.Weapons
 
         public virtual void ChangeWeapon(System.Enum type)
         {
-            if (!_currentData.ability.isReady) return;
-
             DisableAllGameObjectWeapons();
             _currentData = _database.Find(data => data.type.Equals(type));
             _gameObjects.Find(weapon => weapon.name == _currentData.prefab.name).SetActive(true);
 
             _ui.UpdateWeaponAbilityIcon(_currentData.ability);
         }
+
+        public bool AbilityReady => _currentData.ability.isReady;
 
         protected abstract void DoAction();
         protected virtual void AbortAction() { }
