@@ -9,6 +9,7 @@ namespace Spark.Gameplay.Entities.Enemies
     {
         [SerializeField] GameObject bullet;
         [SerializeField] Transform[] bulletPoint;
+        [SerializeField] LayerMask _bulletLayerMask;
         public float speedB;
 
         private void Awake()
@@ -39,25 +40,34 @@ namespace Spark.Gameplay.Entities.Enemies
                 var InstBullet = Instantiate(bullet, bulletPoint[Random.Range(0, bulletPoint.Length)].position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(InstBullet, hit));
 
-                OnEnemyAttack?.Invoke(_damage);
-                ParticlPlay(_impactParticleSystem, hit.transform);
+                //OnEnemyAttack?.Invoke(_damage);
+                //ParticlPlay(_impactParticleSystem, hit.transform);
                 //Destroy(InstBullet, 1);
             }
         }
 
         public IEnumerator SpawnTrail(GameObject trail, RaycastHit hit)
         {
-            var target = hit.transform.position;
+            var target = hit.transform.position + new Vector3(0, 1f, 0);
 
-            while(trail.transform.position != hit.transform.position)
+            while(trail)
             {
                 trail.transform.position = Vector3.MoveTowards(trail.transform.position, target, speedB * Time.deltaTime);
+               
+                if(Physics.CheckSphere(trail.transform.position, 0.2f, _bulletLayerMask))
+                {
+                    OnEnemyAttack?.Invoke(_damage);
+                    ParticlPlay(_impactParticleSystem, hit.transform);
+                    Destroy(trail);
+                }
+
+                else if(trail.transform.position == target)
+                {
+                    Destroy(trail);
+                }
+
                 yield return null; 
             }
-
-            Destroy(trail);
-
-
         }
     }
 }

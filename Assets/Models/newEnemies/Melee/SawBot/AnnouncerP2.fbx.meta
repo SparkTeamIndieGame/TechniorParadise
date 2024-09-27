@@ -41,7 +41,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Head' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -49,7 +50,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -107,7 +108,433 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: AnnouncerP2(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: announcer_saw_announcer_ref
+      parentName: AnnouncerP2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: announcer_saw_announcer_ref_skeleton
+      parentName: AnnouncerP2(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 100, y: 100, z: 100}
+    - name: Announcer
+      parentName: announcer_saw_announcer_ref_skeleton
+      position: {x: 0.0011585938, y: 0, z: 0.0231}
+      rotation: {x: 0.70710665, y: -1.5250583e-15, z: 1.5250576e-15, w: 0.7071069}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Model
+      parentName: Announcer
+      position: {x: -3.026347e-13, y: -0.0231, z: 1.09139365e-14}
+      rotation: {x: -0, y: -0, z: 1.0588124e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: U3DRoot
+      parentName: Model
+      position: {x: -3.026347e-13, y: 6.836309e-16, z: -7.275942e-16}
+      rotation: {x: 1.121061e-39, y: 1.0587912e-22, z: -1.2705494e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_robot
+      parentName: U3DRoot
+      position: {x: -3.026347e-13, y: 6.836309e-16, z: -7.275925e-16}
+      rotation: {x: -0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_U3DRoot
+      parentName: robot_robot
+      position: {x: -3.026347e-13, y: 6.836309e-16, z: -7.27591e-16}
+      rotation: {x: 3.92319e-40, y: -2.1175824e-22, z: 5.293956e-19, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_robotCOG
+      parentName: robot_U3DRoot
+      position: {x: -0.0012120996, y: 0.018717391, z: 0.00060604897}
+      rotation: {x: 0.19565967, y: 0.049580757, z: -0.022617863, w: 0.97915655}
+      scale: {x: 0.9999999, y: 1.0000001, z: 1}
+    - name: robot_pelvis_jnt
+      parentName: robot_robotCOG
+      position: {x: 1.1920929e-11, y: 0.00014170026, z: -0.00001875001}
+      rotation: {x: -0.0000001320715, y: 0.000000106347095, z: 0.7071068, w: 0.7071068}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: robot_hip_lf_jnt
+      parentName: robot_pelvis_jnt
+      position: {x: -0.0014437976, y: 0.0029403921, z: 0.00022697587}
+      rotation: {x: 0.00029598235, y: 0.076368436, z: -0.006463342, w: 0.9970587}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000001}
+    - name: robot_knee1_lf_jnt
+      parentName: robot_hip_lf_jnt
+      position: {x: -0.0050682575, y: 9.536743e-11, z: -7.6293943e-10}
+      rotation: {x: -0.00000011796692, y: -0.5918153, z: 0.00000022423774, w: 0.8060736}
+      scale: {x: 0.9999999, y: 1, z: 0.99999976}
+    - name: robot_knee2_lf_jnt
+      parentName: robot_knee1_lf_jnt
+      position: {x: -0.003628404, y: -2.592802e-10, z: 0.0000000014424324}
+      rotation: {x: -0.0000055061323, y: 0.7145295, z: -0.000005600879, w: 0.69960535}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: robot_ankle_lf_jnt
+      parentName: robot_knee2_lf_jnt
+      position: {x: -0.010570753, y: 4.6491622e-10, z: 4.7683715e-11}
+      rotation: {x: -0.0020586771, y: -0.12013252, z: 0.0061319247, w: 0.9927369}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: robot_ball_lf_jnt
+      parentName: robot_ankle_lf_jnt
+      position: {x: -0.0012070314, y: 0.000000046533344, z: 0.0015757809}
+      rotation: {x: -0.000017134365, y: 0.61842495, z: -0.0000083044815, w: 0.7858439}
+      scale: {x: 1.0000004, y: 1.0000002, z: 1.0000002}
+    - name: robot_ball_lf_jnt_end
+      parentName: robot_ball_lf_jnt
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_heel_lf_jnt
+      parentName: robot_ankle_lf_jnt
+      position: {x: 6.407499e-11, y: 3.0398367e-10, z: 2.8610228e-10}
+      rotation: {x: -0.6184247, y: -0.0011758733, z: -0.7858427, w: 0.00089783495}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1}
+    - name: robot_heel_lf_jnt_end
+      parentName: robot_heel_lf_jnt
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_kneepiston_lf_jnt
+      parentName: robot_knee2_lf_jnt
+      position: {x: 0.0000000012993813, y: -8.940697e-11, z: -8.702278e-10}
+      rotation: {x: -0.31131622, y: 0.0000028543482, z: -0.9503064, w: -0.000012563464}
+      scale: {x: 1.0000002, y: 0.99999976, z: 0.99999994}
+    - name: robot_kneepiston_lf_jnt_end
+      parentName: robot_kneepiston_lf_jnt
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_legpiston_lf_dn_aim_jnt
+      parentName: robot_knee2_lf_jnt
+      position: {x: 0.0018758766, y: -7.1525574e-10, z: -0.0016033186}
+      rotation: {x: 0.37081316, y: 0.6020689, z: -0.6020781, w: 0.370827}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
+    - name: robot_legpiston_lf_dn_aim_jnt_end
+      parentName: robot_legpiston_lf_dn_aim_jnt
+      position: {x: -0, y: 0.00000081114945, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_legpiston_lf_up_CON_jnt
+      parentName: robot_hip_lf_jnt
+      position: {x: -0.00023515706, y: -0.000000023317336, z: -0.0010390631}
+      rotation: {x: -0.65418047, y: -0.2684384, z: -0.26843122, w: 0.6541662}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1}
+    - name: robot_legpiston_lf_up_aim_jnt
+      parentName: robot_legpiston_lf_up_CON_jnt
+      position: {x: 8.34465e-11, y: -4.7683715e-11, z: 4.0531156e-10}
+      rotation: {x: -0.00000017881392, y: 0.0000001490116, z: -0.00000053644175, w: 1}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+    - name: robot_legpiston_lf_up_aim_jnt_end
+      parentName: robot_legpiston_lf_up_aim_jnt
+      position: {x: -0, y: 0.000000811149, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_hip_rt_jnt
+      parentName: robot_pelvis_jnt
+      position: {x: -0.0014437974, y: -0.0029403921, z: 0.00022697607}
+      rotation: {x: 0.020123875, y: -0.9963517, z: 0.0008962285, w: 0.082930595}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.9999998}
+    - name: robot_knee1_rt_jnt
+      parentName: robot_hip_rt_jnt
+      position: {x: 0.0050682556, y: 5.7220456e-10, z: -2.8610228e-10}
+      rotation: {x: 0.000000062145396, y: -0.59181535, z: 0.000000062990345, w: 0.80607355}
+      scale: {x: 1.0000002, y: 0.9999999, z: 0.9999998}
+    - name: robot_knee2_rt_jnt
+      parentName: robot_knee1_rt_jnt
+      position: {x: 0.0036284048, y: -5.7220456e-10, z: 0.0000000014305115}
+      rotation: {x: -0.000006544593, y: 0.7145295, z: -0.000004108771, w: 0.69960535}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000005}
+    - name: robot_ankle_rt_jnt
+      parentName: robot_knee2_rt_jnt
+      position: {x: 0.010570752, y: -0.0000000013828277, z: -2.2649764e-10}
+      rotation: {x: -0.006437192, y: -0.12665747, z: 0.019083697, w: 0.991742}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000002}
+    - name: robot_ball_rt_jnt
+      parentName: robot_ankle_rt_jnt
+      position: {x: 0.0012070312, y: -0.000000046049557, z: -0.0015757815}
+      rotation: {x: -0.00024401076, y: 0.6184255, z: 0.00017063464, w: 0.7858434}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000001}
+    - name: robot_ball_rt_jnt_end
+      parentName: robot_ball_rt_jnt
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_heel_rt_jnt
+      parentName: robot_ankle_rt_jnt
+      position: {x: -0, y: -8.3177e-10, z: 2.1457672e-10}
+      rotation: {x: -0.6184255, y: -0.0000128461315, z: -0.7858434, w: -0.000017181716}
+      scale: {x: 1.0000002, y: 1.0000004, z: 0.9999999}
+    - name: robot_heel_rt_jnt_end
+      parentName: robot_heel_rt_jnt
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_kneepiston_rt_jnt
+      parentName: robot_knee2_rt_jnt
+      position: {x: 0.00000000141263, y: 1.9073486e-10, z: -0.0000000011444091}
+      rotation: {x: -0.31131938, y: 0.0000031727398, z: -0.95030534, w: -0.000012011721}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000004}
+    - name: robot_kneepiston_rt_jnt_end
+      parentName: robot_kneepiston_rt_jnt
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_legpiston_rt_dn_aim_jnt
+      parentName: robot_knee2_rt_jnt
+      position: {x: -0.0019891602, y: 0.0000000011444091, z: 0.0014595626}
+      rotation: {x: 0.37081492, y: 0.6020688, z: -0.6020762, w: 0.3708286}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1.0000002}
+    - name: robot_legpiston_rt_dn_aim_jnt_end
+      parentName: robot_legpiston_rt_dn_aim_jnt
+      position: {x: -0, y: 0.00000081114945, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_legpiston_rt_up_CON_jnt
+      parentName: robot_hip_rt_jnt
+      position: {x: 0.00023515674, y: 0.000000022506713, z: 0.0010390636}
+      rotation: {x: 0.6541795, y: 0.2684404, z: 0.26843244, w: -0.65416586}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
+    - name: robot_legpiston_rt_up_aim_jnt
+      parentName: robot_legpiston_rt_up_CON_jnt
+      position: {x: 4.6491622e-10, y: -0.000000001001358, z: -1.9073486e-10}
+      rotation: {x: -0, y: 0.0000000745058, z: -0.00000038743013, w: 1}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.99999994}
+    - name: robot_legpiston_rt_up_aim_jnt_end
+      parentName: robot_legpiston_rt_up_aim_jnt
+      position: {x: -0, y: 0.000000811149, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_waist_jnt
+      parentName: robot_robotCOG
+      position: {x: 8.940697e-11, y: -3.6591663e-10, z: 1.0104849e-11}
+      rotation: {x: 0.7071068, y: -0.7071068, z: -0.00000028516106, w: 0.00000004674245}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: robot_body_jnt
+      parentName: robot_waist_jnt
+      position: {x: -0.0011616575, y: 8.34465e-11, z: 0.00021830732}
+      rotation: {x: -1.4210855e-14, y: -1.4210855e-14, z: -0, w: -1}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
+    - name: robot_shdr_lf_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.002680533, y: 0.004364433, z: 0.0023928315}
+      rotation: {x: 0.56282693, y: -0.82623905, z: -0.0219714, w: -0.008491382}
+      scale: {x: 1.0000004, y: 1.0000001, z: 1.0000001}
+    - name: robot_armpistonA_lf_up_aim_jnt
+      parentName: robot_shdr_lf_jnt
+      position: {x: -0.0009859111, y: -0.00031682468, z: -0.0011230448}
+      rotation: {x: 0.0001074476, y: -0.05425509, z: 0.0019865332, w: 0.99852514}
+      scale: {x: 0.99999976, y: 0.9999999, z: 0.9999998}
+    - name: robot_armpistonA_lf_up_aim_jnt_end
+      parentName: robot_armpistonA_lf_up_aim_jnt
+      position: {x: -0, y: 0.00000081114905, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_armpistonB_lf_up_aim_jnt
+      parentName: robot_shdr_lf_jnt
+      position: {x: -0.0009882767, y: 0.00033415746, z: -0.0011230448}
+      rotation: {x: 0.000107934684, y: -0.054255106, z: 0.0019865332, w: 0.99852514}
+      scale: {x: 0.99999964, y: 0.99999976, z: 0.9999998}
+    - name: robot_armpistonB_lf_up_aim_jnt_end
+      parentName: robot_armpistonB_lf_up_aim_jnt
+      position: {x: -0, y: 0.00000081114905, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_bicep_lf_jnt
+      parentName: robot_shdr_lf_jnt
+      position: {x: -0.0009930036, y: 0.000015765008, z: -0.000044921748}
+      rotation: {x: 0.03628106, y: -0.02579973, z: -0.12150789, w: 0.99159163}
+      scale: {x: 0.9999997, y: 0.9999998, z: 0.99999976}
+    - name: robot_elbow_lf_jnt
+      parentName: robot_bicep_lf_jnt
+      position: {x: -0.004062648, y: -0.000012610731, z: 0.000045712088}
+      rotation: {x: -0.044877876, y: 0.0588177, z: -0.031386446, w: 0.9967655}
+      scale: {x: 0.99999976, y: 0.9999998, z: 0.99999976}
+    - name: robot_elbowext_lf_jnt
+      parentName: robot_elbow_lf_jnt
+      position: {x: 0.00057295215, y: -5.826354e-10, z: -0.00039641722}
+      rotation: {x: -0.48372406, y: -0.5157623, z: -0.5157606, w: 0.48372653}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1}
+    - name: robot_elbowext_lf_jnt_end
+      parentName: robot_elbowext_lf_jnt
+      position: {x: -0, y: 0.00000081114376, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_wrist1_lf_jnt
+      parentName: robot_elbow_lf_jnt
+      position: {x: -0.0040031252, y: -0.0000000032663345, z: -0.00023964919}
+      rotation: {x: -0.0036632074, y: 0.019645343, z: 0.13198309, w: 0.99105054}
+      scale: {x: 1.0000001, y: 0.99999994, z: 1.0000004}
+    - name: robot_wrist2_lf_jnt
+      parentName: robot_wrist1_lf_jnt
+      position: {x: -0.00057578104, y: 0.000011176324, z: 0.0000032535552}
+      rotation: {x: -0.00000010876158, y: -0.00000010430813, z: -0.0000007186594,
+        w: 1}
+      scale: {x: 1.0000004, y: 1.0000002, z: 0.9999998}
+    - name: robot_fingerA1_lf_jnt
+      parentName: robot_wrist2_lf_jnt
+      position: {x: -0.0006761938, y: -0.0005351244, z: 0.000013404155}
+      rotation: {x: 0.121701136, y: -0.23004235, z: 0.45744067, w: 0.85030425}
+      scale: {x: 0.9999998, y: 1.0000001, z: 0.9999999}
+    - name: robot_fingerA1_lf_jnt_end
+      parentName: robot_fingerA1_lf_jnt
+      position: {x: -0, y: 0.0000008111467, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_fingerB1_lf_jnt
+      parentName: robot_wrist2_lf_jnt
+      position: {x: -0.0006078119, y: -0.000011177062, z: 0.00006943556}
+      rotation: {x: 0.10259734, y: -0.20079608, z: 0.46405056, w: 0.8566282}
+      scale: {x: 0.9999999, y: 1.0000001, z: 0.9999998}
+    - name: robot_fingerB1_lf_jnt_end
+      parentName: robot_fingerB1_lf_jnt
+      position: {x: -0, y: 0.0000008111464, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_fingerC1_lf_jnt
+      parentName: robot_wrist2_lf_jnt
+      position: {x: -0.00063710916, y: 0.0005882816, z: -0.000018884593}
+      rotation: {x: 0.07073861, y: -0.17448464, z: 0.47802654, w: 0.85792875}
+      scale: {x: 1, y: 1.0000004, z: 1.0000001}
+    - name: robot_fingerC1_lf_jnt_end
+      parentName: robot_fingerC1_lf_jnt
+      position: {x: -0, y: 0.00000081114723, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_thumb1_lf_jnt
+      parentName: robot_wrist2_lf_jnt
+      position: {x: 0.000025634194, y: -0.0008234373, z: 0.000013464582}
+      rotation: {x: 0.44839388, y: -0.00462034, z: 0.27601558, w: 0.85013944}
+      scale: {x: 0.9999996, y: 1.0000002, z: 0.9999999}
+    - name: robot_thumb1_lf_jnt_end
+      parentName: robot_thumb1_lf_jnt
+      position: {x: -0, y: 0.0000008111495, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdr_rt_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.0037766628, y: -0.004105832, z: 0.0006748109}
+      rotation: {x: 0.0002827197, y: -0.06926932, z: 0.6154683, w: -0.7851118}
+      scale: {x: 1.0000001, y: 0.9999998, z: 1}
+    - name: robot_armpistonA_rt_up_aim_jnt
+      parentName: robot_shdr_rt_jnt
+      position: {x: 0.0009859146, y: 0.00031682185, z: 0.0011230448}
+      rotation: {x: -0.699799, y: -0.040052615, z: -0.03663961, w: 0.7122744}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1}
+    - name: robot_armpistonA_rt_up_aim_jnt_end
+      parentName: robot_armpistonA_rt_up_aim_jnt
+      position: {x: -0, y: 0.0000008111483, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_armpistonB_rt_up_aim_jnt
+      parentName: robot_shdr_rt_jnt
+      position: {x: 0.0009882781, y: -0.00033415869, z: 0.0011230444}
+      rotation: {x: -0.6997978, y: -0.040107697, z: -0.036595166, w: 0.7122747}
+      scale: {x: 0.9999999, y: 1.0000004, z: 1.0000004}
+    - name: robot_armpistonB_rt_up_aim_jnt_end
+      parentName: robot_armpistonB_rt_up_aim_jnt
+      position: {x: -0, y: 0.0000008111489, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_bicep_rt_jnt
+      parentName: robot_shdr_rt_jnt
+      position: {x: 0.000993005, y: -0.000015765285, z: 0.000044921493}
+      rotation: {x: 0.03631432, y: -0.0045455983, z: -0.115325004, w: 0.99265337}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+    - name: robot_elbow_rt_jnt
+      parentName: robot_bicep_rt_jnt
+      position: {x: 0.0040626447, y: 0.000012613868, z: -0.000045711517}
+      rotation: {x: 0.037888117, y: 0.9545353, z: 0.006034095, w: 0.29561898}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000006}
+    - name: robot_elbowext_rt_jnt
+      parentName: robot_elbow_rt_jnt
+      position: {x: -0.0005734384, y: -0.0000000030517577, z: 0.0003966791}
+      rotation: {x: -0.48372427, y: -0.51576245, z: -0.51576024, w: 0.48372656}
+      scale: {x: 0.99999946, y: 0.99999976, z: 0.99999976}
+    - name: robot_elbowext_rt_jnt_end
+      parentName: robot_elbowext_rt_jnt
+      position: {x: -0, y: 0.00000081114337, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdrpistonA_lf_up_aim_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.0023863553, y: 0.00091971393, z: -0.00020254197}
+      rotation: {x: 0.80615443, y: -0.5745501, z: -0.11490339, w: -0.08248867}
+      scale: {x: 1.0000001, y: 0.99999976, z: 1.0000001}
+    - name: robot_shdrpistonA_lf_up_aim_jnt_end
+      parentName: robot_shdrpistonA_lf_up_aim_jnt
+      position: {x: -0, y: 0.00000081115286, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdrpistonA_rt_up_aim_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.002386356, y: -0.0009197145, z: -0.00020254159}
+      rotation: {x: 0.10988503, y: 0.08952166, z: 0.80540705, w: -0.57552636}
+      scale: {x: 0.99999976, y: 1.0000004, z: 0.99999976}
+    - name: robot_shdrpistonA_rt_up_aim_jnt_end
+      parentName: robot_shdrpistonA_rt_up_aim_jnt
+      position: {x: -0, y: 0.00000081114786, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdrpistonB_lf_up_aim_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.00080543937, y: 0.0009283812, z: -0.00067618967}
+      rotation: {x: 0.8258978, y: -0.5298393, z: -0.19081184, w: -0.027460698}
+      scale: {x: 0.99999994, y: 0.9999996, z: 0.9999998}
+    - name: robot_shdrpistonB_lf_up_aim_jnt_end
+      parentName: robot_shdrpistonB_lf_up_aim_jnt
+      position: {x: -0, y: 0.0000008111444, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdrpistonB_rt_up_aim_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.00080544077, y: -0.0009283803, z: -0.00067618844}
+      rotation: {x: 0.18618314, y: 0.034663554, z: 0.8256271, w: -0.53148305}
+      scale: {x: 0.99999994, y: 1.0000005, z: 1.0000005}
+    - name: robot_shdrpistonB_rt_up_aim_jnt_end
+      parentName: robot_shdrpistonB_rt_up_aim_jnt
+      position: {x: -0, y: 0.0000008111528, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdrpistonC_lf_up_aim_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.0018835523, y: 0.0009110463, z: 0.001602204}
+      rotation: {x: -0.21524818, y: 0.25592843, z: 0.6062154, w: -0.7215759}
+      scale: {x: 0.99999994, y: 1, z: 1.0000002}
+    - name: robot_shdrpistonC_lf_up_aim_jnt_end
+      parentName: robot_shdrpistonC_lf_up_aim_jnt
+      position: {x: -0, y: 0.0000008111442, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: robot_shdrpistonC_rt_up_aim_jnt
+      parentName: robot_body_jnt
+      position: {x: -0.0018835489, y: -0.0009110472, z: 0.0016022037}
+      rotation: {x: 0.6039611, y: -0.7196788, z: 0.22152029, w: -0.26119378}
+      scale: {x: 0.9999999, y: 0.9999997, z: 0.9999996}
+    - name: robot_shdrpistonC_rt_up_aim_jnt_end
+      parentName: robot_shdrpistonC_rt_up_aim_jnt
+      position: {x: -0, y: 0.00000081115206, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Announcer_Speaker
+      parentName: robot_body_jnt
+      position: {x: -0.00069296337, y: -1.0132789e-10, z: 0.00020781264}
+      rotation: {x: 0.7071068, y: -0.7071068, z: -0.00000036153168, w: 0.0000004669429}
+      scale: {x: 0.9999999, y: 0.9999997, z: 0.99999994}
+    - name: Jado_Perla
+      parentName: Announcer_Speaker
+      position: {x: 0.000017382747, y: 0.012718754, z: -0.0001664062}
+      rotation: {x: 0.00000014901163, y: -2.8421706e-14, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: Jado_Perla_end
+      parentName: Jado_Perla
+      position: {x: -0, y: 0.0000008111477, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -118,13 +545,13 @@ ModelImporter:
     globalScale: 0.02
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0

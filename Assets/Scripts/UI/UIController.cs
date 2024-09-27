@@ -32,6 +32,10 @@ namespace Spark.UI
         [SerializeField] private Image _medKitIcon;
         [SerializeField] private OnScreenButton _medKitButton;
         [SerializeField] private Text _medKitCountText;
+
+        [SerializeField] private Image _flashAbilityIcon;
+        [SerializeField] private Image _invulerabilityIcon;
+
         [SerializeField] private Text _currentAmmoText;
         [SerializeField] private Text _maxAmmoText;
         
@@ -56,11 +60,11 @@ namespace Spark.UI
 
         private void Awake()
         {
-#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
-            _mobileUI.SetActive(false);
-#elif UNITY_ANDROID || UNITY_IOS
-            _mobileUI.SetActive(true);
-#endif
+//#if UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
+            //_mobileUI.SetActive(false);
+//#elif UNITY_ANDROID || UNITY_IOS
+  //          _mobileUI.SetActive(true);
+//#endif
 
             _playerAmmo.enabled = false;
             _restartUI.SetActive(false);
@@ -156,6 +160,30 @@ namespace Spark.UI
             }
             _medKitCountText.text = medKit.Count.ToString();
         }
+
+        public void UpdatePlayerFlashButtonUI(FlashAbility ability)
+        {
+            UpdateAbilityButtonUI(ability, _flashAbilityIcon);
+        }
+
+        public void UpdatePlayerInvulerabilityButtonUI(InvulnerAbility ability)
+        {
+            UpdateAbilityButtonUI(ability, _invulerabilityIcon);
+        }
+
+        private void UpdateAbilityButtonUI(Ability ability, Image icon)
+        {
+#if DEBUG
+            //Debug.Log("ICON: " + icon.fillAmount + " ||| " + ability.Name + "[" + ability.IsReady + "]: " + ability.Cooldown + " / " + ability.CooldownDuration);
+#endif
+            icon.fillAmount = 1.0f - ability.Cooldown / ability.CooldownDuration;
+            if (ability.IsReady)
+            {
+                icon.fillAmount = 1.0f;
+                return;
+            }
+        }
+
         private void UpdateHealthUI(IDamagable damagable, ref GameObject target, ref Slider bar)
         {
             if (damagable == null)
