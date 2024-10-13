@@ -6,11 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e0beebc6-39f5-473e-afb0-3b8474fc643f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TechniorParadise/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runKnife.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runKnife.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runPistol.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_runPistol.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_walk.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Characters/PlayerTutoreal/Pl_tutor_walk.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Models/NewEnvirment/ÜberdachtGerade.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/NewEnvirment/ÜberdachtGerade.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/TutorealLvl.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/TutorealLvl.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Comics/Comix.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Comics/Comix.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/JMO Assets/Welcome Screen/CFXR_WelcomeScreen.uxml.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/JMO Assets/Welcome Screen/CFXR_WelcomeScreen.uxml.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Items/FlashCard/Base.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Items/FlashCard/Base.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Items/FlashCard/Head.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Items/FlashCard/Head.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Items/Money.mat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Materials/Items/Money.mat.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/DealerMan.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/DealerMan.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay/Level_2.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +186,10 @@
       <workItem from="1727020171780" duration="17667000" />
       <workItem from="1727131372417" duration="4021000" />
       <workItem from="1727179941608" duration="3173000" />
+      <workItem from="1727782892712" duration="311000" />
+      <workItem from="1728403330797" duration="339000" />
+      <workItem from="1728408081940" duration="51000" />
+      <workItem from="1728409347977" duration="2527000" />
     </task>
     <servers />
   </component>
