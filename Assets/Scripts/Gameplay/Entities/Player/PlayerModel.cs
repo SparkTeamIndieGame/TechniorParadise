@@ -59,13 +59,13 @@ namespace Spark.Gameplay.Entities.Player
         }
 
         [SerializeField]
-        private List<MeleeWeaponData> _meleeWeaponsData
+        public List<MeleeWeaponData> _meleeWeaponsData
         {
             get => _data.MeleeWeaponData;
             set => _data.MeleeWeaponData = value;
         }
         [SerializeField]
-        private List<RangedWeaponData> _rangedWeaponsData
+        public List<RangedWeaponData> _rangedWeaponsData
         {
             get => _data.RangedWeaponData;
             set => _data.RangedWeaponData = value;
