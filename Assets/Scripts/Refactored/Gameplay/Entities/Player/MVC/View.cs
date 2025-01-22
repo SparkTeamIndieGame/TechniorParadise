@@ -21,6 +21,9 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
 
         private CharacterController _controller;
 
+
+        private Animator _animator;
+        
         private RefactoredRangedWeapon _rangedWeapon;
         private RefactoredMeleeWeapon _meleeWeapon;
         private IRefactoredWeapon _activeWeapon;
@@ -42,6 +45,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
             Utils.LoadComponent(gameObject, out _controller);
 
             InitializeWeaponSystem();
+            _animator = GetComponent<Animator>();
         }
 
         private void FixedUpdate()
@@ -73,6 +77,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
         void HandleMovement()
         {
             _controller.SimpleMove(direction * _movementSpeed * Time.fixedDeltaTime);
+            _animator.SetBool("Run", direction != Vector3.zero);
         }
 
         void HandleInspection()
@@ -83,6 +88,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
                 targetByAxisY.x = targetByAxisY.z = 0.0f;
 
                 transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
+                // transform.rotation = Quaternion.Slerp(transform.rotation, targetByAxisY, _rotationSpeed * Time.fixedDeltaTime);
             }
         }
         #endregion
@@ -95,6 +101,7 @@ namespace Spark.Refactored.Gameplay.Entities.Player.MVC
             foreach (var renderer in meshes)
             {
                 // Debug.Log(renderer.name);
+                Debug.Log(renderer.name);
 
                 var color = renderer.material.color;
                 if (toggle)
