@@ -20,7 +20,7 @@ public class FlockOfEnemies : MonoBehaviour
     [SerializeField] bool _targetDetected = false;
 
     [SerializeField] private LayerMask _layerMask;
-
+    
     private void Start()
     {
         StartCoroutine(ScanTarget());

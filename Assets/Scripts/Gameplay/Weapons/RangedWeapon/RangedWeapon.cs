@@ -8,6 +8,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
     class RangedWeapon : Weapon
     {
         [SerializeField] private RangedWeaponData _data;
+        public Transform FirePoint;
         public override WeaponData Data
         {
             get => _data;
@@ -22,7 +23,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             }
         }
 
-        private Transform _firePoint;
+        //private Transform _firePoint;
 
         private float _lastShootTime = 0.0f;
 
@@ -30,14 +31,14 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
 
         private void OnValidate()
         {
-            _firePoint = null;
+            //FirePoint = null;
             _lastShootTime = 0.0f;
         }
-
-        public void SetFirePoint(Transform firePoint)
-        {
-            _firePoint = firePoint;
-        }
+        //
+        // public void SetFirePoint(Transform firePoint)
+        // {
+        //     _firePoint = firePoint;
+        // }
 
         public void Shoot()
         {
@@ -47,10 +48,10 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             PlaySound(_data.AudioClip, audioSource);
 
             Vector3 direction = GetBulletDirection();
-            if (Physics.Raycast(_firePoint.position, direction, out var hit, _data.AttackRange)) 
+            if (Physics.Raycast(FirePoint.position, direction, out var hit, _data.AttackRange)) 
             {
                 _data.Shot();
-                TrailRenderer trail = Instantiate(_data.BulletTrail, _firePoint.position, Quaternion.identity);
+                TrailRenderer trail = Instantiate(_data.BulletTrail, FirePoint.position, Quaternion.identity);
                 StartCoroutine(SpawnTrail(trail, hit));
                 _lastShootTime = Time.time;
             }
@@ -74,7 +75,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
 
         private Vector3 GetBulletDirection()
         {
-            var direction = _firePoint.forward + new Vector3(
+            var direction = FirePoint.forward + new Vector3(
                     Random.Range(-_data.BulletSpreadRange.x, +_data.BulletSpreadRange.x),
                     Random.Range(-_data.BulletSpreadRange.y, +_data.BulletSpreadRange.y),
                     Random.Range(-_data.BulletSpreadRange.z, +_data.BulletSpreadRange.z)
@@ -109,7 +110,7 @@ namespace Spark.Gameplay.Weapons.RangedWeapon
             float time = 0;
             Vector3 startPosition = trail.transform.position;
 
-            _data.PlayParticleSystem(_data.ImpactParticleSystem, _firePoint);  
+            _data.PlayParticleSystem(_data.ImpactParticleSystem, FirePoint);  
             while (time < 1.0f)
             {
                 trail.transform.position = Vector3.Lerp(startPosition, hit.point, time);

@@ -7,7 +7,7 @@ namespace Spark.Gameplay.Entities.Player.FlashCard
     public class FlashCard
     {
         [field: SerializeField, Range(0, 10)] public int MaxAmount { get; private set; }
-        public int Count { get; private set; }
+        [field: SerializeField, Range(0, 10)] public int Count { get; private set; }
 
         public bool IsCollected => Count >= MaxAmount;
 

@@ -35,7 +35,7 @@ namespace Spark.Gameplay.Weapons.MeleeWeapon
 
             PlaySound(_data.AudioClip, audioSource);
 
-            var hits = Physics.OverlapSphere(_handPoint.position, _data.AttackRange);
+            var hits = Physics.OverlapSphere(transform.position, _data.AttackRange);
             foreach (var hit in hits)
             {
                 if (hit.transform.TryGetComponent(out IDamagable damagable))
